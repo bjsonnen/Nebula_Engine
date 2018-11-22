@@ -1,0 +1,153 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <ClCompile Include="Audio.cpp">
+      <Filter>Sourcefiles</Filter>
+    </ClCompile>
+    <ClCompile Include="Camera.cpp">
+      <Filter>Sourcefiles</Filter>
+    </ClCompile>
+    <ClCompile Include="DirectionalLight.cpp">
+      <Filter>Sourcefiles</Filter>
+    </ClCompile>
+    <ClCompile Include="Light.cpp">
+      <Filter>Sourcefiles</Filter>
+    </ClCompile>
+    <ClCompile Include="Material.cpp">
+      <Filter>Sourcefiles</Filter>
+    </ClCompile>
+    <ClCompile Include="Math.cpp">
+      <Filter>Sourcefiles</Filter>
+    </ClCompile>
+    <ClCompile Include="Mesh.cpp">
+      <Filter>Sourcefiles</Filter>
+    </ClCompile>
+    <ClCompile Include="OmniShadowMap.cpp">
+      <Filter>Sourcefiles</Filter>
+    </ClCompile>
+    <ClCompile Include="PointLight.cpp">
+      <Filter>Sourcefiles</Filter>
+    </ClCompile>
+    <ClCompile Include="Shader.cpp">
+      <Filter>Sourcefiles</Filter>
+    </ClCompile>
+    <ClCompile Include="ShadowMap.cpp">
+      <Filter>Sourcefiles</Filter>
+    </ClCompile>
+    <ClCompile Include="Skybox.cpp">
+      <Filter>Sourcefiles</Filter>
+    </ClCompile>
+    <ClCompile Include="SpotLight.cpp">
+      <Filter>Sourcefiles</Filter>
+    </ClCompile>
+    <ClCompile Include="Texture.cpp">
+      <Filter>Sourcefiles</Filter>
+    </ClCompile>
+    <ClCompile Include="Util.cpp">
+      <Filter>Sourcefiles</Filter>
+    </ClCompile>
+    <ClCompile Include="Window.cpp">
+      <Filter>Sourcefiles</Filter>
+    </ClCompile>
+    <ClCompile Include="main.cpp">
+      <Filter>Start</Filter>
+    </ClCompile>
+    <ClCompile Include="Hdr.cpp">
+      <Filter>Sourcefiles</Filter>
+    </ClCompile>
+    <ClCompile Include="GameObject.cpp">
+      <Filter>Sourcefiles</Filter>
+    </ClCompile>
+    <ClCompile Include="ParticleEffect.cpp">
+      <Filter>Sourcefiles</Filter>
+    </ClCompile>
+    <ClCompile Include="LOD.cpp">
+      <Filter>Sourcefiles</Filter>
+    </ClCompile>
+    <ClCompile Include="PostProcessing.cpp">
+      <Filter>Sourcefiles</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Audio.h">
+      <Filter>Headerfiles</Filter>
+    </ClInclude>
+    <ClInclude Include="Camera.h">
+      <Filter>Headerfiles</Filter>
+    </ClInclude>
+    <ClInclude Include="CommonValues.h">
+      <Filter>Headerfiles</Filter>
+    </ClInclude>
+    <ClInclude Include="DirectionalLight.h">
+      <Filter>Headerfiles</Filter>
+    </ClInclude>
+    <ClInclude Include="Light.h">
+      <Filter>Headerfiles</Filter>
+    </ClInclude>
+    <ClInclude Include="Material.h">
+      <Filter>Headerfiles</Filter>
+    </ClInclude>
+    <ClInclude Include="Math.h">
+      <Filter>Headerfiles</Filter>
+    </ClInclude>
+    <ClInclude Include="Mesh.h">
+      <Filter>Headerfiles</Filter>
+    </ClInclude>
+    <ClInclude Include="OmniShadowMap.h">
+      <Filter>Headerfiles</Filter>
+    </ClInclude>
+    <ClInclude Include="PointLight.h">
+      <Filter>Headerfiles</Filter>
+    </ClInclude>
+    <ClInclude Include="Shader.h">
+      <Filter>Headerfiles</Filter>
+    </ClInclude>
+    <ClInclude Include="ShadowMap.h">
+      <Filter>Headerfiles</Filter>
+    </ClInclude>
+    <ClInclude Include="Skybox.h">
+      <Filter>Headerfiles</Filter>
+    </ClInclude>
+    <ClInclude Include="SpotLight.h">
+      <Filter>Headerfiles</Filter>
+    </ClInclude>
+    <ClInclude Include="Texture.h">
+      <Filter>Headerfiles</Filter>
+    </ClInclude>
+    <ClInclude Include="Util.h">
+      <Filter>Headerfiles</Filter>
+    </ClInclude>
+    <ClInclude Include="Window.h">
+      <Filter>Headerfiles</Filter>
+    </ClInclude>
+    <ClInclude Include="Hdr.h">
+      <Filter>Headerfiles</Filter>
+    </ClInclude>
+    <ClInclude Include="main.h">
+      <Filter>Start</Filter>
+    </ClInclude>
+    <ClInclude Include="GameObject.h">
+      <Filter>Headerfiles</Filter>
+    </ClInclude>
+    <ClInclude Include="LOD.h">
+      <Filter>Headerfiles</Filter>
+    </ClInclude>
+    <ClInclude Include="ParticleEffect.h">
+      <Filter>Headerfiles</Filter>
+    </ClInclude>
+    <ClInclude Include="PostProcessing.h">
+      <Filter>Headerfiles</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="Headerfiles">
+      <UniqueIdentifier>{c75bf2de-7e3f-45d9-b85e-8a23614bdafd}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Sourcefiles">
+      <UniqueIdentifier>{33dce1f5-6279-43b9-89f2-54e43840811f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Start">
+      <UniqueIdentifier>{d67885f0-8a7e-485a-a9c0-e83220a1e0d1}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+</Project>
