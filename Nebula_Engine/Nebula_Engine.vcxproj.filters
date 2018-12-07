@@ -52,9 +52,6 @@
     <ClCompile Include="main.cpp">
       <Filter>Start</Filter>
     </ClCompile>
-    <ClCompile Include="Hdr.cpp">
-      <Filter>Sourcefiles</Filter>
-    </ClCompile>
     <ClCompile Include="GameObject.cpp">
       <Filter>Sourcefiles</Filter>
     </ClCompile>
@@ -64,8 +61,23 @@
     <ClCompile Include="LOD.cpp">
       <Filter>Sourcefiles</Filter>
     </ClCompile>
-    <ClCompile Include="PostProcessing.cpp">
-      <Filter>Sourcefiles</Filter>
+    <ClCompile Include="..\External Libraries\imgui-1.65\imgui.cpp">
+      <Filter>ImGui</Filter>
+    </ClCompile>
+    <ClCompile Include="..\External Libraries\imgui-1.65\imgui_demo.cpp">
+      <Filter>ImGui</Filter>
+    </ClCompile>
+    <ClCompile Include="..\External Libraries\imgui-1.65\imgui_draw.cpp">
+      <Filter>ImGui</Filter>
+    </ClCompile>
+    <ClCompile Include="..\External Libraries\imgui-1.65\imgui_widgets.cpp">
+      <Filter>ImGui</Filter>
+    </ClCompile>
+    <ClCompile Include="..\External Libraries\imgui-1.65\examples\imgui_impl_glfw.cpp">
+      <Filter>ImGui</Filter>
+    </ClCompile>
+    <ClCompile Include="..\External Libraries\imgui-1.65\examples\imgui_impl_opengl3.cpp">
+      <Filter>ImGui</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -120,9 +132,6 @@
     <ClInclude Include="Window.h">
       <Filter>Headerfiles</Filter>
     </ClInclude>
-    <ClInclude Include="Hdr.h">
-      <Filter>Headerfiles</Filter>
-    </ClInclude>
     <ClInclude Include="main.h">
       <Filter>Start</Filter>
     </ClInclude>
@@ -135,8 +144,20 @@
     <ClInclude Include="ParticleEffect.h">
       <Filter>Headerfiles</Filter>
     </ClInclude>
-    <ClInclude Include="PostProcessing.h">
-      <Filter>Headerfiles</Filter>
+    <ClInclude Include="..\External Libraries\imgui-1.65\imconfig.h">
+      <Filter>ImGui</Filter>
+    </ClInclude>
+    <ClInclude Include="..\External Libraries\imgui-1.65\imgui.h">
+      <Filter>ImGui</Filter>
+    </ClInclude>
+    <ClInclude Include="..\External Libraries\imgui-1.65\imgui_internal.h">
+      <Filter>ImGui</Filter>
+    </ClInclude>
+    <ClInclude Include="..\External Libraries\imgui-1.65\examples\imgui_impl_glfw.h">
+      <Filter>ImGui</Filter>
+    </ClInclude>
+    <ClInclude Include="..\External Libraries\imgui-1.65\examples\imgui_impl_opengl3.h">
+      <Filter>ImGui</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -148,6 +169,9 @@
     </Filter>
     <Filter Include="Start">
       <UniqueIdentifier>{d67885f0-8a7e-485a-a9c0-e83220a1e0d1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ImGui">
+      <UniqueIdentifier>{5d0c4081-1cec-4c65-a7c2-98b4f0f3ef96}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
 </Project>

@@ -110,6 +110,15 @@ void GameObject::Rotate(glm::vec3 rotation)
 	rota += rotation;
 }
 
+void GameObject::ReloadDefaultTexture()
+{
+	for (int i = 0; i < textureList.size(); i++)
+	{
+		textureList[i]->SetFileLocation(defaultPath);
+		textureList[i]->LoadTexture();
+	}
+}
+
 void GameObject::SetNormalMap(std::string normal)
 {
 	//Texture test = Texture(normal.c_str());
@@ -137,7 +146,7 @@ void GameObject::SetDefaultTexture(std::string path)
 
 std::string GameObject::GetDefaultTexture()
 {
-	return std::string();
+	return defaultPath;
 }
 
 void GameObject::RenderModel()
@@ -176,7 +185,7 @@ void GameObject::SetFileLocation(std::string fileLocation)
 bool GameObject::LoadModel()
 {
 	Assimp::Importer importer;
-	const aiScene *scene = importer.ReadFile(location, aiProcess_Triangulate | aiProcess_FlipUVs | aiProcess_GenSmoothNormals | aiProcess_JoinIdenticalVertices);
+	const aiScene *scene = importer.ReadFile(location, aiProcess_Triangulate | aiProcess_FlipUVs | aiProcess_GenSmoothNormals | aiProcess_JoinIdenticalVertices /*| aiProcess_CalcTangentSpace*/);
 
 	if (!scene)
 	{

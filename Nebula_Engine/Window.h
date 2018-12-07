@@ -5,6 +5,10 @@
 #include <GL\glew.h>
 #include <GLFW\glfw3.h>
 
+#include <glm\glm.hpp>
+#include <glm\gtc\matrix_transform.hpp>
+#include <glm\gtc\type_ptr.hpp>
+
 #include <string>
 #include "CommonValues.h"
 
@@ -98,6 +102,11 @@ public:
 	// Get mouse setting (bool)
 	bool GetShowMouse();
 
+	void SetPerspectiveMode(int x);
+	int GetPerspectiveMode();
+
+	glm::mat4 CalculateProjectionMatrix(float fovy, float aspect, float zNear, float zFar);
+
 	// Close the game
 	void CloseWindow();
 
@@ -165,6 +174,8 @@ private:
 	float previousTime = 0.0f;
 	int frameCount = 0;
 	int fps = 0;
+
+	int perspectiveMode = 1;
 
 	void createCallbacks();
 	// Used to simulate camera movement

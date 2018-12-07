@@ -2,11 +2,11 @@
 
 #define STB_IMAGE_IMPLEMENTATION
 
-#include <stdio.h>
 #include <string.h>
 #include <cmath>
 #include <vector>
 #include <iostream>
+#include <stdio.h>
 
 #include <GL\glew.h>
 #include <GLFW\glfw3.h>
@@ -32,13 +32,8 @@
 #include "Material.h"
 #include "Audio.h"
 #include "Math.h"
-
-#include "Hdr.h"
-
 #include "GameObject.h"
-
 #include "Skybox.h"
-#include "PostProcessing.h"
 
 // uniform variables
 unsigned int uniformProjection = 0, uniformModel = 0, uniformView = 0, uniformEyePosition = 0,
@@ -53,8 +48,6 @@ std::vector<Shader> shaderList;
 
 // objects
 Window renderWindow;
-
-PostProcessing pp;
 
 Shader directionalShadowShader;
 Shader omniShadowShader;
@@ -72,6 +65,7 @@ Material defaultMaterial;
 Material dullMaterial;
 
 GameObject go;
+GameObject* test;
 
 Mesh NebulaEngineLogo;
 

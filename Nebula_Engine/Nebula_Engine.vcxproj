@@ -89,7 +89,7 @@
       <WarningLevel>Level3</WarningLevel>
       <Optimization>Disabled</Optimization>
       <PreprocessorDefinitions>WIN32;_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>$(SolutionDir)External Libraries\FMOD\api\lowlevel\inc;$(SolutionDir)External Libraries\GLM;$(SolutionDir)External Libraries\GLFW\include;$(SolutionDir)External Libraries\GLEW\include;$(SolutionDir)External Libraries\assimp-4.1.0\include;$(SolutionDir)External Libraries\IRRKLANG\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\Users\Björn Sonnen\Desktop\GitHub\Nebula_Engine\External Libraries\imgui-1.65;C:\Users\Björn Sonnen\Desktop\GitHub\Nebula_Engine\External Libraries\imgui-1.65\examples;$(SolutionDir)External Libraries\FMOD\api\lowlevel\inc;$(SolutionDir)External Libraries\GLM;$(SolutionDir)External Libraries\GLFW\include;$(SolutionDir)External Libraries\GLEW\include;$(SolutionDir)External Libraries\assimp-4.1.0\include;$(SolutionDir)External Libraries\IRRKLANG\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -161,10 +161,15 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="..\External Libraries\imgui-1.65\examples\imgui_impl_glfw.cpp" />
+    <ClCompile Include="..\External Libraries\imgui-1.65\examples\imgui_impl_opengl3.cpp" />
+    <ClCompile Include="..\External Libraries\imgui-1.65\imgui.cpp" />
+    <ClCompile Include="..\External Libraries\imgui-1.65\imgui_demo.cpp" />
+    <ClCompile Include="..\External Libraries\imgui-1.65\imgui_draw.cpp" />
+    <ClCompile Include="..\External Libraries\imgui-1.65\imgui_widgets.cpp" />
     <ClCompile Include="Audio.cpp" />
     <ClCompile Include="Camera.cpp" />
     <ClCompile Include="DirectionalLight.cpp" />
-    <ClCompile Include="Hdr.cpp" />
     <ClCompile Include="Light.cpp" />
     <ClCompile Include="LOD.cpp" />
     <ClCompile Include="main.cpp" />
@@ -175,7 +180,6 @@
     <ClCompile Include="OmniShadowMap.cpp" />
     <ClCompile Include="ParticleEffect.cpp" />
     <ClCompile Include="PointLight.cpp" />
-    <ClCompile Include="PostProcessing.cpp" />
     <ClCompile Include="Shader.cpp" />
     <ClCompile Include="ShadowMap.cpp" />
     <ClCompile Include="Skybox.cpp" />
@@ -185,11 +189,15 @@
     <ClCompile Include="Window.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="..\External Libraries\imgui-1.65\examples\imgui_impl_glfw.h" />
+    <ClInclude Include="..\External Libraries\imgui-1.65\examples\imgui_impl_opengl3.h" />
+    <ClInclude Include="..\External Libraries\imgui-1.65\imconfig.h" />
+    <ClInclude Include="..\External Libraries\imgui-1.65\imgui.h" />
+    <ClInclude Include="..\External Libraries\imgui-1.65\imgui_internal.h" />
     <ClInclude Include="Audio.h" />
     <ClInclude Include="Camera.h" />
     <ClInclude Include="CommonValues.h" />
     <ClInclude Include="DirectionalLight.h" />
-    <ClInclude Include="Hdr.h" />
     <ClInclude Include="Light.h" />
     <ClInclude Include="LOD.h" />
     <ClInclude Include="main.h" />
@@ -200,7 +208,6 @@
     <ClInclude Include="OmniShadowMap.h" />
     <ClInclude Include="ParticleEffect.h" />
     <ClInclude Include="PointLight.h" />
-    <ClInclude Include="PostProcessing.h" />
     <ClInclude Include="Shader.h" />
     <ClInclude Include="ShadowMap.h" />
     <ClInclude Include="Skybox.h" />

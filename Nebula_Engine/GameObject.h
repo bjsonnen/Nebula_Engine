@@ -80,6 +80,8 @@ public:
 	// Rotate object round value
 	void Rotate(glm::vec3 rotation);
 
+	void ReloadDefaultTexture();
+
 	// Set normal map for mesh
 	void SetNormalMap(std::string normal);
 

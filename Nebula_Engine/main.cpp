@@ -193,10 +193,6 @@ int main()
 
 	float tmp = 0.0f;
 
-	pp = PostProcessing();
-
-	pp.Awake();
-
 	Start();
 
 	nebulaLogo.LoadTexture();
@@ -258,7 +254,7 @@ int main()
 
 		RenderPass(camera.CalculateViewMatrix(), projection);
 		
-		//pp.EndParsing(); // Display Post Processing
+		//pp.EndParsing(test); // Display Post Processing
 
 		renderWindow.SwapBuffers();
 	}
@@ -293,7 +289,8 @@ void EngineInitialization()
 	unsigned int uniformProjection = 0, uniformModel = 0, uniformView = 0, uniformEyePosition = 0,
 		uniformSpecularIntensity = 0, uniformShininess = 0;
 
-	projection = glm::perspective(glm::radians(60.0f), (float)renderWindow.GetBufferWidth() / renderWindow.GetBufferHeight(), camera.GetNear(), camera.GetFar());
+	//projection = glm::perspective(glm::radians(60.0f), (float)renderWindow.GetBufferWidth() / renderWindow.GetBufferHeight(), camera.GetNear(), camera.GetFar());
+	projection = renderWindow.CalculateProjectionMatrix(glm::radians(60.0f), (float)renderWindow.GetBufferWidth() / renderWindow.GetBufferHeight(), camera.GetNear(), camera.GetFar());
 }
 
 int vert = 0;
@@ -302,6 +299,7 @@ int multi = 10;
 
 GameObject go1;
 GameObject go2;
+GameObject go3;
 Audio mainAudio = Audio("Audio/ps2.ogg");
 
 void Start()
@@ -321,6 +319,11 @@ void Start()
 	go2.SetPosition(0.0f, -15.0f, 0.0f);
 	go2.SetScale(40.0f, 1.0f, 40.0f);
 	modelList.push_back(&go2);
+
+	go3 = GameObject("Models/cube.obj");
+	go3.SetPosition(10.0f, 10.0f, 10.0f);
+	go3.SetDefaultTexture("Textures/Unbekannt-1.png");
+	modelList.push_back(&go3);
 
 	renderWindow.SetRefreshRate(30);
 }
@@ -352,10 +355,14 @@ void Update()
 		secondAudio.Play();
 
 	if (renderWindow.Key(Window::KeyCode::T))
-		renderWindow.SetWireframe(true);
-	
-	if (renderWindow.Key(Window::KeyCode::F))
+	{
 		renderWindow.SetWireframe(false);
+	}
+
+	if (renderWindow.Key(Window::KeyCode::F))
+	{
+		renderWindow.SetWireframe(true);
+	}
 
 	//mainLight.ChangeDirection(glm::vec3(20.0f, 20.0f, 20.0f));
 

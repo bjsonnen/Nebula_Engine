@@ -168,6 +168,33 @@ bool Window::GetShowMouse()
 	return showMouse;
 }
 
+void Window::SetPerspectiveMode(int x)
+{
+	if (x == 0 || x == 1)
+		perspectiveMode = x;
+}
+
+int Window::GetPerspectiveMode()
+{
+	return perspectiveMode;
+}
+
+glm::mat4 Window::CalculateProjectionMatrix(float fovy, float aspect, float zNear, float zFar)
+{
+	if (perspectiveMode == 0)
+	{
+		glm::mat4 perspective = glm::mat4();
+		
+		//perspective = glm::perspective(fovy, aspect, -1.0f, 1.0f);
+
+		perspective[2][2] = 0.0f;
+
+		return glm::mat4();
+	}
+	else
+		return glm::perspective(fovy, aspect, zNear, zFar);
+}
+
 void Window::CloseWindow()
 {
 	glfwSetWindowShouldClose(mainWindow, 1);

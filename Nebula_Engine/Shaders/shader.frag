@@ -238,7 +238,9 @@ void main()
 	finalColor += CalculatePointLights();
 	finalColor += CalculateSpotLights();
 	
-	color = texture(dTexture, TexCoord) * finalColor;
+	vec4 texColor = texture(dTexture, TexCoord);
+	
+	color = vec4(texColor.xyz * finalColor.xyz, 0.0);
 	
 	float gamma = 2.2;
 	color.rgb = pow(color.rgb, vec3(1.0/gamma));
