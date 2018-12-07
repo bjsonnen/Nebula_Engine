@@ -30,7 +30,7 @@
     <ConfigurationType>Application</ConfigurationType>
     <UseDebugLibraries>true</UseDebugLibraries>
     <PlatformToolset>v141</PlatformToolset>
-    <CharacterSet>Unicode</CharacterSet>
+    <CharacterSet>MultiByte</CharacterSet>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
     <ConfigurationType>Application</ConfigurationType>
@@ -84,15 +84,16 @@
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
-      <PrecompiledHeader>
-      </PrecompiledHeader>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
       <WarningLevel>Level3</WarningLevel>
       <Optimization>Disabled</Optimization>
-      <PreprocessorDefinitions>WIN32;_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>C:\Users\Björn Sonnen\Desktop\GitHub\Nebula_Engine\External Libraries\imgui-1.65;C:\Users\Björn Sonnen\Desktop\GitHub\Nebula_Engine\External Libraries\imgui-1.65\examples;$(SolutionDir)External Libraries\FMOD\api\lowlevel\inc;$(SolutionDir)External Libraries\GLM;$(SolutionDir)External Libraries\GLFW\include;$(SolutionDir)External Libraries\GLEW\include;$(SolutionDir)External Libraries\assimp-4.1.0\include;$(SolutionDir)External Libraries\IRRKLANG\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>$(SolutionDir)External Libraries\imgui-1.65;$(SolutionDir)External Libraries\imgui-1.65\examples;$(SolutionDir)External Libraries\FMOD\api\lowlevel\inc;$(SolutionDir)External Libraries\GLM;$(SolutionDir)External Libraries\GLFW\include;$(SolutionDir)External Libraries\GLEW\include;$(SolutionDir)External Libraries\assimp-4.1.0\include;$(SolutionDir)External Libraries\IRRKLANG\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <ConformanceMode>false</ConformanceMode>
+      <SDLCheck>true</SDLCheck>
     </ClCompile>
     <Link>
-      <SubSystem>Console</SubSystem>
+      <SubSystem>NotSet</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <AdditionalLibraryDirectories>$(SolutionDir)External Libraries\FMOD\api\lowlevel\lib;$(SolutionDir)External Libraries\GLEW\lib\Release\Win32;$(SolutionDir)External Libraries\GLFW\lib-vc2015;$(SolutionDir)External Libraries\assimp-4.1.0\lib\Release;$(SolutionDir)External Libraries\IRRKLANG\lib\Win32-visualStudio;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
       <AdditionalDependencies>opengl32.lib;glew32.lib;glfw3.lib;assimp-vc140-mt.lib;fmodL_vc.lib;%(AdditionalDependencies)</AdditionalDependencies>
@@ -185,6 +186,7 @@
     <ClCompile Include="Skybox.cpp" />
     <ClCompile Include="SpotLight.cpp" />
     <ClCompile Include="Texture.cpp" />
+    <ClCompile Include="Ui.cpp" />
     <ClCompile Include="Util.cpp" />
     <ClCompile Include="Window.cpp" />
   </ItemGroup>
@@ -213,6 +215,7 @@
     <ClInclude Include="Skybox.h" />
     <ClInclude Include="SpotLight.h" />
     <ClInclude Include="Texture.h" />
+    <ClInclude Include="Ui.h" />
     <ClInclude Include="Util.h" />
     <ClInclude Include="Window.h" />
   </ItemGroup>

@@ -2,6 +2,10 @@
 
 #define STB_IMAGE_IMPLEMENTATION
 
+#include <imgui.h>
+#include <imgui_impl_glfw.h>
+#include <imgui_impl_opengl3.h>
+
 #include <string.h>
 #include <cmath>
 #include <vector>
@@ -34,6 +38,7 @@
 #include "Math.h"
 #include "GameObject.h"
 #include "Skybox.h"
+#include "Ui.h"
 
 // uniform variables
 unsigned int uniformProjection = 0, uniformModel = 0, uniformView = 0, uniformEyePosition = 0,
@@ -78,6 +83,8 @@ Skybox skybox;
 Audio secondAudio = Audio("trump.mp3");
 
 Util util;
+
+Ui testUi = Ui();
 
 // variables
 unsigned int pointLightCount = 0;

@@ -62,23 +62,24 @@
       <Filter>Sourcefiles</Filter>
     </ClCompile>
     <ClCompile Include="..\External Libraries\imgui-1.65\imgui.cpp">
-      <Filter>ImGui</Filter>
+      <Filter>ImgUi</Filter>
     </ClCompile>
     <ClCompile Include="..\External Libraries\imgui-1.65\imgui_demo.cpp">
-      <Filter>ImGui</Filter>
+      <Filter>ImgUi</Filter>
     </ClCompile>
     <ClCompile Include="..\External Libraries\imgui-1.65\imgui_draw.cpp">
-      <Filter>ImGui</Filter>
+      <Filter>ImgUi</Filter>
     </ClCompile>
     <ClCompile Include="..\External Libraries\imgui-1.65\imgui_widgets.cpp">
-      <Filter>ImGui</Filter>
+      <Filter>ImgUi</Filter>
     </ClCompile>
     <ClCompile Include="..\External Libraries\imgui-1.65\examples\imgui_impl_glfw.cpp">
-      <Filter>ImGui</Filter>
+      <Filter>ImgUi</Filter>
     </ClCompile>
     <ClCompile Include="..\External Libraries\imgui-1.65\examples\imgui_impl_opengl3.cpp">
-      <Filter>ImGui</Filter>
+      <Filter>ImgUi</Filter>
     </ClCompile>
+    <ClCompile Include="Ui.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Audio.h">
@@ -145,20 +146,21 @@
       <Filter>Headerfiles</Filter>
     </ClInclude>
     <ClInclude Include="..\External Libraries\imgui-1.65\imconfig.h">
-      <Filter>ImGui</Filter>
+      <Filter>ImgUi</Filter>
     </ClInclude>
     <ClInclude Include="..\External Libraries\imgui-1.65\imgui.h">
-      <Filter>ImGui</Filter>
+      <Filter>ImgUi</Filter>
     </ClInclude>
     <ClInclude Include="..\External Libraries\imgui-1.65\imgui_internal.h">
-      <Filter>ImGui</Filter>
+      <Filter>ImgUi</Filter>
     </ClInclude>
     <ClInclude Include="..\External Libraries\imgui-1.65\examples\imgui_impl_glfw.h">
-      <Filter>ImGui</Filter>
+      <Filter>ImgUi</Filter>
     </ClInclude>
     <ClInclude Include="..\External Libraries\imgui-1.65\examples\imgui_impl_opengl3.h">
-      <Filter>ImGui</Filter>
+      <Filter>ImgUi</Filter>
     </ClInclude>
+    <ClInclude Include="Ui.h" />
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Headerfiles">
@@ -170,8 +172,8 @@
     <Filter Include="Start">
       <UniqueIdentifier>{d67885f0-8a7e-485a-a9c0-e83220a1e0d1}</UniqueIdentifier>
     </Filter>
-    <Filter Include="ImGui">
-      <UniqueIdentifier>{5d0c4081-1cec-4c65-a7c2-98b4f0f3ef96}</UniqueIdentifier>
+    <Filter Include="ImgUi">
+      <UniqueIdentifier>{9f59596f-c69f-461e-8af9-3b7e489a573d}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
 </Project>
