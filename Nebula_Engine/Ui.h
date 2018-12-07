@@ -28,6 +28,33 @@ public:
 
 	void SameLine();
 
+	void DebugWindow(bool active, int fps, float deltaTime);
+
 	~Ui();
+
+private:
+	void DebugFile();
+	void DebugEdit();
+	void DebugGameObject();
+	void DebugWindow();
+	void DebugHelp();
+
+	void PerformanceInformations();
+	void GeneralSettings();
+
+private:
+	float fpsCount[20];
+	int fpsCountIndex = 0;
+
+	float deltaCount[20];
+	int deltaCountIndex = 0;
+
+	float cTime = 0.0f;
+	float time = 0.0f;
+
+	bool showPerformanceWindow = false;
+	bool showGeneralSettings = false;
+
+	ImVec4 mainLightColor = ImVec4(0.0f, 0.0f, 0.0f, 1.0f);
 };
 

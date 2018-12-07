@@ -42,6 +42,11 @@ public:
 	// Get farest visible object as float
 	float GetFar();
 
+	// Dis-/Enable mouse movement
+	void DisableMouseMovement(bool value);
+	// Get if mouse movement is disabled
+	bool GetDisableMouseMovement();
+
 	// Returns velocity
 	float GetVelocity();
 	// Returns camera rotation speed
@@ -79,5 +84,6 @@ private:
 	float fov;
 
 	bool standardCamera = true;
+	bool disabledMouseMovement = false;
 };
 

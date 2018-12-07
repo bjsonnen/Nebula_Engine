@@ -1,5 +1,10 @@
 #include "Audio.h"
 
+// remove compiler warnings for fopen();
+#ifndef _CRT_SECURE_NO_WARNINGS
+#define _CRT_SECURE_NO_WARNINGS
+#endif
+
 Audio::Audio(std::string path)
 {
 	result = FMOD::System_Create(&system);

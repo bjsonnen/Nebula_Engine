@@ -79,7 +79,9 @@
     <ClCompile Include="..\External Libraries\imgui-1.65\examples\imgui_impl_opengl3.cpp">
       <Filter>ImgUi</Filter>
     </ClCompile>
-    <ClCompile Include="Ui.cpp" />
+    <ClCompile Include="Ui.cpp">
+      <Filter>Sourcefiles</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Audio.h">
@@ -160,7 +162,9 @@
     <ClInclude Include="..\External Libraries\imgui-1.65\examples\imgui_impl_opengl3.h">
       <Filter>ImgUi</Filter>
     </ClInclude>
-    <ClInclude Include="Ui.h" />
+    <ClInclude Include="Ui.h">
+      <Filter>Headerfiles</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Headerfiles">

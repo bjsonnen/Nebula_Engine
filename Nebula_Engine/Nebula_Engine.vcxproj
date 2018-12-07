@@ -87,7 +87,7 @@
       <PrecompiledHeader>NotUsing</PrecompiledHeader>
       <WarningLevel>Level3</WarningLevel>
       <Optimization>Disabled</Optimization>
-      <PreprocessorDefinitions>%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>_CRT_SECURE_NO_WARNINGS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <AdditionalIncludeDirectories>$(SolutionDir)External Libraries\imgui-1.65;$(SolutionDir)External Libraries\imgui-1.65\examples;$(SolutionDir)External Libraries\FMOD\api\lowlevel\inc;$(SolutionDir)External Libraries\GLM;$(SolutionDir)External Libraries\GLFW\include;$(SolutionDir)External Libraries\GLEW\include;$(SolutionDir)External Libraries\assimp-4.1.0\include;$(SolutionDir)External Libraries\IRRKLANG\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <ConformanceMode>false</ConformanceMode>
       <SDLCheck>true</SDLCheck>
@@ -127,7 +127,7 @@
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <PreprocessorDefinitions>WIN32;NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>$(SolutionDir)External Libraries\FMOD\api\lowlevel\inc;$(SolutionDir)External Libraries\GLEW\include;$(SolutionDir)External Libraries\GLFW\include;$(SolutionDir)External Libraries\GLM;$(SolutionDir)External Libraries\assimp-4.1.0\include;$(SolutionDir)External Libraries\IRRKLANG\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)External Libraries\imgui-1.65;$(SolutionDir)External Libraries\imgui-1.65\examples;$(SolutionDir)External Libraries\FMOD\api\lowlevel\inc;$(SolutionDir)External Libraries\GLEW\include;$(SolutionDir)External Libraries\GLFW\include;$(SolutionDir)External Libraries\GLM;$(SolutionDir)External Libraries\assimp-4.1.0\include;$(SolutionDir)External Libraries\IRRKLANG\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>

@@ -20,16 +20,20 @@ float blackhawkAngle = 0.0f;
 // Compile all shaders & add to list
 void CompileShaders()
 {
+	// Basic shader
 	Shader *shader1 = new Shader();
 	shader1->CreateFromFiles("Shaders/shader.vert", "Shaders/shader.frag");
 	shaderList.push_back(*shader1);
 
+	// Used for the loading screen logo
 	shader2 = new Shader();
 	shader2->CreateFromFiles("Shaders/logo.vert", "Shaders/logo.frag");
 
+	// HDR shader
 	screen = new Shader();
 	screen->CreateFromFiles("Shaders/screen.vert", "Shaders/screen.frag");
 
+	// Directional & omnidirectional shaders
 	directionalShadowShader.CreateFromFiles("Shaders/directional_shadow_map.vert", "Shaders/directional_shadow_map.frag");
 	omniShadowShader.CreateFromFiles("Shaders/omni_shadow_map.vert", "Shaders/omni_shadow_map.geom", "Shaders/omni_shadow_map.frag");
 }
@@ -41,11 +45,16 @@ void RenderScene()
 
 	for (int i = 0; i < modelList.size(); i++)
 	{
+		if(!modelList[i]->IsActive())
+			return;
+
 		model = glm::mat4();
 		model = glm::translate(model, modelList[i]->GetPosition());
 		model = glm::rotate(model, modelList[i]->GetDegrees() * toRadians, modelList[i]->GetRotation());
 		model = glm::scale(model, modelList[i]->GetScale());
+		// Upload model matrix to shader
 		shaderList[0].SetMatrix("model", model);
+		// Used for omnidirectional shadows
 		if (uniformModel != 0)
 			glUniformMatrix4fv(uniformModel, 1, false, glm::value_ptr(model));
 		defaultMaterial.UseMaterial(&shaderList[0]);
@@ -120,13 +129,11 @@ void RenderPass(glm::mat4 viewMatrix, glm::mat4 projectionMatrix)
 	shaderList[0].SetDirectionalLightTransform(&mainLight.CalculateLightTransform());
 
 	mainLight.getShadowMap()->Read(GL_TEXTURE3);
+	// Diffuse Texture
 	shaderList[0].SetTexture("dTexture", 1);
+	// Normal Texture
 	shaderList[0].SetTexture("nTexture", 2);
 	shaderList[0].SetDirectionalShadowMap(3);
-
-	glm::vec3 lowerLight = camera.GetCameraPosition();
-	lowerLight.y -= 0.3f;
-	spotLights[0].SetFlash(lowerLight, camera.GetCameraDirection());
 
 	shaderList[0].Validate();
 
@@ -255,40 +262,9 @@ int main()
 			// Camera update
 			camera.KeyControl(renderWindow.GetWindow(), renderWindow.GetDeltaTime());
 			camera.MouseControl(renderWindow.GetXChange(), renderWindow.GetYChange());
-
-			if (show_demo_window)
-				ImGui::ShowDemoWindow(&show_demo_window);
 			
-			{
-				static float f = 0.0f;
-				static int counter = 0;
-
-				ImGui::Begin("Hello, world!");                          // Create a window called "Hello, world!" and append into it.
-
-				testUi.Text("This is some useful text.");               // Display some text (you can use a format strings too)
-				testUi.Checkbox("Demo Window", show_demo_window);      // Edit bools storing our window open/close state
-				ImGui::Checkbox("Another Window", &show_another_window);
-
-				ImGui::SliderFloat("float", &f, 0.0f, 1.0f);            // Edit 1 float using a slider from 0.0f to 1.0f
-				ImGui::ColorEdit3("clear color", (float*)&clear_color); // Edit 3 floats representing a color
-
-				if (ImGui::Button("Button"))                            // Buttons return true when clicked (most widgets return true when edited/activated)
-					counter++;
-				ImGui::SameLine();
-				ImGui::Text("counter = %d", counter);
-
-				ImGui::Text("Application average %.3f ms/frame (%.1f FPS)", 1000.0f / ImGui::GetIO().Framerate, ImGui::GetIO().Framerate);
-				ImGui::End();
-			}
-
-			if (show_another_window)
-			{
-				ImGui::Begin("Another Window", &show_another_window);   // Pass a pointer to our bool variable (the window will have a closing button that will clear the bool when clicked)
-				ImGui::Text("Hello from another window!");
-				if (ImGui::Button("Close Me"))
-					show_another_window = false;
-				ImGui::End();
-			}
+			// Debug Window
+			testUi.DebugWindow(true, renderWindow.GetFPS(), renderWindow.GetDeltaTime());
 
 			// User Update
 			Update();
@@ -427,6 +403,9 @@ void Update()
 	{
 		renderWindow.SetWireframe(true);
 	}
+
+	if (renderWindow.Key(Window::KeyCode::C))
+		camera.DisableMouseMovement(true);
 
 	//mainLight.ChangeDirection(glm::vec3(20.0f, 20.0f, 20.0f));
 
