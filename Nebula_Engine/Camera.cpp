@@ -24,7 +24,7 @@ Camera::Camera(glm::vec3 startPosition, glm::vec3 startUp, float startYaw, float
 
 void Camera::KeyControl(GLFWwindow * window, float deltaTime)
 {
-	if (!(standardCamera))
+	if (!(standardCamera) || disableKeyMovement)
 		return;
 
 	Window* glfwwindow = static_cast<Window*>(glfwGetWindowUserPointer(window));
@@ -130,6 +130,16 @@ void Camera::DisableMouseMovement(bool value)
 bool Camera::GetDisableMouseMovement()
 {
 	return disabledMouseMovement;
+}
+
+void Camera::DisableKeyMovement(bool value)
+{
+	disableKeyMovement = value;
+}
+
+bool Camera::GetDisableKeyMovement()
+{
+	return disableKeyMovement;
 }
 
 float Camera::GetVelocity()

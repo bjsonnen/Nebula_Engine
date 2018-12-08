@@ -84,7 +84,7 @@ Audio secondAudio = Audio("trump.mp3");
 
 Util util;
 
-Ui testUi = Ui();
+Ui testUi;
 
 // variables
 unsigned int pointLightCount = 0;

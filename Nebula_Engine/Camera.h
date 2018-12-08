@@ -47,6 +47,11 @@ public:
 	// Get if mouse movement is disabled
 	bool GetDisableMouseMovement();
 
+	// Dis-/Enable key movement
+	void DisableKeyMovement(bool value);
+	// Get if key movement is disabled
+	bool GetDisableKeyMovement();
+
 	// Returns velocity
 	float GetVelocity();
 	// Returns camera rotation speed
@@ -85,5 +90,6 @@ private:
 
 	bool standardCamera = true;
 	bool disabledMouseMovement = false;
+	bool disableKeyMovement = false;
 };
 

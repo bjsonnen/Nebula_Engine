@@ -40,6 +40,8 @@ public:
 	// Get texture warpping
 	int GetTextureRepeat();
 
+	unsigned int GetTextureID();
+
 	// Returns the texture position on the gpu
 	unsigned int GetTexturePosition();
 

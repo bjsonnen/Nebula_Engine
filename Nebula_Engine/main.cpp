@@ -185,8 +185,6 @@ int main()
 	renderWindow = Window(1280, 720);
 	renderWindow.Initialise();
 
-	//testUI = UI();
-
 	EngineInitialization();
 
 	float cooldown = 0.0f;
@@ -204,7 +202,7 @@ int main()
 
 	Start();
 
-	//testUI.Awake(renderWindow.GetWindow());
+	testUi = Ui(&renderWindow);
 
 	IMGUI_CHECKVERSION();
 	ImGui::CreateContext();
@@ -265,6 +263,18 @@ int main()
 			
 			// Debug Window
 			testUi.DebugWindow(true, renderWindow.GetFPS(), renderWindow.GetDeltaTime());
+
+			// Disable movement when mouse is over ui
+			if (testUi.MouseOverUi())
+			{
+				camera.DisableMouseMovement(true);
+				camera.DisableKeyMovement(true);
+			}
+			else
+			{
+				camera.DisableMouseMovement(false);
+				camera.DisableKeyMovement(false);
+			}
 
 			// User Update
 			Update();
