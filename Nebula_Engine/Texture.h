@@ -1,9 +1,10 @@
 #pragma once
 
 #include <GL\glew.h>
+#include <string>
 
 #include "CommonValues.h"
-#include <string>
+#include "Util.h"
 
 class Texture
 {
@@ -13,7 +14,7 @@ public:
 	Texture(const char* fileLoc);
 
 	// Load texture, called automatically
-	bool LoadTexture();
+	NE_ERROR LoadTexture();
 
 	// Use Texture for next object
 	void UseTexture();

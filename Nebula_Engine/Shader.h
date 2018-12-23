@@ -4,18 +4,16 @@
 #include <string>
 #include <iostream>
 #include <fstream>
-
 #include <GL\glew.h>
-
 #include <glm\glm.hpp>
 #include <glm\gtc\matrix_transform.hpp>
 #include <glm\gtc\type_ptr.hpp>
 
 #include "CommonValues.h"
-
 #include "DirectionalLight.h"
 #include "PointLight.h"
 #include "SpotLight.h"
+#include "Util.h"
 
 class Shader
 {
@@ -24,14 +22,14 @@ public:
 	Shader(std::string vertex, std::string geometry, std::string fragment);
 
 	// Create Shader from string
-	void CreateFromString(const char* vertexCode, const char* fragmentCode);
+	NE_ERROR CreateFromString(const char* vertexCode, const char* fragmentCode);
 	// Create Shader from file
-	void CreateFromFiles(const char* vertexLocation, const char* fragmentLocation);
+	NE_ERROR CreateFromFiles(const char* vertexLocation, const char* fragmentLocation);
 	// Create from file with geometry shader
-	void CreateFromFiles(const char* vertexLocation, const char* geometryLocation, const char* fragmentLocation);
+	NE_ERROR CreateFromFiles(const char* vertexLocation, const char* geometryLocation, const char* fragmentLocation);
 
 	// Check if shader works
-	void Validate();
+	NE_ERROR Validate();
 
 	// Read shader from file
 	std::string ReadFile(const char* fileLocation);
@@ -97,10 +95,10 @@ public:
 
 private:
 	// Compile vertex & fragment(pixel) shader
-	void CompileShader(const char* vertexCode, const char* fragmentCode);
+	NE_ERROR CompileShader(const char* vertexCode, const char* fragmentCode);
 	// Compile vertex, geometry & fragment(pixel) shader
-	void CompileShader(const char* vertexCode, const char* geometryCode, const char* fragmentCode);
-	void AddShader(unsigned int theProgram, const char* shaderCode, GLenum shaderType);
+	NE_ERROR CompileShader(const char* vertexCode, const char* geometryCode, const char* fragmentCode);
+	NE_ERROR AddShader(unsigned int theProgram, const char* shaderCode, GLenum shaderType);
 
 	void CompileProgram();
 

@@ -147,7 +147,13 @@ void Ui::CreateGameObject()
 		ImGui::Separator();
 		if (ImGui::Button("Create GameObject"))
 		{
+			
 			// Create gameobject
+			go = GameObject();
+			go.SetFileLocation("Models/cube.obj");
+			go.SetPosition(position[0], position[1], position[2]);
+			go.SetRotation(rotation[0], rotation[1], rotation[2]);
+			go.SetScale(scale[0], scale[1], scale[2]);
 		}
 		ImGui::Separator();
 		ImGui::End();
@@ -176,6 +182,9 @@ void Ui::CreateLightObject()
 		if (ImGui::Button("Create Light"))
 		{
 			// Create light
+
+			name = "Object 1";
+
 		}
 		ImGui::End();
 	}
@@ -188,7 +197,7 @@ void Ui::Text(std::string text)
 
 void Ui::TextBox(std::string text, std::string& output)
 {
-	char* test;
+	char* test = "";
 	ImGui::InputText(text.c_str(), test, sizeof(test));
 	output = test;
 

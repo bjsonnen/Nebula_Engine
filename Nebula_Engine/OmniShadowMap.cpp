@@ -2,7 +2,7 @@
 
 OmniShadowMap::OmniShadowMap() : ShadowMap() {}
 
-bool OmniShadowMap::Init(unsigned int width, unsigned int height)
+NE_ERROR OmniShadowMap::Init(unsigned int width, unsigned int height)
 {
 	shadowWidth = width; shadowHeight = height;
 
@@ -33,10 +33,10 @@ bool OmniShadowMap::Init(unsigned int width, unsigned int height)
 	if (Status != GL_FRAMEBUFFER_COMPLETE)
 	{
 		printf("Framebuffer error: %s\n", Status);
-		return false;
+		return NE_RENDERER;
 	}
 
-	return true;
+	return NE_OK;
 }
 
 void OmniShadowMap::Write()

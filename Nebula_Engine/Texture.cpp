@@ -20,7 +20,7 @@ Texture::Texture(const char* fileLoc)
 	fileLocation = fileLoc;
 }
 
-bool Texture::LoadTexture()
+NE_ERROR Texture::LoadTexture()
 {
 	int nrComponent;
 	unsigned char *texData = stbi_load(fileLocation, &width, &height, &bitDepth, 0);
@@ -28,7 +28,7 @@ bool Texture::LoadTexture()
 	if (!texData)
 	{
 		printf("Failed to find: %s\n", fileLocation);
-		return false;
+		return NE_RENDERER;
 	}
 
 	glGenTextures(1, &textureID);
@@ -100,7 +100,7 @@ bool Texture::LoadTexture()
 
 	stbi_image_free(texData);
 
-	return true;
+	return NE_OK;
 }
 
 void Texture::UseTexture()

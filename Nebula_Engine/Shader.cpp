@@ -23,22 +23,28 @@ Shader::Shader(std::string vertex, std::string geometry, std::string fragment)
 	fragmentShader = fragment;
 }
 
-void Shader::CreateFromString(const char* vertexCode, const char* fragmentCode)
+NE_ERROR Shader::CreateFromString(const char* vertexCode, const char* fragmentCode)
 {
-	CompileShader(vertexCode, fragmentCode);
+	if (CompileShader(vertexCode, fragmentCode) == NE_OK)
+		return NE_OK;
+	else
+		return NE_RENDERER;
 }
 
-void Shader::CreateFromFiles(const char* vertexLocation, const char* fragmentLocation)
+NE_ERROR Shader::CreateFromFiles(const char* vertexLocation, const char* fragmentLocation)
 {
 	std::string vertexString = ReadFile(vertexLocation);
 	std::string fragmentString = ReadFile(fragmentLocation);
 	const char* vertexCode = vertexString.c_str();
 	const char* fragmentCode = fragmentString.c_str();
 
-	CompileShader(vertexCode, fragmentCode);
+	if (CompileShader(vertexCode, fragmentCode) == NE_OK)
+		return NE_OK;
+	else
+		return NE_RENDERER;
 }
 
-void Shader::CreateFromFiles(const char* vertexLocation, const char* geometryLocation, const char* fragmentLocation)
+NE_ERROR Shader::CreateFromFiles(const char* vertexLocation, const char* geometryLocation, const char* fragmentLocation)
 {
 	std::string vertexString = ReadFile(vertexLocation);
 	std::string geometryString = ReadFile(geometryLocation);
@@ -47,7 +53,10 @@ void Shader::CreateFromFiles(const char* vertexLocation, const char* geometryLoc
 	const char* geometryCode = geometryString.c_str();
 	const char* fragmentCode = fragmentString.c_str();
 
-	CompileShader(vertexCode, geometryCode, fragmentCode);
+	if (CompileShader(vertexCode, geometryCode, fragmentCode) == NE_OK)
+		return NE_OK;
+	else
+		return NE_RENDERER;
 }
 
 std::string Shader::ReadFile(const char* fileLocation)
@@ -71,30 +80,32 @@ std::string Shader::ReadFile(const char* fileLocation)
 	return content;
 }
 
-void Shader::CompileShader(const char* vertexCode, const char* fragmentCode)
+NE_ERROR Shader::CompileShader(const char* vertexCode, const char* fragmentCode)
 {
 	shaderID = glCreateProgram();
 
 	if (!shaderID)
 	{
 		printf("Error creating shader program!\n");
-		return;
+		return NE_RENDERER;
 	}
 
 	AddShader(shaderID, vertexCode, GL_VERTEX_SHADER);
 	AddShader(shaderID, fragmentCode, GL_FRAGMENT_SHADER);
 
 	CompileProgram();
+
+	return NE_OK;
 }
 
-void Shader::CompileShader(const char* vertexCode, const char* geometryCode, const char* fragmentCode)
+NE_ERROR Shader::CompileShader(const char* vertexCode, const char* geometryCode, const char* fragmentCode)
 {
 	shaderID = glCreateProgram();
 
 	if (!shaderID)
 	{
 		printf("Error creating shader program!\n");
-		return;
+		return NE_RENDERER;
 	}
 
 	AddShader(shaderID, vertexCode, GL_VERTEX_SHADER);
@@ -102,9 +113,11 @@ void Shader::CompileShader(const char* vertexCode, const char* geometryCode, con
 	AddShader(shaderID, fragmentCode, GL_FRAGMENT_SHADER);
 
 	CompileProgram();
+
+	return NE_OK;
 }
 
-void Shader::Validate()
+NE_ERROR Shader::Validate()
 {
 	GLint result = 0;
 	GLchar eLog[1024] = { 0 };
@@ -115,8 +128,9 @@ void Shader::Validate()
 	{
 		glGetProgramInfoLog(shaderID, sizeof(eLog), NULL, eLog);
 		printf("Error validating program: '%s'\n", eLog);
-		return;
+		return NE_RENDERER;
 	}
+	return NE_OK;
 }
 
 void Shader::CompileProgram() {
@@ -420,7 +434,7 @@ void Shader::ClearShader()
 }
 
 
-void Shader::AddShader(unsigned int theProgram, const char* shaderCode, GLenum shaderType)
+NE_ERROR Shader::AddShader(unsigned int theProgram, const char* shaderCode, GLenum shaderType)
 {
 	unsigned int theShader = glCreateShader(shaderType);
 
@@ -441,10 +455,12 @@ void Shader::AddShader(unsigned int theProgram, const char* shaderCode, GLenum s
 	{
 		glGetShaderInfoLog(theShader, sizeof(eLog), NULL, eLog);
 		printf("Error compiling the %d shader: '%s'\n", shaderType, eLog);
-		return;
+		return NE_RENDERER;
 	}
 
 	glAttachShader(theProgram, theShader);
+
+	return NE_OK;
 }
 
 Shader::~Shader()

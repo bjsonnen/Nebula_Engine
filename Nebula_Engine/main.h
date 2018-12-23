@@ -39,6 +39,7 @@
 #include "GameObject.h"
 #include "Skybox.h"
 #include "Ui.h"
+#include "RootManager.h"
 
 // uniform variables
 unsigned int uniformProjection = 0, uniformModel = 0, uniformView = 0, uniformEyePosition = 0,
@@ -50,6 +51,8 @@ std::vector<Mesh*> meshList;
 std::vector<GameObject*> modelList;
 std::vector<Texture*> textureList;
 std::vector<Shader> shaderList;
+
+void TestVector(std::vector<float>& value);
 
 // objects
 Window renderWindow;
@@ -92,5 +95,7 @@ unsigned int spotLightCount = 0;
 
 void Start();
 void Update();
+
+void LinesTest();
 
 void EngineInitialization();

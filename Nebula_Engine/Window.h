@@ -1,16 +1,15 @@
 #pragma once
 
-#include "stdio.h"
-
 #include <GL\glew.h>
 #include <GLFW\glfw3.h>
-
 #include <glm\glm.hpp>
 #include <glm\gtc\matrix_transform.hpp>
 #include <glm\gtc\type_ptr.hpp>
-
 #include <string>
+
+#include "stdio.h"
 #include "CommonValues.h"
+#include "Util.h"
 
 class Window
 {
@@ -67,7 +66,7 @@ public:
 	void framebuffer_size_callback(GLFWwindow* window, int width, int height);
 
 	// Intialise the window
-	int Initialise();
+	NE_ERROR Initialise();
 	
 	int GetBufferWidth() { return bufferWidth; }
 	int GetBufferHeight() { return bufferHeight; }
@@ -135,10 +134,7 @@ public:
 	float GetYChange();
 
 	// Returns a pointer to the window object
-	GLFWwindow* GetWindow()
-	{
-		return mainWindow;
-	}
+	GLFWwindow* GetWindow() { return mainWindow; }
 
 	// Returns true if <key> is pressed
 	bool Key(KeyCode key);

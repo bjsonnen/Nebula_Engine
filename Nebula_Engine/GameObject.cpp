@@ -182,7 +182,7 @@ void GameObject::SetFileLocation(std::string fileLocation)
 	location = (char*)fileLocation.c_str();
 }
 
-bool GameObject::LoadModel()
+NE_ERROR GameObject::LoadModel()
 {
 	Assimp::Importer importer;
 	const aiScene *scene = importer.ReadFile(location, aiProcess_Triangulate | aiProcess_FlipUVs | aiProcess_GenSmoothNormals | aiProcess_JoinIdenticalVertices /*| aiProcess_CalcTangentSpace*/);
@@ -190,7 +190,7 @@ bool GameObject::LoadModel()
 	if (!scene)
 	{
 		printf("Model (%s) failed to load: %s", location, importer.GetErrorString());
-		return false;
+		return NE_FALSE;
 	}
 
 	normal = Texture("Textures/normal.jpg");
@@ -199,25 +199,25 @@ bool GameObject::LoadModel()
 
 	LoadMaterials(scene);
 
-	return true;
+	return NE_OK;
 }
 
-bool GameObject::LoadModel(const std::string & fileName)
+NE_ERROR GameObject::LoadModel(const std::string & fileName)
 {
 	Assimp::Importer importer;
-	const aiScene *scene = importer.ReadFile(fileName, aiProcess_Triangulate | aiProcess_FlipUVs | aiProcess_GenSmoothNormals | aiProcess_JoinIdenticalVertices);
+	const aiScene *scene = importer.ReadFile(fileName, aiProcess_Triangulate | aiProcess_FlipUVs | aiProcess_GenSmoothNormals | aiProcess_JoinIdenticalVertices/* | aiProcess_CalcTangentSpace*/);
 
 	if (!scene)
 	{
 		printf("Model (%s) failed to load!", fileName, importer.GetErrorString());
-		return false;
+		return NE_FALSE;
 	}
 
 	LoadNode(scene->mRootNode, scene);
 
 	LoadMaterials(scene);
 
-	return true;
+	return NE_OK;
 }
 
 void GameObject::UsePrimitive(ObjectPrimitive primitive)
@@ -244,6 +244,7 @@ void GameObject::LoadNode(aiNode * node, const aiScene * scene)
 	for (size_t i = 0; i < node->mNumMeshes; i++)
 	{
 		LoadMesh(scene->mMeshes[node->mMeshes[i]], scene);
+		//float x = scene->mMeshes[i]->mBitangents->x;
 	}
 
 	for (size_t i = 0; i < node->mNumChildren; i++)

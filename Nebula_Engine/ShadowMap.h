@@ -1,15 +1,16 @@
 #pragma once
 
 #include <stdio.h>
-
 #include <GL\glew.h>
+
+#include "Util.h"
 
 class ShadowMap
 {
 public:
 	ShadowMap();
 
-	virtual bool Init(unsigned int width, unsigned int height);
+	virtual NE_ERROR Init(unsigned int width, unsigned int height);
 
 	virtual void Write();
 

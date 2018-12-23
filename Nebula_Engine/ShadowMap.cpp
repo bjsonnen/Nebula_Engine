@@ -8,7 +8,7 @@ ShadowMap::ShadowMap()
 	shadowMap = 0;
 }
 
-bool ShadowMap::Init(unsigned int width, unsigned int height)
+NE_ERROR ShadowMap::Init(unsigned int width, unsigned int height)
 {
 	shadowWidth = width; shadowHeight = height;
 
@@ -35,10 +35,10 @@ bool ShadowMap::Init(unsigned int width, unsigned int height)
 	if (Status != GL_FRAMEBUFFER_COMPLETE)
 	{
 		printf("Framebuffer error: %s\n", Status);
-		return false;
+		return NE_RENDERER;
 	}
 
-	return true;
+	return NE_OK;
 }
 
 void ShadowMap::Write()

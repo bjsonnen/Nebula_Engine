@@ -6,9 +6,21 @@
 
 #include "Window.h"
 #include "Texture.h"
+#include "GameObject.h"
 
 #include <stdio.h>
 #include <string>
+
+
+/*
+ * Dies ist eine Beispielklasse für die Aufteilung bei der Beta Abgabe
+ * Die Buttons wurde noch nicht verlinkt und es wurde nur beispielhaft 
+ * ein UI erstellt.
+ * 
+ * Eine Implementieren wurde in einer anderen Version, die nicht abgegeben 
+ * wurde, versucht, allerdings ist das auf Grund des Klassendesigns nicht 
+ * möglich. 
+ */
 
 class Ui
 {
@@ -87,12 +99,12 @@ private:
 	bool firstChange = false;
 
 	// GameObject informations
-	float position[3] = { 0.0f };
-	float rotation[3] = { 0.0f };
-	float scale[3] = { 1.0f };
+	float position[3] = { 0.0f, 0.0f, 0.0f };
+	float rotation[3] = { 0.0f, 0.0f, 0.0f };
+	float scale[3] = { 1.0f, 1.0f, 1.0f };
 	char dTexture[100] = {"C:/"};
 	char nTexture[100] = {"C:/"};
-	char* name = "GameObject 1";
+	char* name = "Object 1";
 	char oneByte[100] = {};
 
 	// Light informations
@@ -101,6 +113,7 @@ private:
 	float lightColor[3] = { 1.0f };
 	float lightIntensity = 1.0f;
 
+	GameObject go = GameObject();
 
 	ImVec4 mainLightColor = ImVec4(0.0f, 0.0f, 0.0f, 1.0f);
 	Window* mainWindow = nullptr;

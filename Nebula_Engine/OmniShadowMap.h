@@ -1,12 +1,15 @@
 #pragma once
+
 #include "ShadowMap.h"
+#include "Util.h"
+
 class OmniShadowMap :
 	public ShadowMap
 {
 public:
 	OmniShadowMap();
 
-	bool Init(unsigned int width, unsigned int height);
+	NE_ERROR Init(unsigned int width, unsigned int height);
 
 	void Write();
 

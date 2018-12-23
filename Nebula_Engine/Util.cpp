@@ -7,10 +7,6 @@
 const int MAX_POINT_LIGHTS = 3;
 const int MAX_SPOT_LIGHTS = 3;
 
-Util::Util()
-{
-}
-
 void Util::CalculateNormals(unsigned int * indices, unsigned int indiceCount, float * vertices, unsigned int verticeCount, unsigned int vLength, unsigned int normalOffset)
 {
 	for (size_t i = 0; i < indiceCount; i += 3)
@@ -38,7 +34,31 @@ void Util::CalculateNormals(unsigned int * indices, unsigned int indiceCount, fl
 	}
 }
 
-
-Util::~Util()
+unsigned int* Util::CalculateBitAngents(unsigned int * vertices, unsigned int UVoffset, unsigned int offset, unsigned int verticeCount)
 {
+	
+
+
+	return 0;
+}
+
+void Util::CheckForErrors(NE_ERROR error, char * file, int line)
+{
+	if (!(error == NE_OK))
+	{
+		printf("%s(%d): Nebula Engine error %d - %s\n", file, line, error, NE_ErrorString(error));
+	}
+}
+
+const char * Util::NE_ErrorString(NE_ERROR error)
+{
+	switch (error)
+	{
+	case NE_OK:			return "No errors.";
+	case NE_WARNING:	return "Simple warning.";
+	case NE_FATAL:		return "Important error, cant start game with this error.";
+	case NE_RENDERER:	return "Renderer error, contact graphics programmer immediately";
+	case NE_FALSE:		return "Simple false error";
+	default:			return "Unknown error";
+	}
 }

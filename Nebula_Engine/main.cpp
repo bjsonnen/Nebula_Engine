@@ -22,20 +22,20 @@ void CompileShaders()
 {
 	// Basic shader
 	Shader *shader1 = new Shader();
-	shader1->CreateFromFiles("Shaders/shader.vert", "Shaders/shader.frag");
+	NE_ERROR_CHECK(shader1->CreateFromFiles("Shaders/shader.vert", "Shaders/shader.frag"));
 	shaderList.push_back(*shader1);
 
 	// Used for the loading screen logo
 	shader2 = new Shader();
-	shader2->CreateFromFiles("Shaders/logo.vert", "Shaders/logo.frag");
+	NE_ERROR_CHECK(shader2->CreateFromFiles("Shaders/logo.vert", "Shaders/logo.frag"));
 
 	// HDR shader
 	screen = new Shader();
-	screen->CreateFromFiles("Shaders/screen.vert", "Shaders/screen.frag");
+	NE_ERROR_CHECK(screen->CreateFromFiles("Shaders/screen.vert", "Shaders/screen.frag"));
 
 	// Directional & omnidirectional shaders
-	directionalShadowShader.CreateFromFiles("Shaders/directional_shadow_map.vert", "Shaders/directional_shadow_map.frag");
-	omniShadowShader.CreateFromFiles("Shaders/omni_shadow_map.vert", "Shaders/omni_shadow_map.geom", "Shaders/omni_shadow_map.frag");
+	NE_ERROR_CHECK(directionalShadowShader.CreateFromFiles("Shaders/directional_shadow_map.vert", "Shaders/directional_shadow_map.frag"));
+	NE_ERROR_CHECK(omniShadowShader.CreateFromFiles("Shaders/omni_shadow_map.vert", "Shaders/omni_shadow_map.geom", "Shaders/omni_shadow_map.frag"));
 }
 
 // Render all objects
@@ -43,23 +43,36 @@ void RenderScene()
 {
 	glm::mat4 model;
 
-	for (int i = 0; i < modelList.size(); i++)
+	for (auto& m : modelList)
 	{
-		if(!modelList[i]->IsActive())
-			return;
-
 		model = glm::mat4();
-		model = glm::translate(model, modelList[i]->GetPosition());
-		model = glm::rotate(model, modelList[i]->GetDegrees() * toRadians, modelList[i]->GetRotation());
-		model = glm::scale(model, modelList[i]->GetScale());
-		// Upload model matrix to shader
+		model = glm::translate(model, m->GetPosition());
+		model = glm::rotate(model, m->GetDegrees() * toRadians, m->GetRotation());
+		model = glm::scale(model, m->GetScale());
 		shaderList[0].SetMatrix("model", model);
-		// Used for omnidirectional shadows
-		if (uniformModel != 0)
+		if(uniformModel != 0)
 			glUniformMatrix4fv(uniformModel, 1, false, glm::value_ptr(model));
 		defaultMaterial.UseMaterial(&shaderList[0]);
-		modelList[i]->RenderModel();
+		m->RenderModel();
 	}
+
+	//for (int i = 0; i < modelList.size(); i++)
+	//{
+	//	if(!modelList[i]->IsActive())
+	//		return;
+
+	//	model = glm::mat4();
+	//	model = glm::translate(model, modelList[i]->GetPosition());
+	//	model = glm::rotate(model, modelList[i]->GetDegrees() * toRadians, modelList[i]->GetRotation());
+	//	model = glm::scale(model, modelList[i]->GetScale());
+	//	// Upload model matrix to shader
+	//	shaderList[0].SetMatrix("model", model);
+	//	// Used for omnidirectional shadows
+	//	if (uniformModel != 0)
+	//		glUniformMatrix4fv(uniformModel, 1, false, glm::value_ptr(model));
+	//	defaultMaterial.UseMaterial(&shaderList[0]);
+	//	modelList[i]->RenderModel();
+	//}
 	uniformModel = 0;
 }
 
@@ -99,7 +112,7 @@ void OmniShadowMapPass(PointLight* light)
 	omniShadowShader.SetFloat("farPlane", light->GetFarPlane());
 	omniShadowShader.SetLightMatrices(light->CalculateLightTransform());
 
-	omniShadowShader.Validate();
+	NE_ERROR_CHECK(omniShadowShader.Validate());
 
 	RenderScene();
 
@@ -135,7 +148,7 @@ void RenderPass(glm::mat4 viewMatrix, glm::mat4 projectionMatrix)
 	shaderList[0].SetTexture("nTexture", 2);
 	shaderList[0].SetDirectionalShadowMap(3);
 
-	shaderList[0].Validate();
+	NE_ERROR_CHECK(shaderList[0].Validate());
 
 	RenderScene();
 }
@@ -167,13 +180,13 @@ void LoadData()
 	// Load textures into ram
 	for (int i = 0; i < textureList.size(); i++)
 	{
-		textureList[i]->LoadTexture();
+		NE_ERROR_CHECK(textureList[i]->LoadTexture());
 	}
 
 	// Load mesh data & textures into ram
 	for (int i = 0; i < modelList.size(); i++)
 	{
-		modelList[i]->LoadModel();
+		NE_ERROR_CHECK(modelList[i]->LoadModel());
 	}
 
 	// Loading screen finished
@@ -183,7 +196,7 @@ void LoadData()
 int main() 
 {
 	renderWindow = Window(1280, 720);
-	renderWindow.Initialise();
+	NE_ERROR_CHECK(renderWindow.Initialise());
 
 	EngineInitialization();
 
@@ -217,7 +230,7 @@ int main()
 	bool show_another_window = true;
 	ImVec4 clear_color = ImVec4(0.45f, 0.55f, 0.60f, 1.00f);
 
-	nebulaLogo.LoadTexture();
+	NE_ERROR_CHECK(nebulaLogo.LoadTexture());
 
 	while (!renderWindow.GetShouldClose())
 	{
@@ -237,6 +250,8 @@ int main()
 			tmp += renderWindow.GetDeltaTime();
 
 			glm::mat4 model = glm::mat4();
+
+			model = glm::translate(model, glm::vec3(-2.0f, 0.0f, -2.0f));
 
 			shader2->SetMatrix("projection", projection);
 			shader2->SetMatrix("view", camera.CalculateViewMatrix());
@@ -300,8 +315,6 @@ int main()
 		ImGui::Render();
 		ImGui_ImplOpenGL3_RenderDrawData(ImGui::GetDrawData());
 
-		//pp.EndParsing(test); // Display Post Processing
-
 		renderWindow.SwapBuffers();
 	}
 
@@ -354,7 +367,7 @@ Audio mainAudio = Audio("Audio/ps2.ogg");
 
 void Start()
 {
-	renderWindow.SetWireframe(false);
+	//renderWindow.SetWireframe(false);
 
 	go = GameObject("Models/ALucy.fbx");
 	go.SetScale(glm::vec3(0.00006f, 0.00006f, 0.00006f));
@@ -371,11 +384,9 @@ void Start()
 	modelList.push_back(&go2);
 
 	go3 = GameObject("Models/cube.obj");
-	go3.SetPosition(10.0f, 10.0f, 10.0f);
+	go3.SetPosition(15.0f, 0.0f, 0.0f);
 	go3.SetDefaultTexture("Textures/Unbekannt-1.png");
 	modelList.push_back(&go3);
-
-	renderWindow.SetRefreshRate(30);
 }
 
 void Update()
@@ -399,25 +410,31 @@ void Update()
 	modelList[0]->SetRotation(0.0f, -1.0f, 0.0f);
 
 	if (renderWindow.Key(Window::KeyCode::B))
-		mainAudio.Play();
+		mainAudio.Play3D(0.0f, 100.0f);
 
-	if (renderWindow.Key(Window::KeyCode::N))
-		secondAudio.Play();
+	//mainAudio.SetSpeed(2.0f);
 
-	if (renderWindow.Key(Window::KeyCode::T))
-	{
-		renderWindow.SetWireframe(false);
-	}
+	//if (renderWindow.Key(Window::KeyCode::N))
+	//	secondAudio.Play();
 
-	if (renderWindow.Key(Window::KeyCode::F))
-	{
-		renderWindow.SetWireframe(true);
-	}
+	//if (renderWindow.Key(Window::KeyCode::T))
+	//{
+	//	renderWindow.SetWireframe(false);
+	//}
+
+	//if (renderWindow.Key(Window::KeyCode::F))
+	//{
+	//	renderWindow.SetWireframe(true);
+	//}
 
 	if (renderWindow.Key(Window::KeyCode::C))
 		camera.DisableMouseMovement(true);
 
 	//mainLight.ChangeDirection(glm::vec3(20.0f, 20.0f, 20.0f));
 
-	renderWindow.SetTitle("Nebula Engine // FPS: " + std::to_string(renderWindow.GetFPS()) + " // Vertices: " + std::to_string(vert));
+	//renderWindow.SetTitle("Nebula Engine // FPS: " + std::to_string(renderWindow.GetFPS()) + " // Vertices: " + std::to_string(vert));
+}
+
+void LinesTest()
+{
 }

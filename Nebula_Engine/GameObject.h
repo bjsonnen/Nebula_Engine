@@ -10,6 +10,7 @@
 
 #include "Mesh.h"
 #include "Texture.h"
+#include "Util.h"
 
 #include <glm\mat4x4.hpp>
 #include <glm\gtc\matrix_transform.hpp>
@@ -71,7 +72,9 @@ public:
 
 	// Set rotation relative to an object
 	void LookAt(glm::vec3 pos);
+	// Set rotation relative to an object
 	void LookAt(glm::vec2 pos);
+	// Set rotation relative to an object
 	void LookAt(float x, float y, float z);
 	// Show or hide model
 	void SetActive(bool value);
@@ -102,10 +105,10 @@ public:
 	void SetFileLocation(std::string fileLocation);
 	// Load model
 	// Model is automatically loaded
-	bool LoadModel();
+	NE_ERROR LoadModel();
 	// Load model from string
 	// Model is NOT automatically loaded
-	bool LoadModel(const std::string& fileName);
+	NE_ERROR LoadModel(const std::string& fileName);
 	// Use Primitive as Object
 	void UsePrimitive(ObjectPrimitive primitive);
 	// Render the model
@@ -148,6 +151,7 @@ private:
 
 	bool activeModel = true;
 	bool usePrimitive = false;
+	bool drawWireframe = false;
 
 	glm::mat4 model = glm::mat4();
 

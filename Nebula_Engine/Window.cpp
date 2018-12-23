@@ -19,13 +19,13 @@ void Window::framebuffer_size_callback(GLFWwindow * window, int width, int heigh
 	glViewport(0, 0, width, height);
 }
 
-int Window::Initialise()
+NE_ERROR Window::Initialise()
 {
 	if (!glfwInit())
 	{
 		printf("Error Initialising GLFW");
 		glfwTerminate();
-		return 1;
+		return NE_FATAL;
 	}
 
 	glfwDefaultWindowHints();
@@ -42,7 +42,7 @@ int Window::Initialise()
 	{
 		printf("Unable to create GLFW Window!");
 		glfwTerminate();
-		return 1;
+		return NE_FATAL;
 	}
 
 	glfwGetFramebufferSize(mainWindow, &bufferWidth, &bufferHeight);
@@ -70,7 +70,7 @@ int Window::Initialise()
 		printf("Error: %s", glewGetErrorString(error));
 		glfwDestroyWindow(mainWindow);
 		glfwTerminate();
-		return 1;
+		return NE_FATAL;
 	}
 
 	glEnable(GL_DEPTH_TEST);
@@ -85,6 +85,7 @@ int Window::Initialise()
 	glFrontFace(GL_CW);
 
 	previousTime = glfwGetTime();
+	return NE_OK;
 }
 
 int Window::GetWindowWidth()
