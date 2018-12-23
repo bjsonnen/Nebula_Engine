@@ -16,9 +16,6 @@
     <ClCompile Include="Material.cpp">
       <Filter>Sourcefiles</Filter>
     </ClCompile>
-    <ClCompile Include="Math.cpp">
-      <Filter>Sourcefiles</Filter>
-    </ClCompile>
     <ClCompile Include="Mesh.cpp">
       <Filter>Sourcefiles</Filter>
     </ClCompile>
@@ -82,6 +79,9 @@
     <ClCompile Include="Ui.cpp">
       <Filter>Sourcefiles</Filter>
     </ClCompile>
+    <ClCompile Include="Transform.cpp">
+      <Filter>Headerfiles\Components</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Audio.h">
@@ -100,9 +100,6 @@
       <Filter>Headerfiles</Filter>
     </ClInclude>
     <ClInclude Include="Material.h">
-      <Filter>Headerfiles</Filter>
-    </ClInclude>
-    <ClInclude Include="Math.h">
       <Filter>Headerfiles</Filter>
     </ClInclude>
     <ClInclude Include="Mesh.h">
@@ -165,6 +162,15 @@
     <ClInclude Include="Ui.h">
       <Filter>Headerfiles</Filter>
     </ClInclude>
+    <ClInclude Include="ECManager.h">
+      <Filter>Headerfiles\Components</Filter>
+    </ClInclude>
+    <ClInclude Include="Transform.h">
+      <Filter>Headerfiles\Components</Filter>
+    </ClInclude>
+    <ClInclude Include="Components.h">
+      <Filter>Headerfiles\Components</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Headerfiles">
@@ -178,6 +184,9 @@
     </Filter>
     <Filter Include="ImgUi">
       <UniqueIdentifier>{9f59596f-c69f-461e-8af9-3b7e489a573d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Headerfiles\Components">
+      <UniqueIdentifier>{e338f8a4-ab37-4594-943d-aa24c12eaa2e}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
 </Project>

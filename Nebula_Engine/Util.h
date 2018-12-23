@@ -1,6 +1,9 @@
 #pragma once
 
 #include <iostream>
+#include <glm\glm.hpp>
+#include <glm\gtc\matrix_transform.hpp>
+#include <glm\gtc\type_ptr.hpp>
 
 // All nebula engine errors
 enum NE_ERROR
@@ -9,6 +12,9 @@ enum NE_ERROR
 	NE_WARNING,		// simple warning
 	NE_FATAL,		// fatal error, unable to start
 	NE_RENDERER,	// fatal renderer error, unable to start
+	NE_TEXTURE,		// unable to load texture
+	NE_SHADER,		// unable to compile shader
+	NE_OBJECT,		// unable to load object / render object
 	NE_FALSE		// simple false
 };
 
@@ -34,3 +40,24 @@ private:
 
 };
 
+class Math
+{
+public:
+	// Lerp a 3D Position slowly from one point another
+	static glm::vec3 Lerp(glm::vec3 start, glm::vec3 target, float time)
+	{
+		float x = start.x + time * (target.x - start.x);
+		float y = start.y + time * (target.y - start.y);
+		float z = start.z + time * (target.z - start.z);
+
+		return glm::vec3(x, y, z);
+	}
+	// Lerp a 2D Position slowly from one point another
+	static glm::vec2 Lerp(glm::vec3 start, glm::vec2 target, float time)
+	{
+		float x = start.x + time * (target.x - start.x);
+		float y = start.y + time * (target.y - start.y);
+
+		return glm::vec2(x, y);
+	}
+};

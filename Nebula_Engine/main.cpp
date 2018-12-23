@@ -56,6 +56,20 @@ void RenderScene()
 		m->RenderModel();
 	}
 
+	// Used for the entity-component system
+	//for (auto& e : entityList)
+	//{
+	//	model = glm::mat4();
+	//	model = glm::translate(model, e.GetComponent<Transform>().GetPosition());
+	//	model = glm::rotate(model, e.GetComponent<Transform>().GetDegrees() * toRadians, e.GetComponent<Transform>().GetRotation());
+	//	model = glm::scale(model, e.GetComponent<Transform>().GetScale());
+	//	shaderList[0].SetMatrix("model", model);
+	//	if(uniformModel != 0)
+	//		glUniformMatrix4fv(uniformModel, 1, false, glm::value_ptr(model));
+	//	defaultMaterial.UseMaterial(&shaderList[0]);
+	//	//e.GetComponent<GameObject>().RenderModel();
+	//}
+
 	//for (int i = 0; i < modelList.size(); i++)
 	//{
 	//	if(!modelList[i]->IsActive())
@@ -293,6 +307,7 @@ int main()
 
 			// User Update
 			Update();
+			manager.Update();
 		}
 		else
 			// Load all data
@@ -352,7 +367,6 @@ void EngineInitialization()
 	unsigned int uniformProjection = 0, uniformModel = 0, uniformView = 0, uniformEyePosition = 0,
 		uniformSpecularIntensity = 0, uniformShininess = 0;
 
-	//projection = glm::perspective(glm::radians(60.0f), (float)renderWindow.GetBufferWidth() / renderWindow.GetBufferHeight(), camera.GetNear(), camera.GetFar());
 	projection = renderWindow.CalculateProjectionMatrix(glm::radians(60.0f), (float)renderWindow.GetBufferWidth() / renderWindow.GetBufferHeight(), camera.GetNear(), camera.GetFar());
 }
 
@@ -365,9 +379,12 @@ GameObject go2;
 GameObject go3;
 Audio mainAudio = Audio("Audio/ps2.ogg");
 
+auto& newPlayer(manager.AddEntity());
+
 void Start()
 {
-	//renderWindow.SetWireframe(false);
+	newPlayer.AddComponent<Transform>();
+	entityList.push_back(&newPlayer);
 
 	go = GameObject("Models/ALucy.fbx");
 	go.SetScale(glm::vec3(0.00006f, 0.00006f, 0.00006f));
@@ -410,7 +427,7 @@ void Update()
 	modelList[0]->SetRotation(0.0f, -1.0f, 0.0f);
 
 	if (renderWindow.Key(Window::KeyCode::B))
-		mainAudio.Play3D(0.0f, 100.0f);
+		mainAudio.Play();
 
 	//mainAudio.SetSpeed(2.0f);
 

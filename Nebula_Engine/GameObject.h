@@ -102,6 +102,7 @@ public:
 	char* GetFileName();
 	// Set file location of the mesh
 	void SetFileLocation(char* fileLocation);
+	// Set file location of the mesh
 	void SetFileLocation(std::string fileLocation);
 	// Load model
 	// Model is automatically loaded

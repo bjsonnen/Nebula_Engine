@@ -175,7 +175,6 @@
     <ClCompile Include="LOD.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Material.cpp" />
-    <ClCompile Include="Math.cpp" />
     <ClCompile Include="Mesh.cpp" />
     <ClCompile Include="GameObject.cpp" />
     <ClCompile Include="OmniShadowMap.cpp" />
@@ -186,6 +185,7 @@
     <ClCompile Include="Skybox.cpp" />
     <ClCompile Include="SpotLight.cpp" />
     <ClCompile Include="Texture.cpp" />
+    <ClCompile Include="Transform.cpp" />
     <ClCompile Include="Ui.cpp" />
     <ClCompile Include="Util.cpp" />
     <ClCompile Include="Window.cpp" />
@@ -199,12 +199,13 @@
     <ClInclude Include="Audio.h" />
     <ClInclude Include="Camera.h" />
     <ClInclude Include="CommonValues.h" />
+    <ClInclude Include="Components.h" />
     <ClInclude Include="DirectionalLight.h" />
+    <ClInclude Include="ECManager.h" />
     <ClInclude Include="Light.h" />
     <ClInclude Include="LOD.h" />
     <ClInclude Include="main.h" />
     <ClInclude Include="Material.h" />
-    <ClInclude Include="Math.h" />
     <ClInclude Include="Mesh.h" />
     <ClInclude Include="GameObject.h" />
     <ClInclude Include="OmniShadowMap.h" />
@@ -215,6 +216,7 @@
     <ClInclude Include="Skybox.h" />
     <ClInclude Include="SpotLight.h" />
     <ClInclude Include="Texture.h" />
+    <ClInclude Include="Transform.h" />
     <ClInclude Include="Ui.h" />
     <ClInclude Include="Util.h" />
     <ClInclude Include="Window.h" />

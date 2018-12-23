@@ -1,9 +1,5 @@
 #include "Util.h"
 
-#include <glm\glm.hpp>
-#include <glm\gtc\matrix_transform.hpp>
-#include <glm\gtc\type_ptr.hpp>
-
 const int MAX_POINT_LIGHTS = 3;
 const int MAX_SPOT_LIGHTS = 3;
 
@@ -58,6 +54,9 @@ const char * Util::NE_ErrorString(NE_ERROR error)
 	case NE_WARNING:	return "Simple warning.";
 	case NE_FATAL:		return "Important error, cant start game with this error.";
 	case NE_RENDERER:	return "Renderer error, contact graphics programmer immediately";
+	case NE_OBJECT:		return "Unable to load Gameobject. Is the path correct?";
+	case NE_TEXTURE:	return "Unable to load Texture. Is the path/file ending correct?";
+	case NE_SHADER:		return "Unable to compile shader. ";
 	case NE_FALSE:		return "Simple false error";
 	default:			return "Unknown error";
 	}

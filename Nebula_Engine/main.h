@@ -35,11 +35,13 @@
 #include "SpotLight.h"
 #include "Material.h"
 #include "Audio.h"
-#include "Math.h"
 #include "GameObject.h"
 #include "Skybox.h"
 #include "Ui.h"
 #include "RootManager.h"
+
+#include "ECManager.h"
+#include "Components.h"
 
 // uniform variables
 unsigned int uniformProjection = 0, uniformModel = 0, uniformView = 0, uniformEyePosition = 0,
@@ -51,6 +53,7 @@ std::vector<Mesh*> meshList;
 std::vector<GameObject*> modelList;
 std::vector<Texture*> textureList;
 std::vector<Shader> shaderList;
+std::vector<Entity*> entityList;
 
 void TestVector(std::vector<float>& value);
 
@@ -61,6 +64,7 @@ Shader directionalShadowShader;
 Shader omniShadowShader;
 
 Camera camera;
+Manager manager;
 
 Shader* shader2;
 Shader* screen;
