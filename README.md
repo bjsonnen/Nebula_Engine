@@ -1,7 +1,7 @@
 # Nebula_Engine
 SAE Diploma Project written in C++ with OpenGL
 
-## Gettings Started
+## Getting Started
 
 ## SDKs
 
