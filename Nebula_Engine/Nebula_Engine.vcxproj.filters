@@ -82,6 +82,9 @@
     <ClCompile Include="Transform.cpp">
       <Filter>Headerfiles\Components</Filter>
     </ClCompile>
+    <ClCompile Include="Object.cpp">
+      <Filter>Headerfiles\Components</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Audio.h">
@@ -169,6 +172,9 @@
       <Filter>Headerfiles\Components</Filter>
     </ClInclude>
     <ClInclude Include="Components.h">
+      <Filter>Headerfiles\Components</Filter>
+    </ClInclude>
+    <ClInclude Include="Object.h">
       <Filter>Headerfiles\Components</Filter>
     </ClInclude>
   </ItemGroup>

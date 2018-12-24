@@ -8,18 +8,24 @@
 // All nebula engine errors
 enum NE_ERROR
 {
-	NE_OK,			// all fine
-	NE_WARNING,		// simple warning
-	NE_FATAL,		// fatal error, unable to start
-	NE_RENDERER,	// fatal renderer error, unable to start
-	NE_TEXTURE,		// unable to load texture
-	NE_SHADER,		// unable to compile shader
-	NE_OBJECT,		// unable to load object / render object
-	NE_FALSE		// simple false
+	NE_OK,						// all fine
+	NE_WARNING,					// simple warning
+	NE_FATAL,					// fatal error, unable to start
+	NE_RENDERER,				// fatal renderer error, unable to start
+	NE_TEXTURE,					// unable to load texture
+	NE_SHADER,					// unable to compile shader
+	NE_OBJECT,					// unable to load object / render object
+	NE_COMPONENT_ALREADY,		// Already added the component
+	NE_COMPONENT_NOT_FOUND,		// Unable to find Entity component
+	NE_FALSE					// simple false
 };
 
 // Check for errors, simple debug error message
 #define NE_ERROR_CHECK(_result) Util::CheckForErrors(_result, __FILE__, __LINE__);
+// Delete specific object
+#define NE_DELETE_OBJECT(_type) Util::DeletePointer(_type);
+#define NE_FORCE_INLINE __forceinline
+#define NE_INLINE inline
 
 class Util
 {
@@ -33,6 +39,9 @@ public:
 
 	// Check for errors, called via NE_ERROR_CHECK
 	static void CheckForErrors(NE_ERROR error, char* file, int line);
+
+	template<typename T>
+	static void DeletePointer(T* t) { if(t) delete t; }
 
 private:
 	// Returns error message

@@ -7,6 +7,8 @@
 #include <bitset>
 #include <array>
 
+#include <stdexcept>
+
 class Component;
 class Entity;
 
@@ -67,6 +69,12 @@ public:
 	template<typename T, typename... TArgs>
 	T& AddComponent(TArgs&&... mArgs)
 	{
+		if (HasComponent<T>())
+		{
+			NE_ERROR_CHECK(NE_COMPONENT_ALREADY);
+			// return something else
+		}
+
 		T* c(new T(std::forward<TArgs>(mArgs)...));
 		c->Entity = this;
 		std::unique_ptr<Component> uPtr(c);
@@ -81,6 +89,9 @@ public:
 
 	template<typename T> T& GetComponent() const
 	{
+		if (!HasComponent<T>())
+			NE_ERROR_CHECK(NE_COMPONENT_NOT_FOUND);
+
 		auto ptr(componentArray[GetComponentTypeID<T>()]);
 		return *static_cast<T*>(ptr);
 	}

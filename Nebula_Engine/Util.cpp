@@ -50,14 +50,16 @@ const char * Util::NE_ErrorString(NE_ERROR error)
 {
 	switch (error)
 	{
-	case NE_OK:			return "No errors.";
-	case NE_WARNING:	return "Simple warning.";
-	case NE_FATAL:		return "Important error, cant start game with this error.";
-	case NE_RENDERER:	return "Renderer error, contact graphics programmer immediately";
-	case NE_OBJECT:		return "Unable to load Gameobject. Is the path correct?";
-	case NE_TEXTURE:	return "Unable to load Texture. Is the path/file ending correct?";
-	case NE_SHADER:		return "Unable to compile shader. ";
-	case NE_FALSE:		return "Simple false error";
-	default:			return "Unknown error";
+	case NE_OK:						return "No errors.";
+	case NE_WARNING:				return "Simple warning.";
+	case NE_FATAL:					return "Important error, cant start game with this error.";
+	case NE_RENDERER:				return "Renderer error, contact graphics programmer immediately";
+	case NE_OBJECT:					return "Unable to load Gameobject. Is the path correct?";
+	case NE_TEXTURE:				return "Unable to load Texture. Is the path/file ending correct?";
+	case NE_SHADER:					return "Unable to compile shader. ";
+	case NE_COMPONENT_ALREADY:		return "Already added the component!";
+	case NE_COMPONENT_NOT_FOUND:	return "There is no component on the object!";
+	case NE_FALSE:					return "Simple false error";
+	default:						return "Unknown error";
 	}
 }

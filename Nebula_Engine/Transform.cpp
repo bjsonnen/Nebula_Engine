@@ -2,6 +2,9 @@
 
 void Transform::Init()
 {
+	pos = glm::vec3();
+	rota = glm::vec3();
+	scale = glm::vec3();
 }
 
 void Transform::Update()

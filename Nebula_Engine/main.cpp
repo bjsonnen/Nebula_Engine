@@ -43,32 +43,32 @@ void RenderScene()
 {
 	glm::mat4 model;
 
-	for (auto& m : modelList)
-	{
-		model = glm::mat4();
-		model = glm::translate(model, m->GetPosition());
-		model = glm::rotate(model, m->GetDegrees() * toRadians, m->GetRotation());
-		model = glm::scale(model, m->GetScale());
-		shaderList[0].SetMatrix("model", model);
-		if(uniformModel != 0)
-			glUniformMatrix4fv(uniformModel, 1, false, glm::value_ptr(model));
-		defaultMaterial.UseMaterial(&shaderList[0]);
-		m->RenderModel();
-	}
-
-	// Used for the entity-component system
-	//for (auto& e : entityList)
+	//for (auto& m : modelList)
 	//{
 	//	model = glm::mat4();
-	//	model = glm::translate(model, e.GetComponent<Transform>().GetPosition());
-	//	model = glm::rotate(model, e.GetComponent<Transform>().GetDegrees() * toRadians, e.GetComponent<Transform>().GetRotation());
-	//	model = glm::scale(model, e.GetComponent<Transform>().GetScale());
+	//	model = glm::translate(model, m->GetPosition());
+	//	model = glm::rotate(model, m->GetDegrees() * toRadians, m->GetRotation());
+	//	model = glm::scale(model, m->GetScale());
 	//	shaderList[0].SetMatrix("model", model);
 	//	if(uniformModel != 0)
 	//		glUniformMatrix4fv(uniformModel, 1, false, glm::value_ptr(model));
 	//	defaultMaterial.UseMaterial(&shaderList[0]);
-	//	//e.GetComponent<GameObject>().RenderModel();
+	//	m->RenderModel();
 	//}
+
+	// Used for the entity-component system
+	for (auto& e : entityList)
+	{
+		model = glm::mat4();
+		model = glm::translate(model, e->GetComponent<Transform>().GetPosition());
+		model = glm::rotate(model, e->GetComponent<Transform>().GetDegrees() * toRadians, e->GetComponent<Transform>().GetRotation());
+		model = glm::scale(model, e->GetComponent<Transform>().GetScale());
+		shaderList[0].SetMatrix("model", model);
+		if(uniformModel != 0)
+			glUniformMatrix4fv(uniformModel, 1, false, glm::value_ptr(model));
+		defaultMaterial.UseMaterial(&shaderList[0]);
+		e->GetComponent<Object>().RenderModel();
+	}
 
 	//for (int i = 0; i < modelList.size(); i++)
 	//{
@@ -294,20 +294,20 @@ int main()
 			testUi.DebugWindow(true, renderWindow.GetFPS(), renderWindow.GetDeltaTime());
 
 			// Disable movement when mouse is over ui
-			if (testUi.MouseOverUi())
-			{
-				camera.DisableMouseMovement(true);
-				camera.DisableKeyMovement(true);
-			}
-			else
-			{
-				camera.DisableMouseMovement(false);
-				camera.DisableKeyMovement(false);
-			}
+			//if (testUi.MouseOverUi())
+			//{
+			//	camera.DisableMouseMovement(true);
+			//	camera.DisableKeyMovement(true);
+			//}
+			//else
+			//{
+			//	camera.DisableMouseMovement(false);
+			//	camera.DisableKeyMovement(false);
+			//}
 
 			// User Update
-			Update();
 			manager.Update();
+			Update();
 		}
 		else
 			// Load all data
@@ -384,6 +384,11 @@ auto& newPlayer(manager.AddEntity());
 void Start()
 {
 	newPlayer.AddComponent<Transform>();
+	newPlayer.AddComponent<Object>();
+	newPlayer.AddComponent<Object>();
+	newPlayer.GetComponent<Object>().SetFileLocation("Models/cube.obj");
+	newPlayer.GetComponent<Object>().LoadModel();
+	newPlayer.GetComponent<Transform>().SetScale(10.0f, 1.0f, 10.0f);
 	entityList.push_back(&newPlayer);
 
 	go = GameObject("Models/ALucy.fbx");
@@ -417,6 +422,9 @@ void Update()
 		}
 	}
 
+	//newPlayer.GetComponent<Transform>().SetDegrees(newPlayer.GetComponent<Transform>().GetDegrees() + 1.0f);
+	//std::cout << newPlayer.GetComponent<Transform>().GetDegrees() << std::endl;
+
 	if (renderWindow.Key(Window::KeyCode::R))
 		multi *= 10;
 
@@ -444,8 +452,8 @@ void Update()
 	//	renderWindow.SetWireframe(true);
 	//}
 
-	if (renderWindow.Key(Window::KeyCode::C))
-		camera.DisableMouseMovement(true);
+	//if (renderWindow.Key(Window::KeyCode::C))
+	//	camera.DisableMouseMovement(true);
 
 	//mainLight.ChangeDirection(glm::vec3(20.0f, 20.0f, 20.0f));
 

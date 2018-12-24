@@ -5,6 +5,7 @@
 #include <glm\gtc\type_ptr.hpp>
 
 #include "ECManager.h"
+#include "Util.h"
 
 class Transform : public Component
 {
@@ -57,9 +58,9 @@ public:
 	glm::vec3 GetScale();
 
 private:
-	glm::vec3 pos = glm::vec3();
-	glm::vec3 rota = glm::vec3();
-	glm::vec3 scale = glm::vec3();
+	glm::vec3 pos;
+	glm::vec3 rota;
+	glm::vec3 scale;
 
 	float degrees = 0.0f;
 };
