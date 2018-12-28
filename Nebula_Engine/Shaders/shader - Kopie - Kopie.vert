@@ -3,8 +3,6 @@
 layout (location = 0) in vec3 pos;
 layout (location = 1) in vec2 tex;
 layout (location = 2) in vec3 norm;
-layout (location = 3) in vec3 test1;
-layout (location = 4) in vec3 test2;
 
 out vec4 vCol;
 out vec2 TexCoord;

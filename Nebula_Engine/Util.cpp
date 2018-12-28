@@ -57,11 +57,10 @@ void Util::CalculateBitAngents(unsigned int * vertices, const unsigned int UVoff
 
 		// -> Change AssImp vertices array - No place for Tangents and Bitangents!
 
-		// ToDo
 		pos1 = glm::vec3(vertices[i], vertices[i + 1], vertices[i + 2]);
 		pos2 = glm::vec3(vertices[i + verticeOffset], vertices[i + verticeOffset + 1], vertices[i + verticeOffset + 2]);
 		pos3 = glm::vec3(vertices[i + (verticeOffset * 2)], vertices[i + (verticeOffset * 2) + 1], vertices[i + (verticeOffset * 2) + 2]);
-		// ToDo
+
 		uv1 = glm::vec2(vertices[i + UVoffset], vertices[i + 1 + UVoffset]);
 		uv2 = glm::vec2(vertices[i + UVoffset + verticeOffset], vertices[i + 1 + UVoffset + verticeOffset]);
 		uv3 = glm::vec2(vertices[i + UVoffset + (verticeOffset * 2)], vertices[i + 1 + UVoffset + (verticeOffset * 2)]);
@@ -120,6 +119,7 @@ const char * Util::NE_ErrorString(NE_ERROR error)
 	case NE_COMPONENT_ALREADY:		return "Already added the component!";
 	case NE_COMPONENT_NOT_FOUND:	return "There is no component on the object!";
 	case NE_FALSE:					return "Simple false error";
+	case NE_UNABLE_BITANGENT:		return "Unable to create Tangents and Bitangents!";
 	default:						return "Unknown error";
 	}
 }

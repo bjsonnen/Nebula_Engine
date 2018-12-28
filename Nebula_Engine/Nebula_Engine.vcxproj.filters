@@ -194,5 +194,11 @@
     <Filter Include="Headerfiles\Components">
       <UniqueIdentifier>{e338f8a4-ab37-4594-943d-aa24c12eaa2e}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Headerfiles\Math">
+      <UniqueIdentifier>{efdfc1d6-8762-4f5b-8bf6-a88acc00642b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Sourcefiles\Math">
+      <UniqueIdentifier>{7bcae4d4-c2d3-4e6b-aa9f-326438963fd5}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
 </Project>

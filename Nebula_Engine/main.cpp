@@ -50,12 +50,12 @@ void RenderScene()
 		model = glm::translate(model, m->GetPosition());
 		model = glm::rotate(model, Math::ToRadians(m->GetDegrees()), m->GetRotation());
 		model = glm::scale(model, m->GetScale());
+		shaderList[0].SetBool("renderNormalMaps", m->GetRenderNormalMaps());
 		shaderList[0].SetMatrix("model", model);
 		if(uniformModel != 0)
 			glUniformMatrix4fv(uniformModel, 1, false, glm::value_ptr(model));
 		defaultMaterial.UseMaterial(&shaderList[0]);
 		m->RenderModel();
-		uniformModel = 0;
 	}
 
 	// Renderer for new objects
@@ -70,8 +70,9 @@ void RenderScene()
 			glUniformMatrix4fv(uniformModel, 1, false, glm::value_ptr(model));
 		defaultMaterial.UseMaterial(&shaderList[0]);
 		NE_ERROR_CHECK(e->GetComponent<Object>().RenderModel());
-		uniformModel = 0;
 	}
+
+	uniformModel = 0;
 }
 
 void DirectionalShadowMapPass(DirectionalLight* light)
@@ -373,18 +374,18 @@ Entity& secondPlayer(manager.AddEntity());
 
 void Start()
 {
-	newPlayer.AddComponent<Object>();
-	newPlayer.AddComponent<Transform>();
-	newPlayer.AddComponent<Audio>();
-	newPlayer.GetComponent<Object>().SetFileLocation("Models/cube.obj");
-	newPlayer.GetComponent<Transform>().SetPosition(15.0f, 0.0f, 0.0f);
-	entityList.push_back(&newPlayer);
+	//newPlayer.AddComponent<Object>();
+	//newPlayer.AddComponent<Transform>();
+	//newPlayer.AddComponent<Audio>();
+	//newPlayer.GetComponent<Object>().SetFileLocation("Models/cube.obj");
+	//newPlayer.GetComponent<Transform>().SetPosition(15.0f, 0.0f, 0.0f);
+	//entityList.push_back(&newPlayer);
 
-	secondPlayer.AddComponent<Object>();
-	secondPlayer.AddComponent<Transform>();
-	secondPlayer.GetComponent<Object>().SetFileLocation("Models/cube.obj");
-	secondPlayer.GetComponent<Transform>().SetPosition(-15.0f, 0.0f, 0.0f);
-	entityList.push_back(&secondPlayer);
+	//secondPlayer.AddComponent<Object>();
+	//secondPlayer.AddComponent<Transform>();
+	//secondPlayer.GetComponent<Object>().SetFileLocation("Models/cube.obj");
+	//secondPlayer.GetComponent<Transform>().SetPosition(-15.0f, 0.0f, 0.0f);
+	//entityList.push_back(&secondPlayer);
 
 	go = GameObject("Models/ALucy.fbx");
 	go.SetScale(glm::vec3(0.00006f, 0.00006f, 0.00006f));
@@ -400,10 +401,10 @@ void Start()
 	go2.SetScale(40.0f, 1.0f, 40.0f);
 	modelList.push_back(&go2);
 
-	//go3 = GameObject("Models/cube.obj");
-	//go3.SetPosition(15.0f, 0.0f, 0.0f);
-	//go3.SetDefaultTexture("Textures/Unbenannt-1.png");
-	//modelList.push_back(&go3);
+	go3 = GameObject("Models/cube.obj");
+	go3.SetPosition(15.0f, 0.0f, 0.0f);
+	go3.SetDefaultTexture("Textures/Unbenannt-1.png");
+	modelList.push_back(&go3);
 
 	//testObject = Object("Models/ALucy.fbx");
 	//testObject.SetScale(glm::vec3(0.00006f, 0.00006f, 0.00006f));

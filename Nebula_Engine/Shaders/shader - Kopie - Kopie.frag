@@ -57,8 +57,6 @@ struct Material
 uniform int pointLightCount;
 uniform int spotLightCount;
 
-uniform bool renderNormalMaps;
-
 uniform DirectionalLight directionalLight;
 uniform PointLight pointLights[10];
 uniform SpotLight spotLights[10];

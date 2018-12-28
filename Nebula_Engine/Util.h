@@ -17,6 +17,7 @@ enum NE_ERROR
 	NE_OBJECT,					// unable to load object / render object
 	NE_COMPONENT_ALREADY,		// Already added the component
 	NE_COMPONENT_NOT_FOUND,		// Unable to find Entity component
+	NE_UNABLE_BITANGENT,		// Unable to create tangents and bitangents
 	NE_FALSE					// simple false
 };
 

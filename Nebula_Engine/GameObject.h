@@ -17,6 +17,14 @@
 #include <glm\gtc\type_ptr.hpp>
 #include <glm\gtx\matrix_decompose.hpp>
 
+// Primitive Object for testing
+enum ObjectPrimitive
+{
+	Cube,
+	Sphere,
+	Plane
+};
+
 class GameObject
 {
 public:
@@ -25,14 +33,6 @@ public:
 	// Create a single model from file
 	// To load it manually use: LoadModel(std::string)
 	GameObject(char* filelocation);
-
-	// Primitive Object for testing
-	enum ObjectPrimitive
-	{
-		Cube,
-		Sphere, 
-		Plane
-	};
 
 	// Get the current Position
 	glm::vec3 GetPosition();
@@ -68,6 +68,11 @@ public:
 	// Scale is automatically applied every frame
 	void SetScale(glm::vec3 scale);
 
+	// Used by the renderer
+	// Returns true if the model has bitangents and tangents
+	bool GetRenderNormalMaps();
+
+	// Returns the degrees for the axis
 	float GetDegrees();
 
 	// Set rotation relative to an object
@@ -83,6 +88,7 @@ public:
 	// Rotate object round value
 	void Rotate(glm::vec3 rotation);
 
+	// Load default texture again and delete the old one in ram
 	void ReloadDefaultTexture();
 
 	// Set normal map for mesh
@@ -153,6 +159,7 @@ private:
 	bool activeModel = true;
 	bool usePrimitive = false;
 	bool drawWireframe = false;
+	bool useBitangent = true;
 
 	glm::mat4 model = glm::mat4();
 

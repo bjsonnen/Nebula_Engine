@@ -72,6 +72,11 @@ void GameObject::SetScale(glm::vec3 scale)
 	this->scale = scale;
 }
 
+bool GameObject::GetRenderNormalMaps()
+{
+	return useBitangent;
+}
+
 float GameObject::GetDegrees()
 {
 	return rotaDegrees;
@@ -185,7 +190,7 @@ void GameObject::SetFileLocation(std::string fileLocation)
 NE_ERROR GameObject::LoadModel()
 {
 	Assimp::Importer importer;
-	const aiScene *scene = importer.ReadFile(location, aiProcess_Triangulate | aiProcess_FlipUVs | aiProcess_GenSmoothNormals | aiProcess_JoinIdenticalVertices /*| aiProcess_CalcTangentSpace*/);
+	const aiScene *scene = importer.ReadFile(location, aiProcess_Triangulate | aiProcess_FlipUVs | aiProcess_GenSmoothNormals | aiProcess_JoinIdenticalVertices | aiProcess_CalcTangentSpace);
 
 	if (!scene)
 	{
@@ -205,7 +210,7 @@ NE_ERROR GameObject::LoadModel()
 NE_ERROR GameObject::LoadModel(const std::string & fileName)
 {
 	Assimp::Importer importer;
-	const aiScene *scene = importer.ReadFile(fileName, aiProcess_Triangulate | aiProcess_FlipUVs | aiProcess_GenSmoothNormals | aiProcess_JoinIdenticalVertices/* | aiProcess_CalcTangentSpace*/);
+	const aiScene *scene = importer.ReadFile(fileName, aiProcess_Triangulate | aiProcess_FlipUVs | aiProcess_GenSmoothNormals | aiProcess_JoinIdenticalVertices | aiProcess_CalcTangentSpace);
 
 	if (!scene)
 	{
@@ -244,7 +249,6 @@ void GameObject::LoadNode(aiNode * node, const aiScene * scene)
 	for (size_t i = 0; i < node->mNumMeshes; i++)
 	{
 		LoadMesh(scene->mMeshes[node->mMeshes[i]], scene);
-		//float x = scene->mMeshes[i]->mBitangents->x;
 	}
 
 	for (size_t i = 0; i < node->mNumChildren; i++)
@@ -275,6 +279,21 @@ void GameObject::LoadMesh(aiMesh * mesh, const aiScene * scene)
 			vertices.insert(vertices.end(), { 0.0f, 0.0f });
 		}
 		vertices.insert(vertices.end(), { -mesh->mNormals[i].x, -mesh->mNormals[i].y, -mesh->mNormals[i].z });
+		
+		// Add Tangents and Bitangents if available
+		if (mesh->HasTangentsAndBitangents())
+		{
+			//vertices.insert(vertices.end(), { mesh->mTangents[i].x, mesh->mTangents[i].y, mesh->mTangents[i].z });
+			//vertices.insert(vertices.end(), { mesh->mBitangents[i].x, mesh->mBitangents[i].y, mesh->mBitangents[i].z });
+		}
+		else if (useBitangent)
+		{
+			useBitangent = false;
+			//vertices.insert(vertices.end(), { 0.0f, 0.0f, 0.0f});
+			//vertices.insert(vertices.end(), { 0.0f, 0.0f, 0.0f});
+			NE_ERROR_CHECK(NE_UNABLE_BITANGENT);
+			printf("Unable to calculate Tangents and Bitangents for object %s\n", GetFileName());
+		}
 	}
 
 	for (size_t i = 0; i < mesh->mNumFaces; i++)
