@@ -43,51 +43,35 @@ void RenderScene()
 {
 	glm::mat4 model;
 
-	//for (auto& m : modelList)
-	//{
-	//	model = glm::mat4();
-	//	model = glm::translate(model, m->GetPosition());
-	//	model = glm::rotate(model, m->GetDegrees() * toRadians, m->GetRotation());
-	//	model = glm::scale(model, m->GetScale());
-	//	shaderList[0].SetMatrix("model", model);
-	//	if(uniformModel != 0)
-	//		glUniformMatrix4fv(uniformModel, 1, false, glm::value_ptr(model));
-	//	defaultMaterial.UseMaterial(&shaderList[0]);
-	//	m->RenderModel();
-	//}
+	// Renderer for old objects
+	for (auto& m : modelList)
+	{
+		model = glm::mat4();
+		model = glm::translate(model, m->GetPosition());
+		model = glm::rotate(model, Math::ToRadians(m->GetDegrees()), m->GetRotation());
+		model = glm::scale(model, m->GetScale());
+		shaderList[0].SetMatrix("model", model);
+		if(uniformModel != 0)
+			glUniformMatrix4fv(uniformModel, 1, false, glm::value_ptr(model));
+		defaultMaterial.UseMaterial(&shaderList[0]);
+		m->RenderModel();
+		uniformModel = 0;
+	}
 
-	// Used for the entity-component system
+	// Renderer for new objects
 	for (auto& e : entityList)
 	{
 		model = glm::mat4();
 		model = glm::translate(model, e->GetComponent<Transform>().GetPosition());
-		model = glm::rotate(model, e->GetComponent<Transform>().GetDegrees() * toRadians, e->GetComponent<Transform>().GetRotation());
+		model = glm::rotate(model, Math::ToRadians(e->GetComponent<Transform>().GetDegrees()), e->GetComponent<Transform>().GetRotation());
 		model = glm::scale(model, e->GetComponent<Transform>().GetScale());
 		shaderList[0].SetMatrix("model", model);
 		if(uniformModel != 0)
 			glUniformMatrix4fv(uniformModel, 1, false, glm::value_ptr(model));
 		defaultMaterial.UseMaterial(&shaderList[0]);
-		e->GetComponent<Object>().RenderModel();
+		NE_ERROR_CHECK(e->GetComponent<Object>().RenderModel());
+		uniformModel = 0;
 	}
-
-	//for (int i = 0; i < modelList.size(); i++)
-	//{
-	//	if(!modelList[i]->IsActive())
-	//		return;
-
-	//	model = glm::mat4();
-	//	model = glm::translate(model, modelList[i]->GetPosition());
-	//	model = glm::rotate(model, modelList[i]->GetDegrees() * toRadians, modelList[i]->GetRotation());
-	//	model = glm::scale(model, modelList[i]->GetScale());
-	//	// Upload model matrix to shader
-	//	shaderList[0].SetMatrix("model", model);
-	//	// Used for omnidirectional shadows
-	//	if (uniformModel != 0)
-	//		glUniformMatrix4fv(uniformModel, 1, false, glm::value_ptr(model));
-	//	defaultMaterial.UseMaterial(&shaderList[0]);
-	//	modelList[i]->RenderModel();
-	//}
-	uniformModel = 0;
 }
 
 void DirectionalShadowMapPass(DirectionalLight* light)
@@ -201,6 +185,10 @@ void LoadData()
 	for (int i = 0; i < modelList.size(); i++)
 	{
 		NE_ERROR_CHECK(modelList[i]->LoadModel());
+	}
+	for (int i = 0; i < entityList.size(); i++)
+	{
+		NE_ERROR_CHECK(entityList[i]->GetComponent<Object>().LoadModel());
 	}
 
 	// Loading screen finished
@@ -353,7 +341,7 @@ void EngineInitialization()
 		1.0f, 0.9568627f, 0.8392157f,
 		0.026f, 0.9f,
 		-10.0f, -12.0f, 18.5f);
-
+	
 	std::vector<std::string> skyboxFaces;
 	skyboxFaces.push_back("Textures/Skybox/lagoon_rt.tga");
 	skyboxFaces.push_back("Textures/Skybox/lagoon_lf.tga");
@@ -377,19 +365,26 @@ int multi = 10;
 GameObject go1;
 GameObject go2;
 GameObject go3;
+Object testObject;
 Audio mainAudio = Audio("Audio/ps2.ogg");
 
-auto& newPlayer(manager.AddEntity());
+Entity& newPlayer(manager.AddEntity());
+Entity& secondPlayer(manager.AddEntity());
 
 void Start()
 {
+	newPlayer.AddComponent<Object>();
 	newPlayer.AddComponent<Transform>();
-	newPlayer.AddComponent<Object>();
-	newPlayer.AddComponent<Object>();
+	newPlayer.AddComponent<Audio>();
 	newPlayer.GetComponent<Object>().SetFileLocation("Models/cube.obj");
-	newPlayer.GetComponent<Object>().LoadModel();
-	newPlayer.GetComponent<Transform>().SetScale(10.0f, 1.0f, 10.0f);
+	newPlayer.GetComponent<Transform>().SetPosition(15.0f, 0.0f, 0.0f);
 	entityList.push_back(&newPlayer);
+
+	secondPlayer.AddComponent<Object>();
+	secondPlayer.AddComponent<Transform>();
+	secondPlayer.GetComponent<Object>().SetFileLocation("Models/cube.obj");
+	secondPlayer.GetComponent<Transform>().SetPosition(-15.0f, 0.0f, 0.0f);
+	entityList.push_back(&secondPlayer);
 
 	go = GameObject("Models/ALucy.fbx");
 	go.SetScale(glm::vec3(0.00006f, 0.00006f, 0.00006f));
@@ -405,10 +400,14 @@ void Start()
 	go2.SetScale(40.0f, 1.0f, 40.0f);
 	modelList.push_back(&go2);
 
-	go3 = GameObject("Models/cube.obj");
-	go3.SetPosition(15.0f, 0.0f, 0.0f);
-	go3.SetDefaultTexture("Textures/Unbekannt-1.png");
-	modelList.push_back(&go3);
+	//go3 = GameObject("Models/cube.obj");
+	//go3.SetPosition(15.0f, 0.0f, 0.0f);
+	//go3.SetDefaultTexture("Textures/Unbenannt-1.png");
+	//modelList.push_back(&go3);
+
+	//testObject = Object("Models/ALucy.fbx");
+	//testObject.SetScale(glm::vec3(0.00006f, 0.00006f, 0.00006f));
+	//testList.push_back(&testObject);
 }
 
 void Update()

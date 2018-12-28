@@ -1,14 +1,25 @@
 #include "Object.h"
 
+#include "Util.h"
+
+Object::Object()
+{
+	location = "";
+}
+
+Object::Object(char* filelocation)
+{
+	location = filelocation;
+}
+
 void Object::Init()
 {
 	location = "";
 	activeModel = true;
-	usePrimitive = false;
-	drawWireframe = false;
-	indicesCount = 0;
-	verticesCount = 0;
-	defaultPath = "Textures/dev.jpg";
+}
+
+void Object::Update()
+{
 }
 
 int Object::GetVerticesCount()
@@ -19,16 +30,6 @@ int Object::GetVerticesCount()
 int Object::GetIndicesCount()
 {
 	return indicesCount;
-}
-
-void Object::SetActive(bool value)
-{
-	activeModel = value;
-}
-
-bool Object::IsActive()
-{
-	return activeModel;
 }
 
 void Object::ReloadDefaultTexture()
@@ -42,6 +43,12 @@ void Object::ReloadDefaultTexture()
 
 void Object::SetNormalMap(std::string normal)
 {
+	//Texture test = Texture(normal.c_str());
+	//if (meshToTex.size() == 0)
+	//	meshToTex.push_back(0);
+	//else
+	//	meshToTex.push_back(meshList.size() - 1);
+	//textureList.push_back(&test);
 }
 
 float * Object::GetVertices()
@@ -64,12 +71,36 @@ std::string Object::GetDefaultTexture()
 	return defaultPath;
 }
 
-char * Object::GetFileName()
+NE_ERROR Object::RenderModel()
+{
+	if (activeModel)
+	{
+		if (meshList.size() == 0)
+			return NE_RENDERER;
+
+		for (size_t i = 0; i < meshList.size(); i++)
+		{
+			unsigned int materialIndex = meshToTex[i];
+
+			if (materialIndex < textureList.size() && textureList[materialIndex])
+			{
+				textureList[materialIndex]->UseTexture();
+				normal.UseTexture(GL_TEXTURE2);
+			}
+			meshList[i]->RenderMesh();
+		}
+	}
+	else
+		return NE_RENDERER;
+	return NE_OK;
+}
+
+char* Object::GetFileName()
 {
 	return location;
 }
 
-void Object::SetFileLocation(char * fileLocation)
+void Object::SetFileLocation(char* fileLocation)
 {
 	location = fileLocation;
 }
@@ -134,51 +165,6 @@ void Object::UsePrimitive(ObjectPrimitive primitive)
 		usePrimitive = true;
 		break;
 	}
-}
-
-void Object::RenderModel()
-{
-	if (activeModel)
-	{
-		for (size_t i = 0; i < meshList.size(); i++)
-		{
-			unsigned int materialIndex = meshToTex[i];
-
-			if (materialIndex < textureList.size() && textureList[materialIndex])
-			{
-				textureList[materialIndex]->UseTexture();
-				normal.UseTexture(GL_TEXTURE2);
-			}
-			meshList[i]->RenderMesh();
-		}
-	}
-}
-
-void Object::ClearModel()
-{
-	for (size_t i = 0; i < meshList.size(); i++)
-	{
-		if (meshList[i])
-		{
-			delete meshList[i];
-			meshList[i] = nullptr;
-		}
-	}
-
-	for (size_t i = 0; i < textureList.size(); i++)
-	{
-		if (textureList[i])
-		{
-			delete textureList[i];
-			textureList[i] = nullptr;
-		}
-	}
-}
-
-
-Object::~Object()
-{
-	//NE_DELETE_OBJECT(location);
 }
 
 void Object::LoadNode(aiNode * node, const aiScene * scene)
@@ -311,4 +297,29 @@ void Object::PrimitivePlane()
 	mesh->CreateMesh(vertices, indices, 32, 6);
 	meshList.push_back(mesh);
 	delete mesh;
+}
+
+void Object::ClearModel()
+{
+	for (size_t i = 0; i < meshList.size(); i++)
+	{
+		if (meshList[i])
+		{
+			delete meshList[i];
+			meshList[i] = nullptr;
+		}
+	}
+
+	for (size_t i = 0; i < textureList.size(); i++)
+	{
+		if (textureList[i])
+		{
+			delete textureList[i];
+			textureList[i] = nullptr;
+		}
+	}
+}
+
+Object::~Object()
+{
 }

@@ -19,28 +19,39 @@
 
 #include "ECManager.h"
 
-enum ObjectPrimitive
-{
-	Cube,
-	Sphere,
-	Plane
-};
-
 class Object : public Component
 {
 public:
-	void Init() override;
+	// Create a single model from file
+	Object();
+	// Create a single model from file
+	// To load it manually use: LoadModel(std::string)
+	Object(char* filelocation);
 
+	void Init() override;
+	void Update() override;
+
+	// Primitive Object for testing
+	enum ObjectPrimitive
+	{
+		Cube,
+		Sphere,
+		Plane
+	};
+
+	// Get vertice count of each object
 	int GetVerticesCount();
+	// Get indices count of each object
 	int GetIndicesCount();
 
-	void SetActive(bool value);
-	bool IsActive();
-
 	void ReloadDefaultTexture();
+
+	// Set normal map for mesh
 	void SetNormalMap(std::string normal);
 
+	// Returns a pointer to an array with all vertices
 	float* GetVertices();
+	// Returns a pointer to an array with all indices
 	unsigned int* GetIndices();
 
 	// Set the default texture
@@ -64,7 +75,7 @@ public:
 	void UsePrimitive(ObjectPrimitive primitive);
 	// Render the model
 	// Is called automatically
-	void RenderModel();
+	NE_ERROR RenderModel();
 	// Delete all data on the ram
 	void ClearModel();
 
@@ -95,14 +106,22 @@ private:
 
 	char* location;
 
-	int indicesCount;
-	int verticesCount;
+	int indicesCount = 0;
+	int verticesCount = 0;
 
-	bool activeModel;
-	bool usePrimitive;
-	bool drawWireframe;
+	float rotaDegrees = 0.0f;
 
-	std::string defaultPath;
+	bool activeModel = true;
+	bool usePrimitive = false;
+	bool drawWireframe = false;
+
+	glm::mat4 model = glm::mat4();
+
+	glm::vec3 pos = glm::vec3(0.0f, 0.0f, 0.0f);
+	glm::vec3 rota = glm::vec3(0.0f, 1.0f, 0.0f);
+	glm::vec3 scale = glm::vec3(1.0f, 1.0f, 1.0f);
+
+	std::string defaultPath = "Textures/dev.jpg";
 
 	Texture normal;
 };

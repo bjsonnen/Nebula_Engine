@@ -35,6 +35,20 @@ Audio::Audio(std::string path)
 	free(buff);
 }
 
+void Audio::Init()
+{
+	result = FMOD::System_Create(&system);
+	FMOD_ERROR_CHECK(result);
+	result = system->getVersion(&version);
+	FMOD_ERROR_CHECK(result);
+	result = system->init(32, FMOD_INIT_NORMAL, extradriverdata);
+	FMOD_ERROR_CHECK(result);
+}
+
+void Audio::Update()
+{
+}
+
 NE_ERROR Audio::Init(char* file)
 {
 	LoadFileMemory(file, &buff, &length);
@@ -147,10 +161,26 @@ NE_ERROR Audio::SwitchPause()
 	return NE_OK;
 }
 
-void Audio::Update()
+void Audio::UpdateAudio()
 {
 	result = system->update();
 	FMOD_ERROR_CHECK(result);
+}
+
+NE_ERROR Audio::Release()
+{
+	if (!sound || !system)
+		return NE_FALSE;
+
+	if (sound)
+		result = sound->release();
+	FMOD_ERROR_CHECK(result);
+	if (system)
+		result = system->close();
+	FMOD_ERROR_CHECK(result);
+	result = system->release();
+	FMOD_ERROR_CHECK(result);
+	return NE_OK;
 }
 
 NE_ERROR Audio::SetSpeed(float speed)
@@ -183,9 +213,11 @@ float Audio::GetSpeed()
 
 Audio::~Audio()
 {
-	result = sound->release();
+	if(sound)
+		result = sound->release();
 	FMOD_ERROR_CHECK(result);
-	result = system->close();
+	if(system)
+		result = system->close();
 	FMOD_ERROR_CHECK(result);
 	result = system->release();
 	FMOD_ERROR_CHECK(result);

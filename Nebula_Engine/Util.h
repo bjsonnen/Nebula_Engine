@@ -8,9 +8,9 @@
 // All nebula engine errors
 enum NE_ERROR
 {
+	NE_FATAL,					// fatal error, unable to start
 	NE_OK,						// all fine
 	NE_WARNING,					// simple warning
-	NE_FATAL,					// fatal error, unable to start
 	NE_RENDERER,				// fatal renderer error, unable to start
 	NE_TEXTURE,					// unable to load texture
 	NE_SHADER,					// unable to compile shader
@@ -24,6 +24,7 @@ enum NE_ERROR
 #define NE_ERROR_CHECK(_result) Util::CheckForErrors(_result, __FILE__, __LINE__);
 // Delete specific object
 #define NE_DELETE_OBJECT(_type) Util::DeletePointer(_type);
+#define NE_DEBUG_LOG(_variable) Util::DebugLog(__variable);
 #define NE_FORCE_INLINE __forceinline
 #define NE_INLINE inline
 
@@ -35,7 +36,7 @@ public:
 		unsigned int vLength, unsigned int normalOffset);
 
 	// Calculate bitangents and return a pointer to the array
-	static unsigned int* CalculateBitAngents(unsigned int * vertices, unsigned int UVoffset, unsigned int offset, unsigned int verticeCount);
+	static void CalculateBitAngents(unsigned int * vertices, const unsigned int UVoffset, const unsigned int verticeOffset, const unsigned int verticeCount, const unsigned int tangentOffset);
 
 	// Check for errors, called via NE_ERROR_CHECK
 	static void CheckForErrors(NE_ERROR error, char* file, int line);
@@ -43,10 +44,12 @@ public:
 	template<typename T>
 	static void DeletePointer(T* t) { if(t) delete t; }
 
+	template<typename T>
+	static void DebugLog(T t);
+
 private:
 	// Returns error message
 	static const char* NE_ErrorString(NE_ERROR error);
-
 };
 
 class Math
@@ -69,4 +72,14 @@ public:
 
 		return glm::vec2(x, y);
 	}
+	// Convert degrees to radians
+	static float ToRadians(float degrees);
+	// Convert radians to degrees
+	static float ToDegrees(float radians);
 };
+
+template<typename T>
+inline void Util::DebugLog(T t)
+{
+	std::printf("");
+}

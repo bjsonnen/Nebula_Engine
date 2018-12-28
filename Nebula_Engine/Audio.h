@@ -6,16 +6,20 @@
 #include <string>
 
 #include "Util.h"
+#include "ECManager.h"
 
 #define FMOD_ERROR_CHECK(_result) CheckForErrors(_result, __FILE__, __LINE__)
 
-class Audio
+class Audio : public Component
 {
 public:
 	// Creates an object
 	Audio();
 	// Creates an object and load all data
 	Audio(std::string path);
+
+	void Init() override;
+	void Update() override;
 
 	// Load all data for the file
 	NE_ERROR Init(char* file);
@@ -37,7 +41,9 @@ public:
 	NE_ERROR SwitchPause();
 
 	// Used for 3D Audio
-	void Update();
+	void UpdateAudio();
+
+	NE_ERROR Release();
 
 	// Set the speed of the audio source
 	NE_ERROR SetSpeed(float speed);

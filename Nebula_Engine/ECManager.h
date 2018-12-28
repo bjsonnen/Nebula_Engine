@@ -54,8 +54,8 @@ private:
 public:
 	void Update()
 	{
-		for (auto& c : components) c->Update();
-		for (auto& c : components) c->Draw();
+		for (int i = 0; i < components.size(); i++) components[i]->Update();
+		for (int i = 0; i < components.size(); i++) components[i]->Draw();
 	}
 	void Draw() {}
 	bool IsActive() const { return active; }
@@ -72,6 +72,8 @@ public:
 		if (HasComponent<T>())
 		{
 			NE_ERROR_CHECK(NE_COMPONENT_ALREADY);
+			T* tmpT(Entity);
+			return T();
 			// return something else
 		}
 
@@ -105,11 +107,13 @@ private:
 public:
 	void Update()
 	{
-		for (auto& e : entities) e->Update();
+		for (int i = 0; i < entities.size(); i++) entities[i]->Update();
+		//for (auto& e : entities) e->Update();
 	}
 	void Draw()
 	{
-		for (auto& e : entities) e->Draw();
+		for (int i = 0; i < entities.size(); i++) entities[i]->Draw();
+		//for (auto& e : entities) e->Draw();
 	}
 
 	void Refresh()

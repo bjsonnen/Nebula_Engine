@@ -51,6 +51,7 @@ uniformDirectionalLightTransform = 0, uniformOmniLightPos = 0, uniformFarPlane =
 // lists
 std::vector<Mesh*> meshList;
 std::vector<GameObject*> modelList;
+std::vector<Object*> testList;
 std::vector<Texture*> textureList;
 std::vector<Shader> shaderList;
 std::vector<Entity*> entityList;
