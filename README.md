@@ -1,7 +1,8 @@
 # Nebula_Engine
 SAE Diploma Project written in C++ with OpenGL
 
-## Gettings Started
+## Getting Started
+Learn to code with the Nebula Engine -> [Github Wiki](https://github.com/Chalkece/Nebula_Engine/wiki)
 
 ## SDKs
 
