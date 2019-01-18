@@ -6,6 +6,8 @@ in vec3 Normal;
 in vec3 FragPos;
 in vec4 DirectionalLightSpacePos;
 
+in mat3 TBN;
+
 out vec4 color;
 
 vec3 mainColor;
@@ -56,6 +58,8 @@ struct Material
 
 uniform int pointLightCount;
 uniform int spotLightCount;
+
+uniform bool renderNormalMaps;
 
 uniform DirectionalLight directionalLight;
 uniform PointLight pointLights[10];
@@ -243,8 +247,10 @@ vec4 CalculateSpotLights()
 
 void main()
 {
-	normal = normalize(Normal);
-	//normal = normalize(2.0 * texture(nTexture, TexCoord).rgb - 1.0);
+	//normal = normalize(Normal);
+	normal = texture(nTexture, TexCoord).rgb;
+	normal = normalize(normal * 2.0 - 1.0);
+	normal = normalize(TBN * normal);
 
 	vec4 finalColor = CalculateDirectionalLight();
 	finalColor += CalculatePointLights();

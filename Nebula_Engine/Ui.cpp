@@ -147,7 +147,6 @@ void Ui::CreateGameObject()
 		ImGui::Separator();
 		if (ImGui::Button("Create GameObject"))
 		{
-			
 			// Create gameobject
 			go = GameObject();
 			go.SetFileLocation("Models/cube.obj");

@@ -21,6 +21,12 @@ enum NE_ERROR
 	NE_FALSE					// simple false
 };
 
+#ifndef _DEBUG 
+#define NE_ASSERT static_assert
+#else
+#define NE_ASSERT assert
+#endif
+
 // Check for errors, simple debug error message
 #define NE_ERROR_CHECK(_result) Util::CheckForErrors(_result, __FILE__, __LINE__);
 // Delete specific object
@@ -46,7 +52,39 @@ public:
 	static void DeletePointer(T* t) { if(t) delete t; }
 
 	template<typename T>
-	static void DebugLog(T t);
+	static void DebugLog(T t)
+	{
+		// -> Use objects!
+
+		/*if (std::is_same<T, int>::value)
+			printf("%d\n", (int)t);*/
+		//	std::cout << (int)T << std::endl;
+		//if(std::is_same<T, float>::value)
+		//	std::cout << (float)T << std::endl;
+		//if(std::is_same<T, unsigned int>::value)
+		//	std::cout << (unsigned int)T << std::endl;
+		//if(std::is_same<T, double>::value)
+		//	std::cout << (double)T << std::endl;
+
+		
+
+		//if (std::is_same<T, glm::vec2>::value)
+		//{
+		//	printf("Vector2 (%d / %d)\n", ((glm::vec2)t).x, ((glm::vec2)t).y);
+		//	return;
+		//}
+		//if (std::is_same<T, glm::vec3>::value)
+		//{
+		//	printf("Vector3 (%d / %d / %d)\n", ((glm::vec3)t).x, ((glm::vec3)t).y, ((glm::vec3)t).z);
+		////	printf("Vector3 (%d / %d / %d)\n", t.x, t.y, t.z);
+		//	return;
+		//}
+		//if (std::is_same<T, glm::vec4>::value)
+		//{
+		//	std::cout << "t" << std::endl;
+		//	return;
+		//}
+	}
 
 private:
 	// Returns error message
@@ -78,9 +116,3 @@ public:
 	// Convert radians to degrees
 	static float ToDegrees(float radians);
 };
-
-template<typename T>
-inline void Util::DebugLog(T t)
-{
-	std::printf("");
-}

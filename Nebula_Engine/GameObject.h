@@ -72,6 +72,10 @@ public:
 	// Returns true if the model has bitangents and tangents
 	bool GetRenderNormalMaps();
 
+	// Change the normal map of an object
+	// Dont forget to call ReloadDefaultTexture()
+	void SetNormalMap(char* location);
+
 	// Returns the degrees for the axis
 	float GetDegrees();
 
@@ -168,6 +172,7 @@ private:
 	glm::vec3 scale = glm::vec3(1.0f, 1.0f, 1.0f);
 
 	std::string defaultPath = "Textures/dev.jpg";
+	std::string defaultNormalPath = "Textures/normal.jpg";
 
 	Texture normal;
 };

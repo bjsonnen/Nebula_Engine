@@ -171,6 +171,7 @@
     <ClCompile Include="Audio.cpp" />
     <ClCompile Include="Camera.cpp" />
     <ClCompile Include="DirectionalLight.cpp" />
+    <ClCompile Include="ECManager.cpp" />
     <ClCompile Include="Light.cpp" />
     <ClCompile Include="LOD.cpp" />
     <ClCompile Include="main.cpp" />
@@ -221,6 +222,8 @@
     <ClInclude Include="Transform.h" />
     <ClInclude Include="Ui.h" />
     <ClInclude Include="Util.h" />
+    <ClInclude Include="Vector2.h" />
+    <ClInclude Include="Vector3.h" />
     <ClInclude Include="Window.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

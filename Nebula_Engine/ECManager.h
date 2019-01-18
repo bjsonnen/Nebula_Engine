@@ -7,7 +7,15 @@
 #include <bitset>
 #include <array>
 
+#include <assimp\Importer.hpp>
+#include <assimp\scene.h>
+#include <assimp\postprocess.h>
+
 #include <stdexcept>
+
+#include "Mesh.h"
+#include "Texture.h"
+#include "Util.h"
 
 class Component;
 class Entity;
@@ -57,6 +65,7 @@ public:
 		for (int i = 0; i < components.size(); i++) components[i]->Update();
 		for (int i = 0; i < components.size(); i++) components[i]->Draw();
 	}
+	// Render the model
 	void Draw() {}
 	bool IsActive() const { return active; }
 	void Destory() { active = false; }
@@ -65,16 +74,13 @@ public:
 	{
 		return componentBitSet[GetComponentTypeID<T>()];
 	}
-
 	template<typename T, typename... TArgs>
 	T& AddComponent(TArgs&&... mArgs)
 	{
 		if (HasComponent<T>())
 		{
 			NE_ERROR_CHECK(NE_COMPONENT_ALREADY);
-			T* tmpT(Entity);
 			return T();
-			// return something else
 		}
 
 		T* c(new T(std::forward<TArgs>(mArgs)...));
@@ -88,15 +94,82 @@ public:
 		c->Init();
 		return *c;
 	}
-
 	template<typename T> T& GetComponent() const
 	{
 		if (!HasComponent<T>())
+		{
 			NE_ERROR_CHECK(NE_COMPONENT_NOT_FOUND);
+			return T();
+		}
 
 		auto ptr(componentArray[GetComponentTypeID<T>()]);
 		return *static_cast<T*>(ptr);
 	}
+
+public:
+	// -------------------
+
+	enum ObjectPrimitive
+	{
+		Cube,
+		Sphere,
+		Plane
+	};
+
+	int GetVerticesCount();
+	int GetIndeciesCount();
+
+	void ReloadDefaultTexture();
+
+	void SetNormalMap(char* path);
+
+	float* GetVertices();
+	unsigned int* GetIndices();
+	void SetDefaultTexture(char* path);
+	char* GetDefaultTexture();
+
+	char* GetFileName();
+	void SetFileLocation(char* fileLocation);
+
+	NE_ERROR LoadModel();
+	NE_ERROR LoadModel(const char* fileName);
+
+	void UsePrimitibe(ObjectPrimitive primitive);
+
+	NE_ERROR RenderModel();
+	void ClearModel();
+private:
+	void LoadNode(aiNode* node, const aiScene* scene);
+	void LoadMesh(aiMesh* mesh, const aiScene* scene);
+	void LoadMaterials(const aiScene* scene);
+
+	void PrimitiveCube();
+	void PrimitiveSphere();
+	void PrimitivePlane();
+
+	// Mesh list
+	std::vector<Mesh*> meshList;
+	// Texture list
+	std::vector<Texture*> textureList;
+	// Material index
+	std::vector<unsigned int> meshToTex;
+
+	std::vector<float> vertexList;
+	std::vector<unsigned int> indexList;
+
+	char* location;
+
+	int indicesCount = 0;
+	int verticesCount = 0;
+
+	bool activeModel = true;
+	bool usePrimitive = false;
+	bool drawWireframe = false;
+
+	char* defaultPath = "Textures/dev.jpg";
+
+	Texture normal;
+
 };
 
 class Manager
@@ -112,7 +185,7 @@ public:
 	}
 	void Draw()
 	{
-		for (int i = 0; i < entities.size(); i++) entities[i]->Draw();
+		//for (int i = 0; i < entities.size(); i++) entities[i]->Draw();
 		//for (auto& e : entities) e->Draw();
 	}
 

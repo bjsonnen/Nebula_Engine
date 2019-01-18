@@ -17,6 +17,8 @@ float lastTime = 0.0f;
 
 float blackhawkAngle = 0.0f;
 
+#include "Vector2.h"
+
 // Compile all shaders & add to list
 void CompileShaders()
 {
@@ -59,6 +61,19 @@ void RenderScene()
 	}
 
 	// Renderer for new objects
+	//for (auto& e : entityList)
+	//{
+	//	model = glm::mat4();
+	//	model = glm::translate(model, e->GetComponent<Transform>().GetPosition());
+	//	model = glm::rotate(model, Math::ToRadians(e->GetComponent<Transform>().GetDegrees()), e->GetComponent<Transform>().GetRotation());
+	//	model = glm::scale(model, e->GetComponent<Transform>().GetScale());
+	//	shaderList[0].SetMatrix("model", model);
+	//	if(uniformModel != 0)
+	//		glUniformMatrix4fv(uniformModel, 1, false, glm::value_ptr(model));
+	//	defaultMaterial.UseMaterial(&shaderList[0]);
+	//	NE_ERROR_CHECK(e->GetComponent<Object>().RenderModel());
+	//}
+
 	for (auto& e : entityList)
 	{
 		model = glm::mat4();
@@ -66,10 +81,10 @@ void RenderScene()
 		model = glm::rotate(model, Math::ToRadians(e->GetComponent<Transform>().GetDegrees()), e->GetComponent<Transform>().GetRotation());
 		model = glm::scale(model, e->GetComponent<Transform>().GetScale());
 		shaderList[0].SetMatrix("model", model);
-		if(uniformModel != 0)
+		if (uniformModel != 0)
 			glUniformMatrix4fv(uniformModel, 1, false, glm::value_ptr(model));
 		defaultMaterial.UseMaterial(&shaderList[0]);
-		NE_ERROR_CHECK(e->GetComponent<Object>().RenderModel());
+		NE_ERROR_CHECK(e->RenderModel());
 	}
 
 	uniformModel = 0;
@@ -189,7 +204,8 @@ void LoadData()
 	}
 	for (int i = 0; i < entityList.size(); i++)
 	{
-		NE_ERROR_CHECK(entityList[i]->GetComponent<Object>().LoadModel());
+		//NE_ERROR_CHECK(entityList[i]->GetComponent<Object>().LoadModel());
+		NE_ERROR_CHECK(entityList[i]->LoadModel());
 	}
 
 	// Loading screen finished
@@ -220,18 +236,20 @@ int main()
 
 	testUi = Ui(&renderWindow);
 
-	IMGUI_CHECKVERSION();
-	ImGui::CreateContext();
-	ImGuiIO& io = ImGui::GetIO(); (void)io;
+	{
+		IMGUI_CHECKVERSION();
+		ImGui::CreateContext();
+		ImGuiIO& io = ImGui::GetIO(); (void)io;
 
-	ImGui_ImplGlfw_InitForOpenGL(renderWindow.GetWindow(), true);
-	ImGui_ImplOpenGL3_Init("#version 130");
+		ImGui_ImplGlfw_InitForOpenGL(renderWindow.GetWindow(), true);
+		ImGui_ImplOpenGL3_Init("#version 130");
 
-	ImGui::StyleColorsDark();
+		ImGui::StyleColorsDark();
 
-	bool show_demo_window = true;
-	bool show_another_window = true;
-	ImVec4 clear_color = ImVec4(0.45f, 0.55f, 0.60f, 1.00f);
+		bool show_demo_window = true;
+		bool show_another_window = true;
+		ImVec4 clear_color = ImVec4(0.45f, 0.55f, 0.60f, 1.00f);
+	}
 
 	NE_ERROR_CHECK(nebulaLogo.LoadTexture());
 
@@ -366,26 +384,32 @@ int multi = 10;
 GameObject go1;
 GameObject go2;
 GameObject go3;
-Object testObject;
 Audio mainAudio = Audio("Audio/ps2.ogg");
 
-Entity& newPlayer(manager.AddEntity());
+Entity& firstPlayer(manager.AddEntity());
 Entity& secondPlayer(manager.AddEntity());
 
 void Start()
 {
-	//newPlayer.AddComponent<Object>();
-	//newPlayer.AddComponent<Transform>();
-	//newPlayer.AddComponent<Audio>();
-	//newPlayer.GetComponent<Object>().SetFileLocation("Models/cube.obj");
-	//newPlayer.GetComponent<Transform>().SetPosition(15.0f, 0.0f, 0.0f);
-	//entityList.push_back(&newPlayer);
+	//firstPlayer.AddComponent<Object>();
+	//firstPlayer.AddComponent<Transform>();
+	//firstPlayer.AddComponent<Audio>();
+	//firstPlayer.GetComponent<Object>().SetFileLocation("Models/cube.obj");
+	//firstPlayer.GetComponent<Transform>().SetPosition(15.0f, 0.0f, 0.0f);
+	//entityList.push_back(&firstPlayer);
 
-	//secondPlayer.AddComponent<Object>();
-	//secondPlayer.AddComponent<Transform>();
-	//secondPlayer.GetComponent<Object>().SetFileLocation("Models/cube.obj");
-	//secondPlayer.GetComponent<Transform>().SetPosition(-15.0f, 0.0f, 0.0f);
-	//entityList.push_back(&secondPlayer);
+	/*firstPlayer.SetFileLocation("Models/ALucy.fbx");
+	firstPlayer.AddComponent<Transform>();
+	firstPlayer.GetComponent<Transform>().SetPosition(0.0f, 10.0f, 0.0f);
+	firstPlayer.GetComponent<Transform>().SetScale(glm::vec3(0.00006f, 0.00006f, 0.00006f));
+	entityList.push_back(&firstPlayer);*/
+
+	/*secondPlayer.AddComponent<Object>();
+	secondPlayer.AddComponent<Transform>();
+	secondPlayer.AddComponent<Transform>();
+	secondPlayer.GetComponent<Object>().SetFileLocation("Models/cube.obj");
+	secondPlayer.GetComponent<Transform>().SetPosition(-15.0f, 0.0f, 0.0f);
+	entityList.push_back(&secondPlayer);*/
 
 	go = GameObject("Models/ALucy.fbx");
 	go.SetScale(glm::vec3(0.00006f, 0.00006f, 0.00006f));
@@ -406,9 +430,18 @@ void Start()
 	go3.SetDefaultTexture("Textures/Unbenannt-1.png");
 	modelList.push_back(&go3);
 
+	Vector2 blubb;
+	printf("Blubb: %s\n", blubb.ToString());
+
 	//testObject = Object("Models/ALucy.fbx");
 	//testObject.SetScale(glm::vec3(0.00006f, 0.00006f, 0.00006f));
 	//testList.push_back(&testObject);
+
+	//Util::DebugLog(12.0f);
+	//Util::DebugLog(13.0);
+	//Util::DebugLog(14);
+	//Util::DebugLog(signed int());
+	
 }
 
 void Update()

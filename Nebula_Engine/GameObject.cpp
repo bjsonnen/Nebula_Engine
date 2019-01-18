@@ -77,6 +77,11 @@ bool GameObject::GetRenderNormalMaps()
 	return useBitangent;
 }
 
+void GameObject::SetNormalMap(char * location)
+{
+	normal.SetFileLocation(location);
+}
+
 float GameObject::GetDegrees()
 {
 	return rotaDegrees;
@@ -122,6 +127,7 @@ void GameObject::ReloadDefaultTexture()
 		textureList[i]->SetFileLocation(defaultPath);
 		textureList[i]->LoadTexture();
 	}
+	normal.LoadTexture();
 }
 
 void GameObject::SetNormalMap(std::string normal)
@@ -283,14 +289,15 @@ void GameObject::LoadMesh(aiMesh * mesh, const aiScene * scene)
 		// Add Tangents and Bitangents if available
 		if (mesh->HasTangentsAndBitangents())
 		{
-			//vertices.insert(vertices.end(), { mesh->mTangents[i].x, mesh->mTangents[i].y, mesh->mTangents[i].z });
-			//vertices.insert(vertices.end(), { mesh->mBitangents[i].x, mesh->mBitangents[i].y, mesh->mBitangents[i].z });
+			vertices.insert(vertices.end(), { mesh->mTangents[i].x, mesh->mTangents[i].y, mesh->mTangents[i].z });
+			vertices.insert(vertices.end(), { mesh->mBitangents[i].x, mesh->mBitangents[i].y, mesh->mBitangents[i].z });
+			//printf("Bitangent X: %d // Bitangent Y: %d // Bitangent Z: %d\n", mesh->mBitangents[i].x, mesh->mBitangents[i].y, mesh->mBitangents[i].z);
 		}
 		else if (useBitangent)
 		{
 			useBitangent = false;
-			//vertices.insert(vertices.end(), { 0.0f, 0.0f, 0.0f});
-			//vertices.insert(vertices.end(), { 0.0f, 0.0f, 0.0f});
+			vertices.insert(vertices.end(), { 0.0f, 0.0f, 0.0f});
+			vertices.insert(vertices.end(), { 0.0f, 0.0f, 0.0f});
 			NE_ERROR_CHECK(NE_UNABLE_BITANGENT);
 			printf("Unable to calculate Tangents and Bitangents for object %s\n", GetFileName());
 		}
@@ -338,13 +345,37 @@ void GameObject::LoadMaterials(const aiScene * scene)
 
 				if (!textureList[i]->LoadTexture())
 				{
-					printf("Unable to load texture: %s\n", texPath);
+					NE_ERROR_CHECK(NE_ERROR::NE_TEXTURE);
 					delete textureList[i];
 					textureList[i] = nullptr;
 				}
 				normal.LoadTexture();
 			}
 		}
+		//if (material->GetTextureCount(aiTextureType_NORMALS))
+		//{
+		//	aiString path;
+		//	if (material->GetTexture(aiTextureType_NORMALS, 0, &path) == AI_SUCCESS)
+		//	{
+		//		int idx = std::string(path.data).rfind("\\");
+		//		std::string filename = std::string(path.data).substr(idx + 1);
+		//		std::string texPath = std::string("Textures/") + filename;
+
+		//		normal.SetFileLocation(texPath);
+
+		//		if (!normal.LoadTexture())
+		//		{
+		//			NE_ERROR_CHECK(NE_ERROR::NE_TEXTURE);
+		//			normal.SetFileLocation(defaultNormalPath);
+		//			normal.LoadTexture();
+		//		}
+		//	}
+		//}
+		//else
+		//{
+		//	normal.SetFileLocation(defaultNormalPath);
+		//	normal.LoadTexture();
+		//}
 
 		// if texture is not available, use default
 		if (!textureList[i])
