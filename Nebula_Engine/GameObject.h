@@ -25,6 +25,20 @@ enum ObjectPrimitive
 	Plane
 };
 
+enum ObjectColor
+{
+	Red,
+	Blue,
+	Green,
+	Gray,
+	Purple,
+	Yellow,
+	Orange,
+	Black,
+	White
+};
+
+
 class GameObject
 {
 public:
@@ -78,6 +92,17 @@ public:
 
 	// Returns the degrees for the axis
 	float GetDegrees();
+
+	// Set the main color of the object
+	// White = Textures only
+	void ChangeMainColor(glm::vec3 color);
+	
+	// Set the main color of the object
+	// White = Textures only
+	void ChangeMainColor(ObjectColor color);
+
+	// Returns the main color of the object
+	glm::vec3 GetMainColor();
 
 	// Set rotation relative to an object
 	void LookAt(glm::vec3 pos);
@@ -171,9 +196,10 @@ private:
 	glm::vec3 rota = glm::vec3(0.0f, 1.0f, 0.0f);
 	glm::vec3 scale = glm::vec3(1.0f, 1.0f, 1.0f);
 
+	glm::vec3 mainColor = glm::vec3(1.0f, 1.0f, 1.0f);
+
 	std::string defaultPath = "Textures/dev.jpg";
 	std::string defaultNormalPath = "Textures/normal.jpg";
 
 	Texture normal;
 };
-

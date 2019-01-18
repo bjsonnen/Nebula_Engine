@@ -43,6 +43,9 @@
 #include "ECManager.h"
 #include "Components.h"
 
+#include "Vector2.h"
+#include "RootManager.h"
+
 // uniform variables
 unsigned int uniformProjection = 0, uniformModel = 0, uniformView = 0, uniformEyePosition = 0,
 uniformSpecularIntensity = 0, uniformShininess = 0,
@@ -56,13 +59,15 @@ std::vector<Texture*> textureList;
 std::vector<Shader> shaderList;
 std::vector<Entity*> entityList;
 
-void TestVector(std::vector<float>& value);
+std::vector<GameObject> objectList;
 
 // objects
 Window renderWindow;
 
 Shader directionalShadowShader;
 Shader omniShadowShader;
+
+RootManager rm;
 
 Camera camera;
 Manager manager;

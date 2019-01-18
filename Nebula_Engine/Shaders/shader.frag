@@ -77,6 +77,7 @@ uniform OmniShadowMap omniShadowMaps[10 + 10];
 uniform Material material;
 
 uniform vec3 eyePosition;
+uniform vec3 primaryColor;
 
 vec3 normal;
 
@@ -266,6 +267,7 @@ void main()
 	vec4 texColor = texture(dTexture, TexCoord);
 	
 	color = vec4(texColor.xyz * finalColor.xyz, 0.0);
+	color = vec4(color.rgb * primaryColor, 1.0);
 	
 	float gamma = 2.2;
 	color.rgb = pow(color.rgb, vec3(1.0/gamma));

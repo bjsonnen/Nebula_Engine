@@ -87,6 +87,50 @@ float GameObject::GetDegrees()
 	return rotaDegrees;
 }
 
+void GameObject::ChangeMainColor(glm::vec3 color)
+{
+	mainColor = color;
+}
+
+void GameObject::ChangeMainColor(ObjectColor color)
+{
+	switch (color)
+	{
+	case ObjectColor::Red:
+		mainColor = glm::vec3(1.0f, 0.0f, 0.0f);
+		break;
+	case ObjectColor::Blue:
+		mainColor = glm::vec3(0.0f, 0.0f, 1.0f);
+		break;
+	case ObjectColor::Green:
+		mainColor = glm::vec3(0.0f, 1.0f, 0.0f);
+		break;
+	case ObjectColor::Gray:
+		mainColor = glm::vec3(0.5f, 0.5f, 0.5f);
+		break;
+	case ObjectColor::Purple:
+		mainColor = glm::vec3(0.70196078f, 0.13f, 0.64313725f);
+		break;
+	case ObjectColor::Yellow:
+		mainColor = glm::vec3(0.81176470f, 0.83921568f, 0.09411764f);
+		break;
+	case ObjectColor::Orange:
+		mainColor = glm::vec3(0.839215686f, 0.53f, 0.094117647f);
+		break;
+	case ObjectColor::Black:
+		mainColor = glm::vec3(0.0f, 0.0f, 0.0f);
+		break;
+	case ObjectColor::White:
+		mainColor = glm::vec3(1.0f, 1.0f, 1.0f);
+		break;
+	}
+}
+
+glm::vec3 GameObject::GetMainColor()
+{
+	return mainColor;
+}
+
 void GameObject::LookAt(glm::vec3 pos)
 {
 	glm::vec3 dir = this->pos - pos;
