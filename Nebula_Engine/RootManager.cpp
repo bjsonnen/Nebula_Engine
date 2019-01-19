@@ -1,9 +1,5 @@
 #include "RootManager.h"
 
-RootManager::RootManager()
-{
-}
-
 void RootManager::EngineInitialization(Window& window, Camera& cam, Material& mat1, Material& mat2, DirectionalLight& light,
 	Skybox& skybox, std::vector<Shader>& shaderList)
 {
@@ -61,23 +57,64 @@ void RootManager::EngineUpdate(std::vector<GameObject*>* objectList, Camera& cam
 void RootManager::EngineLoading(std::vector<Texture*>* textureList, std::vector<GameObject*>* objectList, 
 	bool& loading)
 {
-	for (int i = 0; i < textureList->size(); i++)
+	for (int i = 0; i < this->textureList->size(); i++)
 	{
-		NE_ERROR_CHECK(textureList->at(i)->LoadTexture());
+		NE_ERROR_CHECK(this->textureList->at(i)->LoadTexture());
 	}
 
-	for (int i = 0; i < objectList->size(); i++)
+	for (int i = 0; i < this->objectList->size(); i++)
 	{
-		NE_ERROR_CHECK(objectList->at(i)->LoadModel());
+		NE_ERROR_CHECK(this->objectList->at(i)->LoadModel());
 	}
 
+	this->loading = false;
 	loading = false;
 }
 
-bool RootManager::MainLoop(Window * window)
+void RootManager::EngineVariablesUpdate(std::vector<Texture*>* textureList, 
+	std::vector<GameObject*>* objectList, glm::mat4 projection)
 {
-	while (!window->GetShouldClose())
+	this->textureList = textureList;
+	this->objectList = objectList;
+	this->projection = projection;
+}
+
+bool RootManager::MainLoop(bool windowShouldClose, Window& window, void* Start, void* Update)
+{
+	if (firstStart)
 	{
+		debugWindow = Ui(&renderWindow);
+
+		{
+			IMGUI_CHECKVERSION();
+			ImGui::CreateContext();
+			ImGuiIO& io = ImGui::GetIO(); (void)io;
+
+			ImGui_ImplGlfw_InitForOpenGL(renderWindow.GetWindow(), true);
+			ImGui_ImplOpenGL3_Init("#version 130");
+
+			ImGui::StyleColorsDark();
+
+			bool show_demo_window = true;
+			bool show_another_window = true;
+			ImVec4 clear_color = ImVec4(0.45f, 0.55f, 0.60f, 1.00f);
+		}
+
+		// Create nebula engine logo for the loading screen
+		//CreateNebulaLogo();
+		// Load texture
+		//nebulaLogo.LoadTexture();
+
+		((void(*)(void))Start)();
+
+		firstStart = false;
+	}
+	else
+	{
+		ImGui_ImplOpenGL3_NewFrame();
+		ImGui_ImplGlfw_NewFrame();
+		ImGui::NewFrame();
+
 		// Loading
 		if (loading)
 		{
@@ -85,73 +122,70 @@ bool RootManager::MainLoop(Window * window)
 			glClear(GL_COLOR_BUFFER_BIT);
 
 			// ToDo
-			//shader2->UseShader();
-
-			//tmp += renderWindow.GetDeltaTime();
+			//nebulaLogoShader.UseShader();
 
 			//glm::mat4 model = glm::mat4();
 
 			//model = glm::translate(model, glm::vec3(-2.0f, 0.0f, -2.0f));
 
-			//shader2->SetMatrix("projection", projection);
-			//shader2->SetMatrix("view", camera.CalculateViewMatrix());
-			//shader2->SetMatrix("model", model);
+			//nebulaLogoShader.SetMatrix("projection", projection);
+			//nebulaLogoShader.SetMatrix("view", camera.CalculateViewMatrix());
+			//nebulaLogoShader.SetMatrix("model", model);
 
-			//shader2->SetTexture("sTexture", 0);
+			//nebulaLogoShader.SetTexture("sTexture", 0);
 
 			//nebulaLogo.UseTexture(GL_TEXTURE0);
-			//NebulaEngineLogo.RenderMesh();
+			//nebulaEngineLogo.RenderMesh();
 
-			renderWindow.SwapBuffers();
+			window.SwapBuffers();
 		}
 
-		renderWindow.WindowUpdate();
-		renderWindow.SetVSync(false);
+		window.WindowUpdate();
+		window.SetVSync(false);
 
 		if (!loading)
 		{
-			camera.KeyControl(renderWindow.GetWindow(), renderWindow.GetDeltaTime());
-			camera.MouseControl(renderWindow.GetXChange(), renderWindow.GetYChange());
+			camera.KeyControl(window.GetWindow(), window.GetDeltaTime());
+			camera.MouseControl(window.GetXChange(), window.GetYChange());
 
-			/*manager.Update();
-			Update();*/
+			debugWindow.DebugWindow(true, renderWindow.GetFPS(), renderWindow.GetDeltaTime());
+
+			// Update
+			//manager.Update();
+			((void(*)(void))Update)();
 		}
 		else
 		{
 			// ToDo
-			EngineLoading(&textureList, objectList, loading);
+			EngineLoading(textureList, objectList, loading);
 		}
 
-		EngineUpdate(objectList, camera, new PointLight(), new SpotLight(), 0, 0, glm::mat4(), &mainLight);
+		EngineUpdate(objectList, camera, pointLights, spotLights, 0, 0, projection, &mainLight);
 
-		renderWindow.SwapBuffers();
+		ImGui::Render();
+		ImGui_ImplOpenGL3_RenderDrawData(ImGui::GetDrawData());
+
+		window.SwapBuffers();
 	}
+
 	return false;
 }
 
-void RootManager::CompileCustomShaders(void * blubb)
+void RootManager::CompileCustomShaders(void * custom)
 {
-	((void(*)(void))blubb)();
+	((void(*)(void))custom)();
+}
+
+void RootManager::ShutDown()
+{
+	ImGui_ImplOpenGL3_Shutdown();
+	ImGui_ImplGlfw_Shutdown();
+	ImGui::DestroyContext();
 }
 
 void RootManager::RenderScene()
 {
 	glm::mat4 model;
-
-	//for (int i = 0; i < objectList.size(); i++)
-	//{
-	//	model = glm::mat4();
-	//	model = glm::translate(model, objectList[i]->GetPosition());
-	//	model = glm::rotate(model, Math::ToRadians(objectList[i]->GetDegrees()), objectList[i]->GetRotation());
-	//	model = glm::scale(model, objectList[i]->GetScale());
-	//	shaderList[0].SetBool("renderNormalMaps", objectList[i]->GetRenderNormalMaps());
-	//	shaderList[0].SetMatrix("model", model);
-	//	shaderList[0].SetVector3("primaryColor", objectList[i]->GetMainColor());
-	//	if(uniformModel != 0)
-	//		glUniformMatrix4fv(uniformModel, 1, false, glm::value_ptr(model));
-	//	defaultMaterial.UseMaterial(&shaderList[0]);
-	//	objectList[i]->RenderModel();
-	//}
 
 	for (int i = 0; i < objectList->size(); i++)
 	{
@@ -171,6 +205,27 @@ void RootManager::RenderScene()
 	uniformModel = 0;
 }
 
+void RootManager::CreateNebulaLogo()
+{
+	float vertices[] =
+	{
+		0.0f, 0.0f, 0.0f, 0.0f, 0.0f, 0.0f, 0.0f, 0.0f,
+		0.0f, 1.0f, 0.0f, 0.0f, 1.0f, 0.0f, 0.0f, 0.0f,
+		1.0f, 1.0f, 0.0f, 1.0f, 1.0f, 0.0f, 0.0f, 0.0f,
+		1.0f, 0.0f, 0.0f, 1.0f, 0.0f, 0.0f, 0.0f, 0.0f
+	};
+
+	unsigned int indices[] =
+	{
+		0, 1, 2,
+		0, 2, 3
+	};
+
+	Util::CalculateNormals(indices, 6, vertices, 32, 8, 5);
+
+	nebulaEngineLogo.CreateMesh(vertices, indices, 32, 6);
+}
+
 void RootManager::CompileShaders()
 {
 	Shader* shader1 = new Shader();
@@ -180,10 +235,8 @@ void RootManager::CompileShaders()
 	NE_ERROR_CHECK(directionalShadowShader.CreateFromFiles("Shaders/directional_shadow_map.vert", "Shaders/directional_shadow_map.frag"));
 
 	NE_ERROR_CHECK(omniShadowShader.CreateFromFiles("Shaders/omni_shadow_map.vert", "Shaders/omni_shadow_map.geom", "Shaders/omni_shadow_map.frag"));
-}
-
-RootManager::~RootManager()
-{
+	
+	NE_ERROR_CHECK(nebulaLogoShader.CreateFromFiles("Shaders/logo.vert", "Shaders/logo.frag"));
 }
 
 void RootManager::OmniShadowMapPass(PointLight * light)

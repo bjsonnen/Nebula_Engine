@@ -85,155 +85,43 @@ void Update()
 // Compile own Shaders 
 void CompileShaders()
 {
-	// Used for the loading screen logo
-	shader2 = new Shader();
-	NE_ERROR_CHECK(shader2->CreateFromFiles("Shaders/logo.vert", "Shaders/logo.frag"));
-
 	// HDR shader
 	screen = new Shader();
 	NE_ERROR_CHECK(screen->CreateFromFiles("Shaders/screen.vert", "Shaders/screen.frag"));
 }
 
-// Used to create the logo for the loading screen
-void CreateLogo()
-{
-	float vertices[] =
-	{
-		0.0f, 0.0f, 0.0f, 0.0f, 0.0f, 0.0f, 0.0f, 0.0f,
-		0.0f, 1.0f, 0.0f, 0.0f, 1.0f, 0.0f, 0.0f, 0.0f,
-		1.0f, 1.0f, 0.0f, 1.0f, 1.0f, 0.0f, 0.0f, 0.0f,
-		1.0f, 0.0f, 0.0f, 1.0f, 0.0f, 0.0f, 0.0f, 0.0f
-	};
-
-	unsigned int indices[] =
-	{
-		0, 1, 2,
-		0, 2, 3
-	};
-
-	util.CalculateNormals(indices, 6, vertices, 32, 8, 5);
-
-	NebulaEngineLogo.CreateMesh(vertices, indices, 32, 6);
-}
-
 int main() 
 {
+	// Window init
 	renderWindow = Window(1280, 720);
 	NE_ERROR_CHECK(renderWindow.Initialise());
 
-	rm.EngineInitialization(renderWindow, camera, defaultMaterial, dullMaterial, mainLight, skybox, shaderList);
+	// Engine Setup
+	rm.EngineInitialization(renderWindow, camera, defaultMaterial, dullMaterial, mainLight, 
+		skybox, shaderList);
 	rm.CompileCustomShaders(CompileShaders);
-
 	shaderList = rm.GetShaderList();
-
-	//CompileShaders();
 	camera = rm.GetCamera();
-
 	projection = renderWindow.CalculateProjectionMatrix(glm::radians(60.0f), 
 		(float)renderWindow.GetBufferWidth() / renderWindow.GetBufferHeight(), 
 		camera.GetNear(), camera.GetFar());
 
 	float cooldown = 0.0f;
 
-	// Define Textures
-	// => Model load all Textures automaticly
 	devTexture = Texture("Textures/dev.jpg");
 	textureList.push_back(&devTexture);
-	nebulaLogo = Texture("Textures/dev.jpg");
-
-	// Define Models
-	CreateLogo();
 
 	float tmp = 0.0f;
-
-	Start();
-
-	testUi = Ui(&renderWindow);
-
-	{
-		IMGUI_CHECKVERSION();
-		ImGui::CreateContext();
-		ImGuiIO& io = ImGui::GetIO(); (void)io;
-
-		ImGui_ImplGlfw_InitForOpenGL(renderWindow.GetWindow(), true);
-		ImGui_ImplOpenGL3_Init("#version 130");
-
-		ImGui::StyleColorsDark();
-
-		bool show_demo_window = true;
-		bool show_another_window = true;
-		ImVec4 clear_color = ImVec4(0.45f, 0.55f, 0.60f, 1.00f);
-	}
 
 	NE_ERROR_CHECK(nebulaLogo.LoadTexture());
 
 	while (!renderWindow.GetShouldClose())
 	{
-		ImGui_ImplOpenGL3_NewFrame();
-		ImGui_ImplGlfw_NewFrame();
-		ImGui::NewFrame();
-
-		// Loading screen image
-		if (loading) // NOT WORKING
-		{
-			glClearColor(0.0f, 0.0f, 0.0f, 1.0f);
-			glClear(GL_COLOR_BUFFER_BIT);
-
-			// ToDo
-			shader2->UseShader();
-
-			tmp += renderWindow.GetDeltaTime();
-
-			glm::mat4 model = glm::mat4();
-
-			model = glm::translate(model, glm::vec3(-2.0f, 0.0f, -2.0f));
-
-			shader2->SetMatrix("projection", projection);
-			shader2->SetMatrix("view", camera.CalculateViewMatrix());
-			shader2->SetMatrix("model", model);
-
-			shader2->SetTexture("sTexture", 0);
-
-			nebulaLogo.UseTexture(GL_TEXTURE0);
-			NebulaEngineLogo.RenderMesh();
-
-			renderWindow.SwapBuffers();
-		}
-
-		renderWindow.WindowUpdate();
-
-		renderWindow.SetVSync(false);
-
-		// => Load Data
-		if (!loading)
-		{
-			// Camera update
-			camera.KeyControl(renderWindow.GetWindow(), renderWindow.GetDeltaTime());
-			camera.MouseControl(renderWindow.GetXChange(), renderWindow.GetYChange());
-
-			// Debug Window
-			testUi.DebugWindow(true, renderWindow.GetFPS(), renderWindow.GetDeltaTime());
-
-			// User Update
-			manager.Update();
-			Update();
-		}
-		else
-			// Load all data
-			rm.EngineLoading(&textureList, &modelList, loading);
-
-		rm.EngineUpdate(&modelList, camera, pointLights, 
-			spotLights, pointLightCount, spotLightCount, projection, &mainLight);
-		
-		ImGui::Render();
-		ImGui_ImplOpenGL3_RenderDrawData(ImGui::GetDrawData());
-
-		renderWindow.SwapBuffers();
+		rm.EngineVariablesUpdate(&textureList, &modelList, projection);
+		rm.MainLoop(renderWindow.GetShouldClose(), renderWindow, Start, Update);
 	}
 
-	ImGui_ImplOpenGL3_Shutdown();
-	ImGui_ImplGlfw_Shutdown();
-	ImGui::DestroyContext();
+	rm.ShutDown();
 
 	return 0;
 }
