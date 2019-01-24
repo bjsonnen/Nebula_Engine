@@ -11,3 +11,7 @@ Learn to code with the Nebula Engine -> [Github Wiki](https://github.com/Chalkec
 * [GLEW](http://glew.sourceforge.net/) - Modern OpenGL
 * [FMOD](https://www.fmod.com/) - 2D/3D Audio Engine
 * [ImgUi](https://github.com/ocornut/imgui) - UI System
+
+## Documentation tool
+
+* [Doxygen](http://www.doxygen.nl/) - Documentation tool for HTML files
