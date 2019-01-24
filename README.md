@@ -4,6 +4,9 @@ SAE Diploma Project written in C++ with OpenGL
 ## Getting Started
 Learn to code with the Nebula Engine -> [Github Wiki](https://github.com/Chalkece/Nebula_Engine/wiki)
 
+## Documentation
+Download nebula and navigate to Documentation -> html -> and open index.html in your webbrowser
+
 ## SDKs
 
 * [GLM](https://glm.g-truc.net/0.9.9/index.html) - Math Library
