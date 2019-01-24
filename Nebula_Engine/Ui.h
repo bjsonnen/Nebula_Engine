@@ -15,40 +15,61 @@
 class Ui
 {
 public:
+	//! Create ui object with standard parameters
+	//!
 	Ui();
-	//! Create the ui in the current window
+	//! Create ui object with specific parameters
+	//! @param window Insert main Window object as Window pointer
 	Ui(Window* window);
 
 	//! Create a new Window
-	//! Ui::EndWindow() need to be called!
+	//! Ui::EndWindow() need to be called
+	//! @param text Insert title window as std::string
 	void CreateWindow(std::string text);
 	//! Close the window
-	//! Need to be called!
+	//! Need to be called
 	void EndWindow();
 
 	//! Create a single text line
+	//! @param text Insert text as std::string
 	void Text(std::string text);
 	//! Create a textbox
+	//! @param text Insert text as std::string
+	//! @param output Insert reference to std::string as output
 	void TextBox(std::string text, std::string& output);
 	//! Create a checkbox
-	//! bool is the output
+	//! @param text Insert text as std::string
+	//! @param output Insert reference to bool as output
 	void Checkbox(std::string text, bool& output);
 	//! Create a single slider
-	//! 2. parameter is the output
+	//! @param text Insert text as std::string
+	//! @param value Insert reference to value as output
+	//! @param min Insert min slider value
+	//! @param max Insert max slider value
 	void Slider(std::string text, float& value, float min, float max);
 	//! Create a color change box
-	//! last 3 parameters are the output
+	//! @param text Insert text as std::string
+	//! @param x Insert float as output for red value of RGB
+	//! @param y Insert float as output for green value of RGB
+	//! @param z Insert float as output for blue value of RGB
 	void ColorEdit3(std::string text, float& x, float& y, float& z);
 	//! Create a single button
+	//!
 	void Button();
 
 	//! Returns true if mouse is over any ui element
+	//! @return Returns bool 
 	bool MouseOverUi();
 
 	//! Specify if the next method should be in the same line
 	void SameLine();
 
 	//! Create the debug window
+	//! @param active Insert enabled as bool
+	//! @param fps Insert fps as int
+	//! @param deltaTime Insert deltaTime as float
+	//! @see Window::GetDeltaTime()
+	//! @see Window::GetFPS()
 	void DebugWindow(bool active, int fps, float deltaTime);
 
 	~Ui();

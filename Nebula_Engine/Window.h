@@ -20,6 +20,7 @@ public:
 
 #pragma region KeyCodeDefinition
 	//! KeyCode definitions for key handling
+	//!
 	enum KeyCode
 	{
 		Q = 81,
@@ -55,6 +56,7 @@ public:
 
 #pragma region KeyActionDefinitions
 	//! KeyAction definitions for key action handling
+	//!
 	enum KeyAction
 	{
 		KeyDown = GLFW_PRESS,
@@ -73,49 +75,75 @@ public:
 	NE_ERROR Initialise();
 	
 	//! Get OpenGL Window width
+	//! @return Returns the buffer width as int
 	int GetBufferWidth() { return bufferWidth; }
 	//! Get OpenGL Window height
+	//! @return Returns the buffer height as int
 	int GetBufferHeight() { return bufferHeight; }
 
 	//! Get the current window width
+	//! @return Returns the window width as int
 	int GetWindowWidth();
 	//! Get the current window height
+	//! @return Returns the window height as int
 	int GetWindowHeight();
 
 	//! Returns current fps (every 1s update)
+	//! @return Returns the fps as int
 	int GetFPS();
 	//! Returns deltaTime
+	//! @return Returns the delta time as float
 	float GetDeltaTime();
 
 	//! If window should close
+	//! @return Returns if the window should close
 	bool GetShouldClose();
 
 	//! Switch from pologon to wireframe
+	//! @param value Insert bool if wireframed
 	void SetWireframe(bool value);
 
 	//! Returns current wireframe mode via bool
+	//! @return Returns if the game in windowed
 	bool GetWireframe();
 
 	//! Get time
+	//! @return Returns the time as float
 	float GetTime();
 
 	//! Show or hide mouse
+	//! @param value Insert bool if mouse should be visible or hidden
 	void ShowMouse(bool value);
 	//! Switch (for ex.) from show to hide
+	//!
 	void SwitchMouse();
 	//! Set refresh rate
+	//! @param value Insert refreshrate per second as int
 	void SetRefreshRate(int value);
 	//! Get refresh rate
+	//! @return Returns the refreshrate per second as int
 	int GetRefreshRate();
 	//! Get mouse setting (bool)
+	//! 
 	bool GetShowMouse();
 
 	//! Switch to Perspective/Orthografic mode
+	//! 0 = Perspective
+	//! 1 = Orthografic
+	//! @param x Insert int to switch from one perspective to another
 	void SetPerspectiveMode(int x);
 	//! Get Perspective mode
+	//! 0 = Perspective
+	//! 1 = Orthografic
+	//! @return Returns the current perspective mode as int
 	int GetPerspectiveMode();
 
 	//! Calculate projection matrix for the shader
+	//! @param fovy Insert fovy value as float
+	//! @param aspect Insert aspect value as float
+	//! @param zNear Insert near plane as float
+	//! @param zFar Insert far plane as float
+	//! @return Return the projection matrix as 4x4 matrix
 	glm::mat4 CalculateProjectionMatrix(float fovy, float aspect, float zNear, float zFar);
 
 	//! Close the game
@@ -123,34 +151,53 @@ public:
 
 	//! Set icon of window
 	//! WARNING -> Extreme performance loss
+	//! @param file Insert file location as std::string
 	void SetIcon(std::string file);
 
 	//! Enable msaa
+	//! @param value Enable/Diabale msaa as bool
+	//! @param filters Pixel being filtered as int
 	void SetMsaa(bool value, int filters);
 	//! Get msaa bool
+	//! @return Msaa bool
 	bool GetMsaa();
 
 	//! Change title of the game
+	//! @param title Insert title as std::string
 	void SetTitle(std::string title);
 
 	//! Set Vertical Synchronisation
+	//! @param value Enable vsync
 	void SetVSync(bool value);
 	//! Switch Vertical Synchronisation
+	//!
 	void SwitchVSync();
 	//! Get Vertical Synchronisation (bool)
+	//! @return vsync bool
 	bool GetVSync();
 	
 	//! Returns mouse X change
+	//! @return Returns mouse x change
 	float GetXChange();
 	//! Returns mouse Y change
+	//! @return Returns mouse y change
 	float GetYChange();
 
 	//! Returns a pointer to the window object
+	//! @return Returns a GLFWwindow pointer to the window object (internal)
 	GLFWwindow* GetWindow() { return mainWindow; }
 
 	//! Returns true if <key> is pressed
+	//! @param key Insert KeyCode
+	//! @return Returns bool
+	//! @see KeyCode
 	bool Key(KeyCode key);
 	//! Returns true if <key> is <action>
+	//! @param key Insert KeyCode
+	//! @param action Insert KeyAction
+	//! @return Returns bool
+	//! @see KeyCode
+	//! @see KeyAction
 	bool Key(KeyCode key, KeyAction action);
 
 	//! Called every frame
@@ -158,6 +205,7 @@ public:
 	void WindowUpdate();
 
 	//! Swap Buffers (Swap Chain)
+	//!
 	void SwapBuffers();
 
 	~Window();

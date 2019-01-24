@@ -101,7 +101,7 @@ public:
 	}
 
 private:
-	// Returns error message
+	//! Returns error message
 	static const char* NE_ErrorString(NE_ERROR error);
 };
 
