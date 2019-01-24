@@ -5,20 +5,22 @@
 #include <glm\gtc\matrix_transform.hpp>
 #include <glm\gtc\type_ptr.hpp>
 
-// All nebula engine errors
+#include <vector>
+
+//! All nebula engine errors
 enum NE_ERROR
 {
-	NE_FATAL,					// fatal error, unable to start
-	NE_OK,						// all fine
-	NE_WARNING,					// simple warning
-	NE_RENDERER,				// fatal renderer error, unable to start
-	NE_TEXTURE,					// unable to load texture
-	NE_SHADER,					// unable to compile shader
-	NE_OBJECT,					// unable to load object / render object
-	NE_COMPONENT_ALREADY,		// Already added the component
-	NE_COMPONENT_NOT_FOUND,		// Unable to find Entity component
-	NE_UNABLE_BITANGENT,		// Unable to create tangents and bitangents
-	NE_FALSE					// simple false
+	NE_FATAL,					//! fatal error, unable to start
+	NE_OK,						//! all fine
+	NE_WARNING,					//! simple warning
+	NE_RENDERER,				//! fatal renderer error, unable to start
+	NE_TEXTURE,					//! unable to load texture
+	NE_SHADER,					//! unable to compile shader
+	NE_OBJECT,					//! unable to load object / render object
+	NE_COMPONENT_ALREADY,		//! Already added the component
+	NE_COMPONENT_NOT_FOUND,		//! Unable to find Entity component
+	NE_UNABLE_BITANGENT,		//! Unable to create tangents and bitangents
+	NE_FALSE					//! simple false
 };
 
 #ifndef _DEBUG 
@@ -27,30 +29,42 @@ enum NE_ERROR
 #define NE_ASSERT assert
 #endif
 
-// Check for errors, simple debug error message
+//! Check for errors, simple debug error message
 #define NE_ERROR_CHECK(_result) Util::CheckForErrors(_result, __FILE__, __LINE__);
-// Delete specific object
+//! Delete specific object
 #define NE_DELETE_OBJECT(_type) Util::DeletePointer(_type);
+//! Debug varible in the console window
 #define NE_DEBUG_LOG(_variable) Util::DebugLog(__variable);
+//! Swap vector 
+#define NE_SWAP_VECTOR_ARRAY(_vector_array) Util::SwapVectorArray(_vector_array);
+//! Nebula engine force inline
 #define NE_FORCE_INLINE __forceinline
+//! Nebula engine inline
 #define NE_INLINE inline
 
+//! Utilities. Use predefinied methods
 class Util
 {
 public:
-	// Calculate normals directly in arrays
+	//! Calculate normals directly in arrays
 	static void CalculateNormals(unsigned int * indices, unsigned int indiceCount, float * vertices, unsigned int verticeCount,
 		unsigned int vLength, unsigned int normalOffset);
 
-	// Calculate bitangents and return a pointer to the array
+	//! Calculate bitangents and return a pointer to the array
 	static void CalculateBitAngents(unsigned int * vertices, const unsigned int UVoffset, const unsigned int verticeOffset, const unsigned int verticeCount, const unsigned int tangentOffset);
+
+	//! Swao vector, use NE_SWAP_VECTOR_ARRAY(_vector_array)
+	template<typename T>
+	static void SwapVectorArray(std::vector<T*>* vector);
 
 	// Check for errors, called via NE_ERROR_CHECK
 	static void CheckForErrors(NE_ERROR error, char* file, int line);
 
+	//! Delete a pointer if not nullptr
 	template<typename T>
 	static void DeletePointer(T* t) { if(t) delete t; }
 
+	// Debug log, use NE_ERROR_CHECK(_result)
 	template<typename T>
 	static void DebugLog(T t)
 	{
@@ -91,6 +105,7 @@ private:
 	static const char* NE_ErrorString(NE_ERROR error);
 };
 
+//! Main class for special math operations
 class Math
 {
 public:
@@ -116,3 +131,9 @@ public:
 	// Convert radians to degrees
 	static float ToDegrees(float radians);
 };
+
+template<typename T>
+inline void Util::SwapVectorArray(std::vector<T*>* vector)
+{
+	vector->_Swap_all();
+}

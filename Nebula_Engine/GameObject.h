@@ -17,7 +17,8 @@
 #include <glm\gtc\type_ptr.hpp>
 #include <glm\gtx\matrix_decompose.hpp>
 
-// Primitive Object for testing
+//! Primitive object for testing
+//!
 enum ObjectPrimitive
 {
 	Cube,
@@ -25,6 +26,8 @@ enum ObjectPrimitive
 	Plane
 };
 
+//! Primitive object color
+//!
 enum ObjectColor
 {
 	Red,
@@ -38,141 +41,228 @@ enum ObjectColor
 	White
 };
 
-
+//! Main class for all gameobjects
 class GameObject
 {
 public:
-	// Create a single model from file
+	//! Create a single model from file
+	//! Only reserves the space on the ram
 	GameObject();
-	// Create a single model from file
-	// To load it manually use: LoadModel(std::string)
+
+	//! Create a single model from file
+	//! @param fileLocation Insert file location
+	//! @see GameObject::LoadModel(std::string)
 	GameObject(char* filelocation);
 
-	// Get the current Position
+	//! Get the current Position
+	//! @return Returns the position of the object as glm::vec3
 	glm::vec3 GetPosition();
-	// Get the current Rotation
+	//! Get the current Rotation
+	//! @return Returns the rotation of the object as glm::vec3
 	glm::vec3 GetRotation();
-	// Get the current Scale
+	//! Get the current Scale
+	//! @return Returns the scale of the object as glm::vec3
 	glm::vec3 GetScale();
 
-	// Get vertice count of each object
+	//! Get vertice count of each object
+	//! @return Returns the vertices count as int
 	int GetVerticesCount();
-	// Get indices count of each object
+	//! Get indices count of each object
+	//! @return Returns the indices count as int
 	int GetIndicesCount();
 
-	// Set the position of the object
-	// Position is automatically applied every frame
+	//! Set the position of the object
+	//! Position is automatically applied every frame
+	//! @param x Insert x position
+	//! @param y Insert y position
+	//! @param z Insert z position
 	void SetPosition(float x, float y, float z);
-	// Set the position of the object
-	// Position is automatically applied every frame
+
+	//! Set the position of the object
+	//! Position is automatically applied every frame
+	//! @param position Insert the position as glm::vec3
 	void SetPosition(glm::vec3 position);
-	// Set the rotation of the object
-	// Rotation is automatically applied every frame
+
+	//! Set the rotation of the object
+	//! Rotation is automatically applied every frame
+	//! @param x Insert x position
+	//! @param y Insert y position
+	//! @param z Insert z position
 	void SetRotation(float x, float y, float z);
-	// Set the rotation of the object
-	// Rotation is automatically applied every frame
+
+	//! Set the rotation of the object
+	//! Rotation is automatically applied every frame
+	//! @param rotation Insert the rotation as glm::vec3
 	void SetRotation(glm::vec3 rotation);
-	// Set the degree of an object based on the rotatio vector
-	// Rotation is automatically applied every frame
+
+	//! Set the degree of an object based on the rotation vector
+	//! Rotation is automatically applied every frame
+	//! @param value Insert degrees as flaot
 	void SetDegrees(float value);
-	// Set the scale of the object
-	// Scale is automatically applied every frame
+
+	//! Set the scale of the object
+	//! Scale is automatically applied every frame
+	//! @param x Insert x position
+	//! @param y Insert y position
+	//! @param z Insert z position
 	void SetScale(float x, float y, float z);
-	// Set the scale of the object
-	// Scale is automatically applied every frame
+
+	//! Set the scale of the object
+	//! Scale is automatically applied every frame
+	//! @param scale Insert the scale as glm::vec3
 	void SetScale(glm::vec3 scale);
 
-	// Used by the renderer
-	// Returns true if the model has bitangents and tangents
+	//! Used by the renderer
+	//! Returns true if the model has bitangents and tangents
+	//! @return Returns if the object has normal maps as bool
 	bool GetRenderNormalMaps();
 
-	// Change the normal map of an object
-	// Dont forget to call ReloadDefaultTexture()
+	//! Change the normal map of an object
+	//! Do not forget to call ReloadDefaultTexture()
+	//! @param location Insert file location as char array
 	void SetNormalMap(char* location);
 
-	// Returns the degrees for the axis
+	//! Returns the degrees for the axis
+	//! @return Returns the current degrees as float
 	float GetDegrees();
 
-	// Set the main color of the object
-	// White = Textures only
+	//! Set the main color of the object
+	//! White = Textures only
+	//! @param color Set the color as glm::vec3
 	void ChangeMainColor(glm::vec3 color);
 	
-	// Set the main color of the object
-	// White = Textures only
+	//! Set the main color of the object
+	//! White = Textures only
+	//! @param color Set color as GameObject::ObjectColor
+	//! @see GameObject::ObjectColor
 	void ChangeMainColor(ObjectColor color);
 
-	// Returns the main color of the object
+	//! Returns the main color of the object
+	//! @return Main Color of the object as glm::vec3
 	glm::vec3 GetMainColor();
 
-	// Set rotation relative to an object
+	//! Set rotation relative to an object
+	//! @param pos Insert the position as glm::vec3
 	void LookAt(glm::vec3 pos);
-	// Set rotation relative to an object
+
+	//! Set rotation relative to an object
+	//! @param pos Insert the position as glm::vec2
 	void LookAt(glm::vec2 pos);
-	// Set rotation relative to an object
+
+	//! Set rotation relative to an object
+	//! @param x Insert x value
+	//! @param y Insert y value
+	//! @param z Insert z value
 	void LookAt(float x, float y, float z);
-	// Show or hide model
+
+	//! Show or hide model
+	//! @param value Insert value as bool
 	void SetActive(bool value);
-	// Return true if model is active
+
+	//! Return true if model is active
+	//! @return Returns active as bool
 	bool IsActive();
-	// Rotate object round value
+
+	//! Rotate object round value
+	//! @param rotation Insert rotation as glm::vec3
 	void Rotate(glm::vec3 rotation);
 
-	// Load default texture again and delete the old one in ram
+	//! Load default texture again and delete the old one in ram
+	//! Need to be called by the gameplay programmer!
 	void ReloadDefaultTexture();
 
-	// Set normal map for mesh
+	//! Set normal map for mesh
+	//! @param normal Set file location to normal as std::string
 	void SetNormalMap(std::string normal);
 
-	// Returns a pointer to an array with all vertices
+	//! Set if the object should render transparent/semi-transparent objects
+	//! @param value Set value as bool
+	void UseBlending(bool value);
+
+	//! Get if the object renders transparent/semi-transparent objects
+	//! @return Returns if object uses blending as bool
+	bool GetUseBlending();
+
+	//! Returns a pointer to an array with all vertices
+	//! @return Returns vertices as float pointer (float*)
 	float* GetVertices();
-	// Returns a pointer to an array with all indices
+
+	//! Returns a pointer to an array with all indices
+	//! @return Returns indices as unsigned int pointer (unsigned int*)
 	unsigned int* GetIndices();
 
-	// Set the default texture
+	//! Set the default texture
+	//! @param path Insert file location as std::string
 	void SetDefaultTexture(std::string path);
-	// Get path to default texture
+
+	//! Get path to default texture
+	//! @return Returns file location as std::string
 	std::string GetDefaultTexture();
+
+	//! Use normal map
+	//! @param value Insert value as bool
+	void UseNormalMaps(bool value);
+	//! Bool for rendering normal maps
+	//! @return Returns if the object uses normal maps
+	bool GetUseNormalMaps();
 	
-	// Get file location 
+	//! Get file location 
+	//! @return Returns the file location as char*
 	char* GetFileName();
-	// Set file location of the mesh
+
+	//! Set file location of the mesh
+	//! @param fileLocation Insert file location as char pointer (char*)
 	void SetFileLocation(char* fileLocation);
-	// Set file location of the mesh
+
+	//! Set file location of the mesh
+	//! @param fileLocation Insert the file location as std::string
 	void SetFileLocation(std::string fileLocation);
-	// Load model
-	// Model is automatically loaded
+
+	//! Load model
+	//! Model is automatically loaded
+	//! @return Returns NE_ERROR
 	NE_ERROR LoadModel();
-	// Load model from string
-	// Model is NOT automatically loaded
+
+	//! Load model from string
+	//! Model is NOT automatically loaded
+	//! @param fileName Insert file location as const std::string&
+	//! @return Returns NE_ERROR
 	NE_ERROR LoadModel(const std::string& fileName);
-	// Use Primitive as Object
+
+	//! Use Primitive as Object
+	//! @param primitive Insert ObjectPrimitive
+	//! @see ObjectPrimitive
 	void UsePrimitive(ObjectPrimitive primitive);
-	// Render the model
-	// Is called automatically
+
+	//! Render the model
+	//! Is called automatically
 	void RenderModel();
-	// Delete all data on the ram
+
+	//! Delete all data on the ram
 	void ClearModel();
 
 	~GameObject();
 
 private:
-	// Load single object
+	//! Load single object
 	void LoadNode(aiNode *node, const aiScene *scene);
-	// Load mesh
+	//! Load mesh
 	void LoadMesh(aiMesh *mesh, const aiScene *scene);
-	// Load materials
+	//! Load materials
 	void LoadMaterials(const aiScene *scene);
 
-	// Generate vertices, indices & normals
+	//! Generate vertices, indices & normals
 	void PrimitiveCube();
+	//! Generate vertices, indices & normals
 	void PrimitiveSphere();
+	//! Generate vertices, indices & normals
 	void PrimitivePlane();
 
-	// Mesh list
+	//! Mesh list
 	std::vector<Mesh*> meshList;
-	// Texture list
+	//! Texture list
 	std::vector<Texture*> textureList;
-	// Material index
+	//! Material index
 	std::vector<unsigned int> meshToTex;
 
 	std::vector<float> vertexList;
@@ -189,6 +279,8 @@ private:
 	bool usePrimitive = false;
 	bool drawWireframe = false;
 	bool useBitangent = true;
+	bool useNormalMap = true;
+	bool useBlending = false;
 
 	glm::mat4 model = glm::mat4();
 

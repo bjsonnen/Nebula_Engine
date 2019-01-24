@@ -88,7 +88,9 @@
     <ClCompile Include="ECManager.cpp">
       <Filter>Headerfiles\Components</Filter>
     </ClCompile>
-    <ClCompile Include="RootManager.cpp" />
+    <ClCompile Include="RootManager.cpp">
+      <Filter>Sourcefiles</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Audio.h">
@@ -187,7 +189,9 @@
     <ClInclude Include="Vector2.h">
       <Filter>Headerfiles\Math</Filter>
     </ClInclude>
-    <ClInclude Include="RootManager.h" />
+    <ClInclude Include="RootManager.h">
+      <Filter>Headerfiles</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Headerfiles">

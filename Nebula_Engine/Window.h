@@ -11,13 +11,15 @@
 #include "CommonValues.h"
 #include "Util.h"
 
+//! Main class to create the window, resize window and key/mouse inputs
 class Window
 {
 public:
+	// Create a window with 800x600 pixels
 	Window();
 
 #pragma region KeyCodeDefinition
-	// KeyCode definitions for key handling
+	//! KeyCode definitions for key handling
 	enum KeyCode
 	{
 		Q = 81,
@@ -52,7 +54,7 @@ public:
 #pragma endregion
 
 #pragma region KeyActionDefinitions
-	// KeyAction definitions for key action handling
+	//! KeyAction definitions for key action handling
 	enum KeyAction
 	{
 		KeyDown = GLFW_PRESS,
@@ -61,91 +63,101 @@ public:
 	};
 #pragma endregion
 	
+	//! Create a window with specific width and height
 	Window(int windowWidth, int windowHeight);
 
+	//! Change framebuffer size
 	void framebuffer_size_callback(GLFWwindow* window, int width, int height);
 
-	// Intialise the window
+	//! Intialise the window
 	NE_ERROR Initialise();
 	
+	//! Get OpenGL Window width
 	int GetBufferWidth() { return bufferWidth; }
+	//! Get OpenGL Window height
 	int GetBufferHeight() { return bufferHeight; }
 
+	//! Get the current window width
 	int GetWindowWidth();
+	//! Get the current window height
 	int GetWindowHeight();
 
-	// Returns current fps (every 1s update)
+	//! Returns current fps (every 1s update)
 	int GetFPS();
-	// Returns deltaTime
+	//! Returns deltaTime
 	float GetDeltaTime();
 
-	// If window should close
+	//! If window should close
 	bool GetShouldClose();
 
-	// Switch from pologon to wireframe
+	//! Switch from pologon to wireframe
 	void SetWireframe(bool value);
 
-	// Returns current wireframe mode via bool
+	//! Returns current wireframe mode via bool
 	bool GetWireframe();
 
+	//! Get time
 	float GetTime();
 
-	// Show or hide mouse
+	//! Show or hide mouse
 	void ShowMouse(bool value);
-	// Switch (for ex.) from show to hide
+	//! Switch (for ex.) from show to hide
 	void SwitchMouse();
-	// Set refresh rate
+	//! Set refresh rate
 	void SetRefreshRate(int value);
-	// Get refresh rate
+	//! Get refresh rate
 	int GetRefreshRate();
-	// Get mouse setting (bool)
+	//! Get mouse setting (bool)
 	bool GetShowMouse();
 
+	//! Switch to Perspective/Orthografic mode
 	void SetPerspectiveMode(int x);
+	//! Get Perspective mode
 	int GetPerspectiveMode();
 
+	//! Calculate projection matrix for the shader
 	glm::mat4 CalculateProjectionMatrix(float fovy, float aspect, float zNear, float zFar);
 
-	// Close the game
+	//! Close the game
 	void CloseWindow();
 
-	// Set icon of window
-	// WARNING -> Extreme performance loss
+	//! Set icon of window
+	//! WARNING -> Extreme performance loss
 	void SetIcon(std::string file);
 
-	// Enable msaa
+	//! Enable msaa
 	void SetMsaa(bool value, int filters);
-	// Get msaa bool
+	//! Get msaa bool
 	bool GetMsaa();
 
-	// Change title of the game
+	//! Change title of the game
 	void SetTitle(std::string title);
 
-	// Set Vertical Synchronisation
+	//! Set Vertical Synchronisation
 	void SetVSync(bool value);
-	// Switch Vertical Synchronisation
+	//! Switch Vertical Synchronisation
 	void SwitchVSync();
-	// Get Vertical Synchronisation (bool)
+	//! Get Vertical Synchronisation (bool)
 	bool GetVSync();
 	
-	// Returns mouse X change
+	//! Returns mouse X change
 	float GetXChange();
-	// Returns mouse Y change
+	//! Returns mouse Y change
 	float GetYChange();
 
-	// Returns a pointer to the window object
+	//! Returns a pointer to the window object
 	GLFWwindow* GetWindow() { return mainWindow; }
 
-	// Returns true if <key> is pressed
+	//! Returns true if <key> is pressed
 	bool Key(KeyCode key);
-	// Returns true if <key> is <action>
+	//! Returns true if <key> is <action>
 	bool Key(KeyCode key, KeyAction action);
 
-	// Called every frame
-	// Used for ESCAPE & change renderer size
+	//! Called every frame
+	//! Used for ESCAPE & change renderer size
 	void WindowUpdate();
 
-	// Swap Buffers (Swap Chain)
+	//! Swap Buffers (Swap Chain)
 	void SwapBuffers();
 
 	~Window();
@@ -156,7 +168,7 @@ private:
 	GLint width, height;
 	GLint bufferWidth, bufferHeight;
 
-	// Camera informations
+	//! Camera informations
 	GLfloat lastX;
 	GLfloat lastY;
 	GLfloat xChange;
@@ -174,10 +186,10 @@ private:
 	int perspectiveMode = 1;
 
 	void createCallbacks();
-	// Used to simulate camera movement
+	//! Used to simulate camera movement
 	static void HandleMouse(GLFWwindow* window, double xPos, double yPos);
 
-	// Window information
+	//! Window information
 	bool showMouse = true;
 	bool vsync = false;
 	bool msaa = true;

@@ -7,6 +7,7 @@
 #include "ECManager.h"
 #include "Util.h"
 
+//! Main transforming class, Entity-Component-System sub-class
 class Transform : public Component
 {
 public:
@@ -20,9 +21,13 @@ public:
 	void SetPosition(glm::vec3 position);
 	// Set the position of the object
 	// Position is automatically applied every frame
+	// @param position Vector3 with position
 	void SetPosition(float x, float y, float z);
 	// Set the position of the object
 	// Position is automatically applied every frame
+	// @param x X float value
+	// @param y Y float value
+	// @param z Z float value
 	void SetRotation(glm::vec3 rotation);
 	// Set the position of the object
 	// Position is automatically applied every frame

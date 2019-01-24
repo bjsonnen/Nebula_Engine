@@ -11,53 +11,44 @@
 #include <stdio.h>
 #include <string>
 
-
-/*
- * Dies ist eine Beispielklasse für die Aufteilung bei der Beta Abgabe
- * Die Buttons wurde noch nicht verlinkt und es wurde nur beispielhaft 
- * ein UI erstellt.
- * 
- * Eine Implementieren wurde in einer anderen Version, die nicht abgegeben 
- * wurde, versucht, allerdings ist das auf Grund des Klassendesigns nicht 
- * möglich. 
- */
-
+//! Main class for the imgui ui system
 class Ui
 {
 public:
 	Ui();
+	//! Create the ui in the current window
 	Ui(Window* window);
 
-	// Create a new Window
-	// Ui::EndWindow() need to be called!
+	//! Create a new Window
+	//! Ui::EndWindow() need to be called!
 	void CreateWindow(std::string text);
-	// Close the window
-	// Need to be called!
+	//! Close the window
+	//! Need to be called!
 	void EndWindow();
 
-	// Create a single text line
+	//! Create a single text line
 	void Text(std::string text);
-	// Create a textbox
+	//! Create a textbox
 	void TextBox(std::string text, std::string& output);
-	// Create a checkbox
-	// bool is the output
+	//! Create a checkbox
+	//! bool is the output
 	void Checkbox(std::string text, bool& output);
-	// Create a single slider
-	// 2. parameter is the output
+	//! Create a single slider
+	//! 2. parameter is the output
 	void Slider(std::string text, float& value, float min, float max);
-	// Create a color change box
-	// last 3 parameters are the output
+	//! Create a color change box
+	//! last 3 parameters are the output
 	void ColorEdit3(std::string text, float& x, float& y, float& z);
-	// Create a single button
+	//! Create a single button
 	void Button();
 
-	// Returns true if mouse is over any ui element
+	//! Returns true if mouse is over any ui element
 	bool MouseOverUi();
 
-	// Specify if the next method should be in the same line
+	//! Specify if the next method should be in the same line
 	void SameLine();
 
-	// Create the debug window
+	//! Create the debug window
 	void DebugWindow(bool active, int fps, float deltaTime);
 
 	~Ui();
@@ -78,11 +69,11 @@ private:
 	void CreateLightObject();
 
 private:
-	// Used for PerformanceInformations();
+	//! Used for PerformanceInformations();
 	float fpsCount[20];
 	int fpsCountIndex = 0;
 
-	// Used for PerformanceInformations();
+	//! Used for PerformanceInformations();
 	float deltaCount[20];
 	int deltaCountIndex = 0;
 
@@ -98,7 +89,7 @@ private:
 	bool showDebugWindow = false;
 	bool firstChange = false;
 
-	// GameObject informations
+	//! GameObject informations
 	float position[3] = { 0.0f, 0.0f, 0.0f };
 	float rotation[3] = { 0.0f, 0.0f, 0.0f };
 	float scale[3] = { 1.0f, 1.0f, 1.0f };
@@ -107,7 +98,7 @@ private:
 	char* name = "Object 1";
 	char oneByte[100] = {};
 
-	// Light informations
+	//! Light informations
 	float lightPosition[3] = { 0.0f };
 	float lightRotation[3] = { 0.0f };
 	float lightColor[3] = { 1.0f };

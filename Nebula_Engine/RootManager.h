@@ -23,67 +23,105 @@
 
 #include <GLFW/glfw3.h>
 
+//! Main class for all automatic processes. 
 class RootManager
 {
 public:
+	//! Create rootmanager object with standard parameters
 	RootManager() {}
 
-	// Camera, materials, lights, skybox creation; Shader compiling
-	// Should be called after the window initialization and before the main loop
+	//! Camera, materials, lights, skybox creation; Shader compiling
+	//! Should be called after the window initialization and before the main loop
+	//! @param window Insert main Window as Window&
+	//! @param mat1 Insert first main Material as Material&
+	//! @param mat2 Insert second main Material as Material&
+	//! @param light Insert main Directional light as DirectionalLight&
+	//! &param skybox Insert skybox as Skybox&
+	//! &param shaderList Insert shaderList as std::vector<Shader>&
 	void EngineInitialization(Window& window, Camera& cam, Material& mat1, Material& mat2, DirectionalLight& light,
 		Skybox& skybox, std::vector<Shader>& shaderList);
 
-	// Game rendering loop
-	// Should be called once per frame
+	//! Game rendering loop
+	//! Should be called once per frame
+	//! @param objectList Insert main objectList as std::vector<GameObject*>*
+	//! @param cam Insert main Camera object as Camera&
+	//! @param pointLights Insert Point Lights as array of Point Lights
+	//! @param spotLights Insert Spot Lights as array of Spot Lights
+	//! @param pointCount Insert size of values in Point Light array
+	//! @param pointCount Insert size of values in Spot Light array
+	//! @param projection Insert projection matrix as glm::mat4 (4x4 matrix)
+	//! @param mainLight Insert directional Light as DirectionalLight*
 	void EngineUpdate(std::vector<GameObject*>* objectList, Camera& cam, PointLight* pointLights,
 		SpotLight* spotLights, int pointCount, int spotCount, glm::mat4 projection,
 		DirectionalLight* mainLight);
 
-	// Load all objects
-	// Should be called before the first frame. 
+	//! Load all objects
+	//! Should be called before the first frame
+	//! @param textureList Insert main textureList as std::vector<Texture*>*
+	//! @param objectList Insert main objectList as std::vector<GameObject*>* 
+	//! &param loading Insert loading parameter as bool
 	void EngineLoading(std::vector<Texture*>* textureList, std::vector<GameObject*>* objectList, bool& loading);
 
-	// Update all vector arrays with gameplay content
+	//! Update all vector arrays with gameplay content
+	//! @param textureList Insert main texturelist as std::vector<Texture*>* 
+	//! @param objectList Insert main objectList as std::vector<GameObject*>*
+	//! @param projection Insert projection as 4x4 matrix (glm::mat4)
 	void EngineVariablesUpdate(std::vector<Texture*>* textureList, std::vector<GameObject*>* objectList, 
 		glm::mat4 projection);
 
-	// Main game loop
+	//! Main game loop
+	//! @param windowShouldClose Insert if the window should close as bool
+	//! @param window Insert window as Window&
+	//! @param Start Insert a void pointer to your start function
+	//! @param Update Insert a void pointer to your update function
+	//! @return Returns false if the loop has finished (bool)
 	bool MainLoop(bool windowShouldClose, Window& window, void* Start, void* Update);
 
-	// Compile user shader
-	// Called only once at the initialization of the game engine
+	//! Compile user shader
+	//! Called only once at the initialization of the game engine
+	//! @param blubb Pointer to the methode where to create the shaders
 	void CompileCustomShaders(void* blubb);
 
-	// Call this when the game has ended
+	//! Call this when the game has ended
+	//!
 	void ShutDown();
 
 	// ----------------
 
+	//! Returns the current window
+	//! @return Returns the window as object
 	Window GetWindow() { return renderWindow; }
+	//! Returns the current camera
+	//! @return Returns the camera object
 	Camera GetCamera() { return camera; }
+	//! Returns the shader for directional shadow
+	//! @return Returns a shader object
 	Shader GetDirectionalShadowShader() { return directionalShadowShader; }
+	//! Returns the shader for omnishadow 
+	//! @return Returns a shader object
 	Shader GetOmniShadowShader() { return omniShadowShader; }
 
-	// Returns a std::vector<Shader>& with all predefined shaders
+	//! Returns a std::vector<Shader>& with all predefined shaders
+	//! @return Returns a std::vector<Shader>&
 	std::vector<Shader>& GetShaderList() { return shaderList; }
 
 	~RootManager() {}
 
 private:
-	// Shadow calculation for point & spotlights
+	//! Shadow calculation for point & spotlights
 	void OmniShadowMapPass(PointLight* light);
-	// Shadow calculation for normal directional lighting
+	//! Shadow calculation for normal directional lighting
 	void DirectionalShadowMapPass(DirectionalLight* light);
-	// Main render pass, uploads all variables/textures to the shader
+	//! Main render pass, uploads all variables/textures to the shader
 	void RenderPass(glm::mat4 viewMatrix, glm::mat4 projectionMatrix, PointLight* pointLights,
 		SpotLight* spotLights, int pointlightCount, int spotlightCount);
 
-	// Compile predefined shaders
+	//! Compile predefined shaders
 	void CompileShaders();
-	// Render all objects
+	//! Render all objects
 	void RenderScene();
 
-	// Creats the nebula logo used in the loading screen
+	//! Creats the nebula logo used in the loading screen
 	void CreateNebulaLogo();
 
 private:

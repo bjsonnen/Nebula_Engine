@@ -19,19 +19,25 @@
 
 #include "ECManager.h"
 
+//!! Main class to create and render a gameobject, Entity-Component-System sub-class
 class Object : public Component
 {
 public:
-	// Create a single model from file
+	//! Create a single model from file
+	//!
 	Object();
-	// Create a single model from file
-	// To load it manually use: LoadModel(std::string)
+	//! Create a single model from file
+	//! To load it manually use: LoadModel(std::string)
+	//! @param fileLocation Location to file
 	Object(char* filelocation);
 
 	void Init() override;
 	void Update() override;
 
-	// Primitive Object for testing
+	//! Primitive Object for testing
+	//! ObjectPrimitive::Cube
+	//! ObjectPrimitive::Sphere 
+	//! ObjectPrimitive::Plane 
 	enum ObjectPrimitive
 	{
 		Cube,
@@ -39,66 +45,82 @@ public:
 		Plane
 	};
 
-	// Get vertice count of each object
+	//! Get vertice count of each object
+	//!
 	int GetVerticesCount();
-	// Get indices count of each object
+	//! Get indices count of each object
+	//!
 	int GetIndicesCount();
 
+	//! Reload the default texture
+	//!
 	void ReloadDefaultTexture();
 
-	// Set normal map for mesh
+	//! Set normal map for mesh
+	//! @param normal std::string to normal texture file location
 	void SetNormalMap(std::string normal);
 
-	// Returns a pointer to an array with all vertices
+	//! Returns a pointer to an array with all vertices
+	//!
 	float* GetVertices();
-	// Returns a pointer to an array with all indices
+	//! Returns a pointer to an array with all indices
+	//!
 	unsigned int* GetIndices();
 
-	// Set the default texture
+	//! Set the default texture
+	//! @param path std::string to file location
 	void SetDefaultTexture(std::string path);
-	// Get path to default texture
+	//! Get path to default texture
+	//!
 	std::string GetDefaultTexture();
 
-	// Get file location 
+	//! Get file location 
+	//!
 	char* GetFileName();
-	// Set file location of the mesh
+	//! Set file location of the mesh
+	//! @param fileLocation char array to file location
 	void SetFileLocation(char* fileLocation);
-	// Set file location of the mesh
+	//! Set file location of the mesh
+	//! @param fileLocation std::string to file location
 	void SetFileLocation(std::string fileLocation);
-	// Load model
-	// Model is automatically loaded
+	//! Load model
+	//! Model is automatically loaded
 	NE_ERROR LoadModel();
-	// Load model from string
-	// Model is NOT automatically loaded
+	//! Load model from string
+	//! Model is NOT automatically loaded
+	//! @param fileName const std::string& to file location
 	NE_ERROR LoadModel(const std::string& fileName);
-	// Use Primitive as Object
+	//! Use Primitive as Object
+	//! @param primitive insert ObjectPrimitive
+	//! @see ObjectPrimitive
 	void UsePrimitive(ObjectPrimitive primitive);
-	// Render the model
-	// Is called automatically
+	//! Render the model
+	//! Is called automatically
 	NE_ERROR RenderModel();
-	// Delete all data on the ram
+	//! Delete all data on the ram
+	//! 
 	void ClearModel();
 
 	~Object();
 
 private:
-	// Load single object
+	//! Load single object
 	void LoadNode(aiNode *node, const aiScene *scene);
-	// Load mesh
+	//! Load mesh
 	void LoadMesh(aiMesh *mesh, const aiScene *scene);
-	// Load materials
+	//! Load materials
 	void LoadMaterials(const aiScene *scene);
 
-	// Generate vertices, indices & normals
+	//! Generate vertices, indices & normals
 	void PrimitiveCube();
 	void PrimitiveSphere();
 	void PrimitivePlane();
 
-	// Mesh list
+	//! Mesh list
 	std::vector<Mesh*> meshList;
-	// Texture list
+	//! Texture list
 	std::vector<Texture*> textureList;
-	// Material index
+	//! Material index
 	std::vector<unsigned int> meshToTex;
 
 	std::vector<float> vertexList;

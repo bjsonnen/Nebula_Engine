@@ -184,6 +184,16 @@ void GameObject::SetNormalMap(std::string normal)
 	//textureList.push_back(&test);
 }
 
+bool GameObject::GetUseBlending()
+{
+	return useBlending;
+}
+
+void GameObject::UseBlending(bool value)
+{
+	useBlending = value;
+}
+
 float * GameObject::GetVertices()
 {
 	return nullptr;
@@ -202,6 +212,16 @@ void GameObject::SetDefaultTexture(std::string path)
 std::string GameObject::GetDefaultTexture()
 {
 	return defaultPath;
+}
+
+void GameObject::UseNormalMaps(bool value)
+{
+	useNormalMap = value;
+}
+
+bool GameObject::GetUseNormalMaps()
+{
+	return useNormalMap;
 }
 
 void GameObject::RenderModel()

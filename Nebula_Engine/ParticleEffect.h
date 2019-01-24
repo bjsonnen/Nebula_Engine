@@ -6,6 +6,7 @@
 #include "Texture.h"
 #include "Shader.h"
 
+//! Struct for a particle
 struct Particle
 {
 	glm::vec3 Position, Velocity;
@@ -13,20 +14,23 @@ struct Particle
 	float Life;
 };
 
+//! Main class to create a particle effect
 class ParticleEffect
 {
 public:
 	ParticleEffect(int size, glm::vec3 pos, glm::vec3 lookAt);
 
-	// Add a new texture to the object
-	// Set the duration for the particle texture
+	//! Add a new texture to the object
+	//! Set the duration for the particle texture
 	void AddTexture(const Texture texture, const float time);
-	// Load all textures
-	// Called automaticly
+	//! Load all textures
+	//! Called automaticly
 	void LoadTextures();
-	// Use in your update
+	//! Use in your update
+	//! 
 	void ParticleUpdate(float deltaTime);
-	// Delete one particle
+	//! Delete one particle
+	//! 
 	void DeleteParticle(int i);
 
 	~ParticleEffect();

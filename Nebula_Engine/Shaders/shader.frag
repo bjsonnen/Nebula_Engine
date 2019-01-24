@@ -64,6 +64,7 @@ uniform int pointLightCount;
 uniform int spotLightCount;
 
 uniform bool renderNormalMaps;
+uniform bool useNormalMap;
 
 uniform DirectionalLight directionalLight;
 uniform PointLight pointLights[10];
@@ -251,7 +252,7 @@ void main()
 	//normal = normalize(TBN * normal);
 	//normal = TBN * normal;
 	
-	if(NormalBitangent == vec3(0.0, 0.0, 0.0))
+	if(NormalBitangent == vec3(0.0, 0.0, 0.0) || !useNormalMap)
 		normal = normalize(Normal);
 	else
 	{

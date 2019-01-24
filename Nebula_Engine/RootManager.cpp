@@ -38,7 +38,9 @@ void RootManager::EngineUpdate(std::vector<GameObject*>* objectList, Camera& cam
 	// Performance issue: Dont store objectList in this->objectList
 	this->objectList = objectList;
 
+	//glCullFace(GL_FRONT);
 	DirectionalShadowMapPass(mainLight);
+	//glCullFace(GL_BACK);
 
 	for (int i = 0; i < pointCount; i++)
 	{
@@ -103,7 +105,7 @@ bool RootManager::MainLoop(bool windowShouldClose, Window& window, void* Start, 
 		// Create nebula engine logo for the loading screen
 		//CreateNebulaLogo();
 		// Load texture
-		//nebulaLogo.LoadTexture();
+		//NE_ERROR_CHECK(nebulaLogo.LoadTexture());
 
 		((void(*)(void))Start)();
 
@@ -122,20 +124,20 @@ bool RootManager::MainLoop(bool windowShouldClose, Window& window, void* Start, 
 			glClear(GL_COLOR_BUFFER_BIT);
 
 			// ToDo
-			//nebulaLogoShader.UseShader();
+			nebulaLogoShader.UseShader();
 
-			//glm::mat4 model = glm::mat4();
+			glm::mat4 model = glm::mat4();
 
-			//model = glm::translate(model, glm::vec3(-2.0f, 0.0f, -2.0f));
+			model = glm::translate(model, glm::vec3(-2.0f, 0.0f, -2.0f));
 
-			//nebulaLogoShader.SetMatrix("projection", projection);
-			//nebulaLogoShader.SetMatrix("view", camera.CalculateViewMatrix());
-			//nebulaLogoShader.SetMatrix("model", model);
+			nebulaLogoShader.SetMatrix("projection", projection);
+			nebulaLogoShader.SetMatrix("view", camera.CalculateViewMatrix());
+			nebulaLogoShader.SetMatrix("model", model);
 
-			//nebulaLogoShader.SetTexture("sTexture", 0);
+			nebulaLogoShader.SetTexture("dTexture", 1);
 
-			//nebulaLogo.UseTexture(GL_TEXTURE0);
-			//nebulaEngineLogo.RenderMesh();
+			nebulaLogo.UseTexture(GL_TEXTURE1);
+			nebulaEngineLogo.RenderMesh();
 
 			window.SwapBuffers();
 		}
@@ -190,12 +192,23 @@ void RootManager::RenderScene()
 	for (int i = 0; i < objectList->size(); i++)
 	{
 		model = glm::mat4();
+		if (objectList->at(i)->GetUseBlending())
+		{
+			glEnable(GL_BLEND);
+			glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
+			glBlendFuncSeparate(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA, GL_ONE, GL_ZERO);
+		}
+		else
+		{
+			glDisable(GL_BLEND);
+		}
 		model = glm::translate(model, objectList->at(i)->GetPosition());
 		model = glm::rotate(model, Math::ToRadians(objectList->at(i)->GetDegrees()), objectList->at(i)->GetRotation());
 		model = glm::scale(model, objectList->at(i)->GetScale());
 		shaderList[0].SetBool("renderNormalMaps", objectList->at(i)->GetRenderNormalMaps());
 		shaderList[0].SetMatrix("model", model);
 		shaderList[0].SetVector3("primaryColor", objectList->at(i)->GetMainColor());
+		shaderList[0].SetBool("useNormalMap", objectList->at(i)->GetUseNormalMaps());
 		if (uniformModel != 0)
 			glUniformMatrix4fv(uniformModel, 1, false, glm::value_ptr(model));
 		defaultMaterial.UseMaterial(&shaderList[0]);

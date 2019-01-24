@@ -105,7 +105,10 @@ int Window::GetFPS()
 
 float Window::GetDeltaTime()
 {
-	return deltaTime;
+	if (deltaTime < 0.0f)
+		return deltaTime * -1.0f;
+	else
+		return deltaTime;
 }
 
 bool Window::GetShouldClose()

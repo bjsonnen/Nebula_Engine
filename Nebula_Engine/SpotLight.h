@@ -1,12 +1,14 @@
 #pragma once
 #include "PointLight.h"
+
+//! Main class to create a spot light
 class SpotLight :
 	public PointLight
 {
 public:
-	// Create spotlight, dont use directly
+	//! Create spotlight, dont use directly
 	SpotLight();
-	// Create spotlight
+	//! Create spotlight
 	SpotLight(unsigned int shadowWidth, unsigned int shadowHeight,
 		float near, float far, 
 		float red, float green, float blue,
@@ -16,21 +18,21 @@ public:
 		float con, float lin, float exp,
 		float edg);
 
-	// Use light
+	//! Use light
 	void UseLight(unsigned int ambientIntensityLocation, unsigned int ambientColourLocation,
 		unsigned int diffuseIntensityLocation, unsigned int positionLocation, unsigned int directionLocation,
 		unsigned int constantLocation, unsigned int linearLocation, unsigned int exponentLocation,
 		unsigned int edgeLocation);
 
-	// Change position and direction
+	//! Change position and direction
 	void SetFlash(glm::vec3 pos, glm::vec3 dir);
 
-	// Change position
+	//! Change position
 	void SetPosition(glm::vec3 pos);
-	// Change direction
+	//! Change direction
 	void SetDirection(glm::vec3 dir);
 
-	// Turn light on or off
+	//! Turn light on or off
 	void Toggle();
 
 	~SpotLight();

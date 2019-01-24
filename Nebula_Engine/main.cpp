@@ -45,11 +45,13 @@ void Start()
 	go2 = GameObject("Models/cube.obj");
 	go2.SetPosition(0.0f, -15.0f, 0.0f);
 	go2.SetScale(40.0f, 1.0f, 40.0f);
+	go2.UseNormalMaps(false);
 	modelList.push_back(&go2);
 
 	go3 = GameObject("Models/cube.obj");
 	go3.SetPosition(15.0f, 0.0f, 0.0f);
 	go3.SetDefaultTexture("Textures/Unbenannt-1.png");
+	go3.UseNormalMaps(false);
 	modelList.push_back(&go3);
 
 	Vector2 blubb;
@@ -57,6 +59,8 @@ void Start()
 
 	modelList[1]->ChangeMainColor(ObjectColor::Orange);
 }
+
+glm::vec3 tmpcolor = glm::vec3();
 
 void Update()
 {
@@ -77,6 +81,14 @@ void Update()
 		tmpRotation = 0.0f;
 	modelList[0]->SetDegrees(tmpRotation);
 	modelList[0]->SetRotation(0.0f, -1.0f, 0.0f);
+
+	tmpcolor.x += 0.001f;
+	tmpcolor.y += 0.002f;
+	tmpcolor.z += 0.003f;
+	if (tmpcolor.x > 1.0f) tmpcolor.x = 0.0f;
+	if (tmpcolor.y > 1.0f) tmpcolor.y = 0.0f;
+	if (tmpcolor.z > 1.0f) tmpcolor.z = 0.0f;
+	modelList[1]->ChangeMainColor(tmpcolor);
 
 	if (renderWindow.Key(Window::KeyCode::B))
 		mainAudio.Play();
@@ -113,7 +125,7 @@ int main()
 
 	float tmp = 0.0f;
 
-	NE_ERROR_CHECK(nebulaLogo.LoadTexture());
+	//NE_ERROR_CHECK(nebulaLogo.LoadTexture());
 
 	while (!renderWindow.GetShouldClose())
 	{
