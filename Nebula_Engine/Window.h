@@ -15,7 +15,7 @@
 class Window
 {
 public:
-	// Create a window with 800x600 pixels
+	//! Create a window with 800x600 pixels
 	Window();
 
 #pragma region KeyCodeDefinition
@@ -66,12 +66,19 @@ public:
 #pragma endregion
 	
 	//! Create a window with specific width and height
+	//! @param windowWidth Insert window width for the window
+	//! @param windowHeight Insert window height for the window
 	Window(int windowWidth, int windowHeight);
 
 	//! Change framebuffer size
+	//! @param window Insert GLFWwindow pointer (internal)
+	//! @param width Insert new window width as int
+	//! @param height Insert new window height as int
 	void framebuffer_size_callback(GLFWwindow* window, int width, int height);
 
 	//! Intialise the window
+	//! @return Returns a NE_ERROR
+	//! @see NE_ERROR_CHECK
 	NE_ERROR Initialise();
 	
 	//! Get OpenGL Window width
@@ -124,7 +131,7 @@ public:
 	//! @return Returns the refreshrate per second as int
 	int GetRefreshRate();
 	//! Get mouse setting (bool)
-	//! 
+	//! @return Return a bool if mouse if visible
 	bool GetShowMouse();
 
 	//! Switch to Perspective/Orthografic mode
@@ -138,7 +145,7 @@ public:
 	//! @return Returns the current perspective mode as int
 	int GetPerspectiveMode();
 
-	//! Calculate projection matrix for the shader
+	//! Calculates projection matrix for the shader
 	//! @param fovy Insert fovy value as float
 	//! @param aspect Insert aspect value as float
 	//! @param zNear Insert near plane as float

@@ -19,6 +19,7 @@ public:
 
 	//! Load texture, called automatically
 	//! @return Returns a NE_ERROR
+	//! @see NE_ERROR_CHECK
 	NE_ERROR LoadTexture();
 
 	//! Use Texture for next object

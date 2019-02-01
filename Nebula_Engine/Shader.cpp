@@ -315,7 +315,7 @@ void Shader::SetPointLights(PointLight * pLight, unsigned int lightCount, unsign
 			uniformPointLight[i].uniformDiffuseIntensity, uniformPointLight[i].uniformPosition,
 			uniformPointLight[i].uniformConstant, uniformPointLight[i].uniformLinear, uniformPointLight[i].uniformExponent);
 
-		pLight[i].getShadowMap()->Read(GL_TEXTURE0 + textureUnit + i);
+		pLight[i].GetShadowMap()->Read(GL_TEXTURE0 + textureUnit + i);
 		glUniform1i(uniformOmniShadowMap[i + offset].shadowMap, textureUnit + i);
 		glUniform1f(uniformOmniShadowMap[i + offset].farPlane, pLight[i].GetFarPlane());
 	}
@@ -334,7 +334,7 @@ void Shader::SetSpotLights(SpotLight * sLight, unsigned int lightCount, unsigned
 			uniformSpotLight[i].uniformConstant, uniformSpotLight[i].uniformLinear, uniformSpotLight[i].uniformExponent,
 			uniformSpotLight[i].uniformEdge);
 
-		sLight[i].getShadowMap()->Read(GL_TEXTURE0 + textureUnit + i);
+		sLight[i].GetShadowMap()->Read(GL_TEXTURE0 + textureUnit + i);
 		glUniform1i(uniformOmniShadowMap[i + offset].shadowMap, textureUnit + i);
 		glUniform1f(uniformOmniShadowMap[i + offset].farPlane, sLight[i].GetFarPlane());
 	}
@@ -396,6 +396,12 @@ void Shader::SetTexture(std::string name, unsigned int unit)
 {
 	int loc = glGetUniformLocation(shaderID, name.c_str());
 	glUniform1i(loc, unit);
+}
+
+void Shader::SetVector4(std::string name, glm::vec4 value)
+{
+	int loc = glGetUniformLocation(shaderID, name.c_str());
+	glUniform4f(loc, value.x, value.y, value.z, value.w);
 }
 
 void Shader::SetVector3(std::string name, glm::vec3 value)

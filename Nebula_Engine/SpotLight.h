@@ -47,13 +47,30 @@ public:
 	//! @param pos Set position as glm::vec3
 	//! @param dir Set direction as glm::vec3
 	void SetFlash(glm::vec3 pos, glm::vec3 dir);
+	//! Change position and direction
+	//! @param pos Set position as Vector3
+	//! @param dir Set direction as Vector3
+	void SetFlash(Vector3 pos, Vector3 dir);
 
 	//! Change position
 	//! @param pos Set position as glm::vec3
 	void SetPosition(glm::vec3 pos);
+	//! Change position
+	//! @param pos Set position as Vector3
+	void SetPosition(Vector3 pos);
 	//! Change direction
 	//! @param pos Set direction as glm::vec3
 	void SetDirection(glm::vec3 dir);
+	//! Change direction
+	//! @param pos Set direction as Vector3
+	void SetDirection(Vector3 dir);
+
+	//! Change color of the spot light
+	//! @param color Set new color of the light as glm::vec3
+	void SetColor(glm::vec3 color);
+	//! Change color of the spot light
+	//! @param color Set new color of the light as Vector3
+	void SetColor(Vector3 color);
 
 	//! Turn light on or off
 	//!

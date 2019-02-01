@@ -1,0 +1,86 @@
+\hypertarget{class_entity}{}\section{Entity Class Reference}
+\label{class_entity}\index{Entity@{Entity}}
+\subsection*{Public Types}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_entity_aa8b6fb0a3b0ff1d9191282c998918027}\label{class_entity_aa8b6fb0a3b0ff1d9191282c998918027}} 
+enum {\bfseries Object\+Primitive} \{ {\bfseries Cube}, 
+{\bfseries Sphere}, 
+{\bfseries Plane}
+ \}
+\end{DoxyCompactItemize}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_entity_a7e2a7c5df3bceaf41deea192eeba4d8f}\label{class_entity_a7e2a7c5df3bceaf41deea192eeba4d8f}} 
+void {\bfseries Update} ()
+\item 
+\mbox{\Hypertarget{class_entity_af0befbcbae6115851975d763e7dda312}\label{class_entity_af0befbcbae6115851975d763e7dda312}} 
+void {\bfseries Draw} ()
+\item 
+\mbox{\Hypertarget{class_entity_a6e6a66a2cb8f47c0eaebc20511bded4f}\label{class_entity_a6e6a66a2cb8f47c0eaebc20511bded4f}} 
+bool {\bfseries Is\+Active} () const
+\item 
+\mbox{\Hypertarget{class_entity_a3f419b3892e967131dc358734ba5d1f0}\label{class_entity_a3f419b3892e967131dc358734ba5d1f0}} 
+void {\bfseries Destory} ()
+\item 
+\mbox{\Hypertarget{class_entity_a21a5c382bca76fadf22668d51439f3a6}\label{class_entity_a21a5c382bca76fadf22668d51439f3a6}} 
+{\footnotesize template$<$typename T $>$ }\\bool {\bfseries Has\+Component} () const
+\item 
+\mbox{\Hypertarget{class_entity_adbf1a398b64eb39ba8de7a60f9cec8dc}\label{class_entity_adbf1a398b64eb39ba8de7a60f9cec8dc}} 
+{\footnotesize template$<$typename T , typename... T\+Args$>$ }\\T \& {\bfseries Add\+Component} (T\+Args \&\&... m\+Args)
+\item 
+\mbox{\Hypertarget{class_entity_a770c7781e25b2f15dcab9dd75c821198}\label{class_entity_a770c7781e25b2f15dcab9dd75c821198}} 
+{\footnotesize template$<$typename T $>$ }\\T \& {\bfseries Get\+Component} () const
+\item 
+\mbox{\Hypertarget{class_entity_a432d34bb389776d33c8c58e0a01f0959}\label{class_entity_a432d34bb389776d33c8c58e0a01f0959}} 
+int {\bfseries Get\+Vertices\+Count} ()
+\item 
+\mbox{\Hypertarget{class_entity_a7498a81508ea3a5ca327ed9d86cc4860}\label{class_entity_a7498a81508ea3a5ca327ed9d86cc4860}} 
+int {\bfseries Get\+Indecies\+Count} ()
+\item 
+\mbox{\Hypertarget{class_entity_a71051d8255fdd7609819243781240c4b}\label{class_entity_a71051d8255fdd7609819243781240c4b}} 
+void {\bfseries Reload\+Default\+Texture} ()
+\item 
+\mbox{\Hypertarget{class_entity_ad23962b7715827102869205b336059c4}\label{class_entity_ad23962b7715827102869205b336059c4}} 
+void {\bfseries Set\+Normal\+Map} (char $\ast$path)
+\item 
+\mbox{\Hypertarget{class_entity_a5f00ee65265cc9a742ff737e10c91c70}\label{class_entity_a5f00ee65265cc9a742ff737e10c91c70}} 
+float $\ast$ {\bfseries Get\+Vertices} ()
+\item 
+\mbox{\Hypertarget{class_entity_a586c6307c593df98dc8554800d49b14d}\label{class_entity_a586c6307c593df98dc8554800d49b14d}} 
+unsigned int $\ast$ {\bfseries Get\+Indices} ()
+\item 
+\mbox{\Hypertarget{class_entity_a2b750e35d5dc0425888c305486688bd7}\label{class_entity_a2b750e35d5dc0425888c305486688bd7}} 
+void {\bfseries Set\+Default\+Texture} (char $\ast$path)
+\item 
+\mbox{\Hypertarget{class_entity_a57ed6fada3d0d1ba287ac640f80c10ca}\label{class_entity_a57ed6fada3d0d1ba287ac640f80c10ca}} 
+char $\ast$ {\bfseries Get\+Default\+Texture} ()
+\item 
+\mbox{\Hypertarget{class_entity_aa787bc763776d93032677209f50d3d95}\label{class_entity_aa787bc763776d93032677209f50d3d95}} 
+char $\ast$ {\bfseries Get\+File\+Name} ()
+\item 
+\mbox{\Hypertarget{class_entity_a9f97e6cde86f53eebbb80b987d431456}\label{class_entity_a9f97e6cde86f53eebbb80b987d431456}} 
+void {\bfseries Set\+File\+Location} (char $\ast$file\+Location)
+\item 
+\mbox{\Hypertarget{class_entity_a12224b8ddc23735430a780fd9577dbb5}\label{class_entity_a12224b8ddc23735430a780fd9577dbb5}} 
+N\+E\+\_\+\+E\+R\+R\+OR {\bfseries Load\+Model} ()
+\item 
+\mbox{\Hypertarget{class_entity_afb1b16e06c2340e8d36e68053218ea17}\label{class_entity_afb1b16e06c2340e8d36e68053218ea17}} 
+N\+E\+\_\+\+E\+R\+R\+OR {\bfseries Load\+Model} (const char $\ast$file\+Name)
+\item 
+\mbox{\Hypertarget{class_entity_a51be2d420b148e45225c25c82e044023}\label{class_entity_a51be2d420b148e45225c25c82e044023}} 
+void {\bfseries Use\+Primitibe} (Object\+Primitive primitive)
+\item 
+\mbox{\Hypertarget{class_entity_a2958626e851c545c8d976c84f18dd157}\label{class_entity_a2958626e851c545c8d976c84f18dd157}} 
+N\+E\+\_\+\+E\+R\+R\+OR {\bfseries Render\+Model} ()
+\item 
+\mbox{\Hypertarget{class_entity_a2e58d45a3d40dc5fd5c1f08708928387}\label{class_entity_a2e58d45a3d40dc5fd5c1f08708928387}} 
+void {\bfseries Clear\+Model} ()
+\end{DoxyCompactItemize}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+Git\+Hub/\+Nebula\+\_\+\+Engine/\+Nebula\+\_\+\+Engine/E\+C\+Manager.\+h\item 
+Git\+Hub/\+Nebula\+\_\+\+Engine/\+Nebula\+\_\+\+Engine/E\+C\+Manager.\+cpp\end{DoxyCompactItemize}

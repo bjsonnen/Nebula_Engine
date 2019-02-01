@@ -1,0 +1,713 @@
+\hypertarget{class_game_object}{}\section{Game\+Object Class Reference}
+\label{class_game_object}\index{GameObject@{GameObject}}
+
+
+Main class for all gameobjects.  
+
+
+
+
+{\ttfamily \#include $<$Game\+Object.\+h$>$}
+
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_game_object_a0348e3ee2e83d56eafca7a3547f432c4}{Game\+Object}} ()
+\item 
+\mbox{\hyperlink{class_game_object_a2a40f6eac86bddffbf44d86f1fcb93ec}{Game\+Object}} (char $\ast$filelocation)
+\item 
+glm\+::vec3 \mbox{\hyperlink{class_game_object_a345efa82c1b4d5f41100f267ee859dae}{Get\+Position}} ()
+\item 
+\mbox{\hyperlink{struct_vector3}{Vector3}} \mbox{\hyperlink{class_game_object_a4541e1e1f7461f91878e7ddc1a145d89}{Get\+Position\+Vector3}} ()
+\item 
+glm\+::vec3 \mbox{\hyperlink{class_game_object_ac37ee5e22d3f9a0dc1ddb3ad8f5aea0e}{Get\+Rotation}} ()
+\item 
+\mbox{\hyperlink{struct_vector3}{Vector3}} \mbox{\hyperlink{class_game_object_a271ece7ce9dcac2d1076754c96049dd0}{Get\+Rotation\+Vector3}} ()
+\item 
+glm\+::vec3 \mbox{\hyperlink{class_game_object_aac0681f3ee0d74b8d295df8fc53aeb52}{Get\+Scale}} ()
+\item 
+\mbox{\hyperlink{struct_vector3}{Vector3}} \mbox{\hyperlink{class_game_object_a508760ef156d3c6b48dc3ffe97b82ccb}{Get\+Scale\+Vector3}} ()
+\item 
+int \mbox{\hyperlink{class_game_object_a3c0c54e2ea7c46be00e6ba56fd23a605}{Get\+Vertices\+Count}} ()
+\item 
+int \mbox{\hyperlink{class_game_object_a5f11058ab58b1e3fd0bba65eca1dad4a}{Get\+Indices\+Count}} ()
+\item 
+void \mbox{\hyperlink{class_game_object_afb69dab3e8f30a0be83c1d4b554ed275}{Set\+Position}} (float x, float y, float z)
+\item 
+void \mbox{\hyperlink{class_game_object_acf65efb986ff560387196e334364b3b9}{Set\+Position}} (glm\+::vec3 position)
+\item 
+void \mbox{\hyperlink{class_game_object_a3a4fb313c8d1694e653a158434d69cf0}{Set\+Position}} (\mbox{\hyperlink{struct_vector3}{Vector3}} position)
+\item 
+void \mbox{\hyperlink{class_game_object_a166d8094d34a45eb64c0fa0dd1d39fb4}{Set\+Rotation}} (float x, float y, float z)
+\item 
+void \mbox{\hyperlink{class_game_object_a2facaa6e976a8ac7c731867d3ad03aae}{Set\+Rotation}} (glm\+::vec3 rotation)
+\item 
+void \mbox{\hyperlink{class_game_object_a4f78a342f36f46e5113ae842bf626a6f}{Set\+Rotation}} (\mbox{\hyperlink{struct_vector3}{Vector3}} rotation)
+\item 
+void \mbox{\hyperlink{class_game_object_a69b3551055c2a445ef736f332f798ecb}{Set\+Degrees}} (float value)
+\item 
+void \mbox{\hyperlink{class_game_object_a28891c1985f80927b4b0633de8c67eac}{Set\+Scale}} (float x, float y, float z)
+\item 
+void \mbox{\hyperlink{class_game_object_af0ae16ce70cc8a28f228bfa507056014}{Set\+Scale}} (glm\+::vec3 scale)
+\item 
+void \mbox{\hyperlink{class_game_object_ace1f06c6e0e9c8b1f0d3846f12461cc1}{Set\+Scale}} (\mbox{\hyperlink{struct_vector3}{Vector3}} scale)
+\item 
+bool \mbox{\hyperlink{class_game_object_a1da6cee9bfe225ab39e58b2227faba6a}{Get\+Render\+Normal\+Maps}} ()
+\item 
+void \mbox{\hyperlink{class_game_object_aaf56a5e3eb48be96bb1ee4796429d28e}{Set\+Normal\+Map}} (char $\ast$location)
+\item 
+float \mbox{\hyperlink{class_game_object_a5c21a0d0cbc3a071b76aeefe814aa589}{Get\+Degrees}} ()
+\item 
+void \mbox{\hyperlink{class_game_object_afafffefaf209ad57a5d6ce551d7cb31b}{Change\+Main\+Color}} (glm\+::vec3 color)
+\item 
+void \mbox{\hyperlink{class_game_object_a937d0876d4c7fd514e6069e0b447c976}{Change\+Main\+Color}} (\mbox{\hyperlink{struct_vector3}{Vector3}} color)
+\item 
+void \mbox{\hyperlink{class_game_object_a82a066a59aa5ffad07589419c07383e0}{Change\+Main\+Color}} (Object\+Color color)
+\item 
+glm\+::vec3 \mbox{\hyperlink{class_game_object_a9f320ff03b3cbf254511952dc2f3951a}{Get\+Main\+Color}} ()
+\item 
+\mbox{\hyperlink{struct_vector3}{Vector3}} \mbox{\hyperlink{class_game_object_af68f8296127c57c48ae14e52186a4549}{Get\+Main\+Color\+Vector3}} ()
+\item 
+void \mbox{\hyperlink{class_game_object_a1ba510555d772c1bd90c367af5170527}{Look\+At}} (glm\+::vec3 pos)
+\item 
+void \mbox{\hyperlink{class_game_object_a0f791ccc7199b037943e3df61e54388f}{Look\+At}} (\mbox{\hyperlink{struct_vector3}{Vector3}} pos)
+\item 
+void \mbox{\hyperlink{class_game_object_ab6fc8c1ac5466de9b4daba280409cb16}{Look\+At}} (glm\+::vec2 pos)
+\item 
+void \mbox{\hyperlink{class_game_object_a806d41ea17cfb5cd02def9b6d3942249}{Look\+At}} (\mbox{\hyperlink{struct_vector2}{Vector2}} pos)
+\item 
+void \mbox{\hyperlink{class_game_object_a54974c5e887f6a8873c8ee861a0c9e5f}{Look\+At}} (float x, float y, float z)
+\item 
+void \mbox{\hyperlink{class_game_object_af1658a9e25a85058f801211dde34281c}{Set\+Active}} (bool value)
+\item 
+bool \mbox{\hyperlink{class_game_object_a69b8f6ffe839e09eb0a0fea12659847d}{Is\+Active}} ()
+\item 
+void \mbox{\hyperlink{class_game_object_ac1f6c8881fe4185a1a2bca08ad252660}{Rotate}} (glm\+::vec3 rotation)
+\item 
+void \mbox{\hyperlink{class_game_object_a93d2bb0c555fe8bb6323f9a4827f7a46}{Rotate}} (\mbox{\hyperlink{struct_vector3}{Vector3}} rotation)
+\item 
+void \mbox{\hyperlink{class_game_object_a007ca9940b38a71eae51efefda676e4f}{Reload\+Default\+Texture}} ()
+\item 
+void \mbox{\hyperlink{class_game_object_a96b709620f150364772eeba91870f34f}{Set\+Normal\+Map}} (std\+::string normal)
+\item 
+void \mbox{\hyperlink{class_game_object_ab9c811db96001705309dcb7951ca5252}{Use\+Blending}} (bool value)
+\item 
+bool \mbox{\hyperlink{class_game_object_a2397a73d6940e1e4c78bccccc5531788}{Get\+Use\+Blending}} ()
+\item 
+float $\ast$ \mbox{\hyperlink{class_game_object_acd61e0ec39b7130ce29f8b4d89983f26}{Get\+Vertices}} ()
+\item 
+unsigned int $\ast$ \mbox{\hyperlink{class_game_object_a64538a684f696603ee20d1a02cabce9f}{Get\+Indices}} ()
+\item 
+void \mbox{\hyperlink{class_game_object_af2dfbb6e1219c9483d549beb8f60f81b}{Set\+Default\+Texture}} (std\+::string path)
+\item 
+std\+::string \mbox{\hyperlink{class_game_object_aab74d8c9a731b51be641209670b172f7}{Get\+Default\+Texture}} ()
+\item 
+void \mbox{\hyperlink{class_game_object_ab59900eba23ba9d4d07ce727332d3c0b}{Use\+Normal\+Maps}} (bool value)
+\item 
+bool \mbox{\hyperlink{class_game_object_af6f452c0d3f1d97f5573d6dc1f428424}{Get\+Use\+Normal\+Maps}} ()
+\item 
+char $\ast$ \mbox{\hyperlink{class_game_object_a5e449ed9a13ab543b02aca997ba475d9}{Get\+File\+Name}} ()
+\item 
+void \mbox{\hyperlink{class_game_object_a5c7584253378347ac1a0da0909073e07}{Set\+File\+Location}} (char $\ast$file\+Location)
+\item 
+void \mbox{\hyperlink{class_game_object_a4df7e5070a936fdcfc340f230d3a92ca}{Set\+File\+Location}} (std\+::string file\+Location)
+\item 
+N\+E\+\_\+\+E\+R\+R\+OR \mbox{\hyperlink{class_game_object_acfd40d131da4847e23f2e01fb6751399}{Load\+Model}} ()
+\item 
+N\+E\+\_\+\+E\+R\+R\+OR \mbox{\hyperlink{class_game_object_a14f2f975d6c5005ee5fb9c4665cbfc4b}{Load\+Model}} (const std\+::string \&file\+Name)
+\item 
+void \mbox{\hyperlink{class_game_object_a530897ca5fe14017bae2790f49b46e95}{Use\+Primitive}} (Object\+Primitive primitive)
+\item 
+void \mbox{\hyperlink{class_game_object_ab4c2468f179f258168c6af5369172f81}{Render\+Model}} ()
+\item 
+\mbox{\Hypertarget{class_game_object_aba04bb334ea9b02b61eda560d8128fc5}\label{class_game_object_aba04bb334ea9b02b61eda560d8128fc5}} 
+void \mbox{\hyperlink{class_game_object_aba04bb334ea9b02b61eda560d8128fc5}{Clear\+Model}} ()
+\begin{DoxyCompactList}\small\item\em Delete all data on the ram. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Main class for all gameobjects. 
+
+\subsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_game_object_a0348e3ee2e83d56eafca7a3547f432c4}\label{class_game_object_a0348e3ee2e83d56eafca7a3547f432c4}} 
+\index{GameObject@{GameObject}!GameObject@{GameObject}}
+\index{GameObject@{GameObject}!GameObject@{GameObject}}
+\subsubsection{\texorpdfstring{GameObject()}{GameObject()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily Game\+Object\+::\+Game\+Object (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Create a single model from file Only reserves the space on the ram \mbox{\Hypertarget{class_game_object_a2a40f6eac86bddffbf44d86f1fcb93ec}\label{class_game_object_a2a40f6eac86bddffbf44d86f1fcb93ec}} 
+\index{GameObject@{GameObject}!GameObject@{GameObject}}
+\index{GameObject@{GameObject}!GameObject@{GameObject}}
+\subsubsection{\texorpdfstring{GameObject()}{GameObject()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily Game\+Object\+::\+Game\+Object (\begin{DoxyParamCaption}\item[{char $\ast$}]{filelocation }\end{DoxyParamCaption})}
+
+Create a single model from file 
+\begin{DoxyParams}{Parameters}
+{\em file\+Location} & Insert file location \\
+\hline
+\end{DoxyParams}
+\begin{DoxySeeAlso}{See also}
+Game\+Object\+::\+Load\+Model(std\+::string) 
+\end{DoxySeeAlso}
+
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{class_game_object_afafffefaf209ad57a5d6ce551d7cb31b}\label{class_game_object_afafffefaf209ad57a5d6ce551d7cb31b}} 
+\index{GameObject@{GameObject}!ChangeMainColor@{ChangeMainColor}}
+\index{ChangeMainColor@{ChangeMainColor}!GameObject@{GameObject}}
+\subsubsection{\texorpdfstring{ChangeMainColor()}{ChangeMainColor()}\hspace{0.1cm}{\footnotesize\ttfamily [1/3]}}
+{\footnotesize\ttfamily void Game\+Object\+::\+Change\+Main\+Color (\begin{DoxyParamCaption}\item[{glm\+::vec3}]{color }\end{DoxyParamCaption})}
+
+Set the main color of the object White = Textures only 
+\begin{DoxyParams}{Parameters}
+{\em color} & Set the color as glm\+::vec3 \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_game_object_a937d0876d4c7fd514e6069e0b447c976}\label{class_game_object_a937d0876d4c7fd514e6069e0b447c976}} 
+\index{GameObject@{GameObject}!ChangeMainColor@{ChangeMainColor}}
+\index{ChangeMainColor@{ChangeMainColor}!GameObject@{GameObject}}
+\subsubsection{\texorpdfstring{ChangeMainColor()}{ChangeMainColor()}\hspace{0.1cm}{\footnotesize\ttfamily [2/3]}}
+{\footnotesize\ttfamily void Game\+Object\+::\+Change\+Main\+Color (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_vector3}{Vector3}}}]{color }\end{DoxyParamCaption})}
+
+Set the main color of the object White = Textures only 
+\begin{DoxyParams}{Parameters}
+{\em color} & Set the color as \mbox{\hyperlink{struct_vector3}{Vector3}} \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_game_object_a82a066a59aa5ffad07589419c07383e0}\label{class_game_object_a82a066a59aa5ffad07589419c07383e0}} 
+\index{GameObject@{GameObject}!ChangeMainColor@{ChangeMainColor}}
+\index{ChangeMainColor@{ChangeMainColor}!GameObject@{GameObject}}
+\subsubsection{\texorpdfstring{ChangeMainColor()}{ChangeMainColor()}\hspace{0.1cm}{\footnotesize\ttfamily [3/3]}}
+{\footnotesize\ttfamily void Game\+Object\+::\+Change\+Main\+Color (\begin{DoxyParamCaption}\item[{Object\+Color}]{color }\end{DoxyParamCaption})}
+
+Set the main color of the object White = Textures only 
+\begin{DoxyParams}{Parameters}
+{\em color} & Set color as Game\+Object\+::\+Object\+Color \\
+\hline
+\end{DoxyParams}
+\begin{DoxySeeAlso}{See also}
+Game\+Object\+::\+Object\+Color 
+\end{DoxySeeAlso}
+\mbox{\Hypertarget{class_game_object_aab74d8c9a731b51be641209670b172f7}\label{class_game_object_aab74d8c9a731b51be641209670b172f7}} 
+\index{GameObject@{GameObject}!GetDefaultTexture@{GetDefaultTexture}}
+\index{GetDefaultTexture@{GetDefaultTexture}!GameObject@{GameObject}}
+\subsubsection{\texorpdfstring{GetDefaultTexture()}{GetDefaultTexture()}}
+{\footnotesize\ttfamily std\+::string Game\+Object\+::\+Get\+Default\+Texture (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Get path to default texture \begin{DoxyReturn}{Returns}
+Returns file location as std\+::string 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_game_object_a5c21a0d0cbc3a071b76aeefe814aa589}\label{class_game_object_a5c21a0d0cbc3a071b76aeefe814aa589}} 
+\index{GameObject@{GameObject}!GetDegrees@{GetDegrees}}
+\index{GetDegrees@{GetDegrees}!GameObject@{GameObject}}
+\subsubsection{\texorpdfstring{GetDegrees()}{GetDegrees()}}
+{\footnotesize\ttfamily float Game\+Object\+::\+Get\+Degrees (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Returns the degrees for the axis \begin{DoxyReturn}{Returns}
+Returns the current degrees as float 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_game_object_a5e449ed9a13ab543b02aca997ba475d9}\label{class_game_object_a5e449ed9a13ab543b02aca997ba475d9}} 
+\index{GameObject@{GameObject}!GetFileName@{GetFileName}}
+\index{GetFileName@{GetFileName}!GameObject@{GameObject}}
+\subsubsection{\texorpdfstring{GetFileName()}{GetFileName()}}
+{\footnotesize\ttfamily char $\ast$ Game\+Object\+::\+Get\+File\+Name (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Get file location \begin{DoxyReturn}{Returns}
+Returns the file location as char$\ast$ 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_game_object_a64538a684f696603ee20d1a02cabce9f}\label{class_game_object_a64538a684f696603ee20d1a02cabce9f}} 
+\index{GameObject@{GameObject}!GetIndices@{GetIndices}}
+\index{GetIndices@{GetIndices}!GameObject@{GameObject}}
+\subsubsection{\texorpdfstring{GetIndices()}{GetIndices()}}
+{\footnotesize\ttfamily unsigned int $\ast$ Game\+Object\+::\+Get\+Indices (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Returns a pointer to an array with all indices \begin{DoxyReturn}{Returns}
+Returns indices as unsigned int pointer (unsigned int$\ast$) 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_game_object_a5f11058ab58b1e3fd0bba65eca1dad4a}\label{class_game_object_a5f11058ab58b1e3fd0bba65eca1dad4a}} 
+\index{GameObject@{GameObject}!GetIndicesCount@{GetIndicesCount}}
+\index{GetIndicesCount@{GetIndicesCount}!GameObject@{GameObject}}
+\subsubsection{\texorpdfstring{GetIndicesCount()}{GetIndicesCount()}}
+{\footnotesize\ttfamily int Game\+Object\+::\+Get\+Indices\+Count (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Get indices count of each object \begin{DoxyReturn}{Returns}
+Returns the indices count as int 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_game_object_a9f320ff03b3cbf254511952dc2f3951a}\label{class_game_object_a9f320ff03b3cbf254511952dc2f3951a}} 
+\index{GameObject@{GameObject}!GetMainColor@{GetMainColor}}
+\index{GetMainColor@{GetMainColor}!GameObject@{GameObject}}
+\subsubsection{\texorpdfstring{GetMainColor()}{GetMainColor()}}
+{\footnotesize\ttfamily glm\+::vec3 Game\+Object\+::\+Get\+Main\+Color (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Returns the main color of the object \begin{DoxyReturn}{Returns}
+Main Color of the object as glm\+::vec3 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_game_object_af68f8296127c57c48ae14e52186a4549}\label{class_game_object_af68f8296127c57c48ae14e52186a4549}} 
+\index{GameObject@{GameObject}!GetMainColorVector3@{GetMainColorVector3}}
+\index{GetMainColorVector3@{GetMainColorVector3}!GameObject@{GameObject}}
+\subsubsection{\texorpdfstring{GetMainColorVector3()}{GetMainColorVector3()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{struct_vector3}{Vector3}} Game\+Object\+::\+Get\+Main\+Color\+Vector3 (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Returns the main color of the object \begin{DoxyReturn}{Returns}
+Main Color of the object as \mbox{\hyperlink{struct_vector3}{Vector3}} 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_game_object_a345efa82c1b4d5f41100f267ee859dae}\label{class_game_object_a345efa82c1b4d5f41100f267ee859dae}} 
+\index{GameObject@{GameObject}!GetPosition@{GetPosition}}
+\index{GetPosition@{GetPosition}!GameObject@{GameObject}}
+\subsubsection{\texorpdfstring{GetPosition()}{GetPosition()}}
+{\footnotesize\ttfamily glm\+::vec3 Game\+Object\+::\+Get\+Position (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Get the current Position \begin{DoxyReturn}{Returns}
+Returns the position of the object as glm\+::vec3 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_game_object_a4541e1e1f7461f91878e7ddc1a145d89}\label{class_game_object_a4541e1e1f7461f91878e7ddc1a145d89}} 
+\index{GameObject@{GameObject}!GetPositionVector3@{GetPositionVector3}}
+\index{GetPositionVector3@{GetPositionVector3}!GameObject@{GameObject}}
+\subsubsection{\texorpdfstring{GetPositionVector3()}{GetPositionVector3()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{struct_vector3}{Vector3}} Game\+Object\+::\+Get\+Position\+Vector3 (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Get the current Position \begin{DoxyReturn}{Returns}
+Returns the position of the object as \mbox{\hyperlink{struct_vector3}{Vector3}} 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_game_object_a1da6cee9bfe225ab39e58b2227faba6a}\label{class_game_object_a1da6cee9bfe225ab39e58b2227faba6a}} 
+\index{GameObject@{GameObject}!GetRenderNormalMaps@{GetRenderNormalMaps}}
+\index{GetRenderNormalMaps@{GetRenderNormalMaps}!GameObject@{GameObject}}
+\subsubsection{\texorpdfstring{GetRenderNormalMaps()}{GetRenderNormalMaps()}}
+{\footnotesize\ttfamily bool Game\+Object\+::\+Get\+Render\+Normal\+Maps (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Used by the renderer Returns true if the model has bitangents and tangents \begin{DoxyReturn}{Returns}
+Returns if the object has normal maps as bool 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_game_object_ac37ee5e22d3f9a0dc1ddb3ad8f5aea0e}\label{class_game_object_ac37ee5e22d3f9a0dc1ddb3ad8f5aea0e}} 
+\index{GameObject@{GameObject}!GetRotation@{GetRotation}}
+\index{GetRotation@{GetRotation}!GameObject@{GameObject}}
+\subsubsection{\texorpdfstring{GetRotation()}{GetRotation()}}
+{\footnotesize\ttfamily glm\+::vec3 Game\+Object\+::\+Get\+Rotation (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Get the current Rotation \begin{DoxyReturn}{Returns}
+Returns the rotation of the object as glm\+::vec3 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_game_object_a271ece7ce9dcac2d1076754c96049dd0}\label{class_game_object_a271ece7ce9dcac2d1076754c96049dd0}} 
+\index{GameObject@{GameObject}!GetRotationVector3@{GetRotationVector3}}
+\index{GetRotationVector3@{GetRotationVector3}!GameObject@{GameObject}}
+\subsubsection{\texorpdfstring{GetRotationVector3()}{GetRotationVector3()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{struct_vector3}{Vector3}} Game\+Object\+::\+Get\+Rotation\+Vector3 (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Get the current Rotation \begin{DoxyReturn}{Returns}
+Returns the rotation of the object as \mbox{\hyperlink{struct_vector3}{Vector3}} 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_game_object_aac0681f3ee0d74b8d295df8fc53aeb52}\label{class_game_object_aac0681f3ee0d74b8d295df8fc53aeb52}} 
+\index{GameObject@{GameObject}!GetScale@{GetScale}}
+\index{GetScale@{GetScale}!GameObject@{GameObject}}
+\subsubsection{\texorpdfstring{GetScale()}{GetScale()}}
+{\footnotesize\ttfamily glm\+::vec3 Game\+Object\+::\+Get\+Scale (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Get the current Scale \begin{DoxyReturn}{Returns}
+Returns the scale of the object as glm\+::vec3 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_game_object_a508760ef156d3c6b48dc3ffe97b82ccb}\label{class_game_object_a508760ef156d3c6b48dc3ffe97b82ccb}} 
+\index{GameObject@{GameObject}!GetScaleVector3@{GetScaleVector3}}
+\index{GetScaleVector3@{GetScaleVector3}!GameObject@{GameObject}}
+\subsubsection{\texorpdfstring{GetScaleVector3()}{GetScaleVector3()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{struct_vector3}{Vector3}} Game\+Object\+::\+Get\+Scale\+Vector3 (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Get the current Scale \begin{DoxyReturn}{Returns}
+Returns the scale of the object as \mbox{\hyperlink{struct_vector3}{Vector3}} 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_game_object_a2397a73d6940e1e4c78bccccc5531788}\label{class_game_object_a2397a73d6940e1e4c78bccccc5531788}} 
+\index{GameObject@{GameObject}!GetUseBlending@{GetUseBlending}}
+\index{GetUseBlending@{GetUseBlending}!GameObject@{GameObject}}
+\subsubsection{\texorpdfstring{GetUseBlending()}{GetUseBlending()}}
+{\footnotesize\ttfamily bool Game\+Object\+::\+Get\+Use\+Blending (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Get if the object renders transparent/semi-\/transparent objects \begin{DoxyReturn}{Returns}
+Returns if object uses blending as bool 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_game_object_af6f452c0d3f1d97f5573d6dc1f428424}\label{class_game_object_af6f452c0d3f1d97f5573d6dc1f428424}} 
+\index{GameObject@{GameObject}!GetUseNormalMaps@{GetUseNormalMaps}}
+\index{GetUseNormalMaps@{GetUseNormalMaps}!GameObject@{GameObject}}
+\subsubsection{\texorpdfstring{GetUseNormalMaps()}{GetUseNormalMaps()}}
+{\footnotesize\ttfamily bool Game\+Object\+::\+Get\+Use\+Normal\+Maps (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Bool for rendering normal maps \begin{DoxyReturn}{Returns}
+Returns if the object uses normal maps 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_game_object_acd61e0ec39b7130ce29f8b4d89983f26}\label{class_game_object_acd61e0ec39b7130ce29f8b4d89983f26}} 
+\index{GameObject@{GameObject}!GetVertices@{GetVertices}}
+\index{GetVertices@{GetVertices}!GameObject@{GameObject}}
+\subsubsection{\texorpdfstring{GetVertices()}{GetVertices()}}
+{\footnotesize\ttfamily float $\ast$ Game\+Object\+::\+Get\+Vertices (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Returns a pointer to an array with all vertices \begin{DoxyReturn}{Returns}
+Returns vertices as float pointer (float$\ast$) 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_game_object_a3c0c54e2ea7c46be00e6ba56fd23a605}\label{class_game_object_a3c0c54e2ea7c46be00e6ba56fd23a605}} 
+\index{GameObject@{GameObject}!GetVerticesCount@{GetVerticesCount}}
+\index{GetVerticesCount@{GetVerticesCount}!GameObject@{GameObject}}
+\subsubsection{\texorpdfstring{GetVerticesCount()}{GetVerticesCount()}}
+{\footnotesize\ttfamily int Game\+Object\+::\+Get\+Vertices\+Count (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Get vertice count of each object \begin{DoxyReturn}{Returns}
+Returns the vertices count as int 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_game_object_a69b8f6ffe839e09eb0a0fea12659847d}\label{class_game_object_a69b8f6ffe839e09eb0a0fea12659847d}} 
+\index{GameObject@{GameObject}!IsActive@{IsActive}}
+\index{IsActive@{IsActive}!GameObject@{GameObject}}
+\subsubsection{\texorpdfstring{IsActive()}{IsActive()}}
+{\footnotesize\ttfamily bool Game\+Object\+::\+Is\+Active (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Return true if model is active \begin{DoxyReturn}{Returns}
+Returns active as bool 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_game_object_acfd40d131da4847e23f2e01fb6751399}\label{class_game_object_acfd40d131da4847e23f2e01fb6751399}} 
+\index{GameObject@{GameObject}!LoadModel@{LoadModel}}
+\index{LoadModel@{LoadModel}!GameObject@{GameObject}}
+\subsubsection{\texorpdfstring{LoadModel()}{LoadModel()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily N\+E\+\_\+\+E\+R\+R\+OR Game\+Object\+::\+Load\+Model (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Load model Model is automatically loaded \begin{DoxyReturn}{Returns}
+Returns N\+E\+\_\+\+E\+R\+R\+OR 
+\end{DoxyReturn}
+\begin{DoxySeeAlso}{See also}
+N\+E\+\_\+\+E\+R\+R\+O\+R\+\_\+\+C\+H\+E\+CK 
+\end{DoxySeeAlso}
+\mbox{\Hypertarget{class_game_object_a14f2f975d6c5005ee5fb9c4665cbfc4b}\label{class_game_object_a14f2f975d6c5005ee5fb9c4665cbfc4b}} 
+\index{GameObject@{GameObject}!LoadModel@{LoadModel}}
+\index{LoadModel@{LoadModel}!GameObject@{GameObject}}
+\subsubsection{\texorpdfstring{LoadModel()}{LoadModel()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily N\+E\+\_\+\+E\+R\+R\+OR Game\+Object\+::\+Load\+Model (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{file\+Name }\end{DoxyParamCaption})}
+
+Load model from string Model is N\+OT automatically loaded 
+\begin{DoxyParams}{Parameters}
+{\em file\+Name} & Insert file location as const std\+::string\& \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Returns N\+E\+\_\+\+E\+R\+R\+OR 
+\end{DoxyReturn}
+\begin{DoxySeeAlso}{See also}
+N\+E\+\_\+\+E\+R\+R\+O\+R\+\_\+\+C\+H\+E\+CK 
+\end{DoxySeeAlso}
+\mbox{\Hypertarget{class_game_object_a1ba510555d772c1bd90c367af5170527}\label{class_game_object_a1ba510555d772c1bd90c367af5170527}} 
+\index{GameObject@{GameObject}!LookAt@{LookAt}}
+\index{LookAt@{LookAt}!GameObject@{GameObject}}
+\subsubsection{\texorpdfstring{LookAt()}{LookAt()}\hspace{0.1cm}{\footnotesize\ttfamily [1/5]}}
+{\footnotesize\ttfamily void Game\+Object\+::\+Look\+At (\begin{DoxyParamCaption}\item[{glm\+::vec3}]{pos }\end{DoxyParamCaption})}
+
+Set rotation relative to an object 
+\begin{DoxyParams}{Parameters}
+{\em pos} & Insert the position as glm\+::vec3 \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_game_object_a0f791ccc7199b037943e3df61e54388f}\label{class_game_object_a0f791ccc7199b037943e3df61e54388f}} 
+\index{GameObject@{GameObject}!LookAt@{LookAt}}
+\index{LookAt@{LookAt}!GameObject@{GameObject}}
+\subsubsection{\texorpdfstring{LookAt()}{LookAt()}\hspace{0.1cm}{\footnotesize\ttfamily [2/5]}}
+{\footnotesize\ttfamily void Game\+Object\+::\+Look\+At (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_vector3}{Vector3}}}]{pos }\end{DoxyParamCaption})}
+
+Set rotation relative to an object 
+\begin{DoxyParams}{Parameters}
+{\em pos} & Insert the position as \mbox{\hyperlink{struct_vector3}{Vector3}} \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_game_object_ab6fc8c1ac5466de9b4daba280409cb16}\label{class_game_object_ab6fc8c1ac5466de9b4daba280409cb16}} 
+\index{GameObject@{GameObject}!LookAt@{LookAt}}
+\index{LookAt@{LookAt}!GameObject@{GameObject}}
+\subsubsection{\texorpdfstring{LookAt()}{LookAt()}\hspace{0.1cm}{\footnotesize\ttfamily [3/5]}}
+{\footnotesize\ttfamily void Game\+Object\+::\+Look\+At (\begin{DoxyParamCaption}\item[{glm\+::vec2}]{pos }\end{DoxyParamCaption})}
+
+Set rotation relative to an object 
+\begin{DoxyParams}{Parameters}
+{\em pos} & Insert the position as glm\+::vec2 \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_game_object_a806d41ea17cfb5cd02def9b6d3942249}\label{class_game_object_a806d41ea17cfb5cd02def9b6d3942249}} 
+\index{GameObject@{GameObject}!LookAt@{LookAt}}
+\index{LookAt@{LookAt}!GameObject@{GameObject}}
+\subsubsection{\texorpdfstring{LookAt()}{LookAt()}\hspace{0.1cm}{\footnotesize\ttfamily [4/5]}}
+{\footnotesize\ttfamily void Game\+Object\+::\+Look\+At (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_vector2}{Vector2}}}]{pos }\end{DoxyParamCaption})}
+
+Set rotation relative to an object 
+\begin{DoxyParams}{Parameters}
+{\em pos} & Insert the position as \mbox{\hyperlink{struct_vector2}{Vector2}} \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_game_object_a54974c5e887f6a8873c8ee861a0c9e5f}\label{class_game_object_a54974c5e887f6a8873c8ee861a0c9e5f}} 
+\index{GameObject@{GameObject}!LookAt@{LookAt}}
+\index{LookAt@{LookAt}!GameObject@{GameObject}}
+\subsubsection{\texorpdfstring{LookAt()}{LookAt()}\hspace{0.1cm}{\footnotesize\ttfamily [5/5]}}
+{\footnotesize\ttfamily void Game\+Object\+::\+Look\+At (\begin{DoxyParamCaption}\item[{float}]{x,  }\item[{float}]{y,  }\item[{float}]{z }\end{DoxyParamCaption})}
+
+Set rotation relative to an object 
+\begin{DoxyParams}{Parameters}
+{\em x} & Insert x value \\
+\hline
+{\em y} & Insert y value \\
+\hline
+{\em z} & Insert z value \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_game_object_a007ca9940b38a71eae51efefda676e4f}\label{class_game_object_a007ca9940b38a71eae51efefda676e4f}} 
+\index{GameObject@{GameObject}!ReloadDefaultTexture@{ReloadDefaultTexture}}
+\index{ReloadDefaultTexture@{ReloadDefaultTexture}!GameObject@{GameObject}}
+\subsubsection{\texorpdfstring{ReloadDefaultTexture()}{ReloadDefaultTexture()}}
+{\footnotesize\ttfamily void Game\+Object\+::\+Reload\+Default\+Texture (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Load default texture again and delete the old one in ram Need to be called by the gameplay programmer! \mbox{\Hypertarget{class_game_object_ab4c2468f179f258168c6af5369172f81}\label{class_game_object_ab4c2468f179f258168c6af5369172f81}} 
+\index{GameObject@{GameObject}!RenderModel@{RenderModel}}
+\index{RenderModel@{RenderModel}!GameObject@{GameObject}}
+\subsubsection{\texorpdfstring{RenderModel()}{RenderModel()}}
+{\footnotesize\ttfamily void Game\+Object\+::\+Render\+Model (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Render the model Is called automatically \mbox{\Hypertarget{class_game_object_ac1f6c8881fe4185a1a2bca08ad252660}\label{class_game_object_ac1f6c8881fe4185a1a2bca08ad252660}} 
+\index{GameObject@{GameObject}!Rotate@{Rotate}}
+\index{Rotate@{Rotate}!GameObject@{GameObject}}
+\subsubsection{\texorpdfstring{Rotate()}{Rotate()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily void Game\+Object\+::\+Rotate (\begin{DoxyParamCaption}\item[{glm\+::vec3}]{rotation }\end{DoxyParamCaption})}
+
+Rotate object round value 
+\begin{DoxyParams}{Parameters}
+{\em rotation} & Insert rotation as glm\+::vec3 \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_game_object_a93d2bb0c555fe8bb6323f9a4827f7a46}\label{class_game_object_a93d2bb0c555fe8bb6323f9a4827f7a46}} 
+\index{GameObject@{GameObject}!Rotate@{Rotate}}
+\index{Rotate@{Rotate}!GameObject@{GameObject}}
+\subsubsection{\texorpdfstring{Rotate()}{Rotate()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily void Game\+Object\+::\+Rotate (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_vector3}{Vector3}}}]{rotation }\end{DoxyParamCaption})}
+
+Rotate object round value 
+\begin{DoxyParams}{Parameters}
+{\em rotation} & Insert rotation as \mbox{\hyperlink{struct_vector3}{Vector3}} \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_game_object_af1658a9e25a85058f801211dde34281c}\label{class_game_object_af1658a9e25a85058f801211dde34281c}} 
+\index{GameObject@{GameObject}!SetActive@{SetActive}}
+\index{SetActive@{SetActive}!GameObject@{GameObject}}
+\subsubsection{\texorpdfstring{SetActive()}{SetActive()}}
+{\footnotesize\ttfamily void Game\+Object\+::\+Set\+Active (\begin{DoxyParamCaption}\item[{bool}]{value }\end{DoxyParamCaption})}
+
+Show or hide model 
+\begin{DoxyParams}{Parameters}
+{\em value} & Insert value as bool \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_game_object_af2dfbb6e1219c9483d549beb8f60f81b}\label{class_game_object_af2dfbb6e1219c9483d549beb8f60f81b}} 
+\index{GameObject@{GameObject}!SetDefaultTexture@{SetDefaultTexture}}
+\index{SetDefaultTexture@{SetDefaultTexture}!GameObject@{GameObject}}
+\subsubsection{\texorpdfstring{SetDefaultTexture()}{SetDefaultTexture()}}
+{\footnotesize\ttfamily void Game\+Object\+::\+Set\+Default\+Texture (\begin{DoxyParamCaption}\item[{std\+::string}]{path }\end{DoxyParamCaption})}
+
+Set the default texture 
+\begin{DoxyParams}{Parameters}
+{\em path} & Insert file location as std\+::string \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_game_object_a69b3551055c2a445ef736f332f798ecb}\label{class_game_object_a69b3551055c2a445ef736f332f798ecb}} 
+\index{GameObject@{GameObject}!SetDegrees@{SetDegrees}}
+\index{SetDegrees@{SetDegrees}!GameObject@{GameObject}}
+\subsubsection{\texorpdfstring{SetDegrees()}{SetDegrees()}}
+{\footnotesize\ttfamily void Game\+Object\+::\+Set\+Degrees (\begin{DoxyParamCaption}\item[{float}]{value }\end{DoxyParamCaption})}
+
+Set the degree of an object based on the rotation vector Rotation is automatically applied every frame 
+\begin{DoxyParams}{Parameters}
+{\em value} & Insert degrees as flaot \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_game_object_a5c7584253378347ac1a0da0909073e07}\label{class_game_object_a5c7584253378347ac1a0da0909073e07}} 
+\index{GameObject@{GameObject}!SetFileLocation@{SetFileLocation}}
+\index{SetFileLocation@{SetFileLocation}!GameObject@{GameObject}}
+\subsubsection{\texorpdfstring{SetFileLocation()}{SetFileLocation()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily void Game\+Object\+::\+Set\+File\+Location (\begin{DoxyParamCaption}\item[{char $\ast$}]{file\+Location }\end{DoxyParamCaption})}
+
+Set file location of the mesh 
+\begin{DoxyParams}{Parameters}
+{\em file\+Location} & Insert file location as char pointer (char$\ast$) \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_game_object_a4df7e5070a936fdcfc340f230d3a92ca}\label{class_game_object_a4df7e5070a936fdcfc340f230d3a92ca}} 
+\index{GameObject@{GameObject}!SetFileLocation@{SetFileLocation}}
+\index{SetFileLocation@{SetFileLocation}!GameObject@{GameObject}}
+\subsubsection{\texorpdfstring{SetFileLocation()}{SetFileLocation()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily void Game\+Object\+::\+Set\+File\+Location (\begin{DoxyParamCaption}\item[{std\+::string}]{file\+Location }\end{DoxyParamCaption})}
+
+Set file location of the mesh 
+\begin{DoxyParams}{Parameters}
+{\em file\+Location} & Insert the file location as std\+::string \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_game_object_aaf56a5e3eb48be96bb1ee4796429d28e}\label{class_game_object_aaf56a5e3eb48be96bb1ee4796429d28e}} 
+\index{GameObject@{GameObject}!SetNormalMap@{SetNormalMap}}
+\index{SetNormalMap@{SetNormalMap}!GameObject@{GameObject}}
+\subsubsection{\texorpdfstring{SetNormalMap()}{SetNormalMap()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily void Game\+Object\+::\+Set\+Normal\+Map (\begin{DoxyParamCaption}\item[{char $\ast$}]{location }\end{DoxyParamCaption})}
+
+Change the normal map of an object Do not forget to call \mbox{\hyperlink{class_game_object_a007ca9940b38a71eae51efefda676e4f}{Reload\+Default\+Texture()}} 
+\begin{DoxyParams}{Parameters}
+{\em location} & Insert file location as char array \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_game_object_a96b709620f150364772eeba91870f34f}\label{class_game_object_a96b709620f150364772eeba91870f34f}} 
+\index{GameObject@{GameObject}!SetNormalMap@{SetNormalMap}}
+\index{SetNormalMap@{SetNormalMap}!GameObject@{GameObject}}
+\subsubsection{\texorpdfstring{SetNormalMap()}{SetNormalMap()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily void Game\+Object\+::\+Set\+Normal\+Map (\begin{DoxyParamCaption}\item[{std\+::string}]{normal }\end{DoxyParamCaption})}
+
+Set normal map for mesh 
+\begin{DoxyParams}{Parameters}
+{\em normal} & Set file location to normal as std\+::string \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_game_object_afb69dab3e8f30a0be83c1d4b554ed275}\label{class_game_object_afb69dab3e8f30a0be83c1d4b554ed275}} 
+\index{GameObject@{GameObject}!SetPosition@{SetPosition}}
+\index{SetPosition@{SetPosition}!GameObject@{GameObject}}
+\subsubsection{\texorpdfstring{SetPosition()}{SetPosition()}\hspace{0.1cm}{\footnotesize\ttfamily [1/3]}}
+{\footnotesize\ttfamily void Game\+Object\+::\+Set\+Position (\begin{DoxyParamCaption}\item[{float}]{x,  }\item[{float}]{y,  }\item[{float}]{z }\end{DoxyParamCaption})}
+
+Set the position of the object Position is automatically applied every frame 
+\begin{DoxyParams}{Parameters}
+{\em x} & Insert x position \\
+\hline
+{\em y} & Insert y position \\
+\hline
+{\em z} & Insert z position \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_game_object_acf65efb986ff560387196e334364b3b9}\label{class_game_object_acf65efb986ff560387196e334364b3b9}} 
+\index{GameObject@{GameObject}!SetPosition@{SetPosition}}
+\index{SetPosition@{SetPosition}!GameObject@{GameObject}}
+\subsubsection{\texorpdfstring{SetPosition()}{SetPosition()}\hspace{0.1cm}{\footnotesize\ttfamily [2/3]}}
+{\footnotesize\ttfamily void Game\+Object\+::\+Set\+Position (\begin{DoxyParamCaption}\item[{glm\+::vec3}]{position }\end{DoxyParamCaption})}
+
+Set the position of the object Position is automatically applied every frame 
+\begin{DoxyParams}{Parameters}
+{\em position} & Insert the position as glm\+::vec3 \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_game_object_a3a4fb313c8d1694e653a158434d69cf0}\label{class_game_object_a3a4fb313c8d1694e653a158434d69cf0}} 
+\index{GameObject@{GameObject}!SetPosition@{SetPosition}}
+\index{SetPosition@{SetPosition}!GameObject@{GameObject}}
+\subsubsection{\texorpdfstring{SetPosition()}{SetPosition()}\hspace{0.1cm}{\footnotesize\ttfamily [3/3]}}
+{\footnotesize\ttfamily void Game\+Object\+::\+Set\+Position (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_vector3}{Vector3}}}]{position }\end{DoxyParamCaption})}
+
+Set the position of the object Position is automatically applied every frame 
+\begin{DoxyParams}{Parameters}
+{\em position} & Insert the position as \mbox{\hyperlink{struct_vector3}{Vector3}} \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_game_object_a166d8094d34a45eb64c0fa0dd1d39fb4}\label{class_game_object_a166d8094d34a45eb64c0fa0dd1d39fb4}} 
+\index{GameObject@{GameObject}!SetRotation@{SetRotation}}
+\index{SetRotation@{SetRotation}!GameObject@{GameObject}}
+\subsubsection{\texorpdfstring{SetRotation()}{SetRotation()}\hspace{0.1cm}{\footnotesize\ttfamily [1/3]}}
+{\footnotesize\ttfamily void Game\+Object\+::\+Set\+Rotation (\begin{DoxyParamCaption}\item[{float}]{x,  }\item[{float}]{y,  }\item[{float}]{z }\end{DoxyParamCaption})}
+
+Set the rotation of the object Rotation is automatically applied every frame 
+\begin{DoxyParams}{Parameters}
+{\em x} & Insert x position \\
+\hline
+{\em y} & Insert y position \\
+\hline
+{\em z} & Insert z position \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_game_object_a2facaa6e976a8ac7c731867d3ad03aae}\label{class_game_object_a2facaa6e976a8ac7c731867d3ad03aae}} 
+\index{GameObject@{GameObject}!SetRotation@{SetRotation}}
+\index{SetRotation@{SetRotation}!GameObject@{GameObject}}
+\subsubsection{\texorpdfstring{SetRotation()}{SetRotation()}\hspace{0.1cm}{\footnotesize\ttfamily [2/3]}}
+{\footnotesize\ttfamily void Game\+Object\+::\+Set\+Rotation (\begin{DoxyParamCaption}\item[{glm\+::vec3}]{rotation }\end{DoxyParamCaption})}
+
+Set the rotation of the object Rotation is automatically applied every frame 
+\begin{DoxyParams}{Parameters}
+{\em rotation} & Insert the rotation as glm\+::vec3 \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_game_object_a4f78a342f36f46e5113ae842bf626a6f}\label{class_game_object_a4f78a342f36f46e5113ae842bf626a6f}} 
+\index{GameObject@{GameObject}!SetRotation@{SetRotation}}
+\index{SetRotation@{SetRotation}!GameObject@{GameObject}}
+\subsubsection{\texorpdfstring{SetRotation()}{SetRotation()}\hspace{0.1cm}{\footnotesize\ttfamily [3/3]}}
+{\footnotesize\ttfamily void Game\+Object\+::\+Set\+Rotation (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_vector3}{Vector3}}}]{rotation }\end{DoxyParamCaption})}
+
+Set the rotation of the object Rotation is automatically applied every frame 
+\begin{DoxyParams}{Parameters}
+{\em rotation} & Insert the rotation as \mbox{\hyperlink{struct_vector3}{Vector3}} \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_game_object_a28891c1985f80927b4b0633de8c67eac}\label{class_game_object_a28891c1985f80927b4b0633de8c67eac}} 
+\index{GameObject@{GameObject}!SetScale@{SetScale}}
+\index{SetScale@{SetScale}!GameObject@{GameObject}}
+\subsubsection{\texorpdfstring{SetScale()}{SetScale()}\hspace{0.1cm}{\footnotesize\ttfamily [1/3]}}
+{\footnotesize\ttfamily void Game\+Object\+::\+Set\+Scale (\begin{DoxyParamCaption}\item[{float}]{x,  }\item[{float}]{y,  }\item[{float}]{z }\end{DoxyParamCaption})}
+
+Set the scale of the object Scale is automatically applied every frame 
+\begin{DoxyParams}{Parameters}
+{\em x} & Insert x position \\
+\hline
+{\em y} & Insert y position \\
+\hline
+{\em z} & Insert z position \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_game_object_af0ae16ce70cc8a28f228bfa507056014}\label{class_game_object_af0ae16ce70cc8a28f228bfa507056014}} 
+\index{GameObject@{GameObject}!SetScale@{SetScale}}
+\index{SetScale@{SetScale}!GameObject@{GameObject}}
+\subsubsection{\texorpdfstring{SetScale()}{SetScale()}\hspace{0.1cm}{\footnotesize\ttfamily [2/3]}}
+{\footnotesize\ttfamily void Game\+Object\+::\+Set\+Scale (\begin{DoxyParamCaption}\item[{glm\+::vec3}]{scale }\end{DoxyParamCaption})}
+
+Set the scale of the object Scale is automatically applied every frame 
+\begin{DoxyParams}{Parameters}
+{\em scale} & Insert the scale as glm\+::vec3 \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_game_object_ace1f06c6e0e9c8b1f0d3846f12461cc1}\label{class_game_object_ace1f06c6e0e9c8b1f0d3846f12461cc1}} 
+\index{GameObject@{GameObject}!SetScale@{SetScale}}
+\index{SetScale@{SetScale}!GameObject@{GameObject}}
+\subsubsection{\texorpdfstring{SetScale()}{SetScale()}\hspace{0.1cm}{\footnotesize\ttfamily [3/3]}}
+{\footnotesize\ttfamily void Game\+Object\+::\+Set\+Scale (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_vector3}{Vector3}}}]{scale }\end{DoxyParamCaption})}
+
+Set the scale of the object Scale is automatically applied every frame 
+\begin{DoxyParams}{Parameters}
+{\em scale} & Insert the scale as \mbox{\hyperlink{struct_vector3}{Vector3}} \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_game_object_ab9c811db96001705309dcb7951ca5252}\label{class_game_object_ab9c811db96001705309dcb7951ca5252}} 
+\index{GameObject@{GameObject}!UseBlending@{UseBlending}}
+\index{UseBlending@{UseBlending}!GameObject@{GameObject}}
+\subsubsection{\texorpdfstring{UseBlending()}{UseBlending()}}
+{\footnotesize\ttfamily void Game\+Object\+::\+Use\+Blending (\begin{DoxyParamCaption}\item[{bool}]{value }\end{DoxyParamCaption})}
+
+Set if the object should render transparent/semi-\/transparent objects 
+\begin{DoxyParams}{Parameters}
+{\em value} & Set value as bool \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_game_object_ab59900eba23ba9d4d07ce727332d3c0b}\label{class_game_object_ab59900eba23ba9d4d07ce727332d3c0b}} 
+\index{GameObject@{GameObject}!UseNormalMaps@{UseNormalMaps}}
+\index{UseNormalMaps@{UseNormalMaps}!GameObject@{GameObject}}
+\subsubsection{\texorpdfstring{UseNormalMaps()}{UseNormalMaps()}}
+{\footnotesize\ttfamily void Game\+Object\+::\+Use\+Normal\+Maps (\begin{DoxyParamCaption}\item[{bool}]{value }\end{DoxyParamCaption})}
+
+Use normal map 
+\begin{DoxyParams}{Parameters}
+{\em value} & Insert value as bool \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_game_object_a530897ca5fe14017bae2790f49b46e95}\label{class_game_object_a530897ca5fe14017bae2790f49b46e95}} 
+\index{GameObject@{GameObject}!UsePrimitive@{UsePrimitive}}
+\index{UsePrimitive@{UsePrimitive}!GameObject@{GameObject}}
+\subsubsection{\texorpdfstring{UsePrimitive()}{UsePrimitive()}}
+{\footnotesize\ttfamily void Game\+Object\+::\+Use\+Primitive (\begin{DoxyParamCaption}\item[{Object\+Primitive}]{primitive }\end{DoxyParamCaption})}
+
+Use Primitive as \mbox{\hyperlink{class_object}{Object}} 
+\begin{DoxyParams}{Parameters}
+{\em primitive} & Insert Object\+Primitive \\
+\hline
+\end{DoxyParams}
+\begin{DoxySeeAlso}{See also}
+Object\+Primitive 
+\end{DoxySeeAlso}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+Git\+Hub/\+Nebula\+\_\+\+Engine/\+Nebula\+\_\+\+Engine/Game\+Object.\+h\item 
+Git\+Hub/\+Nebula\+\_\+\+Engine/\+Nebula\+\_\+\+Engine/Game\+Object.\+cpp\end{DoxyCompactItemize}

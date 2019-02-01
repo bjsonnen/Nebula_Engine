@@ -31,18 +31,22 @@ public:
 	//! @param file Location to the file
 	//! @return Returns an NE_ERROR
 	//! @see NE_ERROR
+	//! @see NE_ERROR_CHECK
 	NE_ERROR Init(char* file);
 	//! Play the audio source
 	//! @return Returns an NE_ERROR
 	//! @see NE_ERROR
+	//! @see NE_ERROR_CHECK
 	NE_ERROR Play();
 	//! Play audio source in 3D
 	//! @param min Min distance
 	//! @param max Max distance
 	//! @return Returns an NE_ERROR
+	//! @see NE_ERROR_CHECK
 	NE_ERROR Play3D(float min, float max);
 	//! Create a user generated sound
 	//! @return Returns an NE_ERROR
+	//! @see NE_ERROR_CHECK
 	NE_ERROR UserCreateSound();
 	//! Set the 3D Position of the player
 	//! @param x Set current x position
@@ -52,14 +56,21 @@ public:
 	//! Set the 3D Position of the player
 	//! @param pos Set current position as glm::vec3
 	void Set3DPosition(glm::vec3 pos);
+	//! Set the 3D Position of the player
+	//! @param pos Set current position as Vector3
+	//! @see Vector3
+	void Set3DPosition(Vector3 pos);
 	//! Pause the audio source
 	//! @return Returns an NE_ERROR
+	//! @see NE_ERROR_CHECK
 	NE_ERROR Pause();
 	//! Restart the audio source
 	//! @return Returns an NE_ERROR
+	//! @see NE_ERROR_CHECK
 	NE_ERROR Restart();
 	//! Switch from start to pause
 	//! @return Returns an NE_ERROR
+	//! @see NE_ERROR_CHECK
 	NE_ERROR SwitchPause();
 
 	//! Used for 3D Audio
@@ -67,15 +78,18 @@ public:
 
 	//! Release and clear the memory used to hold the audio files
 	//! @return Returns an NE_ERROR
+	//! @see NE_ERROR_CHECK
 	NE_ERROR Release();
 
 	//! Set the speed of the audio source
 	//! @param speed Set the speed of the sound
 	//! @return Returns an NE_ERROR
+	//! @see NE_ERROR_CHECK
 	NE_ERROR SetSpeed(float speed);
 	//! Set if the audio source is looped
 	// @param value Set if the audio is looped
 	//! @return Returns an NE_ERROR
+	//! @see NE_ERROR_CHECK
 	NE_ERROR SetLooped(bool value);
 
 	//! Get the current speed

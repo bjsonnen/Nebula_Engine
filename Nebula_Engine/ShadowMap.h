@@ -15,6 +15,7 @@ public:
 	//! Initialize the shadow map
 	//! @param width Insert texture width as unsigned int
 	//! @param height Insert texture height as unsigned int
+	//! @see NE_ERROR_CHECK
 	virtual NE_ERROR Init(unsigned int width, unsigned int height);
 
 	//! Write texture to the shader

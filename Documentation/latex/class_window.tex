@@ -1,0 +1,530 @@
+\hypertarget{class_window}{}\section{Window Class Reference}
+\label{class_window}\index{Window@{Window}}
+
+
+Main class to create the window, resize window and key/mouse inputs.  
+
+
+
+
+{\ttfamily \#include $<$Window.\+h$>$}
+
+\subsection*{Public Types}
+\begin{DoxyCompactItemize}
+\item 
+enum \mbox{\hyperlink{class_window_a4915898e3e02586ae359c8cfb9114717}{Key\+Code}} \{ \newline
+{\bfseries Q} = 81, 
+{\bfseries W} = 87, 
+{\bfseries E} = 69, 
+{\bfseries R} = 82, 
+\newline
+{\bfseries T} = 84, 
+{\bfseries Z} = 90, 
+{\bfseries U} = 85, 
+{\bfseries O} = 79, 
+\newline
+{\bfseries P} = 80, 
+{\bfseries A} = 65, 
+{\bfseries S} = 83, 
+{\bfseries D} = 68, 
+\newline
+{\bfseries F} = 70, 
+{\bfseries G} = 71, 
+{\bfseries H} = 72, 
+{\bfseries I} = 73, 
+\newline
+{\bfseries J} = 74, 
+{\bfseries K} = 75, 
+{\bfseries L} = 76, 
+{\bfseries Y} = 89, 
+\newline
+{\bfseries X} = 88, 
+{\bfseries C} = 67, 
+{\bfseries V} = 86, 
+{\bfseries B} = 66, 
+\newline
+{\bfseries N} = 78, 
+{\bfseries M} = 77, 
+{\bfseries Escape} = 256, 
+{\bfseries Left\+\_\+\+Shift} = 340
+ \}
+\item 
+enum \mbox{\hyperlink{class_window_ab44a7b55f0ce55c37d361fc51b302bdb}{Key\+Action}} \{ {\bfseries Key\+Down} = G\+L\+F\+W\+\_\+\+P\+R\+E\+SS, 
+{\bfseries Key\+Up} = G\+L\+F\+W\+\_\+\+R\+E\+L\+E\+A\+SE, 
+{\bfseries Key\+Repeat} = G\+L\+F\+W\+\_\+\+R\+E\+P\+E\+AT
+ \}
+\end{DoxyCompactItemize}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_window_a74e6087da23d3c24e9fac0245e5ec92c}\label{class_window_a74e6087da23d3c24e9fac0245e5ec92c}} 
+\mbox{\hyperlink{class_window_a74e6087da23d3c24e9fac0245e5ec92c}{Window}} ()
+\begin{DoxyCompactList}\small\item\em Create a window with 800x600 pixels. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_window_a3acd754419d920ce16897b8357fb705d}{Window}} (int window\+Width, int window\+Height)
+\item 
+void \mbox{\hyperlink{class_window_a0341974d42a2f19b6bcd32136845e3c0}{framebuffer\+\_\+size\+\_\+callback}} (G\+L\+F\+Wwindow $\ast$window, int width, int height)
+\item 
+N\+E\+\_\+\+E\+R\+R\+OR \mbox{\hyperlink{class_window_a07170e342d1296aebba4f4808ebb72a1}{Initialise}} ()
+\item 
+int \mbox{\hyperlink{class_window_a130624b840f7a1ee320a4170e4de0ddf}{Get\+Buffer\+Width}} ()
+\item 
+int \mbox{\hyperlink{class_window_a7d5c07e479e23d011c997681f9faebb4}{Get\+Buffer\+Height}} ()
+\item 
+int \mbox{\hyperlink{class_window_a098b7f2a4690ecdedaae552c5d633d9b}{Get\+Window\+Width}} ()
+\item 
+int \mbox{\hyperlink{class_window_a996917f9f1ef1548d52453f89814021b}{Get\+Window\+Height}} ()
+\item 
+int \mbox{\hyperlink{class_window_acea62a6c3bb82c234e7e33a8e53f17d8}{Get\+F\+PS}} ()
+\item 
+float \mbox{\hyperlink{class_window_ae7ce0586147cc93ba68d6ee929413f22}{Get\+Delta\+Time}} ()
+\item 
+bool \mbox{\hyperlink{class_window_af246bcd5b801ea3f10a3f66114e08ef7}{Get\+Should\+Close}} ()
+\item 
+void \mbox{\hyperlink{class_window_a3c24f203720fadb2b41fc26d205b5a26}{Set\+Wireframe}} (bool value)
+\item 
+bool \mbox{\hyperlink{class_window_a913c93756ba0357f75493ad64a265c36}{Get\+Wireframe}} ()
+\item 
+float \mbox{\hyperlink{class_window_af311ca905efe6256241b8076c0cef181}{Get\+Time}} ()
+\item 
+void \mbox{\hyperlink{class_window_a512773cac894acf5fcb747050f23ca57}{Show\+Mouse}} (bool value)
+\item 
+void \mbox{\hyperlink{class_window_a89151a47b0118a6f3c5d5f7939e080ed}{Switch\+Mouse}} ()
+\item 
+void \mbox{\hyperlink{class_window_aa3bb9982825282e226aa160d46278559}{Set\+Refresh\+Rate}} (int value)
+\item 
+int \mbox{\hyperlink{class_window_a6e208952c08cdc852d3204c91c7f523a}{Get\+Refresh\+Rate}} ()
+\item 
+bool \mbox{\hyperlink{class_window_a20848a2e0ef94a387707738917dd76d6}{Get\+Show\+Mouse}} ()
+\item 
+void \mbox{\hyperlink{class_window_ad4cc993a746593337163e9b998efb3e5}{Set\+Perspective\+Mode}} (int x)
+\item 
+int \mbox{\hyperlink{class_window_a325a7a9785e031c9025c93dbec3f21f1}{Get\+Perspective\+Mode}} ()
+\item 
+glm\+::mat4 \mbox{\hyperlink{class_window_ad82e66f4b582e9dc6215dee81cc03e6a}{Calculate\+Projection\+Matrix}} (float fovy, float aspect, float z\+Near, float z\+Far)
+\item 
+\mbox{\Hypertarget{class_window_a14e9c06af1648e53b235b0ab99cac32d}\label{class_window_a14e9c06af1648e53b235b0ab99cac32d}} 
+void \mbox{\hyperlink{class_window_a14e9c06af1648e53b235b0ab99cac32d}{Close\+Window}} ()
+\begin{DoxyCompactList}\small\item\em Close the game. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_window_a4275c9bf6717a8365f1d89fbe03e2e8b}{Set\+Icon}} (std\+::string file)
+\item 
+void \mbox{\hyperlink{class_window_aebff502aa62f526a058c3cda6bae6ed4}{Set\+Msaa}} (bool value, int filters)
+\item 
+bool \mbox{\hyperlink{class_window_a4d095b2ba52acc1ac65bed29443f3254}{Get\+Msaa}} ()
+\item 
+void \mbox{\hyperlink{class_window_a4b2829cb820c5a7232e641c571faccb3}{Set\+Title}} (std\+::string title)
+\item 
+void \mbox{\hyperlink{class_window_afa6d844ee8fa9a35ac6fc5db24c72e1d}{Set\+V\+Sync}} (bool value)
+\item 
+void \mbox{\hyperlink{class_window_a50875755f703cf58788146c80e5f752c}{Switch\+V\+Sync}} ()
+\item 
+bool \mbox{\hyperlink{class_window_a5b19fe2f1cb52d0321771b305ec06b93}{Get\+V\+Sync}} ()
+\item 
+float \mbox{\hyperlink{class_window_a777dd058c4e998417c9b374525ea1a1c}{Get\+X\+Change}} ()
+\item 
+float \mbox{\hyperlink{class_window_a632bb091879d4541c9227ed1fd05136b}{Get\+Y\+Change}} ()
+\item 
+G\+L\+F\+Wwindow $\ast$ \mbox{\hyperlink{class_window_a2213a66f028c29a8247d1a1ae8a0517e}{Get\+Window}} ()
+\item 
+bool \mbox{\hyperlink{class_window_a204179a76d0a02a336fde32a1da32186}{Key}} (\mbox{\hyperlink{class_window_a4915898e3e02586ae359c8cfb9114717}{Key\+Code}} key)
+\item 
+bool \mbox{\hyperlink{class_window_a22723619109b05b9a6955359a4ab7267}{Key}} (\mbox{\hyperlink{class_window_a4915898e3e02586ae359c8cfb9114717}{Key\+Code}} key, \mbox{\hyperlink{class_window_ab44a7b55f0ce55c37d361fc51b302bdb}{Key\+Action}} action)
+\item 
+void \mbox{\hyperlink{class_window_abbe71691ebdc8d45fff39f53f0b077a7}{Window\+Update}} ()
+\item 
+void \mbox{\hyperlink{class_window_abe1b83eda6980f2b9964aab08b5310ed}{Swap\+Buffers}} ()
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Main class to create the window, resize window and key/mouse inputs. 
+
+\subsection{Member Enumeration Documentation}
+\mbox{\Hypertarget{class_window_ab44a7b55f0ce55c37d361fc51b302bdb}\label{class_window_ab44a7b55f0ce55c37d361fc51b302bdb}} 
+\index{Window@{Window}!KeyAction@{KeyAction}}
+\index{KeyAction@{KeyAction}!Window@{Window}}
+\subsubsection{\texorpdfstring{KeyAction}{KeyAction}}
+{\footnotesize\ttfamily enum \mbox{\hyperlink{class_window_ab44a7b55f0ce55c37d361fc51b302bdb}{Window\+::\+Key\+Action}}}
+
+Key\+Action definitions for key action handling \mbox{\Hypertarget{class_window_a4915898e3e02586ae359c8cfb9114717}\label{class_window_a4915898e3e02586ae359c8cfb9114717}} 
+\index{Window@{Window}!KeyCode@{KeyCode}}
+\index{KeyCode@{KeyCode}!Window@{Window}}
+\subsubsection{\texorpdfstring{KeyCode}{KeyCode}}
+{\footnotesize\ttfamily enum \mbox{\hyperlink{class_window_a4915898e3e02586ae359c8cfb9114717}{Window\+::\+Key\+Code}}}
+
+Key\+Code definitions for key handling 
+
+\subsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_window_a3acd754419d920ce16897b8357fb705d}\label{class_window_a3acd754419d920ce16897b8357fb705d}} 
+\index{Window@{Window}!Window@{Window}}
+\index{Window@{Window}!Window@{Window}}
+\subsubsection{\texorpdfstring{Window()}{Window()}}
+{\footnotesize\ttfamily Window\+::\+Window (\begin{DoxyParamCaption}\item[{int}]{window\+Width,  }\item[{int}]{window\+Height }\end{DoxyParamCaption})}
+
+Create a window with specific width and height 
+\begin{DoxyParams}{Parameters}
+{\em window\+Width} & Insert window width for the window \\
+\hline
+{\em window\+Height} & Insert window height for the window \\
+\hline
+\end{DoxyParams}
+
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{class_window_ad82e66f4b582e9dc6215dee81cc03e6a}\label{class_window_ad82e66f4b582e9dc6215dee81cc03e6a}} 
+\index{Window@{Window}!CalculateProjectionMatrix@{CalculateProjectionMatrix}}
+\index{CalculateProjectionMatrix@{CalculateProjectionMatrix}!Window@{Window}}
+\subsubsection{\texorpdfstring{CalculateProjectionMatrix()}{CalculateProjectionMatrix()}}
+{\footnotesize\ttfamily glm\+::mat4 Window\+::\+Calculate\+Projection\+Matrix (\begin{DoxyParamCaption}\item[{float}]{fovy,  }\item[{float}]{aspect,  }\item[{float}]{z\+Near,  }\item[{float}]{z\+Far }\end{DoxyParamCaption})}
+
+Calculates projection matrix for the shader 
+\begin{DoxyParams}{Parameters}
+{\em fovy} & Insert fovy value as float \\
+\hline
+{\em aspect} & Insert aspect value as float \\
+\hline
+{\em z\+Near} & Insert near plane as float \\
+\hline
+{\em z\+Far} & Insert far plane as float \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Return the projection matrix as 4x4 matrix 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_window_a0341974d42a2f19b6bcd32136845e3c0}\label{class_window_a0341974d42a2f19b6bcd32136845e3c0}} 
+\index{Window@{Window}!framebuffer\_size\_callback@{framebuffer\_size\_callback}}
+\index{framebuffer\_size\_callback@{framebuffer\_size\_callback}!Window@{Window}}
+\subsubsection{\texorpdfstring{framebuffer\_size\_callback()}{framebuffer\_size\_callback()}}
+{\footnotesize\ttfamily void Window\+::framebuffer\+\_\+size\+\_\+callback (\begin{DoxyParamCaption}\item[{G\+L\+F\+Wwindow $\ast$}]{window,  }\item[{int}]{width,  }\item[{int}]{height }\end{DoxyParamCaption})}
+
+Change framebuffer size 
+\begin{DoxyParams}{Parameters}
+{\em window} & Insert G\+L\+F\+Wwindow pointer (internal) \\
+\hline
+{\em width} & Insert new window width as int \\
+\hline
+{\em height} & Insert new window height as int \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_window_a7d5c07e479e23d011c997681f9faebb4}\label{class_window_a7d5c07e479e23d011c997681f9faebb4}} 
+\index{Window@{Window}!GetBufferHeight@{GetBufferHeight}}
+\index{GetBufferHeight@{GetBufferHeight}!Window@{Window}}
+\subsubsection{\texorpdfstring{GetBufferHeight()}{GetBufferHeight()}}
+{\footnotesize\ttfamily int Window\+::\+Get\+Buffer\+Height (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Get Open\+GL \mbox{\hyperlink{class_window}{Window}} height \begin{DoxyReturn}{Returns}
+Returns the buffer height as int 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_window_a130624b840f7a1ee320a4170e4de0ddf}\label{class_window_a130624b840f7a1ee320a4170e4de0ddf}} 
+\index{Window@{Window}!GetBufferWidth@{GetBufferWidth}}
+\index{GetBufferWidth@{GetBufferWidth}!Window@{Window}}
+\subsubsection{\texorpdfstring{GetBufferWidth()}{GetBufferWidth()}}
+{\footnotesize\ttfamily int Window\+::\+Get\+Buffer\+Width (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Get Open\+GL \mbox{\hyperlink{class_window}{Window}} width \begin{DoxyReturn}{Returns}
+Returns the buffer width as int 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_window_ae7ce0586147cc93ba68d6ee929413f22}\label{class_window_ae7ce0586147cc93ba68d6ee929413f22}} 
+\index{Window@{Window}!GetDeltaTime@{GetDeltaTime}}
+\index{GetDeltaTime@{GetDeltaTime}!Window@{Window}}
+\subsubsection{\texorpdfstring{GetDeltaTime()}{GetDeltaTime()}}
+{\footnotesize\ttfamily float Window\+::\+Get\+Delta\+Time (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Returns delta\+Time \begin{DoxyReturn}{Returns}
+Returns the delta time as float 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_window_acea62a6c3bb82c234e7e33a8e53f17d8}\label{class_window_acea62a6c3bb82c234e7e33a8e53f17d8}} 
+\index{Window@{Window}!GetFPS@{GetFPS}}
+\index{GetFPS@{GetFPS}!Window@{Window}}
+\subsubsection{\texorpdfstring{GetFPS()}{GetFPS()}}
+{\footnotesize\ttfamily int Window\+::\+Get\+F\+PS (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Returns current fps (every 1s update) \begin{DoxyReturn}{Returns}
+Returns the fps as int 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_window_a4d095b2ba52acc1ac65bed29443f3254}\label{class_window_a4d095b2ba52acc1ac65bed29443f3254}} 
+\index{Window@{Window}!GetMsaa@{GetMsaa}}
+\index{GetMsaa@{GetMsaa}!Window@{Window}}
+\subsubsection{\texorpdfstring{GetMsaa()}{GetMsaa()}}
+{\footnotesize\ttfamily bool Window\+::\+Get\+Msaa (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Get msaa bool \begin{DoxyReturn}{Returns}
+Msaa bool 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_window_a325a7a9785e031c9025c93dbec3f21f1}\label{class_window_a325a7a9785e031c9025c93dbec3f21f1}} 
+\index{Window@{Window}!GetPerspectiveMode@{GetPerspectiveMode}}
+\index{GetPerspectiveMode@{GetPerspectiveMode}!Window@{Window}}
+\subsubsection{\texorpdfstring{GetPerspectiveMode()}{GetPerspectiveMode()}}
+{\footnotesize\ttfamily int Window\+::\+Get\+Perspective\+Mode (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Get Perspective mode 0 = Perspective 1 = Orthografic \begin{DoxyReturn}{Returns}
+Returns the current perspective mode as int 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_window_a6e208952c08cdc852d3204c91c7f523a}\label{class_window_a6e208952c08cdc852d3204c91c7f523a}} 
+\index{Window@{Window}!GetRefreshRate@{GetRefreshRate}}
+\index{GetRefreshRate@{GetRefreshRate}!Window@{Window}}
+\subsubsection{\texorpdfstring{GetRefreshRate()}{GetRefreshRate()}}
+{\footnotesize\ttfamily int Window\+::\+Get\+Refresh\+Rate (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Get refresh rate \begin{DoxyReturn}{Returns}
+Returns the refreshrate per second as int 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_window_af246bcd5b801ea3f10a3f66114e08ef7}\label{class_window_af246bcd5b801ea3f10a3f66114e08ef7}} 
+\index{Window@{Window}!GetShouldClose@{GetShouldClose}}
+\index{GetShouldClose@{GetShouldClose}!Window@{Window}}
+\subsubsection{\texorpdfstring{GetShouldClose()}{GetShouldClose()}}
+{\footnotesize\ttfamily bool Window\+::\+Get\+Should\+Close (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+If window should close \begin{DoxyReturn}{Returns}
+Returns if the window should close 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_window_a20848a2e0ef94a387707738917dd76d6}\label{class_window_a20848a2e0ef94a387707738917dd76d6}} 
+\index{Window@{Window}!GetShowMouse@{GetShowMouse}}
+\index{GetShowMouse@{GetShowMouse}!Window@{Window}}
+\subsubsection{\texorpdfstring{GetShowMouse()}{GetShowMouse()}}
+{\footnotesize\ttfamily bool Window\+::\+Get\+Show\+Mouse (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Get mouse setting (bool) \begin{DoxyReturn}{Returns}
+Return a bool if mouse if visible 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_window_af311ca905efe6256241b8076c0cef181}\label{class_window_af311ca905efe6256241b8076c0cef181}} 
+\index{Window@{Window}!GetTime@{GetTime}}
+\index{GetTime@{GetTime}!Window@{Window}}
+\subsubsection{\texorpdfstring{GetTime()}{GetTime()}}
+{\footnotesize\ttfamily float Window\+::\+Get\+Time (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Get time \begin{DoxyReturn}{Returns}
+Returns the time as float 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_window_a5b19fe2f1cb52d0321771b305ec06b93}\label{class_window_a5b19fe2f1cb52d0321771b305ec06b93}} 
+\index{Window@{Window}!GetVSync@{GetVSync}}
+\index{GetVSync@{GetVSync}!Window@{Window}}
+\subsubsection{\texorpdfstring{GetVSync()}{GetVSync()}}
+{\footnotesize\ttfamily bool Window\+::\+Get\+V\+Sync (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Get Vertical Synchronisation (bool) \begin{DoxyReturn}{Returns}
+vsync bool 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_window_a2213a66f028c29a8247d1a1ae8a0517e}\label{class_window_a2213a66f028c29a8247d1a1ae8a0517e}} 
+\index{Window@{Window}!GetWindow@{GetWindow}}
+\index{GetWindow@{GetWindow}!Window@{Window}}
+\subsubsection{\texorpdfstring{GetWindow()}{GetWindow()}}
+{\footnotesize\ttfamily G\+L\+F\+Wwindow$\ast$ Window\+::\+Get\+Window (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Returns a pointer to the window object \begin{DoxyReturn}{Returns}
+Returns a G\+L\+F\+Wwindow pointer to the window object (internal) 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_window_a996917f9f1ef1548d52453f89814021b}\label{class_window_a996917f9f1ef1548d52453f89814021b}} 
+\index{Window@{Window}!GetWindowHeight@{GetWindowHeight}}
+\index{GetWindowHeight@{GetWindowHeight}!Window@{Window}}
+\subsubsection{\texorpdfstring{GetWindowHeight()}{GetWindowHeight()}}
+{\footnotesize\ttfamily int Window\+::\+Get\+Window\+Height (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Get the current window height \begin{DoxyReturn}{Returns}
+Returns the window height as int 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_window_a098b7f2a4690ecdedaae552c5d633d9b}\label{class_window_a098b7f2a4690ecdedaae552c5d633d9b}} 
+\index{Window@{Window}!GetWindowWidth@{GetWindowWidth}}
+\index{GetWindowWidth@{GetWindowWidth}!Window@{Window}}
+\subsubsection{\texorpdfstring{GetWindowWidth()}{GetWindowWidth()}}
+{\footnotesize\ttfamily int Window\+::\+Get\+Window\+Width (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Get the current window width \begin{DoxyReturn}{Returns}
+Returns the window width as int 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_window_a913c93756ba0357f75493ad64a265c36}\label{class_window_a913c93756ba0357f75493ad64a265c36}} 
+\index{Window@{Window}!GetWireframe@{GetWireframe}}
+\index{GetWireframe@{GetWireframe}!Window@{Window}}
+\subsubsection{\texorpdfstring{GetWireframe()}{GetWireframe()}}
+{\footnotesize\ttfamily bool Window\+::\+Get\+Wireframe (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Returns current wireframe mode via bool \begin{DoxyReturn}{Returns}
+Returns if the game in windowed 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_window_a777dd058c4e998417c9b374525ea1a1c}\label{class_window_a777dd058c4e998417c9b374525ea1a1c}} 
+\index{Window@{Window}!GetXChange@{GetXChange}}
+\index{GetXChange@{GetXChange}!Window@{Window}}
+\subsubsection{\texorpdfstring{GetXChange()}{GetXChange()}}
+{\footnotesize\ttfamily float Window\+::\+Get\+X\+Change (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Returns mouse X change \begin{DoxyReturn}{Returns}
+Returns mouse x change 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_window_a632bb091879d4541c9227ed1fd05136b}\label{class_window_a632bb091879d4541c9227ed1fd05136b}} 
+\index{Window@{Window}!GetYChange@{GetYChange}}
+\index{GetYChange@{GetYChange}!Window@{Window}}
+\subsubsection{\texorpdfstring{GetYChange()}{GetYChange()}}
+{\footnotesize\ttfamily float Window\+::\+Get\+Y\+Change (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Returns mouse Y change \begin{DoxyReturn}{Returns}
+Returns mouse y change 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_window_a07170e342d1296aebba4f4808ebb72a1}\label{class_window_a07170e342d1296aebba4f4808ebb72a1}} 
+\index{Window@{Window}!Initialise@{Initialise}}
+\index{Initialise@{Initialise}!Window@{Window}}
+\subsubsection{\texorpdfstring{Initialise()}{Initialise()}}
+{\footnotesize\ttfamily N\+E\+\_\+\+E\+R\+R\+OR Window\+::\+Initialise (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Intialise the window \begin{DoxyReturn}{Returns}
+Returns a N\+E\+\_\+\+E\+R\+R\+OR 
+\end{DoxyReturn}
+\begin{DoxySeeAlso}{See also}
+N\+E\+\_\+\+E\+R\+R\+O\+R\+\_\+\+C\+H\+E\+CK 
+\end{DoxySeeAlso}
+\mbox{\Hypertarget{class_window_a204179a76d0a02a336fde32a1da32186}\label{class_window_a204179a76d0a02a336fde32a1da32186}} 
+\index{Window@{Window}!Key@{Key}}
+\index{Key@{Key}!Window@{Window}}
+\subsubsection{\texorpdfstring{Key()}{Key()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily bool Window\+::\+Key (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_window_a4915898e3e02586ae359c8cfb9114717}{Key\+Code}}}]{key }\end{DoxyParamCaption})}
+
+Returns true if $<$key$>$ is pressed 
+\begin{DoxyParams}{Parameters}
+{\em key} & Insert Key\+Code \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Returns bool 
+\end{DoxyReturn}
+\begin{DoxySeeAlso}{See also}
+\mbox{\hyperlink{class_window_a4915898e3e02586ae359c8cfb9114717}{Key\+Code}} 
+\end{DoxySeeAlso}
+\mbox{\Hypertarget{class_window_a22723619109b05b9a6955359a4ab7267}\label{class_window_a22723619109b05b9a6955359a4ab7267}} 
+\index{Window@{Window}!Key@{Key}}
+\index{Key@{Key}!Window@{Window}}
+\subsubsection{\texorpdfstring{Key()}{Key()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily bool Window\+::\+Key (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_window_a4915898e3e02586ae359c8cfb9114717}{Key\+Code}}}]{key,  }\item[{\mbox{\hyperlink{class_window_ab44a7b55f0ce55c37d361fc51b302bdb}{Key\+Action}}}]{action }\end{DoxyParamCaption})}
+
+Returns true if $<$key$>$ is $<$action$>$ 
+\begin{DoxyParams}{Parameters}
+{\em key} & Insert Key\+Code \\
+\hline
+{\em action} & Insert Key\+Action \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Returns bool 
+\end{DoxyReturn}
+\begin{DoxySeeAlso}{See also}
+\mbox{\hyperlink{class_window_a4915898e3e02586ae359c8cfb9114717}{Key\+Code}} 
+
+\mbox{\hyperlink{class_window_ab44a7b55f0ce55c37d361fc51b302bdb}{Key\+Action}} 
+\end{DoxySeeAlso}
+\mbox{\Hypertarget{class_window_a4275c9bf6717a8365f1d89fbe03e2e8b}\label{class_window_a4275c9bf6717a8365f1d89fbe03e2e8b}} 
+\index{Window@{Window}!SetIcon@{SetIcon}}
+\index{SetIcon@{SetIcon}!Window@{Window}}
+\subsubsection{\texorpdfstring{SetIcon()}{SetIcon()}}
+{\footnotesize\ttfamily void Window\+::\+Set\+Icon (\begin{DoxyParamCaption}\item[{std\+::string}]{file }\end{DoxyParamCaption})}
+
+Set icon of window W\+A\+R\+N\+I\+NG -\/$>$ Extreme performance loss 
+\begin{DoxyParams}{Parameters}
+{\em file} & Insert file location as std\+::string \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_window_aebff502aa62f526a058c3cda6bae6ed4}\label{class_window_aebff502aa62f526a058c3cda6bae6ed4}} 
+\index{Window@{Window}!SetMsaa@{SetMsaa}}
+\index{SetMsaa@{SetMsaa}!Window@{Window}}
+\subsubsection{\texorpdfstring{SetMsaa()}{SetMsaa()}}
+{\footnotesize\ttfamily void Window\+::\+Set\+Msaa (\begin{DoxyParamCaption}\item[{bool}]{value,  }\item[{int}]{filters }\end{DoxyParamCaption})}
+
+Enable msaa 
+\begin{DoxyParams}{Parameters}
+{\em value} & Enable/\+Diabale msaa as bool \\
+\hline
+{\em filters} & Pixel being filtered as int \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_window_ad4cc993a746593337163e9b998efb3e5}\label{class_window_ad4cc993a746593337163e9b998efb3e5}} 
+\index{Window@{Window}!SetPerspectiveMode@{SetPerspectiveMode}}
+\index{SetPerspectiveMode@{SetPerspectiveMode}!Window@{Window}}
+\subsubsection{\texorpdfstring{SetPerspectiveMode()}{SetPerspectiveMode()}}
+{\footnotesize\ttfamily void Window\+::\+Set\+Perspective\+Mode (\begin{DoxyParamCaption}\item[{int}]{x }\end{DoxyParamCaption})}
+
+Switch to Perspective/\+Orthografic mode 0 = Perspective 1 = Orthografic 
+\begin{DoxyParams}{Parameters}
+{\em x} & Insert int to switch from one perspective to another \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_window_aa3bb9982825282e226aa160d46278559}\label{class_window_aa3bb9982825282e226aa160d46278559}} 
+\index{Window@{Window}!SetRefreshRate@{SetRefreshRate}}
+\index{SetRefreshRate@{SetRefreshRate}!Window@{Window}}
+\subsubsection{\texorpdfstring{SetRefreshRate()}{SetRefreshRate()}}
+{\footnotesize\ttfamily void Window\+::\+Set\+Refresh\+Rate (\begin{DoxyParamCaption}\item[{int}]{value }\end{DoxyParamCaption})}
+
+Set refresh rate 
+\begin{DoxyParams}{Parameters}
+{\em value} & Insert refreshrate per second as int \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_window_a4b2829cb820c5a7232e641c571faccb3}\label{class_window_a4b2829cb820c5a7232e641c571faccb3}} 
+\index{Window@{Window}!SetTitle@{SetTitle}}
+\index{SetTitle@{SetTitle}!Window@{Window}}
+\subsubsection{\texorpdfstring{SetTitle()}{SetTitle()}}
+{\footnotesize\ttfamily void Window\+::\+Set\+Title (\begin{DoxyParamCaption}\item[{std\+::string}]{title }\end{DoxyParamCaption})}
+
+Change title of the game 
+\begin{DoxyParams}{Parameters}
+{\em title} & Insert title as std\+::string \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_window_afa6d844ee8fa9a35ac6fc5db24c72e1d}\label{class_window_afa6d844ee8fa9a35ac6fc5db24c72e1d}} 
+\index{Window@{Window}!SetVSync@{SetVSync}}
+\index{SetVSync@{SetVSync}!Window@{Window}}
+\subsubsection{\texorpdfstring{SetVSync()}{SetVSync()}}
+{\footnotesize\ttfamily void Window\+::\+Set\+V\+Sync (\begin{DoxyParamCaption}\item[{bool}]{value }\end{DoxyParamCaption})}
+
+Set Vertical Synchronisation 
+\begin{DoxyParams}{Parameters}
+{\em value} & Enable vsync \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_window_a3c24f203720fadb2b41fc26d205b5a26}\label{class_window_a3c24f203720fadb2b41fc26d205b5a26}} 
+\index{Window@{Window}!SetWireframe@{SetWireframe}}
+\index{SetWireframe@{SetWireframe}!Window@{Window}}
+\subsubsection{\texorpdfstring{SetWireframe()}{SetWireframe()}}
+{\footnotesize\ttfamily void Window\+::\+Set\+Wireframe (\begin{DoxyParamCaption}\item[{bool}]{value }\end{DoxyParamCaption})}
+
+Switch from pologon to wireframe 
+\begin{DoxyParams}{Parameters}
+{\em value} & Insert bool if wireframed \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_window_a512773cac894acf5fcb747050f23ca57}\label{class_window_a512773cac894acf5fcb747050f23ca57}} 
+\index{Window@{Window}!ShowMouse@{ShowMouse}}
+\index{ShowMouse@{ShowMouse}!Window@{Window}}
+\subsubsection{\texorpdfstring{ShowMouse()}{ShowMouse()}}
+{\footnotesize\ttfamily void Window\+::\+Show\+Mouse (\begin{DoxyParamCaption}\item[{bool}]{value }\end{DoxyParamCaption})}
+
+Show or hide mouse 
+\begin{DoxyParams}{Parameters}
+{\em value} & Insert bool if mouse should be visible or hidden \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_window_abe1b83eda6980f2b9964aab08b5310ed}\label{class_window_abe1b83eda6980f2b9964aab08b5310ed}} 
+\index{Window@{Window}!SwapBuffers@{SwapBuffers}}
+\index{SwapBuffers@{SwapBuffers}!Window@{Window}}
+\subsubsection{\texorpdfstring{SwapBuffers()}{SwapBuffers()}}
+{\footnotesize\ttfamily void Window\+::\+Swap\+Buffers (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Swap Buffers (Swap Chain) \mbox{\Hypertarget{class_window_a89151a47b0118a6f3c5d5f7939e080ed}\label{class_window_a89151a47b0118a6f3c5d5f7939e080ed}} 
+\index{Window@{Window}!SwitchMouse@{SwitchMouse}}
+\index{SwitchMouse@{SwitchMouse}!Window@{Window}}
+\subsubsection{\texorpdfstring{SwitchMouse()}{SwitchMouse()}}
+{\footnotesize\ttfamily void Window\+::\+Switch\+Mouse (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Switch (for ex.) from show to hide \mbox{\Hypertarget{class_window_a50875755f703cf58788146c80e5f752c}\label{class_window_a50875755f703cf58788146c80e5f752c}} 
+\index{Window@{Window}!SwitchVSync@{SwitchVSync}}
+\index{SwitchVSync@{SwitchVSync}!Window@{Window}}
+\subsubsection{\texorpdfstring{SwitchVSync()}{SwitchVSync()}}
+{\footnotesize\ttfamily void Window\+::\+Switch\+V\+Sync (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Switch Vertical Synchronisation \mbox{\Hypertarget{class_window_abbe71691ebdc8d45fff39f53f0b077a7}\label{class_window_abbe71691ebdc8d45fff39f53f0b077a7}} 
+\index{Window@{Window}!WindowUpdate@{WindowUpdate}}
+\index{WindowUpdate@{WindowUpdate}!Window@{Window}}
+\subsubsection{\texorpdfstring{WindowUpdate()}{WindowUpdate()}}
+{\footnotesize\ttfamily void Window\+::\+Window\+Update (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Called every frame Used for E\+S\+C\+A\+PE \& change renderer size 
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+Git\+Hub/\+Nebula\+\_\+\+Engine/\+Nebula\+\_\+\+Engine/Window.\+h\item 
+Git\+Hub/\+Nebula\+\_\+\+Engine/\+Nebula\+\_\+\+Engine/Window.\+cpp\end{DoxyCompactItemize}

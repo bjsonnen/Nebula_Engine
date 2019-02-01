@@ -55,6 +55,43 @@ struct Vector3
 		this->z = v.z;
 	}
 
+	//! Set a vector to three specific variables
+	//! @param x Set the x value of the vector
+	//! @param y Set the y value of the vector
+	//! @param z Set the z value of the vector
+	void SetVector3(float x, float y, float z)
+	{
+		this->x = x;
+		this->y = y;
+		this->z = z;
+	}
+
+	//! Set a vector to two specific variables
+	//! @param x Set the x value of the vector
+	//! @param y Set the y value of the vector
+	void SetVector3(float x, float y)
+	{
+		this->x = x;
+		this->y = y;
+	}
+
+	//! Set a vector to one specific variables
+	//! @param xyz Set all variables to value
+	void SetVector3(float xyz)
+	{
+		this->x = xyz;
+		this->y = xyz;
+		this->z = xyz;
+	}
+
+	//! Set all vector variables to zero (0)
+	void Zero()
+	{
+		this->x = 0.0f;
+		this->y = 0.0f;
+		this->z = 0.0f;
+	}
+
 	//! Returns the magnitude of the vector
 	//! @return Returns the magnitude of the vector as float
 	float Magnitude()
@@ -80,7 +117,7 @@ struct Vector3
 	//! Set the vector3 to another vector3
 	//! @param x New Vector3
 	//! @return Returns the new Vector3 as Vector3
-	Vector3 operator =(Vector3 x)
+	void operator =(Vector3 x)
 	{
 		this->x = x.x;
 		this->y = x.y;
@@ -89,7 +126,7 @@ struct Vector3
 	//! Adds a vector3 to another vector3
 	//! @param x New Vector3
 	//! @return Returns the new Vector3 as Vector3
-	Vector3 operator +(Vector3 x)
+	void operator +(Vector3 x)
 	{
 		this->x += x.x;
 		this->y += x.y;
@@ -99,7 +136,7 @@ struct Vector3
 	//! @param x Vector3
 	//! @see Vector3()
 	//! @return Returns the new Vector as Vector3
-	Vector3 operator -(Vector3 x)
+	void operator -(Vector3 x)
 	{
 		this->x -= x.x;
 		this->y -= x.y;
@@ -108,23 +145,28 @@ struct Vector3
 
 	//! Set x, y, z to v
 	//! @param v glm::vec3 to Vector3
-	//! @see Vector3()
 	//! @return Returns the new Vector as Vector3
-	Vector3 operator =(glm::vec3 v)
+	void operator =(glm::vec3 v)
 	{
 		this->x = v.x;
 		this->y = v.y;
 		this->z = v.z;
 	}
 
-	//! Returns a Vector3 as const char array
-	//! @return Returns the Vector3 as char pointer (char*)
-	const char* ToString()
+	//! Converts vector3 to glm::vec3
+	//! @return Returns a glm::vec3
+	glm::vec3 ToGlm()
 	{
-		std::ostringstream oss;
-		oss << "(" << x << " / " << this->y << " / " << this->z << ")";
-		const char* ca = oss.str().c_str();
-		return ca;
+		return glm::vec3(this->x, this->y, this->z);
+	}
+
+	//! Returns a Vector3 as std::string
+	//! @return Returns the Vector3 as std::string
+	std::string ToString()
+	{
+		std::stringstream tmp;
+		tmp << "(" << this->x << " / " << this->y << " / " << this->z << ")";
+		return tmp.str();
 	}
 
 public:

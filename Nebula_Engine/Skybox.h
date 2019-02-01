@@ -22,12 +22,12 @@ public:
 	Skybox();
 
 	//! Create Skybox with specific parameters
-	//! @param Insert all 6 textures here as std::vector<std::string> 
+	//! @param faceLocations Insert all 6 textures here as std::vector<std::string> 
 	Skybox(std::vector<std::string> faceLocations);
 
 	//! Draw Skybox
-	//! @param Insert the view matrix as glm::mat4 (4x4 matrix)
-	//! @param Insert the projectionMatrix as glm::mat4 (4x4 matrix)
+	//! @param viewMatrix Insert the view matrix as glm::mat4 (4x4 matrix)
+	//! @param projectionMatrix Insert the projectionMatrix as glm::mat4 (4x4 matrix)
 	void DrawSkybox(glm::mat4 viewMatrix, glm::mat4 projectionMatrix);
 
 	~Skybox();

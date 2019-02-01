@@ -57,14 +57,40 @@ void SpotLight::SetFlash(glm::vec3 pos, glm::vec3 dir)
 	direction = dir;
 }
 
+void SpotLight::SetFlash(Vector3 pos, Vector3 dir)
+{
+	position = pos.ToGlm();
+	direction = dir.ToGlm();
+}
+
 void SpotLight::SetPosition(glm::vec3 pos)
 {
 	position = pos;
 }
 
+void SpotLight::SetPosition(Vector3 pos)
+{
+	position = pos.ToGlm();
+}
+
 void SpotLight::SetDirection(glm::vec3 dir)
 {
 	direction = dir;
+}
+
+void SpotLight::SetDirection(Vector3 dir)
+{
+	direction = dir.ToGlm();
+}
+
+void SpotLight::SetColor(glm::vec3 color)
+{
+	this->color = color;
+}
+
+void SpotLight::SetColor(Vector3 color)
+{
+	this->color = color.ToGlm();
 }
 
 void SpotLight::Toggle()

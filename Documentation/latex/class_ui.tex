@@ -1,0 +1,196 @@
+\hypertarget{class_ui}{}\section{Ui Class Reference}
+\label{class_ui}\index{Ui@{Ui}}
+
+
+Main class for the imgui ui system.  
+
+
+
+
+{\ttfamily \#include $<$Ui.\+h$>$}
+
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_ui_a6e07807d24fb5874a7e51d7ff0196236}{Ui}} ()
+\item 
+\mbox{\hyperlink{class_ui_a1f38d058c05e95d93d56a0018b246f5a}{Ui}} (\mbox{\hyperlink{class_window}{Window}} $\ast$window)
+\item 
+void \mbox{\hyperlink{class_ui_a8f820b28843d4c807f47220c38fb38b5}{Create\+Window}} (std\+::string text)
+\item 
+void \mbox{\hyperlink{class_ui_a1aafb018f23527ff83dfd98d0995e455}{End\+Window}} ()
+\item 
+void \mbox{\hyperlink{class_ui_a26dbd672340f84bd246c5c3a609f2402}{Text}} (std\+::string text)
+\item 
+void \mbox{\hyperlink{class_ui_a6ddbf246b6af53e4de87b93a449ff7fd}{Text\+Box}} (std\+::string text, std\+::string \&output)
+\item 
+void \mbox{\hyperlink{class_ui_a85329ee10838fa063307047658ad8506}{Checkbox}} (std\+::string text, bool \&output)
+\item 
+void \mbox{\hyperlink{class_ui_abf56602cba9e3287e1c5ca578fe30322}{Slider}} (std\+::string text, float \&value, float min, float max)
+\item 
+void \mbox{\hyperlink{class_ui_ae8c21b1e6c6583f4e2d73e800936a1cd}{Color\+Edit3}} (std\+::string text, float \&x, float \&y, float \&z)
+\item 
+void \mbox{\hyperlink{class_ui_a8c3bedaa0b52c63529cbbb460f322894}{Button}} ()
+\item 
+bool \mbox{\hyperlink{class_ui_a6c16c0e0266018102c3196fb0800647b}{Mouse\+Over\+Ui}} ()
+\item 
+\mbox{\Hypertarget{class_ui_a02169a3a9e9731304a556cea88b7aaf5}\label{class_ui_a02169a3a9e9731304a556cea88b7aaf5}} 
+void \mbox{\hyperlink{class_ui_a02169a3a9e9731304a556cea88b7aaf5}{Same\+Line}} ()
+\begin{DoxyCompactList}\small\item\em Specify if the next method should be in the same line. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_ui_adbd30bcb9c19d95abfd2ecec6d2add65}{Debug\+Window}} (bool active, int fps, float delta\+Time)
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Main class for the imgui ui system. 
+
+\subsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_ui_a6e07807d24fb5874a7e51d7ff0196236}\label{class_ui_a6e07807d24fb5874a7e51d7ff0196236}} 
+\index{Ui@{Ui}!Ui@{Ui}}
+\index{Ui@{Ui}!Ui@{Ui}}
+\subsubsection{\texorpdfstring{Ui()}{Ui()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily Ui\+::\+Ui (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Create ui object with standard parameters \mbox{\Hypertarget{class_ui_a1f38d058c05e95d93d56a0018b246f5a}\label{class_ui_a1f38d058c05e95d93d56a0018b246f5a}} 
+\index{Ui@{Ui}!Ui@{Ui}}
+\index{Ui@{Ui}!Ui@{Ui}}
+\subsubsection{\texorpdfstring{Ui()}{Ui()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily Ui\+::\+Ui (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_window}{Window}} $\ast$}]{window }\end{DoxyParamCaption})}
+
+Create ui object with specific parameters 
+\begin{DoxyParams}{Parameters}
+{\em window} & Insert main \mbox{\hyperlink{class_window}{Window}} object as \mbox{\hyperlink{class_window}{Window}} pointer \\
+\hline
+\end{DoxyParams}
+
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{class_ui_a8c3bedaa0b52c63529cbbb460f322894}\label{class_ui_a8c3bedaa0b52c63529cbbb460f322894}} 
+\index{Ui@{Ui}!Button@{Button}}
+\index{Button@{Button}!Ui@{Ui}}
+\subsubsection{\texorpdfstring{Button()}{Button()}}
+{\footnotesize\ttfamily void Ui\+::\+Button (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Create a single button \mbox{\Hypertarget{class_ui_a85329ee10838fa063307047658ad8506}\label{class_ui_a85329ee10838fa063307047658ad8506}} 
+\index{Ui@{Ui}!Checkbox@{Checkbox}}
+\index{Checkbox@{Checkbox}!Ui@{Ui}}
+\subsubsection{\texorpdfstring{Checkbox()}{Checkbox()}}
+{\footnotesize\ttfamily void Ui\+::\+Checkbox (\begin{DoxyParamCaption}\item[{std\+::string}]{text,  }\item[{bool \&}]{output }\end{DoxyParamCaption})}
+
+Create a checkbox 
+\begin{DoxyParams}{Parameters}
+{\em text} & Insert text as std\+::string \\
+\hline
+{\em output} & Insert reference to bool as output \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_ui_ae8c21b1e6c6583f4e2d73e800936a1cd}\label{class_ui_ae8c21b1e6c6583f4e2d73e800936a1cd}} 
+\index{Ui@{Ui}!ColorEdit3@{ColorEdit3}}
+\index{ColorEdit3@{ColorEdit3}!Ui@{Ui}}
+\subsubsection{\texorpdfstring{ColorEdit3()}{ColorEdit3()}}
+{\footnotesize\ttfamily void Ui\+::\+Color\+Edit3 (\begin{DoxyParamCaption}\item[{std\+::string}]{text,  }\item[{float \&}]{x,  }\item[{float \&}]{y,  }\item[{float \&}]{z }\end{DoxyParamCaption})}
+
+Create a color change box 
+\begin{DoxyParams}{Parameters}
+{\em text} & Insert text as std\+::string \\
+\hline
+{\em x} & Insert float as output for red value of R\+GB \\
+\hline
+{\em y} & Insert float as output for green value of R\+GB \\
+\hline
+{\em z} & Insert float as output for blue value of R\+GB \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_ui_a8f820b28843d4c807f47220c38fb38b5}\label{class_ui_a8f820b28843d4c807f47220c38fb38b5}} 
+\index{Ui@{Ui}!CreateWindow@{CreateWindow}}
+\index{CreateWindow@{CreateWindow}!Ui@{Ui}}
+\subsubsection{\texorpdfstring{CreateWindow()}{CreateWindow()}}
+{\footnotesize\ttfamily void Ui\+::\+Create\+Window (\begin{DoxyParamCaption}\item[{std\+::string}]{text }\end{DoxyParamCaption})}
+
+Create a new \mbox{\hyperlink{class_window}{Window}} \mbox{\hyperlink{class_ui_a1aafb018f23527ff83dfd98d0995e455}{Ui\+::\+End\+Window()}} need to be called 
+\begin{DoxyParams}{Parameters}
+{\em text} & Insert title window as std\+::string \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_ui_adbd30bcb9c19d95abfd2ecec6d2add65}\label{class_ui_adbd30bcb9c19d95abfd2ecec6d2add65}} 
+\index{Ui@{Ui}!DebugWindow@{DebugWindow}}
+\index{DebugWindow@{DebugWindow}!Ui@{Ui}}
+\subsubsection{\texorpdfstring{DebugWindow()}{DebugWindow()}}
+{\footnotesize\ttfamily void Ui\+::\+Debug\+Window (\begin{DoxyParamCaption}\item[{bool}]{active,  }\item[{int}]{fps,  }\item[{float}]{delta\+Time }\end{DoxyParamCaption})}
+
+Create the debug window 
+\begin{DoxyParams}{Parameters}
+{\em active} & Insert enabled as bool \\
+\hline
+{\em fps} & Insert fps as int \\
+\hline
+{\em delta\+Time} & Insert delta\+Time as float \\
+\hline
+\end{DoxyParams}
+\begin{DoxySeeAlso}{See also}
+\mbox{\hyperlink{class_window_ae7ce0586147cc93ba68d6ee929413f22}{Window\+::\+Get\+Delta\+Time()}} 
+
+\mbox{\hyperlink{class_window_acea62a6c3bb82c234e7e33a8e53f17d8}{Window\+::\+Get\+F\+P\+S()}} 
+\end{DoxySeeAlso}
+\mbox{\Hypertarget{class_ui_a1aafb018f23527ff83dfd98d0995e455}\label{class_ui_a1aafb018f23527ff83dfd98d0995e455}} 
+\index{Ui@{Ui}!EndWindow@{EndWindow}}
+\index{EndWindow@{EndWindow}!Ui@{Ui}}
+\subsubsection{\texorpdfstring{EndWindow()}{EndWindow()}}
+{\footnotesize\ttfamily void Ui\+::\+End\+Window (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Close the window Need to be called \mbox{\Hypertarget{class_ui_a6c16c0e0266018102c3196fb0800647b}\label{class_ui_a6c16c0e0266018102c3196fb0800647b}} 
+\index{Ui@{Ui}!MouseOverUi@{MouseOverUi}}
+\index{MouseOverUi@{MouseOverUi}!Ui@{Ui}}
+\subsubsection{\texorpdfstring{MouseOverUi()}{MouseOverUi()}}
+{\footnotesize\ttfamily bool Ui\+::\+Mouse\+Over\+Ui (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Returns true if mouse is over any ui element \begin{DoxyReturn}{Returns}
+Returns bool 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_ui_abf56602cba9e3287e1c5ca578fe30322}\label{class_ui_abf56602cba9e3287e1c5ca578fe30322}} 
+\index{Ui@{Ui}!Slider@{Slider}}
+\index{Slider@{Slider}!Ui@{Ui}}
+\subsubsection{\texorpdfstring{Slider()}{Slider()}}
+{\footnotesize\ttfamily void Ui\+::\+Slider (\begin{DoxyParamCaption}\item[{std\+::string}]{text,  }\item[{float \&}]{value,  }\item[{float}]{min,  }\item[{float}]{max }\end{DoxyParamCaption})}
+
+Create a single slider 
+\begin{DoxyParams}{Parameters}
+{\em text} & Insert text as std\+::string \\
+\hline
+{\em value} & Insert reference to value as output \\
+\hline
+{\em min} & Insert min slider value \\
+\hline
+{\em max} & Insert max slider value \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_ui_a26dbd672340f84bd246c5c3a609f2402}\label{class_ui_a26dbd672340f84bd246c5c3a609f2402}} 
+\index{Ui@{Ui}!Text@{Text}}
+\index{Text@{Text}!Ui@{Ui}}
+\subsubsection{\texorpdfstring{Text()}{Text()}}
+{\footnotesize\ttfamily void Ui\+::\+Text (\begin{DoxyParamCaption}\item[{std\+::string}]{text }\end{DoxyParamCaption})}
+
+Create a single text line 
+\begin{DoxyParams}{Parameters}
+{\em text} & Insert text as std\+::string \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_ui_a6ddbf246b6af53e4de87b93a449ff7fd}\label{class_ui_a6ddbf246b6af53e4de87b93a449ff7fd}} 
+\index{Ui@{Ui}!TextBox@{TextBox}}
+\index{TextBox@{TextBox}!Ui@{Ui}}
+\subsubsection{\texorpdfstring{TextBox()}{TextBox()}}
+{\footnotesize\ttfamily void Ui\+::\+Text\+Box (\begin{DoxyParamCaption}\item[{std\+::string}]{text,  }\item[{std\+::string \&}]{output }\end{DoxyParamCaption})}
+
+Create a textbox 
+\begin{DoxyParams}{Parameters}
+{\em text} & Insert text as std\+::string \\
+\hline
+{\em output} & Insert reference to std\+::string as output \\
+\hline
+\end{DoxyParams}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+Git\+Hub/\+Nebula\+\_\+\+Engine/\+Nebula\+\_\+\+Engine/Ui.\+h\item 
+Git\+Hub/\+Nebula\+\_\+\+Engine/\+Nebula\+\_\+\+Engine/Ui.\+cpp\end{DoxyCompactItemize}

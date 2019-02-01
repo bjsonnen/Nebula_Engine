@@ -35,10 +35,16 @@ public:
 	//! Change the direction of the light
 	//! @param Insert the offset of the direction as glm::vec3
 	void ChangeDirection(glm::vec3 offset);
+	//! Change the direction of the light
+	//! @param Insert the offset of the direction as Vector3
+	void ChangeDirection(Vector3 offset);
 
 	//! Set the direction of the light
 	//! @param Insert the direction as glm::vec3
 	void SetDirection(glm::vec3 direction);
+	//! Set the direction of the light
+	//! @param Insert the direction as Vector3
+	void SetDirection(Vector3 direction);
 
 	//! Get the current direction
 	//! @return Returns the current direction as glm::vec3

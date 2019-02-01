@@ -30,7 +30,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">Nebula Engine
-   &#160;<span id="projectnumber">Beta 0.1a</span>
+   &#160;<span id="projectnumber">Beta 0.1</span>
    </div>
    <div id="projectbrief">C++ OpenGL Framework</div>
   </td>
@@ -102,38 +102,87 @@ $(document).ready(function(){initNavTree('class_particle_effect.html','');});
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a5d6833fdfe15cf62cd52ebdafe6beb54"><td class="memItemLeft" align="right" valign="top"><a id="a5d6833fdfe15cf62cd52ebdafe6beb54"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><b>ParticleEffect</b> (int size, glm::vec3 pos, glm::vec3 lookAt)</td></tr>
-<tr class="separator:a5d6833fdfe15cf62cd52ebdafe6beb54"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af1a8607294a1c37ed35021ecfe1e4bb1"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_particle_effect.html#af1a8607294a1c37ed35021ecfe1e4bb1">AddTexture</a> (const <a class="el" href="class_texture.html">Texture</a> texture, const float time)</td></tr>
-<tr class="separator:af1a8607294a1c37ed35021ecfe1e4bb1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:adcfcd6ebe940cf54cb91af3543ed815d"><td class="memItemLeft" align="right" valign="top"><a id="adcfcd6ebe940cf54cb91af3543ed815d"></a>
+&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_particle_effect.html#adcfcd6ebe940cf54cb91af3543ed815d">ParticleEffect</a> ()</td></tr>
+<tr class="memdesc:adcfcd6ebe940cf54cb91af3543ed815d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Create a new particle effect with standard parameters. <br /></td></tr>
+<tr class="separator:adcfcd6ebe940cf54cb91af3543ed815d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa3898c1343d6d6c1cc7d6ace376159f6"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_particle_effect.html#aa3898c1343d6d6c1cc7d6ace376159f6">ParticleEffect</a> (std::vector&lt; <a class="el" href="struct_particle.html">Particle</a> * &gt; *particleList, float respawn, float lifeTimeAfterRespawn, bool useColor, glm::vec3 cameraPosition)</td></tr>
+<tr class="separator:aa3898c1343d6d6c1cc7d6ace376159f6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a012d5b33e4a97ddb5b409be521f5ccee"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_particle_effect.html#a012d5b33e4a97ddb5b409be521f5ccee">ParticleEffect</a> (std::vector&lt; <a class="el" href="struct_particle.html">Particle</a> * &gt; *particleList, float respawn, float lifeTimeAfterRespawn, bool useColor, <a class="el" href="struct_vector3.html">Vector3</a> cameraPosition)</td></tr>
+<tr class="separator:a012d5b33e4a97ddb5b409be521f5ccee"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2c4eafa97d1536cda09ad3c7cb771719"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_particle_effect.html#a2c4eafa97d1536cda09ad3c7cb771719">InsertNewParticleList</a> (std::vector&lt; <a class="el" href="struct_particle.html">Particle</a> * &gt; *particleList)</td></tr>
+<tr class="separator:a2c4eafa97d1536cda09ad3c7cb771719"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a62001aac47d157b8bbdc7d749f0f5c93"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_particle_effect.html#a62001aac47d157b8bbdc7d749f0f5c93">SetRespawnTimer</a> (float respawn)</td></tr>
+<tr class="separator:a62001aac47d157b8bbdc7d749f0f5c93"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:acb6c2b7f72f1ac01b8307c475f7bfdd5"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_particle_effect.html#acb6c2b7f72f1ac01b8307c475f7bfdd5">LoadTextures</a> ()</td></tr>
 <tr class="separator:acb6c2b7f72f1ac01b8307c475f7bfdd5"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a416fd6e7ea5e69dbb5bd77f8a9487c82"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_particle_effect.html#a416fd6e7ea5e69dbb5bd77f8a9487c82">ParticleUpdate</a> (float deltaTime)</td></tr>
 <tr class="separator:a416fd6e7ea5e69dbb5bd77f8a9487c82"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a8fabdeb398915e734b5b9fc463a4000a"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_particle_effect.html#a8fabdeb398915e734b5b9fc463a4000a">DeleteParticle</a> (int i)</td></tr>
-<tr class="separator:a8fabdeb398915e734b5b9fc463a4000a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa1023240c50786ef4f68a768b1bf02d4"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_particle_effect.html#aa1023240c50786ef4f68a768b1bf02d4">DeleteParticle</a> (int index)</td></tr>
+<tr class="separator:aa1023240c50786ef4f68a768b1bf02d4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a61209f0862c570e840664fb4e4051b01"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_particle_effect.html#a61209f0862c570e840664fb4e4051b01">SetRespawnTimerAfterRespawn</a> (float value)</td></tr>
+<tr class="separator:a61209f0862c570e840664fb4e4051b01"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0bf5361cc63c5aa468159a05ca44e8d7"><td class="memItemLeft" align="right" valign="top">glm::vec3&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_particle_effect.html#a0bf5361cc63c5aa468159a05ca44e8d7">GetPosition</a> (int index)</td></tr>
+<tr class="separator:a0bf5361cc63c5aa468159a05ca44e8d7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a08a4f5412f722d8f6234c5315128d6f3"><td class="memItemLeft" align="right" valign="top"><a class="el" href="struct_vector3.html">Vector3</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_particle_effect.html#a08a4f5412f722d8f6234c5315128d6f3">GetPositionVector3</a> (int index)</td></tr>
+<tr class="separator:a08a4f5412f722d8f6234c5315128d6f3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2a20f8db2c022ed139eb236bd10b470d"><td class="memItemLeft" align="right" valign="top">glm::vec3&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_particle_effect.html#a2a20f8db2c022ed139eb236bd10b470d">GetRotation</a> (int index)</td></tr>
+<tr class="separator:a2a20f8db2c022ed139eb236bd10b470d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a48bdcec118c008cdfdd6aaf543af81e6"><td class="memItemLeft" align="right" valign="top"><a class="el" href="struct_vector3.html">Vector3</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_particle_effect.html#a48bdcec118c008cdfdd6aaf543af81e6">GetRotationVector3</a> (int index)</td></tr>
+<tr class="separator:a48bdcec118c008cdfdd6aaf543af81e6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7c6942ff4bad2193f97221b82d7a0b4a"><td class="memItemLeft" align="right" valign="top">glm::vec3&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_particle_effect.html#a7c6942ff4bad2193f97221b82d7a0b4a">GetScale</a> (int index)</td></tr>
+<tr class="separator:a7c6942ff4bad2193f97221b82d7a0b4a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:acbcc803070f0aa89ddbba4989c1c7e9d"><td class="memItemLeft" align="right" valign="top"><a class="el" href="struct_vector3.html">Vector3</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_particle_effect.html#acbcc803070f0aa89ddbba4989c1c7e9d">GetScaleVector3</a> (int index)</td></tr>
+<tr class="separator:acbcc803070f0aa89ddbba4989c1c7e9d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4479666080a2a5d8b92b0ea74d401895"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_texture.html">Texture</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_particle_effect.html#a4479666080a2a5d8b92b0ea74d401895">GetTexture</a> (int index)</td></tr>
+<tr class="separator:a4479666080a2a5d8b92b0ea74d401895"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ade096976cbd5c1437130d90199866d73"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_particle_effect.html#ade096976cbd5c1437130d90199866d73">GetLife</a> (int index)</td></tr>
+<tr class="separator:ade096976cbd5c1437130d90199866d73"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae62bebdcffc8d6154a919601dd60e880"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_particle_effect.html#ae62bebdcffc8d6154a919601dd60e880">GetRespawnTimerAfterRespawn</a> ()</td></tr>
+<tr class="separator:ae62bebdcffc8d6154a919601dd60e880"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a24f05464826e67aa4f6aec7e518357ec"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_particle_effect.html#a24f05464826e67aa4f6aec7e518357ec">LookAt</a> (int index, glm::vec3 target)</td></tr>
+<tr class="separator:a24f05464826e67aa4f6aec7e518357ec"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a86079b5ebfbcc355f56a38f8ed7e5573"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_particle_effect.html#a86079b5ebfbcc355f56a38f8ed7e5573">LookAt</a> (int index, <a class="el" href="struct_vector3.html">Vector3</a> target)</td></tr>
+<tr class="separator:a86079b5ebfbcc355f56a38f8ed7e5573"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Main class to create a particle effect. </p>
-</div><h2 class="groupheader">Member Function Documentation</h2>
-<a id="af1a8607294a1c37ed35021ecfe1e4bb1"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#af1a8607294a1c37ed35021ecfe1e4bb1">&#9670;&nbsp;</a></span>AddTexture()</h2>
+</div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a id="aa3898c1343d6d6c1cc7d6ace376159f6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa3898c1343d6d6c1cc7d6ace376159f6">&#9670;&nbsp;</a></span>ParticleEffect() <span class="overload">[1/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">void ParticleEffect::AddTexture </td>
+          <td class="memname">ParticleEffect::ParticleEffect </td>
           <td>(</td>
-          <td class="paramtype">const <a class="el" href="class_texture.html">Texture</a>&#160;</td>
-          <td class="paramname"><em>texture</em>, </td>
+          <td class="paramtype">std::vector&lt; <a class="el" href="struct_particle.html">Particle</a> * &gt; *&#160;</td>
+          <td class="paramname"><em>particleList</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">const float&#160;</td>
-          <td class="paramname"><em>time</em>&#160;</td>
+          <td class="paramtype">float&#160;</td>
+          <td class="paramname"><em>respawn</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">float&#160;</td>
+          <td class="paramname"><em>lifeTimeAfterRespawn</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">bool&#160;</td>
+          <td class="paramname"><em>useColor</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">glm::vec3&#160;</td>
+          <td class="paramname"><em>cameraPosition</em>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -142,12 +191,78 @@ Public Member Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Add a new texture to the object Set the duration for the particle texture </p>
+<p>Create a new particle effect with specific parameters </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">particleList</td><td>Insert a std::vector of particles as std::vector&lt;Particle*&gt;* </td></tr>
+    <tr><td class="paramname">respawn</td><td>Insert respawn timer as float, use -1 for never respawn and 0 for immediatly respawn </td></tr>
+    <tr><td class="paramname">lifeTimeAfterRespawn</td><td>Insert life time after a respawn as float </td></tr>
+    <tr><td class="paramname">useColor</td><td>Insert bool if the particle shader should use the color of the texture </td></tr>
+    <tr><td class="paramname">cameraPosition</td><td>Insert current camera position as glm::vec3 </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>
-<a id="a8fabdeb398915e734b5b9fc463a4000a"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a8fabdeb398915e734b5b9fc463a4000a">&#9670;&nbsp;</a></span>DeleteParticle()</h2>
+<a id="a012d5b33e4a97ddb5b409be521f5ccee"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a012d5b33e4a97ddb5b409be521f5ccee">&#9670;&nbsp;</a></span>ParticleEffect() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">ParticleEffect::ParticleEffect </td>
+          <td>(</td>
+          <td class="paramtype">std::vector&lt; <a class="el" href="struct_particle.html">Particle</a> * &gt; *&#160;</td>
+          <td class="paramname"><em>particleList</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">float&#160;</td>
+          <td class="paramname"><em>respawn</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">float&#160;</td>
+          <td class="paramname"><em>lifeTimeAfterRespawn</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">bool&#160;</td>
+          <td class="paramname"><em>useColor</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="struct_vector3.html">Vector3</a>&#160;</td>
+          <td class="paramname"><em>cameraPosition</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Create a new particle effect with specific parameters </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">particleList</td><td>Insert a std::vector of particles as std::vector&lt;Particle*&gt;* </td></tr>
+    <tr><td class="paramname">respawn</td><td>Insert respawn timer as float, use -1 for never respawn and 0 for immediatly respawn </td></tr>
+    <tr><td class="paramname">lifeTimeAfterRespawn</td><td>Insert life time after a respawn as float </td></tr>
+    <tr><td class="paramname">useColor</td><td>Insert bool if the particle shader should use the color of the texture </td></tr>
+    <tr><td class="paramname">cameraPosition</td><td>Insert current camera position as <a class="el" href="struct_vector3.html">Vector3</a> </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<h2 class="groupheader">Member Function Documentation</h2>
+<a id="aa1023240c50786ef4f68a768b1bf02d4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa1023240c50786ef4f68a768b1bf02d4">&#9670;&nbsp;</a></span>DeleteParticle()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -156,12 +271,260 @@ Public Member Functions</h2></td></tr>
           <td class="memname">void ParticleEffect::DeleteParticle </td>
           <td>(</td>
           <td class="paramtype">int&#160;</td>
-          <td class="paramname"><em>i</em></td><td>)</td>
+          <td class="paramname"><em>index</em></td><td>)</td>
           <td></td>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Delete one particle </p>
+<p>Delete one particle </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">index</td><td>Insert index of the particle effect as int </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="ade096976cbd5c1437130d90199866d73"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ade096976cbd5c1437130d90199866d73">&#9670;&nbsp;</a></span>GetLife()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">float ParticleEffect::GetLife </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>index</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Get the current life time of an particle effect </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">index</td><td>Insert the index of the particle effect as int </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Returns the current life time of the particle as float </dd></dl>
+
+</div>
+</div>
+<a id="a0bf5361cc63c5aa468159a05ca44e8d7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0bf5361cc63c5aa468159a05ca44e8d7">&#9670;&nbsp;</a></span>GetPosition()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">glm::vec3 ParticleEffect::GetPosition </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>index</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Get the current position of the particle effect </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">index</td><td>Insert the index of the particle effect as int </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Returns the current position of the particle as glm::vec3 </dd></dl>
+
+</div>
+</div>
+<a id="a08a4f5412f722d8f6234c5315128d6f3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a08a4f5412f722d8f6234c5315128d6f3">&#9670;&nbsp;</a></span>GetPositionVector3()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="struct_vector3.html">Vector3</a> ParticleEffect::GetPositionVector3 </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>index</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Get the current position of the particle effect </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">index</td><td>Insert the index of the particle effect as int </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Returns the current position of the particle as <a class="el" href="struct_vector3.html">Vector3</a> </dd></dl>
+
+</div>
+</div>
+<a id="ae62bebdcffc8d6154a919601dd60e880"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae62bebdcffc8d6154a919601dd60e880">&#9670;&nbsp;</a></span>GetRespawnTimerAfterRespawn()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">float ParticleEffect::GetRespawnTimerAfterRespawn </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Get the current life time after an object has respawned </p><dl class="section return"><dt>Returns</dt><dd>Returns the current respawn life timer after an object respawned </dd></dl>
+
+</div>
+</div>
+<a id="a2a20f8db2c022ed139eb236bd10b470d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2a20f8db2c022ed139eb236bd10b470d">&#9670;&nbsp;</a></span>GetRotation()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">glm::vec3 ParticleEffect::GetRotation </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>index</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Get the current rotation of the particle effect </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">index</td><td>Insert the index of the particle effect as int </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Returns the current rotation of the particle as glm::vec3 </dd></dl>
+
+</div>
+</div>
+<a id="a48bdcec118c008cdfdd6aaf543af81e6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a48bdcec118c008cdfdd6aaf543af81e6">&#9670;&nbsp;</a></span>GetRotationVector3()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="struct_vector3.html">Vector3</a> ParticleEffect::GetRotationVector3 </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>index</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Get the current rotation of the particle effect </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">index</td><td>Insert the index of the particle effect as int </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Returns the current rotation of the particle as <a class="el" href="struct_vector3.html">Vector3</a> </dd></dl>
+
+</div>
+</div>
+<a id="a7c6942ff4bad2193f97221b82d7a0b4a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7c6942ff4bad2193f97221b82d7a0b4a">&#9670;&nbsp;</a></span>GetScale()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">glm::vec3 ParticleEffect::GetScale </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>index</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Get the current scale of the particle effect </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">index</td><td>Insert the index of the particle effect as int </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Returns the current scale of the particle as glm::vec3 </dd></dl>
+
+</div>
+</div>
+<a id="acbcc803070f0aa89ddbba4989c1c7e9d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#acbcc803070f0aa89ddbba4989c1c7e9d">&#9670;&nbsp;</a></span>GetScaleVector3()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="struct_vector3.html">Vector3</a> ParticleEffect::GetScaleVector3 </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>index</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Get the current scale of the particle effect </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">index</td><td>Insert the index of the particle effect as int </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Returns the current scale of the particle as <a class="el" href="struct_vector3.html">Vector3</a> </dd></dl>
+
+</div>
+</div>
+<a id="a4479666080a2a5d8b92b0ea74d401895"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4479666080a2a5d8b92b0ea74d401895">&#9670;&nbsp;</a></span>GetTexture()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="class_texture.html">Texture</a> * ParticleEffect::GetTexture </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>index</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Get the current texture of the particle effect </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">index</td><td>Insert the index of the particle effect as int </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Returns the current texture of the particle as Texture* (<a class="el" href="class_texture.html" title="Main class for textures.">Texture</a> pointer) </dd></dl>
+<dl class="section see"><dt>See also</dt><dd><a class="el" href="class_texture.html" title="Main class for textures.">Texture</a> </dd></dl>
+
+</div>
+</div>
+<a id="a2c4eafa97d1536cda09ad3c7cb771719"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2c4eafa97d1536cda09ad3c7cb771719">&#9670;&nbsp;</a></span>InsertNewParticleList()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void ParticleEffect::InsertNewParticleList </td>
+          <td>(</td>
+          <td class="paramtype">std::vector&lt; <a class="el" href="struct_particle.html">Particle</a> * &gt; *&#160;</td>
+          <td class="paramname"><em>particleList</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Update the current particle effect to another particle effect </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">particleList</td><td>Insert current std::vector list of Particle* as std::vector&lt;Particle*&gt;* </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>
@@ -183,6 +546,76 @@ Public Member Functions</h2></td></tr>
 
 </div>
 </div>
+<a id="a24f05464826e67aa4f6aec7e518357ec"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a24f05464826e67aa4f6aec7e518357ec">&#9670;&nbsp;</a></span>LookAt() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void ParticleEffect::LookAt </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>index</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">glm::vec3&#160;</td>
+          <td class="paramname"><em>target</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p><a class="el" href="struct_particle.html" title="Struct for a particle.">Particle</a> at index should look at rotation </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">index</td><td>Insert index of particle effect as int </td></tr>
+    <tr><td class="paramname">target</td><td>Insert the target to look at as glm::vec3 </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a86079b5ebfbcc355f56a38f8ed7e5573"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a86079b5ebfbcc355f56a38f8ed7e5573">&#9670;&nbsp;</a></span>LookAt() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void ParticleEffect::LookAt </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>index</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="struct_vector3.html">Vector3</a>&#160;</td>
+          <td class="paramname"><em>target</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p><a class="el" href="struct_particle.html" title="Struct for a particle.">Particle</a> at index should look at rotation </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">index</td><td>Insert index of particle effect as int </td></tr>
+    <tr><td class="paramname">target</td><td>Insert the target to look at as <a class="el" href="struct_vector3.html">Vector3</a> </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
 <a id="a416fd6e7ea5e69dbb5bd77f8a9487c82"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a416fd6e7ea5e69dbb5bd77f8a9487c82">&#9670;&nbsp;</a></span>ParticleUpdate()</h2>
 
@@ -198,13 +631,67 @@ Public Member Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Use in your update </p>
+<p>Use in your update </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">deltaTime</td><td>Insert deltatime as float </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section see"><dt>See also</dt><dd><a class="el" href="class_window.html#ae7ce0586147cc93ba68d6ee929413f22">Window::GetDeltaTime()</a> </dd></dl>
+
+</div>
+</div>
+<a id="a62001aac47d157b8bbdc7d749f0f5c93"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a62001aac47d157b8bbdc7d749f0f5c93">&#9670;&nbsp;</a></span>SetRespawnTimer()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void ParticleEffect::SetRespawnTimer </td>
+          <td>(</td>
+          <td class="paramtype">float&#160;</td>
+          <td class="paramname"><em>respawn</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Det the respawn time of the hole particle effect </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">respawn</td><td>Insert respawn timer as float, use -1 for never respawn and 0 for immediatly respawn </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a61209f0862c570e840664fb4e4051b01"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a61209f0862c570e840664fb4e4051b01">&#9670;&nbsp;</a></span>SetRespawnTimerAfterRespawn()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void ParticleEffect::SetRespawnTimerAfterRespawn </td>
+          <td>(</td>
+          <td class="paramtype">float&#160;</td>
+          <td class="paramname"><em>value</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Set new respawn timer after respawn </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">value</td><td>Insert new respawn timer as float </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>
 <hr/>The documentation for this class was generated from the following files:<ul>
-<li>C:/Users/Björn Sonnen/Desktop/GitHub/Nebula_Engine/Nebula_Engine/<a class="el" href="_particle_effect_8h_source.html">ParticleEffect.h</a></li>
-<li>C:/Users/Björn Sonnen/Desktop/GitHub/Nebula_Engine/Nebula_Engine/ParticleEffect.cpp</li>
+<li>GitHub/Nebula_Engine/Nebula_Engine/<a class="el" href="_particle_effect_8h_source.html">ParticleEffect.h</a></li>
+<li>GitHub/Nebula_Engine/Nebula_Engine/ParticleEffect.cpp</li>
 </ul>
 </div><!-- contents -->
 </div><!-- doc-content -->

@@ -25,10 +25,18 @@ public:
 			float red, float green, float blue,
 			float aIntensity, float dIntensity);
 
+	//! Change the color of the light
+	//! @param color Insert new color for the light as glm::vec3
+	void SetColor(glm::vec3 color);
+	//! Change the color of the light
+	//! @param color Insert new color for the light as Vector3
+	void SetColor(Vector3 color);
+
 	//! Get shadow map
 	//! @return Returns a ShadowMap pointer (ShadowMap*)
 	//! @see ShadowMap
-	ShadowMap* getShadowMap() { return shadowMap; }
+	//ShadowMap* getShadowMap() { return shadowMap; }
+	ShadowMap* GetShadowMap() { return shadowMap; }
 
 	~Light();
 

@@ -65,13 +65,30 @@ float PointLight::GetFarPlane()
 {
 	return farPlane;
 }
+void PointLight::SetColor(glm::vec3 color)
+{
+	Light::SetColor(color);
+}
+void PointLight::SetColor(Vector3 color)
+{
+	Light::SetColor(color.ToGlm());
+}
 void PointLight::SetPosition(glm::vec3 pos)
 {
 	position = pos;
 }
+void PointLight::SetPosition(Vector3 pos)
+{
+	position = pos.ToGlm();
+}
 glm::vec3 PointLight::GetPosition()
 {
 	return position;
+}
+
+Vector3 PointLight::GetPositionVector3()
+{
+	return Vector3(position.x, position.y, position.z);
 }
 
 PointLight::~PointLight()

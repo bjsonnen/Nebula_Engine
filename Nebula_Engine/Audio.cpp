@@ -137,6 +137,17 @@ void Audio::Set3DPosition(glm::vec3 pos)
 	FMOD_ERROR_CHECK(result);
 }
 
+void Audio::Set3DPosition(Vector3 pos)
+{
+	FMOD_VECTOR fmod_pos = { pos.x, pos.y, pos.z };
+	FMOD_VECTOR vel = { 0.0f, 0.0f, 0.0f };
+
+	result = channel->set3DAttributes(&fmod_pos, &vel);
+	FMOD_ERROR_CHECK(result);
+	result = channel->setPaused(false);
+	FMOD_ERROR_CHECK(result);
+}
+
 NE_ERROR Audio::Pause()
 {
 	result = channel->setPaused(true);

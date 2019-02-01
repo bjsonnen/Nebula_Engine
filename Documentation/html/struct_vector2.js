@@ -13,7 +13,10 @@ var struct_vector2 =
     [ "operator+=", "struct_vector2.html#a7ed76b87b79c2a20b08788328dcf592e", null ],
     [ "operator=", "struct_vector2.html#a7e9bf2ca75c051fe51cbc8a484923d6d", null ],
     [ "operator=", "struct_vector2.html#a6baf5cab131f85f846b784ad31c506ec", null ],
-    [ "ToString", "struct_vector2.html#a7f86430b0418537fb265395c652e9574", null ],
+    [ "SetVector3", "struct_vector2.html#a0c002bc16739ff7533526a38e18226a0", null ],
+    [ "SetVector3", "struct_vector2.html#af2880756375df5f0f70aec09efbbc77e", null ],
+    [ "ToGlm", "struct_vector2.html#adc634be04f1bf7f1a91811216ea6ac50", null ],
+    [ "ToString", "struct_vector2.html#a5954390e62401baa0d28d5b2128845fa", null ],
     [ "Zero", "struct_vector2.html#aa07e77bd513051b31f080bd70a7d09d7", null ],
     [ "x", "struct_vector2.html#a046bb8d17a876acc49415128dc0502f2", null ],
     [ "y", "struct_vector2.html#a0e07bad05f01ed811b909a2eef97f9e2", null ]

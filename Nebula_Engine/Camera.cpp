@@ -22,6 +22,23 @@ Camera::Camera(glm::vec3 startPosition, glm::vec3 startUp, float startYaw, float
 	Update();
 }
 
+Camera::Camera(Vector3 startPosition, Vector3 startUp, float startYaw, float startPitch, float startMoveSpeed, float startTurnSpeed)
+{
+	position = glm::vec3(startPosition.x, startPosition.y, startPosition.z);
+	worldUp = glm::vec3(startUp.x, startUp.y, startUp.z);
+	yaw = startYaw;
+	pitch = startPitch;
+	front = glm::vec3(0.0f, 0.0f, -1.0f);
+
+	moveSpeed = startMoveSpeed;
+	turnSpeed = startTurnSpeed;
+
+	near = 0.1f;
+	far = 100.0f;
+
+	Update();
+}
+
 void Camera::KeyControl(GLFWwindow * window, float deltaTime)
 {
 	if (!(standardCamera) || disableKeyMovement)
@@ -92,9 +109,19 @@ void Camera::SetPosition(glm::vec3 pos)
 	position = pos;
 }
 
+void Camera::SetPosition(Vector3 pos)
+{
+	position = glm::vec3(pos.x, pos.y, pos.z);
+}
+
 void Camera::SetTarget(glm::vec3 object)
 {
 	dir = object;
+}
+
+void Camera::SetTarget(Vector3 pos)
+{
+	dir = glm::vec3(pos.x, pos.y, pos.z);
 }
 
 void Camera::SetStandardCamera(bool value)
@@ -161,9 +188,20 @@ glm::vec3 Camera::GetCameraPosition()
 {
 	return position;
 }
+Vector3 Camera::GetCameraPositionVector3()
+{
+	return position;
+}
 glm::vec3 Camera::GetCameraDirection()
 {
 	return glm::normalize(front);
+}
+
+Vector3 Camera::GetCameraDirectionVector3()
+{
+	Vector3 tmp = Vector3(front.x, front.y, front.z);
+	tmp.Normalize();
+	return tmp;
 }
 
 void Camera::Update()

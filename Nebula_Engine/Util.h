@@ -7,6 +7,9 @@
 
 #include <vector>
 
+#include "Vector2.h"
+#include "Vector3.h"
+
 //! All nebula engine errors
 enum NE_ERROR
 {
@@ -34,7 +37,7 @@ enum NE_ERROR
 //! Delete specific object
 #define NE_DELETE_OBJECT(_type) Util::DeletePointer(_type);
 //! Debug varible in the console window
-#define NE_DEBUG_LOG(_variable) Util::DebugLog(__variable);
+#define NE_DEBUG_LOG(__variable) Util::DebugLog(__variable);
 //! Swap vector 
 #define NE_SWAP_VECTOR_ARRAY(_vector_array) Util::SwapVectorArray(_vector_array);
 //! Nebula engine force inline
@@ -47,57 +50,52 @@ class Util
 {
 public:
 	//! Calculate normals directly in arrays
+	//! @param indices Insert array to indices as unsigned int indices
+	//! @param indiceCount Insert array size of indices
+	//! @param vertices Insert array to vertices as unsigned int indices
+	//! @param indiceCount Insert array size of vertices
+	//! @param vLength Insert vertice count per vertex
+	//! @param normalOffset Insert normal count offset from start
 	static void CalculateNormals(unsigned int * indices, unsigned int indiceCount, float * vertices, unsigned int verticeCount,
 		unsigned int vLength, unsigned int normalOffset);
 
 	//! Calculate bitangents and return a pointer to the array
+	//! @param vertices Insert vertices as unsigned int array
+	//! @param UVoffset Insert offset from start to uv coordinates
+	//! @param verticesOffset Insert offset to new vertices 
+	//! @param verticeCount Insert vertices array count
+	//! @param tangentCount Insert offset to tangent and bitangent coordinates
 	static void CalculateBitAngents(unsigned int * vertices, const unsigned int UVoffset, const unsigned int verticeOffset, const unsigned int verticeCount, const unsigned int tangentOffset);
 
-	//! Swao vector, use NE_SWAP_VECTOR_ARRAY(_vector_array)
+	//! Swap vector, use NE_SWAP_VECTOR_ARRAY(_vector_array)
+	//! @param vertor Insert std::vector of type TEMPLATE as std::vector<T*>*
 	template<typename T>
 	static void SwapVectorArray(std::vector<T*>* vector);
 
-	// Check for errors, called via NE_ERROR_CHECK
+	//! Check for errors, called via NE_ERROR_CHECK
+	//! @param error Insert current NE_ERROR
+	//! @param file Insert current file with __FILE__
+	//! @param line Insert current line with __LINE__
 	static void CheckForErrors(NE_ERROR error, char* file, int line);
 
 	//! Delete a pointer if not nullptr
+	//! @param t Insert pointer of type TEMPLATE
 	template<typename T>
 	static void DeletePointer(T* t) { if(t) delete t; }
 
-	// Debug log, use NE_ERROR_CHECK(_result)
+	//! Debug log, use NE_ERROR_CHECK(_result)
+	//! @param t Insert output variable as type TEMPLATE
 	template<typename T>
 	static void DebugLog(T t)
 	{
-		// -> Use objects!
-
-		/*if (std::is_same<T, int>::value)
-			printf("%d\n", (int)t);*/
-		//	std::cout << (int)T << std::endl;
-		//if(std::is_same<T, float>::value)
-		//	std::cout << (float)T << std::endl;
-		//if(std::is_same<T, unsigned int>::value)
-		//	std::cout << (unsigned int)T << std::endl;
-		//if(std::is_same<T, double>::value)
-		//	std::cout << (double)T << std::endl;
-
-		
-
-		//if (std::is_same<T, glm::vec2>::value)
-		//{
-		//	printf("Vector2 (%d / %d)\n", ((glm::vec2)t).x, ((glm::vec2)t).y);
-		//	return;
-		//}
-		//if (std::is_same<T, glm::vec3>::value)
-		//{
-		//	printf("Vector3 (%d / %d / %d)\n", ((glm::vec3)t).x, ((glm::vec3)t).y, ((glm::vec3)t).z);
-		////	printf("Vector3 (%d / %d / %d)\n", t.x, t.y, t.z);
-		//	return;
-		//}
-		//if (std::is_same<T, glm::vec4>::value)
-		//{
-		//	std::cout << "t" << std::endl;
-		//	return;
-		//}
+		if (std::is_same<T, Vector2>::value)
+		{
+			std::cout << t.ToString() << std::endl;
+		}
+		if (std::is_same<T, Vector3>::value)
+		{
+			std::cout << t.ToString() << std::endl;
+		}
 	}
 
 private:

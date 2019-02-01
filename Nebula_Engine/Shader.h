@@ -31,21 +31,25 @@ public:
 	//! @param vertexCode Insert const char array to vertex shader code
 	//! @param vertexCode Insert const char array to vertex shader code
 	//! @return Returns a NE_ERROR
+	//! @see NE_ERROR_CHECK
 	NE_ERROR CreateFromString(const char* vertexCode, const char* fragmentCode);
 	//! Create Shader from file
 	//! @param vertexLocation Insert const char array to vertex file location
 	//! @param fragmentLocation Insert const char array to fragment file location
 	//! @return Returns a NE_ERROR
+	//! @see NE_ERROR_CHECK
 	NE_ERROR CreateFromFiles(const char* vertexLocation, const char* fragmentLocation);
 	//! Create from file with geometry shader
 	//! @param vertexLocation Insert const char array to vertex file location
 	//! @param geometryLocation Insert const char array to geometry file location
 	//! @param fragmentLocation Insert const char array to fragment file location
 	//! @return Returns a NE_ERROR
+	//! @see NE_ERROR_CHECK
 	NE_ERROR CreateFromFiles(const char* vertexLocation, const char* geometryLocation, const char* fragmentLocation);
 
 	//! Check if shader works
 	//! @return Returns a NE_ERROR
+	//! @see NE_ERROR_CHECK
 	NE_ERROR Validate();
 
 	//! Read shader from file
@@ -142,6 +146,10 @@ public:
 	void SetBool(std::string name, bool value);
 	//! Set texture in shader
 	void SetTexture(std::string name, unsigned int unit);
+	//! Set vector4 in shader
+	//! @param name Insert name in shader as std::string
+	//! @param value Insert value for 'name' in shader as glm::vec3
+	void SetVector4(std::string name, glm::vec4 value);
 	//! Set vector3 in shader
 	//! @param name Insert name in shader as std::string
 	//! @param value Insert value for 'name' in shader as glm::vec3

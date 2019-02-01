@@ -30,7 +30,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">Nebula Engine
-   &#160;<span id="projectnumber">Beta 0.1a</span>
+   &#160;<span id="projectnumber">Beta 0.1</span>
    </div>
    <div id="projectbrief">C++ OpenGL Framework</div>
   </td>
@@ -118,8 +118,12 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:aeb5df09a25a32f19fdffa761268ba24f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a93768f02e5a374864a6ac7db1dc0d852"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_light.html#a93768f02e5a374864a6ac7db1dc0d852">Light</a> (unsigned int shadowWidth, unsigned int shadowHeight, float red, float green, float blue, float aIntensity, float dIntensity)</td></tr>
 <tr class="separator:a93768f02e5a374864a6ac7db1dc0d852"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a10561e637f712360875a292aa9953735"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_shadow_map.html">ShadowMap</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_light.html#a10561e637f712360875a292aa9953735">getShadowMap</a> ()</td></tr>
-<tr class="separator:a10561e637f712360875a292aa9953735"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8f8a8fea92c0de4dcf67c77ac835fe29"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_light.html#a8f8a8fea92c0de4dcf67c77ac835fe29">SetColor</a> (glm::vec3 color)</td></tr>
+<tr class="separator:a8f8a8fea92c0de4dcf67c77ac835fe29"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a002cd53d4e244c97f2e101e2430613e5"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_light.html#a002cd53d4e244c97f2e101e2430613e5">SetColor</a> (<a class="el" href="struct_vector3.html">Vector3</a> color)</td></tr>
+<tr class="separator:a002cd53d4e244c97f2e101e2430613e5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae26ee6e7974351161dae2c2ddee9584c"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_shadow_map.html">ShadowMap</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_light.html#ae26ee6e7974351161dae2c2ddee9584c">GetShadowMap</a> ()</td></tr>
+<tr class="separator:ae26ee6e7974351161dae2c2ddee9584c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pro-attribs"></a>
 Protected Attributes</h2></td></tr>
@@ -231,8 +235,8 @@ glm::mat4&#160;</td><td class="memItemRight" valign="bottom"><b>lightProj</b></t
 </div>
 </div>
 <h2 class="groupheader">Member Function Documentation</h2>
-<a id="a10561e637f712360875a292aa9953735"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a10561e637f712360875a292aa9953735">&#9670;&nbsp;</a></span>getShadowMap()</h2>
+<a id="ae26ee6e7974351161dae2c2ddee9584c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae26ee6e7974351161dae2c2ddee9584c">&#9670;&nbsp;</a></span>GetShadowMap()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -241,7 +245,7 @@ glm::mat4&#160;</td><td class="memItemRight" valign="bottom"><b>lightProj</b></t
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="class_shadow_map.html">ShadowMap</a>* Light::getShadowMap </td>
+          <td class="memname"><a class="el" href="class_shadow_map.html">ShadowMap</a>* Light::GetShadowMap </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td></td>
@@ -258,9 +262,57 @@ glm::mat4&#160;</td><td class="memItemRight" valign="bottom"><b>lightProj</b></t
 
 </div>
 </div>
+<a id="a8f8a8fea92c0de4dcf67c77ac835fe29"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8f8a8fea92c0de4dcf67c77ac835fe29">&#9670;&nbsp;</a></span>SetColor() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Light::SetColor </td>
+          <td>(</td>
+          <td class="paramtype">glm::vec3&#160;</td>
+          <td class="paramname"><em>color</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Change the color of the light </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">color</td><td>Insert new color for the light as glm::vec3 </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a002cd53d4e244c97f2e101e2430613e5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a002cd53d4e244c97f2e101e2430613e5">&#9670;&nbsp;</a></span>SetColor() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Light::SetColor </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="struct_vector3.html">Vector3</a>&#160;</td>
+          <td class="paramname"><em>color</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Change the color of the light </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">color</td><td>Insert new color for the light as <a class="el" href="struct_vector3.html">Vector3</a> </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
 <hr/>The documentation for this class was generated from the following files:<ul>
-<li>C:/Users/Björn Sonnen/Desktop/GitHub/Nebula_Engine/Nebula_Engine/<a class="el" href="_light_8h_source.html">Light.h</a></li>
-<li>C:/Users/Björn Sonnen/Desktop/GitHub/Nebula_Engine/Nebula_Engine/Light.cpp</li>
+<li>GitHub/Nebula_Engine/Nebula_Engine/<a class="el" href="_light_8h_source.html">Light.h</a></li>
+<li>GitHub/Nebula_Engine/Nebula_Engine/Light.cpp</li>
 </ul>
 </div><!-- contents -->
 </div><!-- doc-content -->

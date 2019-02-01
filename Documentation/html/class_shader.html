@@ -30,7 +30,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">Nebula Engine
-   &#160;<span id="projectnumber">Beta 0.1a</span>
+   &#160;<span id="projectnumber">Beta 0.1</span>
    </div>
    <div id="projectbrief">C++ OpenGL Framework</div>
   </td>
@@ -170,6 +170,8 @@ Public Member Functions</h2></td></tr>
 void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_shader.html#a4cb2a0a8f3d9f201c0c21e4933368f59">SetTexture</a> (std::string name, unsigned int unit)</td></tr>
 <tr class="memdesc:a4cb2a0a8f3d9f201c0c21e4933368f59"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set texture in shader. <br /></td></tr>
 <tr class="separator:a4cb2a0a8f3d9f201c0c21e4933368f59"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a43443ff13fc01862d40930b6a6d312b3"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_shader.html#a43443ff13fc01862d40930b6a6d312b3">SetVector4</a> (std::string name, glm::vec4 value)</td></tr>
+<tr class="separator:a43443ff13fc01862d40930b6a6d312b3"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa9d9c1159e1ebaf60d09d4763523efd3"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_shader.html#aa9d9c1159e1ebaf60d09d4763523efd3">SetVector3</a> (std::string name, glm::vec3 value)</td></tr>
 <tr class="separator:aa9d9c1159e1ebaf60d09d4763523efd3"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a0d918646fca62689f9b26061c94c22e5"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_shader.html#a0d918646fca62689f9b26061c94c22e5">SetVector2</a> (std::string name, glm::vec2 value)</td></tr>
@@ -278,6 +280,7 @@ void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="clas
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>Returns a NE_ERROR </dd></dl>
+<dl class="section see"><dt>See also</dt><dd>NE_ERROR_CHECK </dd></dl>
 
 </div>
 </div>
@@ -321,6 +324,7 @@ void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="clas
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>Returns a NE_ERROR </dd></dl>
+<dl class="section see"><dt>See also</dt><dd>NE_ERROR_CHECK </dd></dl>
 
 </div>
 </div>
@@ -357,6 +361,7 @@ void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="clas
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>Returns a NE_ERROR </dd></dl>
+<dl class="section see"><dt>See also</dt><dd>NE_ERROR_CHECK </dd></dl>
 
 </div>
 </div>
@@ -1091,6 +1096,41 @@ void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="clas
 
 </div>
 </div>
+<a id="a43443ff13fc01862d40930b6a6d312b3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a43443ff13fc01862d40930b6a6d312b3">&#9670;&nbsp;</a></span>SetVector4()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Shader::SetVector4 </td>
+          <td>(</td>
+          <td class="paramtype">std::string&#160;</td>
+          <td class="paramname"><em>name</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">glm::vec4&#160;</td>
+          <td class="paramname"><em>value</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Set vector4 in shader </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">name</td><td>Insert name in shader as std::string </td></tr>
+    <tr><td class="paramname">value</td><td>Insert value for 'name' in shader as glm::vec3 </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
 <a id="a08706ac2b4375d3bb7a6b38db0369f44"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a08706ac2b4375d3bb7a6b38db0369f44">&#9670;&nbsp;</a></span>UseShader()</h2>
 
@@ -1124,12 +1164,13 @@ void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="clas
       </table>
 </div><div class="memdoc">
 <p>Check if shader works </p><dl class="section return"><dt>Returns</dt><dd>Returns a NE_ERROR </dd></dl>
+<dl class="section see"><dt>See also</dt><dd>NE_ERROR_CHECK </dd></dl>
 
 </div>
 </div>
 <hr/>The documentation for this class was generated from the following files:<ul>
-<li>C:/Users/Björn Sonnen/Desktop/GitHub/Nebula_Engine/Nebula_Engine/<a class="el" href="_shader_8h_source.html">Shader.h</a></li>
-<li>C:/Users/Björn Sonnen/Desktop/GitHub/Nebula_Engine/Nebula_Engine/Shader.cpp</li>
+<li>GitHub/Nebula_Engine/Nebula_Engine/<a class="el" href="_shader_8h_source.html">Shader.h</a></li>
+<li>GitHub/Nebula_Engine/Nebula_Engine/Shader.cpp</li>
 </ul>
 </div><!-- contents -->
 </div><!-- doc-content -->

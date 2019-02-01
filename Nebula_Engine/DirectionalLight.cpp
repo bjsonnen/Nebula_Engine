@@ -30,9 +30,19 @@ void DirectionalLight::ChangeDirection(glm::vec3 offset)
 	direction += offset;
 }
 
+void DirectionalLight::ChangeDirection(Vector3 offset)
+{
+	direction += glm::vec3(offset.x, offset.y, offset.z);
+}
+
 void DirectionalLight::SetDirection(glm::vec3 direction)
 {
 	this->direction = direction;
+}
+
+void DirectionalLight::SetDirection(Vector3 direction)
+{
+	this->direction = direction.ToGlm();
 }
 
 glm::mat4 DirectionalLight::CalculateLightTransform()

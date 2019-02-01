@@ -51,12 +51,26 @@ public:
 	//! @return Returns far plane distance as float
 	float GetFarPlane();
 
+	//! Change the color of the point light
+	//! @param color Insert new glm::vec3 color
+	void SetColor(glm::vec3 color);
+	//! Change the color of the point light
+	//! @param color Insert new Vector3 color
+	void SetColor(Vector3 color);
+
 	//! Set Light Position
 	//! @param pos Set position as glm::vec3
 	void SetPosition(glm::vec3 pos);
+	//! Set Light Position
+	//! @param pos Set position as Vector3
+	void SetPosition(Vector3 pos);
+
 	//! Get Light Position
 	//! @return Returns the position as glm::vec3
 	glm::vec3 GetPosition();
+	//! Get Light Position
+	//! @return Returns the position as Vector3
+	Vector3 GetPositionVector3();
 
 	//! Use to delete the Light
 	~PointLight();

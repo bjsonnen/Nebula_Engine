@@ -30,7 +30,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">Nebula Engine
-   &#160;<span id="projectnumber">Beta 0.1a</span>
+   &#160;<span id="projectnumber">Beta 0.1</span>
    </div>
    <div id="projectbrief">C++ OpenGL Framework</div>
   </td>
@@ -125,10 +125,18 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:ad8abf7541c6b7113bb5aa324272f9900"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aed9b70818ab7ddfe9c94ca895233f1de"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_point_light.html#aed9b70818ab7ddfe9c94ca895233f1de">GetFarPlane</a> ()</td></tr>
 <tr class="separator:aed9b70818ab7ddfe9c94ca895233f1de"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a13bb07ff4d5be58f18bc1530cf0e8abe"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_point_light.html#a13bb07ff4d5be58f18bc1530cf0e8abe">SetColor</a> (glm::vec3 color)</td></tr>
+<tr class="separator:a13bb07ff4d5be58f18bc1530cf0e8abe"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae4d7fa67626719729b4ff66a265f0b0c"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_point_light.html#ae4d7fa67626719729b4ff66a265f0b0c">SetColor</a> (<a class="el" href="struct_vector3.html">Vector3</a> color)</td></tr>
+<tr class="separator:ae4d7fa67626719729b4ff66a265f0b0c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a707125b77b9ae421f43760540496c5d0"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_point_light.html#a707125b77b9ae421f43760540496c5d0">SetPosition</a> (glm::vec3 pos)</td></tr>
 <tr class="separator:a707125b77b9ae421f43760540496c5d0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a49025fcac39e59e0ac0ed6c46ac290bb"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_point_light.html#a49025fcac39e59e0ac0ed6c46ac290bb">SetPosition</a> (<a class="el" href="struct_vector3.html">Vector3</a> pos)</td></tr>
+<tr class="separator:a49025fcac39e59e0ac0ed6c46ac290bb"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa0325f850903c1e8e6aacbb870d9d1a0"><td class="memItemLeft" align="right" valign="top">glm::vec3&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_point_light.html#aa0325f850903c1e8e6aacbb870d9d1a0">GetPosition</a> ()</td></tr>
 <tr class="separator:aa0325f850903c1e8e6aacbb870d9d1a0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a13eb1498c87c75171311c9e87c8f1d01"><td class="memItemLeft" align="right" valign="top"><a class="el" href="struct_vector3.html">Vector3</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_point_light.html#a13eb1498c87c75171311c9e87c8f1d01">GetPositionVector3</a> ()</td></tr>
+<tr class="separator:a13eb1498c87c75171311c9e87c8f1d01"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa12d9005d5372dbbe655a82231634341"><td class="memItemLeft" align="right" valign="top"><a id="aa12d9005d5372dbbe655a82231634341"></a>
 &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_point_light.html#aa12d9005d5372dbbe655a82231634341">~PointLight</a> ()</td></tr>
 <tr class="memdesc:aa12d9005d5372dbbe655a82231634341"><td class="mdescLeft">&#160;</td><td class="mdescRight">Use to delete the <a class="el" href="class_light.html" title="Main class for light in general.">Light</a>. <br /></td></tr>
@@ -138,8 +146,12 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:aeb5df09a25a32f19fdffa761268ba24f inherit pub_methods_class_light"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a93768f02e5a374864a6ac7db1dc0d852 inherit pub_methods_class_light"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_light.html#a93768f02e5a374864a6ac7db1dc0d852">Light</a> (unsigned int shadowWidth, unsigned int shadowHeight, float red, float green, float blue, float aIntensity, float dIntensity)</td></tr>
 <tr class="separator:a93768f02e5a374864a6ac7db1dc0d852 inherit pub_methods_class_light"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a10561e637f712360875a292aa9953735 inherit pub_methods_class_light"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_shadow_map.html">ShadowMap</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_light.html#a10561e637f712360875a292aa9953735">getShadowMap</a> ()</td></tr>
-<tr class="separator:a10561e637f712360875a292aa9953735 inherit pub_methods_class_light"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8f8a8fea92c0de4dcf67c77ac835fe29 inherit pub_methods_class_light"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_light.html#a8f8a8fea92c0de4dcf67c77ac835fe29">SetColor</a> (glm::vec3 color)</td></tr>
+<tr class="separator:a8f8a8fea92c0de4dcf67c77ac835fe29 inherit pub_methods_class_light"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a002cd53d4e244c97f2e101e2430613e5 inherit pub_methods_class_light"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_light.html#a002cd53d4e244c97f2e101e2430613e5">SetColor</a> (<a class="el" href="struct_vector3.html">Vector3</a> color)</td></tr>
+<tr class="separator:a002cd53d4e244c97f2e101e2430613e5 inherit pub_methods_class_light"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae26ee6e7974351161dae2c2ddee9584c inherit pub_methods_class_light"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_shadow_map.html">ShadowMap</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_light.html#ae26ee6e7974351161dae2c2ddee9584c">GetShadowMap</a> ()</td></tr>
+<tr class="separator:ae26ee6e7974351161dae2c2ddee9584c inherit pub_methods_class_light"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pro-attribs"></a>
 Protected Attributes</h2></td></tr>
@@ -356,8 +368,74 @@ glm::mat4&#160;</td><td class="memItemRight" valign="bottom"><b>lightProj</b></t
 
 </div>
 </div>
+<a id="a13eb1498c87c75171311c9e87c8f1d01"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a13eb1498c87c75171311c9e87c8f1d01">&#9670;&nbsp;</a></span>GetPositionVector3()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="struct_vector3.html">Vector3</a> PointLight::GetPositionVector3 </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Get <a class="el" href="class_light.html" title="Main class for light in general.">Light</a> Position </p><dl class="section return"><dt>Returns</dt><dd>Returns the position as <a class="el" href="struct_vector3.html">Vector3</a> </dd></dl>
+
+</div>
+</div>
+<a id="a13bb07ff4d5be58f18bc1530cf0e8abe"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a13bb07ff4d5be58f18bc1530cf0e8abe">&#9670;&nbsp;</a></span>SetColor() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void PointLight::SetColor </td>
+          <td>(</td>
+          <td class="paramtype">glm::vec3&#160;</td>
+          <td class="paramname"><em>color</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Change the color of the point light </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">color</td><td>Insert new glm::vec3 color </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="ae4d7fa67626719729b4ff66a265f0b0c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae4d7fa67626719729b4ff66a265f0b0c">&#9670;&nbsp;</a></span>SetColor() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void PointLight::SetColor </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="struct_vector3.html">Vector3</a>&#160;</td>
+          <td class="paramname"><em>color</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Change the color of the point light </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">color</td><td>Insert new <a class="el" href="struct_vector3.html">Vector3</a> color </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
 <a id="a707125b77b9ae421f43760540496c5d0"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a707125b77b9ae421f43760540496c5d0">&#9670;&nbsp;</a></span>SetPosition()</h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a707125b77b9ae421f43760540496c5d0">&#9670;&nbsp;</a></span>SetPosition() <span class="overload">[1/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -374,6 +452,30 @@ glm::mat4&#160;</td><td class="memItemRight" valign="bottom"><b>lightProj</b></t
 <p>Set <a class="el" href="class_light.html" title="Main class for light in general.">Light</a> Position </p><dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">pos</td><td>Set position as glm::vec3 </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a49025fcac39e59e0ac0ed6c46ac290bb"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a49025fcac39e59e0ac0ed6c46ac290bb">&#9670;&nbsp;</a></span>SetPosition() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void PointLight::SetPosition </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="struct_vector3.html">Vector3</a>&#160;</td>
+          <td class="paramname"><em>pos</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Set <a class="el" href="class_light.html" title="Main class for light in general.">Light</a> Position </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">pos</td><td>Set position as <a class="el" href="struct_vector3.html">Vector3</a> </td></tr>
   </table>
   </dd>
 </dl>
@@ -451,8 +553,8 @@ glm::mat4&#160;</td><td class="memItemRight" valign="bottom"><b>lightProj</b></t
 </div>
 </div>
 <hr/>The documentation for this class was generated from the following files:<ul>
-<li>C:/Users/Björn Sonnen/Desktop/GitHub/Nebula_Engine/Nebula_Engine/<a class="el" href="_point_light_8h_source.html">PointLight.h</a></li>
-<li>C:/Users/Björn Sonnen/Desktop/GitHub/Nebula_Engine/Nebula_Engine/PointLight.cpp</li>
+<li>GitHub/Nebula_Engine/Nebula_Engine/<a class="el" href="_point_light_8h_source.html">PointLight.h</a></li>
+<li>GitHub/Nebula_Engine/Nebula_Engine/PointLight.cpp</li>
 </ul>
 </div><!-- contents -->
 </div><!-- doc-content -->

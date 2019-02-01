@@ -30,7 +30,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">Nebula Engine
-   &#160;<span id="projectnumber">Beta 0.1a</span>
+   &#160;<span id="projectnumber">Beta 0.1</span>
    </div>
    <div id="projectbrief">C++ OpenGL Framework</div>
   </td>
@@ -108,17 +108,19 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:a53b21e9c4e78c18d24fd7cdac901a633"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aaeadd95892c6fa7eb1e909662ee346e8"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_root_manager.html#aaeadd95892c6fa7eb1e909662ee346e8">EngineInitialization</a> (<a class="el" href="class_window.html">Window</a> &amp;window, <a class="el" href="class_camera.html">Camera</a> &amp;cam, <a class="el" href="class_material.html">Material</a> &amp;mat1, <a class="el" href="class_material.html">Material</a> &amp;mat2, <a class="el" href="class_directional_light.html">DirectionalLight</a> &amp;light, <a class="el" href="class_skybox.html">Skybox</a> &amp;skybox, std::vector&lt; <a class="el" href="class_shader.html">Shader</a> &gt; &amp;shaderList)</td></tr>
 <tr class="separator:aaeadd95892c6fa7eb1e909662ee346e8"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a19c5627c0bed731642e4664875722d50"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_root_manager.html#a19c5627c0bed731642e4664875722d50">EngineUpdate</a> (std::vector&lt; <a class="el" href="class_game_object.html">GameObject</a> * &gt; *objectList, <a class="el" href="class_camera.html">Camera</a> &amp;cam, <a class="el" href="class_point_light.html">PointLight</a> *pointLights, <a class="el" href="class_spot_light.html">SpotLight</a> *spotLights, int pointCount, int spotCount, glm::mat4 projection, <a class="el" href="class_directional_light.html">DirectionalLight</a> *mainLight)</td></tr>
-<tr class="separator:a19c5627c0bed731642e4664875722d50"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae40159e167cbd378c3f54404ebe22cb9"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_root_manager.html#ae40159e167cbd378c3f54404ebe22cb9">EngineLoading</a> (std::vector&lt; <a class="el" href="class_texture.html">Texture</a> * &gt; *textureList, std::vector&lt; <a class="el" href="class_game_object.html">GameObject</a> * &gt; *objectList, bool &amp;loading)</td></tr>
-<tr class="separator:ae40159e167cbd378c3f54404ebe22cb9"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a22758fc7c2627b9a8ec27889f01205bd"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_root_manager.html#a22758fc7c2627b9a8ec27889f01205bd">EngineVariablesUpdate</a> (std::vector&lt; <a class="el" href="class_texture.html">Texture</a> * &gt; *textureList, std::vector&lt; <a class="el" href="class_game_object.html">GameObject</a> * &gt; *objectList, glm::mat4 projection)</td></tr>
-<tr class="separator:a22758fc7c2627b9a8ec27889f01205bd"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:adbf691a002983aec18a65754a397db73"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_root_manager.html#adbf691a002983aec18a65754a397db73">EngineUpdate</a> (<a class="el" href="class_camera.html">Camera</a> &amp;cam, <a class="el" href="class_directional_light.html">DirectionalLight</a> *mainLight)</td></tr>
+<tr class="separator:adbf691a002983aec18a65754a397db73"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7a4c2cfb0947b97e2af89b2ed4075990"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_root_manager.html#a7a4c2cfb0947b97e2af89b2ed4075990">EngineLoading</a> ()</td></tr>
+<tr class="separator:a7a4c2cfb0947b97e2af89b2ed4075990"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a21effc3c173615d7cf7208914f9d3109"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_root_manager.html#a21effc3c173615d7cf7208914f9d3109">EngineVariablesUpdate</a> (std::vector&lt; <a class="el" href="class_texture.html">Texture</a> * &gt; *textureList, std::vector&lt; <a class="el" href="class_game_object.html">GameObject</a> * &gt; *objectList, glm::mat4 projection, <a class="el" href="class_point_light.html">PointLight</a> *points, <a class="el" href="class_spot_light.html">SpotLight</a> *spots, unsigned int pointsCount, unsigned int spotsCount)</td></tr>
+<tr class="separator:a21effc3c173615d7cf7208914f9d3109"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a2360a1eb38057900909fa7dcac3e9a28"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_root_manager.html#a2360a1eb38057900909fa7dcac3e9a28">MainLoop</a> (bool windowShouldClose, <a class="el" href="class_window.html">Window</a> &amp;window, void *Start, void *Update)</td></tr>
 <tr class="separator:a2360a1eb38057900909fa7dcac3e9a28"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a1005d0d69109797ddf7e62fda5d678e5"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_root_manager.html#a1005d0d69109797ddf7e62fda5d678e5">CompileCustomShaders</a> (void *blubb)</td></tr>
 <tr class="separator:a1005d0d69109797ddf7e62fda5d678e5"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aad25cd66fd1aa628a1ff265964d6ceec"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_root_manager.html#aad25cd66fd1aa628a1ff265964d6ceec">ShutDown</a> ()</td></tr>
+<tr class="memitem:aad25cd66fd1aa628a1ff265964d6ceec"><td class="memItemLeft" align="right" valign="top"><a id="aad25cd66fd1aa628a1ff265964d6ceec"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_root_manager.html#aad25cd66fd1aa628a1ff265964d6ceec">ShutDown</a> ()</td></tr>
+<tr class="memdesc:aad25cd66fd1aa628a1ff265964d6ceec"><td class="mdescLeft">&#160;</td><td class="mdescRight">Call this when the game has ended. <br /></td></tr>
 <tr class="separator:aad25cd66fd1aa628a1ff265964d6ceec"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af5ee9d29d02ca9a8ca26bf0649862140"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_window.html">Window</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_root_manager.html#af5ee9d29d02ca9a8ca26bf0649862140">GetWindow</a> ()</td></tr>
 <tr class="separator:af5ee9d29d02ca9a8ca26bf0649862140"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -128,6 +130,8 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:ad36825d276b3eb4e5499ff37c7673d9c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a19c55ac08aba56e6d7c2d44d33b61e75"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_shader.html">Shader</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_root_manager.html#a19c55ac08aba56e6d7c2d44d33b61e75">GetOmniShadowShader</a> ()</td></tr>
 <tr class="separator:a19c55ac08aba56e6d7c2d44d33b61e75"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7990956f6ad217de97f7574880f5865b"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_manager.html">Manager</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_root_manager.html#a7990956f6ad217de97f7574880f5865b">GetECSManager</a> ()</td></tr>
+<tr class="separator:a7990956f6ad217de97f7574880f5865b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ab51dc622d82953446e44ae4212e5220b"><td class="memItemLeft" align="right" valign="top">std::vector&lt; <a class="el" href="class_shader.html">Shader</a> &gt; &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_root_manager.html#ab51dc622d82953446e44ae4212e5220b">GetShaderList</a> ()</td></tr>
 <tr class="separator:ab51dc622d82953446e44ae4212e5220b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
@@ -225,8 +229,8 @@ Public Member Functions</h2></td></tr>
 
 </div>
 </div>
-<a id="ae40159e167cbd378c3f54404ebe22cb9"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ae40159e167cbd378c3f54404ebe22cb9">&#9670;&nbsp;</a></span>EngineLoading()</h2>
+<a id="a7a4c2cfb0947b97e2af89b2ed4075990"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7a4c2cfb0947b97e2af89b2ed4075990">&#9670;&nbsp;</a></span>EngineLoading()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -234,40 +238,17 @@ Public Member Functions</h2></td></tr>
         <tr>
           <td class="memname">void RootManager::EngineLoading </td>
           <td>(</td>
-          <td class="paramtype">std::vector&lt; <a class="el" href="class_texture.html">Texture</a> * &gt; *&#160;</td>
-          <td class="paramname"><em>textureList</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
+          <td class="paramname"></td><td>)</td>
           <td></td>
-          <td class="paramtype">std::vector&lt; <a class="el" href="class_game_object.html">GameObject</a> * &gt; *&#160;</td>
-          <td class="paramname"><em>objectList</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">bool &amp;&#160;</td>
-          <td class="paramname"><em>loading</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Load all objects Should be called before the first frame </p><dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">textureList</td><td>Insert main textureList as std::vector&lt;Texture*&gt;* </td></tr>
-    <tr><td class="paramname">objectList</td><td>Insert main objectList as std::vector&lt;GameObject*&gt;* &amp;param loading Insert loading parameter as bool </td></tr>
-  </table>
-  </dd>
-</dl>
+<p>Load all objects Should be called before the first frame </p>
 
 </div>
 </div>
-<a id="a19c5627c0bed731642e4664875722d50"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a19c5627c0bed731642e4664875722d50">&#9670;&nbsp;</a></span>EngineUpdate()</h2>
+<a id="adbf691a002983aec18a65754a397db73"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#adbf691a002983aec18a65754a397db73">&#9670;&nbsp;</a></span>EngineUpdate()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -275,44 +256,8 @@ Public Member Functions</h2></td></tr>
         <tr>
           <td class="memname">void RootManager::EngineUpdate </td>
           <td>(</td>
-          <td class="paramtype">std::vector&lt; <a class="el" href="class_game_object.html">GameObject</a> * &gt; *&#160;</td>
-          <td class="paramname"><em>objectList</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
           <td class="paramtype"><a class="el" href="class_camera.html">Camera</a> &amp;&#160;</td>
           <td class="paramname"><em>cam</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype"><a class="el" href="class_point_light.html">PointLight</a> *&#160;</td>
-          <td class="paramname"><em>pointLights</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype"><a class="el" href="class_spot_light.html">SpotLight</a> *&#160;</td>
-          <td class="paramname"><em>spotLights</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">int&#160;</td>
-          <td class="paramname"><em>pointCount</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">int&#160;</td>
-          <td class="paramname"><em>spotCount</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">glm::mat4&#160;</td>
-          <td class="paramname"><em>projection</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
@@ -329,13 +274,7 @@ Public Member Functions</h2></td></tr>
 </div><div class="memdoc">
 <p>Game rendering loop Should be called once per frame </p><dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">objectList</td><td>Insert main objectList as std::vector&lt;GameObject*&gt;* </td></tr>
     <tr><td class="paramname">cam</td><td>Insert main <a class="el" href="class_camera.html" title="Camera main class.">Camera</a> object as <a class="el" href="class_camera.html" title="Camera main class.">Camera</a>&amp; </td></tr>
-    <tr><td class="paramname">pointLights</td><td>Insert Point Lights as array of Point Lights </td></tr>
-    <tr><td class="paramname">spotLights</td><td>Insert Spot Lights as array of Spot Lights </td></tr>
-    <tr><td class="paramname">pointCount</td><td>Insert size of values in Point <a class="el" href="class_light.html" title="Main class for light in general.">Light</a> array </td></tr>
-    <tr><td class="paramname">pointCount</td><td>Insert size of values in Spot <a class="el" href="class_light.html" title="Main class for light in general.">Light</a> array </td></tr>
-    <tr><td class="paramname">projection</td><td>Insert projection matrix as glm::mat4 (4x4 matrix) </td></tr>
     <tr><td class="paramname">mainLight</td><td>Insert directional <a class="el" href="class_light.html" title="Main class for light in general.">Light</a> as DirectionalLight* </td></tr>
   </table>
   </dd>
@@ -343,8 +282,8 @@ Public Member Functions</h2></td></tr>
 
 </div>
 </div>
-<a id="a22758fc7c2627b9a8ec27889f01205bd"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a22758fc7c2627b9a8ec27889f01205bd">&#9670;&nbsp;</a></span>EngineVariablesUpdate()</h2>
+<a id="a21effc3c173615d7cf7208914f9d3109"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a21effc3c173615d7cf7208914f9d3109">&#9670;&nbsp;</a></span>EngineVariablesUpdate()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -365,7 +304,31 @@ Public Member Functions</h2></td></tr>
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype">glm::mat4&#160;</td>
-          <td class="paramname"><em>projection</em>&#160;</td>
+          <td class="paramname"><em>projection</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="class_point_light.html">PointLight</a> *&#160;</td>
+          <td class="paramname"><em>points</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="class_spot_light.html">SpotLight</a> *&#160;</td>
+          <td class="paramname"><em>spots</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">unsigned int&#160;</td>
+          <td class="paramname"><em>pointsCount</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">unsigned int&#160;</td>
+          <td class="paramname"><em>spotsCount</em>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -379,6 +342,10 @@ Public Member Functions</h2></td></tr>
     <tr><td class="paramname">textureList</td><td>Insert main texturelist as std::vector&lt;Texture*&gt;* </td></tr>
     <tr><td class="paramname">objectList</td><td>Insert main objectList as std::vector&lt;GameObject*&gt;* </td></tr>
     <tr><td class="paramname">projection</td><td>Insert projection as 4x4 matrix (glm::mat4) </td></tr>
+    <tr><td class="paramname">points</td><td>Insert array pointer to you pointlight array </td></tr>
+    <tr><td class="paramname">spots</td><td>Insert array pointer to you spotlight array </td></tr>
+    <tr><td class="paramname">pointsCount</td><td>Insert array size of pointlight array </td></tr>
+    <tr><td class="paramname">spotsCount</td><td>Insert array size of spotLights array </td></tr>
   </table>
   </dd>
 </dl>
@@ -434,6 +401,33 @@ Public Member Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 <p>Returns the shader for directional shadow </p><dl class="section return"><dt>Returns</dt><dd>Returns a shader object </dd></dl>
+
+</div>
+</div>
+<a id="a7990956f6ad217de97f7574880f5865b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7990956f6ad217de97f7574880f5865b">&#9670;&nbsp;</a></span>GetECSManager()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="class_manager.html">Manager</a>* RootManager::GetECSManager </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Returns the main manager for entity-compoent-system Entity-component-system is not the same as <a class="el" href="class_root_manager.html" title="Main class for all automatic processes.">RootManager</a> </p><dl class="section return"><dt>Returns</dt><dd>Returns a manager as <a class="el" href="class_manager.html">Manager</a> </dd></dl>
+<dl class="section see"><dt>See also</dt><dd><a class="el" href="class_manager.html">Manager</a> </dd></dl>
 
 </div>
 </div>
@@ -565,27 +559,9 @@ Public Member Functions</h2></td></tr>
 
 </div>
 </div>
-<a id="aad25cd66fd1aa628a1ff265964d6ceec"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aad25cd66fd1aa628a1ff265964d6ceec">&#9670;&nbsp;</a></span>ShutDown()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void RootManager::ShutDown </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<p>Call this when the game has ended </p>
-
-</div>
-</div>
 <hr/>The documentation for this class was generated from the following files:<ul>
-<li>C:/Users/Björn Sonnen/Desktop/GitHub/Nebula_Engine/Nebula_Engine/<a class="el" href="_root_manager_8h_source.html">RootManager.h</a></li>
-<li>C:/Users/Björn Sonnen/Desktop/GitHub/Nebula_Engine/Nebula_Engine/RootManager.cpp</li>
+<li>GitHub/Nebula_Engine/Nebula_Engine/<a class="el" href="_root_manager_8h_source.html">RootManager.h</a></li>
+<li>GitHub/Nebula_Engine/Nebula_Engine/RootManager.cpp</li>
 </ul>
 </div><!-- contents -->
 </div><!-- doc-content -->

@@ -24,6 +24,14 @@ public:
 	//! @param startMoveSpeed Insert the start move speed of the camera as float
 	//! @param startTurnSpeed Insert the start turn speed of the camera as float
 	Camera(glm::vec3 startPosition, glm::vec3 startUp, float startYaw, float startPitch, float startMoveSpeed, float startTurnSpeed);
+	//! Creates a camera with specific parameters
+	//! @param startPosition Insert the start Position as Vector3
+	//! @param startUp Insert the start up vector3 as Vector3
+	//! @param startYaw Insert the start yaw as float
+	//! @param startPitch Insert the start pitch as float
+	//! @param startMoveSpeed Insert the start move speed of the camera as float
+	//! @param startTurnSpeed Insert the start turn speed of the camera as float
+	Camera(Vector3 startPosition, Vector3 startUp, float startYaw, float startPitch, float startMoveSpeed, float startTurnSpeed);
 
 	//! Used to change the position based on the user input
 	//! @param window Insert a GLFWwindow pointer (internal)
@@ -44,10 +52,16 @@ public:
 	//! Set camera positon
 	//! @param pos Set the camera position as glm::vec3
 	void SetPosition(glm::vec3 pos);
+	//! Set camera positon
+	//! @param pos Set the camera position as glm::vec3
+	void SetPosition(Vector3 pos);
 
 	//! Look at a point
 	//! @param pos Set the focus point of the camera to a glm::vec3 position
 	void SetTarget(glm::vec3 pos);
+	//! Look at a point
+	//! @param pos Set the focus point of the camera to a glm::vec3 position
+	void SetTarget(Vector3 pos);
 	//! Set fps editor camera on or off
 	//! @param value Enable/Disable the standard camera
 	void SetStandardCamera(bool value);
@@ -90,9 +104,15 @@ public:
 	//! Get the current camera position
 	//! @return Returns the camera position as glm::vec3
 	glm::vec3 GetCameraPosition();
+	//! Get the current camera position
+	//! @return Returns the camera position as Vector3
+	Vector3 GetCameraPositionVector3();
 	//! Get the current camera direction
 	//! @return Returns the camera direction as glm::vec3
 	glm::vec3 GetCameraDirection();
+	//! Get the current camera position
+	//! @return Returns the camera position as Vector3
+	Vector3 GetCameraDirectionVector3();
 
 	//! Calculate current view matrix
 	//! @return Returns the view matrix as 4x4 matrix (glm::mat4)

@@ -1,0 +1,108 @@
+\hypertarget{class_mesh}{}\section{Mesh Class Reference}
+\label{class_mesh}\index{Mesh@{Mesh}}
+
+
+Main class to create a mesh.  
+
+
+
+
+{\ttfamily \#include $<$Mesh.\+h$>$}
+
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_mesh_a2af137f1571af89172b9c102302c416b}\label{class_mesh_a2af137f1571af89172b9c102302c416b}} 
+\mbox{\hyperlink{class_mesh_a2af137f1571af89172b9c102302c416b}{Mesh}} ()
+\begin{DoxyCompactList}\small\item\em Standard \mbox{\hyperlink{class_mesh}{Mesh}} constructor. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_mesh_a25d4dde7c1ad47fb56ebb3a59edd2460}{Create\+Mesh}} (float $\ast$vertices, unsigned int $\ast$indices, unsigned int num\+Of\+Vertices, unsigned int num\+Of\+Indices)
+\item 
+void \mbox{\hyperlink{class_mesh_a75ccdfd3c16df862abb90d6046abcdb4}{Render\+Mesh}} ()
+\item 
+void \mbox{\hyperlink{class_mesh_afa7292342a61bc1cca667be6c00d73d2}{Clear\+Mesh}} ()
+\item 
+unsigned int \mbox{\hyperlink{class_mesh_a4970bf6ecdcc4bc417e49524393f1cea}{Get\+V\+BO}} ()
+\item 
+unsigned int \mbox{\hyperlink{class_mesh_ac054a1c2159f4fb5dfadedd9453b2256}{Get\+I\+BO}} ()
+\item 
+unsigned int \mbox{\hyperlink{class_mesh_aafa13fa13ca5fb5e15b544ae1870da45}{Get\+V\+AO}} ()
+\item 
+int \mbox{\hyperlink{class_mesh_a70161b8fbe973d74f2509b5524e16e79}{Get\+Indices}} ()
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Main class to create a mesh. 
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{class_mesh_afa7292342a61bc1cca667be6c00d73d2}\label{class_mesh_afa7292342a61bc1cca667be6c00d73d2}} 
+\index{Mesh@{Mesh}!ClearMesh@{ClearMesh}}
+\index{ClearMesh@{ClearMesh}!Mesh@{Mesh}}
+\subsubsection{\texorpdfstring{ClearMesh()}{ClearMesh()}}
+{\footnotesize\ttfamily void Mesh\+::\+Clear\+Mesh (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Delete the object You can simply remove the mesh from mesh\+List. All data is still in ram \mbox{\Hypertarget{class_mesh_a25d4dde7c1ad47fb56ebb3a59edd2460}\label{class_mesh_a25d4dde7c1ad47fb56ebb3a59edd2460}} 
+\index{Mesh@{Mesh}!CreateMesh@{CreateMesh}}
+\index{CreateMesh@{CreateMesh}!Mesh@{Mesh}}
+\subsubsection{\texorpdfstring{CreateMesh()}{CreateMesh()}}
+{\footnotesize\ttfamily void Mesh\+::\+Create\+Mesh (\begin{DoxyParamCaption}\item[{float $\ast$}]{vertices,  }\item[{unsigned int $\ast$}]{indices,  }\item[{unsigned int}]{num\+Of\+Vertices,  }\item[{unsigned int}]{num\+Of\+Indices }\end{DoxyParamCaption})}
+
+Create a mesh based on the vertices and indices 
+\begin{DoxyParams}{Parameters}
+{\em vertices} & Insert vertices as float pointer \\
+\hline
+{\em indecies} & Insert indices as unsigned int pointer \\
+\hline
+{\em num\+Of\+Vertices} & Insert number of all vertices \\
+\hline
+{\em num\+Of\+Indices} & Insert number of all indices \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_mesh_ac054a1c2159f4fb5dfadedd9453b2256}\label{class_mesh_ac054a1c2159f4fb5dfadedd9453b2256}} 
+\index{Mesh@{Mesh}!GetIBO@{GetIBO}}
+\index{GetIBO@{GetIBO}!Mesh@{Mesh}}
+\subsubsection{\texorpdfstring{GetIBO()}{GetIBO()}}
+{\footnotesize\ttfamily unsigned int Mesh\+::\+Get\+I\+BO (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Returns the Index buffer object \begin{DoxyReturn}{Returns}
+Returns the I\+BO as unsigned int 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_mesh_a70161b8fbe973d74f2509b5524e16e79}\label{class_mesh_a70161b8fbe973d74f2509b5524e16e79}} 
+\index{Mesh@{Mesh}!GetIndices@{GetIndices}}
+\index{GetIndices@{GetIndices}!Mesh@{Mesh}}
+\subsubsection{\texorpdfstring{GetIndices()}{GetIndices()}}
+{\footnotesize\ttfamily int Mesh\+::\+Get\+Indices (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Returns the size of the vertices \begin{DoxyReturn}{Returns}
+Returns the size of the indices as int 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_mesh_aafa13fa13ca5fb5e15b544ae1870da45}\label{class_mesh_aafa13fa13ca5fb5e15b544ae1870da45}} 
+\index{Mesh@{Mesh}!GetVAO@{GetVAO}}
+\index{GetVAO@{GetVAO}!Mesh@{Mesh}}
+\subsubsection{\texorpdfstring{GetVAO()}{GetVAO()}}
+{\footnotesize\ttfamily unsigned int Mesh\+::\+Get\+V\+AO (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Returns the Vertex Array object \begin{DoxyReturn}{Returns}
+Returns the V\+AO as unsigned int 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_mesh_a4970bf6ecdcc4bc417e49524393f1cea}\label{class_mesh_a4970bf6ecdcc4bc417e49524393f1cea}} 
+\index{Mesh@{Mesh}!GetVBO@{GetVBO}}
+\index{GetVBO@{GetVBO}!Mesh@{Mesh}}
+\subsubsection{\texorpdfstring{GetVBO()}{GetVBO()}}
+{\footnotesize\ttfamily unsigned int Mesh\+::\+Get\+V\+BO (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Returns the Vertex buffer object \begin{DoxyReturn}{Returns}
+Returns the V\+BO as unsigned int 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_mesh_a75ccdfd3c16df862abb90d6046abcdb4}\label{class_mesh_a75ccdfd3c16df862abb90d6046abcdb4}} 
+\index{Mesh@{Mesh}!RenderMesh@{RenderMesh}}
+\index{RenderMesh@{RenderMesh}!Mesh@{Mesh}}
+\subsubsection{\texorpdfstring{RenderMesh()}{RenderMesh()}}
+{\footnotesize\ttfamily void Mesh\+::\+Render\+Mesh (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Render mesh, called automatically 
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+Git\+Hub/\+Nebula\+\_\+\+Engine/\+Nebula\+\_\+\+Engine/Mesh.\+h\item 
+Git\+Hub/\+Nebula\+\_\+\+Engine/\+Nebula\+\_\+\+Engine/Mesh.\+cpp\end{DoxyCompactItemize}

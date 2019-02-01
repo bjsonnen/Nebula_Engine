@@ -31,13 +31,8 @@ void RootManager::EngineInitialization(Window& window, Camera& cam, Material& ma
 	this->skybox = skybox;
 }
 
-void RootManager::EngineUpdate(std::vector<GameObject*>* objectList, Camera& cam, PointLight* pointLights, 
-	SpotLight* spotLights, int pointCount, int spotCount, glm::mat4 projection, 
-	DirectionalLight* mainLight)
+void RootManager::EngineUpdate(Camera& cam, DirectionalLight* mainLight)
 {
-	// Performance issue: Dont store objectList in this->objectList
-	this->objectList = objectList;
-
 	//glCullFace(GL_FRONT);
 	DirectionalShadowMapPass(mainLight);
 	//glCullFace(GL_BACK);
@@ -47,17 +42,16 @@ void RootManager::EngineUpdate(std::vector<GameObject*>* objectList, Camera& cam
 		OmniShadowMapPass(&pointLights[i]);
 	}
 
-	for (int i = 0; i < spotCount; i++)
+	for (int i = 0; i < spotsCount; i++)
 	{
 		OmniShadowMapPass(&spotLights[i]);
 	}
 
-	RenderPass(cam.CalculateViewMatrix(), projection, pointLights, spotLights, pointCount, spotCount);
+	RenderPass(cam.CalculateViewMatrix(), projection, pointLights, spotLights, pointCount, spotsCount);
 	RenderScene();
 }
 
-void RootManager::EngineLoading(std::vector<Texture*>* textureList, std::vector<GameObject*>* objectList, 
-	bool& loading)
+void RootManager::EngineLoading()
 {
 	for (int i = 0; i < this->textureList->size(); i++)
 	{
@@ -70,15 +64,19 @@ void RootManager::EngineLoading(std::vector<Texture*>* textureList, std::vector<
 	}
 
 	this->loading = false;
-	loading = false;
 }
 
-void RootManager::EngineVariablesUpdate(std::vector<Texture*>* textureList, 
-	std::vector<GameObject*>* objectList, glm::mat4 projection)
+void RootManager::EngineVariablesUpdate(std::vector<Texture*>* textureList, std::vector<GameObject*>* objectList,
+	glm::mat4 projection, PointLight* points, SpotLight* spots, unsigned int pointsCount,
+	unsigned int spotsCount)
 {
 	this->textureList = textureList;
+	this->pointCount = pointsCount;
 	this->objectList = objectList;
 	this->projection = projection;
+	this->spotsCount = spotsCount;
+	this->points = points;
+	this->spots = spots;
 }
 
 bool RootManager::MainLoop(bool windowShouldClose, Window& window, void* Start, void* Update)
@@ -86,6 +84,8 @@ bool RootManager::MainLoop(bool windowShouldClose, Window& window, void* Start, 
 	if (firstStart)
 	{
 		debugWindow = Ui(&renderWindow);
+		// Manager for the entity-component-system
+		manager = new Manager();
 
 		{
 			IMGUI_CHECKVERSION();
@@ -103,7 +103,7 @@ bool RootManager::MainLoop(bool windowShouldClose, Window& window, void* Start, 
 		}
 
 		// Create nebula engine logo for the loading screen
-		//CreateNebulaLogo();
+		CreateNebulaLogo();
 		// Load texture
 		//NE_ERROR_CHECK(nebulaLogo.LoadTexture());
 
@@ -153,16 +153,15 @@ bool RootManager::MainLoop(bool windowShouldClose, Window& window, void* Start, 
 			debugWindow.DebugWindow(true, renderWindow.GetFPS(), renderWindow.GetDeltaTime());
 
 			// Update
-			//manager.Update();
+			manager->Update();
 			((void(*)(void))Update)();
 		}
 		else
 		{
-			// ToDo
-			EngineLoading(textureList, objectList, loading);
+			EngineLoading();
 		}
 
-		EngineUpdate(objectList, camera, pointLights, spotLights, 0, 0, projection, &mainLight);
+		EngineUpdate(camera, &mainLight);
 
 		ImGui::Render();
 		ImGui_ImplOpenGL3_RenderDrawData(ImGui::GetDrawData());
@@ -222,10 +221,10 @@ void RootManager::CreateNebulaLogo()
 {
 	float vertices[] =
 	{
-		0.0f, 0.0f, 0.0f, 0.0f, 0.0f, 0.0f, 0.0f, 0.0f,
-		0.0f, 1.0f, 0.0f, 0.0f, 1.0f, 0.0f, 0.0f, 0.0f,
-		1.0f, 1.0f, 0.0f, 1.0f, 1.0f, 0.0f, 0.0f, 0.0f,
-		1.0f, 0.0f, 0.0f, 1.0f, 0.0f, 0.0f, 0.0f, 0.0f
+		0.0f, 0.0f, 0.0f, 0.0f, 0.0f, 0.0f, 0.0f, 0.0f, 0.0f, 0.0f, 0.0f, 0.0f, 0.0f, 0.0f,
+		0.0f, 1.0f, 0.0f, 0.0f, 1.0f, 0.0f, 0.0f, 0.0f, 0.0f, 0.0f, 0.0f, 0.0f, 0.0f, 0.0f,
+		1.0f, 1.0f, 0.0f, 1.0f, 1.0f, 0.0f, 0.0f, 0.0f, 0.0f, 0.0f, 0.0f, 0.0f, 0.0f, 0.0f,
+		1.0f, 0.0f, 0.0f, 1.0f, 0.0f, 0.0f, 0.0f, 0.0f, 0.0f, 0.0f, 0.0f, 0.0f, 0.0f, 0.0f
 	};
 
 	unsigned int indices[] =
@@ -234,9 +233,9 @@ void RootManager::CreateNebulaLogo()
 		0, 2, 3
 	};
 
-	Util::CalculateNormals(indices, 6, vertices, 32, 8, 5);
+	Util::CalculateNormals(indices, 6, vertices, 56, 14, 5);
 
-	nebulaEngineLogo.CreateMesh(vertices, indices, 32, 6);
+	nebulaEngineLogo.CreateMesh(vertices, indices, 56, 6);
 }
 
 void RootManager::CompileShaders()
@@ -256,9 +255,9 @@ void RootManager::OmniShadowMapPass(PointLight * light)
 {
 	omniShadowShader.UseShader();
 
-	glViewport(0, 0, light->getShadowMap()->GetShadowWidth(), light->getShadowMap()->GetShadowHeight());
+	glViewport(0, 0, light->GetShadowMap()->GetShadowWidth(), light->GetShadowMap()->GetShadowHeight());
 
-	light->getShadowMap()->Write();
+	light->GetShadowMap()->Write();
 	glClear(GL_DEPTH_BUFFER_BIT);
 
 	// uniformModel need to be applied! 
@@ -279,9 +278,9 @@ void RootManager::DirectionalShadowMapPass(DirectionalLight * light)
 {
 	directionalShadowShader.UseShader();
 
-	glViewport(0, 0, light->getShadowMap()->GetShadowWidth(), light->getShadowMap()->GetShadowHeight());
+	glViewport(0, 0, light->GetShadowMap()->GetShadowWidth(), light->GetShadowMap()->GetShadowHeight());
 
-	light->getShadowMap()->Write();
+	light->GetShadowMap()->Write();
 	glClear(GL_DEPTH_BUFFER_BIT);
 
 	// uniformModel need to be applied!
@@ -317,7 +316,7 @@ void RootManager::RenderPass(glm::mat4 viewMatrix, glm::mat4 projectionMatrix, P
 	shaderList[0].SetSpotLights(spotLights, spotlightCount, 4 + pointlightCount, pointlightCount);
 	shaderList[0].SetDirectionalLightTransform(&mainLight.CalculateLightTransform());
 
-	mainLight.getShadowMap()->Read(GL_TEXTURE3);
+	mainLight.GetShadowMap()->Read(GL_TEXTURE3);
 	// Diffuse Texture
 	shaderList[0].SetTexture("dTexture", 1);
 	// Normal Texture

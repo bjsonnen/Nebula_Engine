@@ -58,18 +58,17 @@ struct Vector2
 		std::sqrt(this->x + this->y);
 	}
 	//! Normalizes a vector, so that x, y together are 1
-	//! 
 	void Normalize()
 	{
 		std::sqrt(this->x * this->x) + std::sqrt(this->y);
 	}
 	//! Set the vector2 to zero
-	//!
 	void Zero()
 	{
 		x = 0;
 		y = 0;
 	}
+
 	//! Set the vector2 to another vector2
 	//! @param x New Vector2
 	//! @return Returns the new Vector2 as Vector2
@@ -119,12 +118,36 @@ struct Vector2
 		this->y = v.y;
 	}
 
-	//! Returns a Vector3 as const char array
-	//! @return Returns the Vector2 as char pointer (char*)
-	const char* ToString()
+	//! Set a vector to two specific variables
+	//! @param x Set the x value of the vector
+	//! @param y Set the y value of the vector
+	void SetVector3(float x, float y)
 	{
-		//std::string test = "(" + std::to_string(1);
-		//return test.c_str();
-		return "awdwa";
+		this->x = x;
+		this->y = y;
+	}
+
+	//! Set a vector to one specific variables
+	//! @param xy Set all variables to value
+	void SetVector3(float xy)
+	{
+		this->x = xy;
+		this->y = xy;
+	}
+
+	//! Converts vector2 to glm::vec2
+	//! @return Returns a glm::vec2
+	glm::vec2 ToGlm()
+	{
+		return glm::vec2(this->x, this->y);
+	}
+
+	//! Returns a Vector3 as std::string
+	//! @return Returns the Vector2 as std::string
+	std::string ToString()
+	{
+		std::stringstream tmp;
+		tmp << "(" << this->x << " / " << this->y << ")";
+		return tmp.str();
 	}
 };

@@ -17,14 +17,29 @@ glm::vec3 GameObject::GetPosition()
 	return pos;
 }
 
+Vector3 GameObject::GetPositionVector3()
+{
+	return Vector3(pos.x, pos.y, pos.z);
+}
+
 glm::vec3 GameObject::GetRotation()
 {
 	return rota;
 }
 
+Vector3 GameObject::GetRotationVector3()
+{
+	return glm::vec3(rota.x, rota.y, rota.y);
+}
+
 glm::vec3 GameObject::GetScale()
 {
 	return scale;
+}
+
+Vector3 GameObject::GetScaleVector3()
+{
+	return glm::vec3(scale.x, scale.y, scale.z);
 }
 
 int GameObject::GetVerticesCount()
@@ -47,6 +62,11 @@ void GameObject::SetPosition(glm::vec3 position)
 	pos = position;
 }
 
+void GameObject::SetPosition(Vector3 position)
+{
+	pos = position.ToGlm();
+}
+
 void GameObject::SetRotation(float x, float y, float z)
 {
 	rota = glm::vec3(x, y, z);
@@ -55,6 +75,11 @@ void GameObject::SetRotation(float x, float y, float z)
 void GameObject::SetRotation(glm::vec3 rotation)
 {
 	rota = rotation;
+}
+
+void GameObject::SetRotation(Vector3 rotation)
+{
+	rota = rotation.ToGlm();
 }
 
 void GameObject::SetDegrees(float value)
@@ -70,6 +95,11 @@ void GameObject::SetScale(float x, float y, float z)
 void GameObject::SetScale(glm::vec3 scale)
 {
 	this->scale = scale;
+}
+
+void GameObject::SetScale(Vector3 scale)
+{
+	this->scale = scale.ToGlm();
 }
 
 bool GameObject::GetRenderNormalMaps()
@@ -90,6 +120,11 @@ float GameObject::GetDegrees()
 void GameObject::ChangeMainColor(glm::vec3 color)
 {
 	mainColor = color;
+}
+
+void GameObject::ChangeMainColor(Vector3 color)
+{
+	mainColor = color.ToGlm();
 }
 
 void GameObject::ChangeMainColor(ObjectColor color)
@@ -131,13 +166,30 @@ glm::vec3 GameObject::GetMainColor()
 	return mainColor;
 }
 
+Vector3 GameObject::GetMainColorVector3()
+{
+	return Vector3(mainColor.x, mainColor.y, mainColor.z);
+}
+
 void GameObject::LookAt(glm::vec3 pos)
 {
 	glm::vec3 dir = this->pos - pos;
 	rota = dir;
 }
 
+void GameObject::LookAt(Vector3 pos)
+{
+	glm::vec3 dir = this->pos - pos.ToGlm();
+	rota = dir;
+}
+
 void GameObject::LookAt(glm::vec2 pos)
+{
+	glm::vec3 dir = this->pos - glm::vec3(pos.x, pos.y, 0.0f);
+	rota = dir;
+}
+
+void GameObject::LookAt(Vector2 pos)
 {
 	glm::vec3 dir = this->pos - glm::vec3(pos.x, pos.y, 0.0f);
 	rota = dir;
@@ -162,6 +214,11 @@ bool GameObject::IsActive()
 void GameObject::Rotate(glm::vec3 rotation)
 {
 	rota += rotation;
+}
+
+void GameObject::Rotate(Vector3 rotation)
+{
+	rota += rotation.ToGlm();
 }
 
 void GameObject::ReloadDefaultTexture()

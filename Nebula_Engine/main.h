@@ -71,7 +71,7 @@ Shader omniShadowShader;
 RootManager rm;
 
 Camera camera;
-Manager manager;
+//Manager manager;
 
 Shader* shader2;
 Shader* screen;

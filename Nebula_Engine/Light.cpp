@@ -17,6 +17,16 @@ Light::Light(unsigned int shadowWidth, unsigned int shadowHeight, float red, flo
 	shadowMap->Init(shadowWidth, shadowHeight);
 }
 
+void Light::SetColor(glm::vec3 color)
+{
+	this->color = color;
+}
+
+void Light::SetColor(Vector3 color)
+{
+	this->color = color.ToGlm();
+}
+
 Light::~Light()
 {
 }

@@ -1,0 +1,322 @@
+\hypertarget{class_particle_effect}{}\section{Particle\+Effect Class Reference}
+\label{class_particle_effect}\index{ParticleEffect@{ParticleEffect}}
+
+
+Main class to create a particle effect.  
+
+
+
+
+{\ttfamily \#include $<$Particle\+Effect.\+h$>$}
+
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_particle_effect_adcfcd6ebe940cf54cb91af3543ed815d}\label{class_particle_effect_adcfcd6ebe940cf54cb91af3543ed815d}} 
+\mbox{\hyperlink{class_particle_effect_adcfcd6ebe940cf54cb91af3543ed815d}{Particle\+Effect}} ()
+\begin{DoxyCompactList}\small\item\em Create a new particle effect with standard parameters. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_particle_effect_aa3898c1343d6d6c1cc7d6ace376159f6}{Particle\+Effect}} (std\+::vector$<$ \mbox{\hyperlink{struct_particle}{Particle}} $\ast$ $>$ $\ast$particle\+List, float respawn, float life\+Time\+After\+Respawn, bool use\+Color, glm\+::vec3 camera\+Position)
+\item 
+\mbox{\hyperlink{class_particle_effect_a012d5b33e4a97ddb5b409be521f5ccee}{Particle\+Effect}} (std\+::vector$<$ \mbox{\hyperlink{struct_particle}{Particle}} $\ast$ $>$ $\ast$particle\+List, float respawn, float life\+Time\+After\+Respawn, bool use\+Color, \mbox{\hyperlink{struct_vector3}{Vector3}} camera\+Position)
+\item 
+void \mbox{\hyperlink{class_particle_effect_a2c4eafa97d1536cda09ad3c7cb771719}{Insert\+New\+Particle\+List}} (std\+::vector$<$ \mbox{\hyperlink{struct_particle}{Particle}} $\ast$ $>$ $\ast$particle\+List)
+\item 
+void \mbox{\hyperlink{class_particle_effect_a62001aac47d157b8bbdc7d749f0f5c93}{Set\+Respawn\+Timer}} (float respawn)
+\item 
+void \mbox{\hyperlink{class_particle_effect_acb6c2b7f72f1ac01b8307c475f7bfdd5}{Load\+Textures}} ()
+\item 
+void \mbox{\hyperlink{class_particle_effect_a416fd6e7ea5e69dbb5bd77f8a9487c82}{Particle\+Update}} (float delta\+Time)
+\item 
+void \mbox{\hyperlink{class_particle_effect_aa1023240c50786ef4f68a768b1bf02d4}{Delete\+Particle}} (int index)
+\item 
+void \mbox{\hyperlink{class_particle_effect_a61209f0862c570e840664fb4e4051b01}{Set\+Respawn\+Timer\+After\+Respawn}} (float value)
+\item 
+glm\+::vec3 \mbox{\hyperlink{class_particle_effect_a0bf5361cc63c5aa468159a05ca44e8d7}{Get\+Position}} (int index)
+\item 
+\mbox{\hyperlink{struct_vector3}{Vector3}} \mbox{\hyperlink{class_particle_effect_a08a4f5412f722d8f6234c5315128d6f3}{Get\+Position\+Vector3}} (int index)
+\item 
+glm\+::vec3 \mbox{\hyperlink{class_particle_effect_a2a20f8db2c022ed139eb236bd10b470d}{Get\+Rotation}} (int index)
+\item 
+\mbox{\hyperlink{struct_vector3}{Vector3}} \mbox{\hyperlink{class_particle_effect_a48bdcec118c008cdfdd6aaf543af81e6}{Get\+Rotation\+Vector3}} (int index)
+\item 
+glm\+::vec3 \mbox{\hyperlink{class_particle_effect_a7c6942ff4bad2193f97221b82d7a0b4a}{Get\+Scale}} (int index)
+\item 
+\mbox{\hyperlink{struct_vector3}{Vector3}} \mbox{\hyperlink{class_particle_effect_acbcc803070f0aa89ddbba4989c1c7e9d}{Get\+Scale\+Vector3}} (int index)
+\item 
+\mbox{\hyperlink{class_texture}{Texture}} $\ast$ \mbox{\hyperlink{class_particle_effect_a4479666080a2a5d8b92b0ea74d401895}{Get\+Texture}} (int index)
+\item 
+float \mbox{\hyperlink{class_particle_effect_ade096976cbd5c1437130d90199866d73}{Get\+Life}} (int index)
+\item 
+float \mbox{\hyperlink{class_particle_effect_ae62bebdcffc8d6154a919601dd60e880}{Get\+Respawn\+Timer\+After\+Respawn}} ()
+\item 
+void \mbox{\hyperlink{class_particle_effect_a24f05464826e67aa4f6aec7e518357ec}{Look\+At}} (int index, glm\+::vec3 target)
+\item 
+void \mbox{\hyperlink{class_particle_effect_a86079b5ebfbcc355f56a38f8ed7e5573}{Look\+At}} (int index, \mbox{\hyperlink{struct_vector3}{Vector3}} target)
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Main class to create a particle effect. 
+
+\subsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_particle_effect_aa3898c1343d6d6c1cc7d6ace376159f6}\label{class_particle_effect_aa3898c1343d6d6c1cc7d6ace376159f6}} 
+\index{ParticleEffect@{ParticleEffect}!ParticleEffect@{ParticleEffect}}
+\index{ParticleEffect@{ParticleEffect}!ParticleEffect@{ParticleEffect}}
+\subsubsection{\texorpdfstring{ParticleEffect()}{ParticleEffect()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily Particle\+Effect\+::\+Particle\+Effect (\begin{DoxyParamCaption}\item[{std\+::vector$<$ \mbox{\hyperlink{struct_particle}{Particle}} $\ast$ $>$ $\ast$}]{particle\+List,  }\item[{float}]{respawn,  }\item[{float}]{life\+Time\+After\+Respawn,  }\item[{bool}]{use\+Color,  }\item[{glm\+::vec3}]{camera\+Position }\end{DoxyParamCaption})}
+
+Create a new particle effect with specific parameters 
+\begin{DoxyParams}{Parameters}
+{\em particle\+List} & Insert a std\+::vector of particles as std\+::vector$<$\+Particle$\ast$$>$$\ast$ \\
+\hline
+{\em respawn} & Insert respawn timer as float, use -\/1 for never respawn and 0 for immediatly respawn \\
+\hline
+{\em life\+Time\+After\+Respawn} & Insert life time after a respawn as float \\
+\hline
+{\em use\+Color} & Insert bool if the particle shader should use the color of the texture \\
+\hline
+{\em camera\+Position} & Insert current camera position as glm\+::vec3 \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_particle_effect_a012d5b33e4a97ddb5b409be521f5ccee}\label{class_particle_effect_a012d5b33e4a97ddb5b409be521f5ccee}} 
+\index{ParticleEffect@{ParticleEffect}!ParticleEffect@{ParticleEffect}}
+\index{ParticleEffect@{ParticleEffect}!ParticleEffect@{ParticleEffect}}
+\subsubsection{\texorpdfstring{ParticleEffect()}{ParticleEffect()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily Particle\+Effect\+::\+Particle\+Effect (\begin{DoxyParamCaption}\item[{std\+::vector$<$ \mbox{\hyperlink{struct_particle}{Particle}} $\ast$ $>$ $\ast$}]{particle\+List,  }\item[{float}]{respawn,  }\item[{float}]{life\+Time\+After\+Respawn,  }\item[{bool}]{use\+Color,  }\item[{\mbox{\hyperlink{struct_vector3}{Vector3}}}]{camera\+Position }\end{DoxyParamCaption})}
+
+Create a new particle effect with specific parameters 
+\begin{DoxyParams}{Parameters}
+{\em particle\+List} & Insert a std\+::vector of particles as std\+::vector$<$\+Particle$\ast$$>$$\ast$ \\
+\hline
+{\em respawn} & Insert respawn timer as float, use -\/1 for never respawn and 0 for immediatly respawn \\
+\hline
+{\em life\+Time\+After\+Respawn} & Insert life time after a respawn as float \\
+\hline
+{\em use\+Color} & Insert bool if the particle shader should use the color of the texture \\
+\hline
+{\em camera\+Position} & Insert current camera position as \mbox{\hyperlink{struct_vector3}{Vector3}} \\
+\hline
+\end{DoxyParams}
+
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{class_particle_effect_aa1023240c50786ef4f68a768b1bf02d4}\label{class_particle_effect_aa1023240c50786ef4f68a768b1bf02d4}} 
+\index{ParticleEffect@{ParticleEffect}!DeleteParticle@{DeleteParticle}}
+\index{DeleteParticle@{DeleteParticle}!ParticleEffect@{ParticleEffect}}
+\subsubsection{\texorpdfstring{DeleteParticle()}{DeleteParticle()}}
+{\footnotesize\ttfamily void Particle\+Effect\+::\+Delete\+Particle (\begin{DoxyParamCaption}\item[{int}]{index }\end{DoxyParamCaption})}
+
+Delete one particle 
+\begin{DoxyParams}{Parameters}
+{\em index} & Insert index of the particle effect as int \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_particle_effect_ade096976cbd5c1437130d90199866d73}\label{class_particle_effect_ade096976cbd5c1437130d90199866d73}} 
+\index{ParticleEffect@{ParticleEffect}!GetLife@{GetLife}}
+\index{GetLife@{GetLife}!ParticleEffect@{ParticleEffect}}
+\subsubsection{\texorpdfstring{GetLife()}{GetLife()}}
+{\footnotesize\ttfamily float Particle\+Effect\+::\+Get\+Life (\begin{DoxyParamCaption}\item[{int}]{index }\end{DoxyParamCaption})}
+
+Get the current life time of an particle effect 
+\begin{DoxyParams}{Parameters}
+{\em index} & Insert the index of the particle effect as int \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Returns the current life time of the particle as float 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_particle_effect_a0bf5361cc63c5aa468159a05ca44e8d7}\label{class_particle_effect_a0bf5361cc63c5aa468159a05ca44e8d7}} 
+\index{ParticleEffect@{ParticleEffect}!GetPosition@{GetPosition}}
+\index{GetPosition@{GetPosition}!ParticleEffect@{ParticleEffect}}
+\subsubsection{\texorpdfstring{GetPosition()}{GetPosition()}}
+{\footnotesize\ttfamily glm\+::vec3 Particle\+Effect\+::\+Get\+Position (\begin{DoxyParamCaption}\item[{int}]{index }\end{DoxyParamCaption})}
+
+Get the current position of the particle effect 
+\begin{DoxyParams}{Parameters}
+{\em index} & Insert the index of the particle effect as int \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Returns the current position of the particle as glm\+::vec3 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_particle_effect_a08a4f5412f722d8f6234c5315128d6f3}\label{class_particle_effect_a08a4f5412f722d8f6234c5315128d6f3}} 
+\index{ParticleEffect@{ParticleEffect}!GetPositionVector3@{GetPositionVector3}}
+\index{GetPositionVector3@{GetPositionVector3}!ParticleEffect@{ParticleEffect}}
+\subsubsection{\texorpdfstring{GetPositionVector3()}{GetPositionVector3()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{struct_vector3}{Vector3}} Particle\+Effect\+::\+Get\+Position\+Vector3 (\begin{DoxyParamCaption}\item[{int}]{index }\end{DoxyParamCaption})}
+
+Get the current position of the particle effect 
+\begin{DoxyParams}{Parameters}
+{\em index} & Insert the index of the particle effect as int \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Returns the current position of the particle as \mbox{\hyperlink{struct_vector3}{Vector3}} 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_particle_effect_ae62bebdcffc8d6154a919601dd60e880}\label{class_particle_effect_ae62bebdcffc8d6154a919601dd60e880}} 
+\index{ParticleEffect@{ParticleEffect}!GetRespawnTimerAfterRespawn@{GetRespawnTimerAfterRespawn}}
+\index{GetRespawnTimerAfterRespawn@{GetRespawnTimerAfterRespawn}!ParticleEffect@{ParticleEffect}}
+\subsubsection{\texorpdfstring{GetRespawnTimerAfterRespawn()}{GetRespawnTimerAfterRespawn()}}
+{\footnotesize\ttfamily float Particle\+Effect\+::\+Get\+Respawn\+Timer\+After\+Respawn (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Get the current life time after an object has respawned \begin{DoxyReturn}{Returns}
+Returns the current respawn life timer after an object respawned 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_particle_effect_a2a20f8db2c022ed139eb236bd10b470d}\label{class_particle_effect_a2a20f8db2c022ed139eb236bd10b470d}} 
+\index{ParticleEffect@{ParticleEffect}!GetRotation@{GetRotation}}
+\index{GetRotation@{GetRotation}!ParticleEffect@{ParticleEffect}}
+\subsubsection{\texorpdfstring{GetRotation()}{GetRotation()}}
+{\footnotesize\ttfamily glm\+::vec3 Particle\+Effect\+::\+Get\+Rotation (\begin{DoxyParamCaption}\item[{int}]{index }\end{DoxyParamCaption})}
+
+Get the current rotation of the particle effect 
+\begin{DoxyParams}{Parameters}
+{\em index} & Insert the index of the particle effect as int \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Returns the current rotation of the particle as glm\+::vec3 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_particle_effect_a48bdcec118c008cdfdd6aaf543af81e6}\label{class_particle_effect_a48bdcec118c008cdfdd6aaf543af81e6}} 
+\index{ParticleEffect@{ParticleEffect}!GetRotationVector3@{GetRotationVector3}}
+\index{GetRotationVector3@{GetRotationVector3}!ParticleEffect@{ParticleEffect}}
+\subsubsection{\texorpdfstring{GetRotationVector3()}{GetRotationVector3()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{struct_vector3}{Vector3}} Particle\+Effect\+::\+Get\+Rotation\+Vector3 (\begin{DoxyParamCaption}\item[{int}]{index }\end{DoxyParamCaption})}
+
+Get the current rotation of the particle effect 
+\begin{DoxyParams}{Parameters}
+{\em index} & Insert the index of the particle effect as int \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Returns the current rotation of the particle as \mbox{\hyperlink{struct_vector3}{Vector3}} 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_particle_effect_a7c6942ff4bad2193f97221b82d7a0b4a}\label{class_particle_effect_a7c6942ff4bad2193f97221b82d7a0b4a}} 
+\index{ParticleEffect@{ParticleEffect}!GetScale@{GetScale}}
+\index{GetScale@{GetScale}!ParticleEffect@{ParticleEffect}}
+\subsubsection{\texorpdfstring{GetScale()}{GetScale()}}
+{\footnotesize\ttfamily glm\+::vec3 Particle\+Effect\+::\+Get\+Scale (\begin{DoxyParamCaption}\item[{int}]{index }\end{DoxyParamCaption})}
+
+Get the current scale of the particle effect 
+\begin{DoxyParams}{Parameters}
+{\em index} & Insert the index of the particle effect as int \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Returns the current scale of the particle as glm\+::vec3 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_particle_effect_acbcc803070f0aa89ddbba4989c1c7e9d}\label{class_particle_effect_acbcc803070f0aa89ddbba4989c1c7e9d}} 
+\index{ParticleEffect@{ParticleEffect}!GetScaleVector3@{GetScaleVector3}}
+\index{GetScaleVector3@{GetScaleVector3}!ParticleEffect@{ParticleEffect}}
+\subsubsection{\texorpdfstring{GetScaleVector3()}{GetScaleVector3()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{struct_vector3}{Vector3}} Particle\+Effect\+::\+Get\+Scale\+Vector3 (\begin{DoxyParamCaption}\item[{int}]{index }\end{DoxyParamCaption})}
+
+Get the current scale of the particle effect 
+\begin{DoxyParams}{Parameters}
+{\em index} & Insert the index of the particle effect as int \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Returns the current scale of the particle as \mbox{\hyperlink{struct_vector3}{Vector3}} 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_particle_effect_a4479666080a2a5d8b92b0ea74d401895}\label{class_particle_effect_a4479666080a2a5d8b92b0ea74d401895}} 
+\index{ParticleEffect@{ParticleEffect}!GetTexture@{GetTexture}}
+\index{GetTexture@{GetTexture}!ParticleEffect@{ParticleEffect}}
+\subsubsection{\texorpdfstring{GetTexture()}{GetTexture()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_texture}{Texture}} $\ast$ Particle\+Effect\+::\+Get\+Texture (\begin{DoxyParamCaption}\item[{int}]{index }\end{DoxyParamCaption})}
+
+Get the current texture of the particle effect 
+\begin{DoxyParams}{Parameters}
+{\em index} & Insert the index of the particle effect as int \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Returns the current texture of the particle as Texture$\ast$ (\mbox{\hyperlink{class_texture}{Texture}} pointer) 
+\end{DoxyReturn}
+\begin{DoxySeeAlso}{See also}
+\mbox{\hyperlink{class_texture}{Texture}} 
+\end{DoxySeeAlso}
+\mbox{\Hypertarget{class_particle_effect_a2c4eafa97d1536cda09ad3c7cb771719}\label{class_particle_effect_a2c4eafa97d1536cda09ad3c7cb771719}} 
+\index{ParticleEffect@{ParticleEffect}!InsertNewParticleList@{InsertNewParticleList}}
+\index{InsertNewParticleList@{InsertNewParticleList}!ParticleEffect@{ParticleEffect}}
+\subsubsection{\texorpdfstring{InsertNewParticleList()}{InsertNewParticleList()}}
+{\footnotesize\ttfamily void Particle\+Effect\+::\+Insert\+New\+Particle\+List (\begin{DoxyParamCaption}\item[{std\+::vector$<$ \mbox{\hyperlink{struct_particle}{Particle}} $\ast$ $>$ $\ast$}]{particle\+List }\end{DoxyParamCaption})}
+
+Update the current particle effect to another particle effect 
+\begin{DoxyParams}{Parameters}
+{\em particle\+List} & Insert current std\+::vector list of Particle$\ast$ as std\+::vector$<$\+Particle$\ast$$>$$\ast$ \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_particle_effect_acb6c2b7f72f1ac01b8307c475f7bfdd5}\label{class_particle_effect_acb6c2b7f72f1ac01b8307c475f7bfdd5}} 
+\index{ParticleEffect@{ParticleEffect}!LoadTextures@{LoadTextures}}
+\index{LoadTextures@{LoadTextures}!ParticleEffect@{ParticleEffect}}
+\subsubsection{\texorpdfstring{LoadTextures()}{LoadTextures()}}
+{\footnotesize\ttfamily void Particle\+Effect\+::\+Load\+Textures (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Load all textures Called automaticly \mbox{\Hypertarget{class_particle_effect_a24f05464826e67aa4f6aec7e518357ec}\label{class_particle_effect_a24f05464826e67aa4f6aec7e518357ec}} 
+\index{ParticleEffect@{ParticleEffect}!LookAt@{LookAt}}
+\index{LookAt@{LookAt}!ParticleEffect@{ParticleEffect}}
+\subsubsection{\texorpdfstring{LookAt()}{LookAt()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily void Particle\+Effect\+::\+Look\+At (\begin{DoxyParamCaption}\item[{int}]{index,  }\item[{glm\+::vec3}]{target }\end{DoxyParamCaption})}
+
+\mbox{\hyperlink{struct_particle}{Particle}} at index should look at rotation 
+\begin{DoxyParams}{Parameters}
+{\em index} & Insert index of particle effect as int \\
+\hline
+{\em target} & Insert the target to look at as glm\+::vec3 \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_particle_effect_a86079b5ebfbcc355f56a38f8ed7e5573}\label{class_particle_effect_a86079b5ebfbcc355f56a38f8ed7e5573}} 
+\index{ParticleEffect@{ParticleEffect}!LookAt@{LookAt}}
+\index{LookAt@{LookAt}!ParticleEffect@{ParticleEffect}}
+\subsubsection{\texorpdfstring{LookAt()}{LookAt()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily void Particle\+Effect\+::\+Look\+At (\begin{DoxyParamCaption}\item[{int}]{index,  }\item[{\mbox{\hyperlink{struct_vector3}{Vector3}}}]{target }\end{DoxyParamCaption})}
+
+\mbox{\hyperlink{struct_particle}{Particle}} at index should look at rotation 
+\begin{DoxyParams}{Parameters}
+{\em index} & Insert index of particle effect as int \\
+\hline
+{\em target} & Insert the target to look at as \mbox{\hyperlink{struct_vector3}{Vector3}} \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_particle_effect_a416fd6e7ea5e69dbb5bd77f8a9487c82}\label{class_particle_effect_a416fd6e7ea5e69dbb5bd77f8a9487c82}} 
+\index{ParticleEffect@{ParticleEffect}!ParticleUpdate@{ParticleUpdate}}
+\index{ParticleUpdate@{ParticleUpdate}!ParticleEffect@{ParticleEffect}}
+\subsubsection{\texorpdfstring{ParticleUpdate()}{ParticleUpdate()}}
+{\footnotesize\ttfamily void Particle\+Effect\+::\+Particle\+Update (\begin{DoxyParamCaption}\item[{float}]{delta\+Time }\end{DoxyParamCaption})}
+
+Use in your update 
+\begin{DoxyParams}{Parameters}
+{\em delta\+Time} & Insert deltatime as float \\
+\hline
+\end{DoxyParams}
+\begin{DoxySeeAlso}{See also}
+\mbox{\hyperlink{class_window_ae7ce0586147cc93ba68d6ee929413f22}{Window\+::\+Get\+Delta\+Time()}} 
+\end{DoxySeeAlso}
+\mbox{\Hypertarget{class_particle_effect_a62001aac47d157b8bbdc7d749f0f5c93}\label{class_particle_effect_a62001aac47d157b8bbdc7d749f0f5c93}} 
+\index{ParticleEffect@{ParticleEffect}!SetRespawnTimer@{SetRespawnTimer}}
+\index{SetRespawnTimer@{SetRespawnTimer}!ParticleEffect@{ParticleEffect}}
+\subsubsection{\texorpdfstring{SetRespawnTimer()}{SetRespawnTimer()}}
+{\footnotesize\ttfamily void Particle\+Effect\+::\+Set\+Respawn\+Timer (\begin{DoxyParamCaption}\item[{float}]{respawn }\end{DoxyParamCaption})}
+
+Det the respawn time of the hole particle effect 
+\begin{DoxyParams}{Parameters}
+{\em respawn} & Insert respawn timer as float, use -\/1 for never respawn and 0 for immediatly respawn \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_particle_effect_a61209f0862c570e840664fb4e4051b01}\label{class_particle_effect_a61209f0862c570e840664fb4e4051b01}} 
+\index{ParticleEffect@{ParticleEffect}!SetRespawnTimerAfterRespawn@{SetRespawnTimerAfterRespawn}}
+\index{SetRespawnTimerAfterRespawn@{SetRespawnTimerAfterRespawn}!ParticleEffect@{ParticleEffect}}
+\subsubsection{\texorpdfstring{SetRespawnTimerAfterRespawn()}{SetRespawnTimerAfterRespawn()}}
+{\footnotesize\ttfamily void Particle\+Effect\+::\+Set\+Respawn\+Timer\+After\+Respawn (\begin{DoxyParamCaption}\item[{float}]{value }\end{DoxyParamCaption})}
+
+Set new respawn timer after respawn 
+\begin{DoxyParams}{Parameters}
+{\em value} & Insert new respawn timer as float \\
+\hline
+\end{DoxyParams}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+Git\+Hub/\+Nebula\+\_\+\+Engine/\+Nebula\+\_\+\+Engine/Particle\+Effect.\+h\item 
+Git\+Hub/\+Nebula\+\_\+\+Engine/\+Nebula\+\_\+\+Engine/Particle\+Effect.\+cpp\end{DoxyCompactItemize}

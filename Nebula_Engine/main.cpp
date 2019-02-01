@@ -26,8 +26,8 @@ GameObject go2;
 GameObject go3;
 Audio mainAudio = Audio("Audio/ps2.ogg");
 
-Entity& firstPlayer(manager.AddEntity());
-Entity& secondPlayer(manager.AddEntity());
+//Entity& firstPlayer(manager.AddEntity());
+//Entity& secondPlayer(manager.AddEntity());
 
 float tmpColor;
 
@@ -54,8 +54,20 @@ void Start()
 	go3.UseNormalMaps(false);
 	modelList.push_back(&go3);
 
-	Vector2 blubb;
-	printf("Blubb: %s\n", blubb.ToString());
+	Vector3 testvector;
+	Vector2 testvector2;
+	testvector.x = 12.0f;
+	testvector.y = 7.0f;
+	testvector.z = 3.0f;
+
+	testvector2.x = 30.0f;
+	testvector2.y = 15.0f;
+
+	PointLight test;
+	test.SetPosition(glm::vec3(-2.0f, 2.0f, -2.0f));
+
+	NE_DEBUG_LOG(testvector);
+	NE_DEBUG_LOG(testvector2);
 
 	modelList[1]->ChangeMainColor(ObjectColor::Orange);
 }
@@ -129,7 +141,7 @@ int main()
 
 	while (!renderWindow.GetShouldClose())
 	{
-		rm.EngineVariablesUpdate(&textureList, &modelList, projection);
+		rm.EngineVariablesUpdate(&textureList, &modelList, projection, pointLights, spotLights, pointLightCount, spotLightCount);
 		rm.MainLoop(renderWindow.GetShouldClose(), renderWindow, Start, Update);
 	}
 

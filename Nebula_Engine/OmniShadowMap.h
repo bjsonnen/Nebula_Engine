@@ -16,6 +16,7 @@ public:
 	//! @param width Width of the omni shadow map as unsigned int
 	//! @param width Height of the omni shadow map as unsigned int
 	//! @return Returns a NE_ERROR
+	//! @see NE_ERROR_CHECK
 	NE_ERROR Init(unsigned int width, unsigned int height);
 
 	//! Write the shadow map to the gpu

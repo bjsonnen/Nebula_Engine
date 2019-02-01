@@ -8,5 +8,6 @@ var searchData=
   ['rendermodel',['RenderModel',['../class_game_object.html#ab4c2468f179f258168c6af5369172f81',1,'GameObject::RenderModel()'],['../class_object.html#a357d3469a47d0272bb03b84ff0b27255',1,'Object::RenderModel()']]],
   ['restart',['Restart',['../class_audio.html#ae2bcb6b054a71006cc8ac03ff62d5d96',1,'Audio']]],
   ['rootmanager',['RootManager',['../class_root_manager.html',1,'RootManager'],['../class_root_manager.html#a53b21e9c4e78c18d24fd7cdac901a633',1,'RootManager::RootManager()']]],
-  ['rotate',['Rotate',['../class_game_object.html#ac1f6c8881fe4185a1a2bca08ad252660',1,'GameObject']]]
+  ['rotate',['Rotate',['../class_game_object.html#ac1f6c8881fe4185a1a2bca08ad252660',1,'GameObject::Rotate(glm::vec3 rotation)'],['../class_game_object.html#a93d2bb0c555fe8bb6323f9a4827f7a46',1,'GameObject::Rotate(Vector3 rotation)']]],
+  ['rotation',['Rotation',['../struct_particle.html#a8656807befba981c720bff0b9cba6b54',1,'Particle']]]
 ];

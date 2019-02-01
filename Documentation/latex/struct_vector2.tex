@@ -1,0 +1,255 @@
+\hypertarget{struct_vector2}{}\section{Vector2 Struct Reference}
+\label{struct_vector2}\index{Vector2@{Vector2}}
+
+
+{\ttfamily \#include $<$Vector2.\+h$>$}
+
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{struct_vector2_a22104d1809be26a419ef1f959e3761bf}{Vector2}} ()
+\item 
+\mbox{\hyperlink{struct_vector2_a061ab58a0e216c759d64e3746d712b12}{Vector2}} (float x, float y)
+\item 
+\mbox{\hyperlink{struct_vector2_acd4630b163df63998669c10e1971b2d6}{Vector2}} (float xy)
+\item 
+\mbox{\hyperlink{struct_vector2_a8a6a520209bbcd7db3d59f8a0c9e3b2f}{Vector2}} (glm\+::vec2 v)
+\item 
+float \mbox{\hyperlink{struct_vector2_afd0eb6f05e1a15b3d8656d5e0e12798a}{Magnitude}} ()
+\item 
+float \mbox{\hyperlink{struct_vector2_ae7b80a14336e86c30a11218cd27a4abf}{Length}} ()
+\item 
+\mbox{\Hypertarget{struct_vector2_a3b597b3bfeb114dd9e157b86330e087d}\label{struct_vector2_a3b597b3bfeb114dd9e157b86330e087d}} 
+void \mbox{\hyperlink{struct_vector2_a3b597b3bfeb114dd9e157b86330e087d}{Normalize}} ()
+\begin{DoxyCompactList}\small\item\em Normalizes a vector, so that x, y together are 1. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{struct_vector2_aa07e77bd513051b31f080bd70a7d09d7}\label{struct_vector2_aa07e77bd513051b31f080bd70a7d09d7}} 
+void \mbox{\hyperlink{struct_vector2_aa07e77bd513051b31f080bd70a7d09d7}{Zero}} ()
+\begin{DoxyCompactList}\small\item\em Set the vector2 to zero. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{struct_vector2}{Vector2}} \mbox{\hyperlink{struct_vector2_a7e9bf2ca75c051fe51cbc8a484923d6d}{operator=}} (\mbox{\hyperlink{struct_vector2}{Vector2}} x)
+\item 
+\mbox{\hyperlink{struct_vector2}{Vector2}} \mbox{\hyperlink{struct_vector2_a2a517dda544bc45e6e06dd4ea983c5d7}{operator+}} (\mbox{\hyperlink{struct_vector2}{Vector2}} x)
+\item 
+\mbox{\hyperlink{struct_vector2}{Vector2}} \mbox{\hyperlink{struct_vector2_accce68ad818627dbe189c9e946aa1c80}{operator -\/}} (\mbox{\hyperlink{struct_vector2}{Vector2}} x)
+\item 
+\mbox{\hyperlink{struct_vector2}{Vector2}} \mbox{\hyperlink{struct_vector2_affe953e6b1098456324e4fdea72ec8e4}{operator -\/=}} (\mbox{\hyperlink{struct_vector2}{Vector2}} x)
+\item 
+\mbox{\hyperlink{struct_vector2}{Vector2}} \mbox{\hyperlink{struct_vector2_a7ed76b87b79c2a20b08788328dcf592e}{operator+=}} (\mbox{\hyperlink{struct_vector2}{Vector2}} x)
+\item 
+\mbox{\hyperlink{struct_vector2}{Vector2}} \mbox{\hyperlink{struct_vector2_a6baf5cab131f85f846b784ad31c506ec}{operator=}} (glm\+::vec3 v)
+\item 
+void \mbox{\hyperlink{struct_vector2_a0c002bc16739ff7533526a38e18226a0}{Set\+Vector3}} (float x, float y)
+\item 
+void \mbox{\hyperlink{struct_vector2_af2880756375df5f0f70aec09efbbc77e}{Set\+Vector3}} (float xy)
+\item 
+glm\+::vec2 \mbox{\hyperlink{struct_vector2_adc634be04f1bf7f1a91811216ea6ac50}{To\+Glm}} ()
+\item 
+std\+::string \mbox{\hyperlink{struct_vector2_a5954390e62401baa0d28d5b2128845fa}{To\+String}} ()
+\end{DoxyCompactItemize}
+\subsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{struct_vector2_a046bb8d17a876acc49415128dc0502f2}\label{struct_vector2_a046bb8d17a876acc49415128dc0502f2}} 
+float {\bfseries x}
+\item 
+\mbox{\Hypertarget{struct_vector2_a0e07bad05f01ed811b909a2eef97f9e2}\label{struct_vector2_a0e07bad05f01ed811b909a2eef97f9e2}} 
+float {\bfseries y}
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Main nebula engine vector2 class Should be used for gameplay stuff 
+
+\subsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{struct_vector2_a22104d1809be26a419ef1f959e3761bf}\label{struct_vector2_a22104d1809be26a419ef1f959e3761bf}} 
+\index{Vector2@{Vector2}!Vector2@{Vector2}}
+\index{Vector2@{Vector2}!Vector2@{Vector2}}
+\subsubsection{\texorpdfstring{Vector2()}{Vector2()}\hspace{0.1cm}{\footnotesize\ttfamily [1/4]}}
+{\footnotesize\ttfamily Vector2\+::\+Vector2 (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Standard initialization for the vector2 Sets all variables to 0 \mbox{\Hypertarget{struct_vector2_a061ab58a0e216c759d64e3746d712b12}\label{struct_vector2_a061ab58a0e216c759d64e3746d712b12}} 
+\index{Vector2@{Vector2}!Vector2@{Vector2}}
+\index{Vector2@{Vector2}!Vector2@{Vector2}}
+\subsubsection{\texorpdfstring{Vector2()}{Vector2()}\hspace{0.1cm}{\footnotesize\ttfamily [2/4]}}
+{\footnotesize\ttfamily Vector2\+::\+Vector2 (\begin{DoxyParamCaption}\item[{float}]{x,  }\item[{float}]{y }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Initializes the vector with three diffrent values for the variables 
+\begin{DoxyParams}{Parameters}
+{\em x} & X value as float \\
+\hline
+{\em y} & Y value as float \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{struct_vector2_acd4630b163df63998669c10e1971b2d6}\label{struct_vector2_acd4630b163df63998669c10e1971b2d6}} 
+\index{Vector2@{Vector2}!Vector2@{Vector2}}
+\index{Vector2@{Vector2}!Vector2@{Vector2}}
+\subsubsection{\texorpdfstring{Vector2()}{Vector2()}\hspace{0.1cm}{\footnotesize\ttfamily [3/4]}}
+{\footnotesize\ttfamily Vector2\+::\+Vector2 (\begin{DoxyParamCaption}\item[{float}]{xy }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Initializes the vector with one value for all variables 
+\begin{DoxyParams}{Parameters}
+{\em xy} & float input \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{struct_vector2_a8a6a520209bbcd7db3d59f8a0c9e3b2f}\label{struct_vector2_a8a6a520209bbcd7db3d59f8a0c9e3b2f}} 
+\index{Vector2@{Vector2}!Vector2@{Vector2}}
+\index{Vector2@{Vector2}!Vector2@{Vector2}}
+\subsubsection{\texorpdfstring{Vector2()}{Vector2()}\hspace{0.1cm}{\footnotesize\ttfamily [4/4]}}
+{\footnotesize\ttfamily Vector2\+::\+Vector2 (\begin{DoxyParamCaption}\item[{glm\+::vec2}]{v }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Initializes the vector with a glm\+::vec2 
+\begin{DoxyParams}{Parameters}
+{\em v} & glm\+::vec2 (2D Vector) \\
+\hline
+\end{DoxyParams}
+
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{struct_vector2_ae7b80a14336e86c30a11218cd27a4abf}\label{struct_vector2_ae7b80a14336e86c30a11218cd27a4abf}} 
+\index{Vector2@{Vector2}!Length@{Length}}
+\index{Length@{Length}!Vector2@{Vector2}}
+\subsubsection{\texorpdfstring{Length()}{Length()}}
+{\footnotesize\ttfamily float Vector2\+::\+Length (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Returns the length of the vector \begin{DoxyReturn}{Returns}
+Returns the length as float 
+\end{DoxyReturn}
+\mbox{\Hypertarget{struct_vector2_afd0eb6f05e1a15b3d8656d5e0e12798a}\label{struct_vector2_afd0eb6f05e1a15b3d8656d5e0e12798a}} 
+\index{Vector2@{Vector2}!Magnitude@{Magnitude}}
+\index{Magnitude@{Magnitude}!Vector2@{Vector2}}
+\subsubsection{\texorpdfstring{Magnitude()}{Magnitude()}}
+{\footnotesize\ttfamily float Vector2\+::\+Magnitude (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Returns the magnitude of the vector \begin{DoxyReturn}{Returns}
+Returns the magnitude of the vector as float 
+\end{DoxyReturn}
+\mbox{\Hypertarget{struct_vector2_accce68ad818627dbe189c9e946aa1c80}\label{struct_vector2_accce68ad818627dbe189c9e946aa1c80}} 
+\index{Vector2@{Vector2}!operator -\/@{operator -\/}}
+\index{operator -\/@{operator -\/}!Vector2@{Vector2}}
+\subsubsection{\texorpdfstring{operator -\/()}{operator -()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{struct_vector2}{Vector2}} Vector2\+::operator -\/ (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_vector2}{Vector2}}}]{x }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Subtracts one vector2 from another 
+\begin{DoxyParams}{Parameters}
+{\em x} & New \mbox{\hyperlink{struct_vector2}{Vector2}} \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Returns the new \mbox{\hyperlink{struct_vector2}{Vector2}} as \mbox{\hyperlink{struct_vector2}{Vector2}} 
+\end{DoxyReturn}
+\mbox{\Hypertarget{struct_vector2_affe953e6b1098456324e4fdea72ec8e4}\label{struct_vector2_affe953e6b1098456324e4fdea72ec8e4}} 
+\index{Vector2@{Vector2}!operator -\/=@{operator -\/=}}
+\index{operator -\/=@{operator -\/=}!Vector2@{Vector2}}
+\subsubsection{\texorpdfstring{operator -\/=()}{operator -=()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{struct_vector2}{Vector2}} Vector2\+::operator -\/= (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_vector2}{Vector2}}}]{x }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Subtracts one vector2 from another 
+\begin{DoxyParams}{Parameters}
+{\em x} & New \mbox{\hyperlink{struct_vector2}{Vector2}} \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Returns the new \mbox{\hyperlink{struct_vector2}{Vector2}} as \mbox{\hyperlink{struct_vector2}{Vector2}} 
+\end{DoxyReturn}
+\mbox{\Hypertarget{struct_vector2_a2a517dda544bc45e6e06dd4ea983c5d7}\label{struct_vector2_a2a517dda544bc45e6e06dd4ea983c5d7}} 
+\index{Vector2@{Vector2}!operator+@{operator+}}
+\index{operator+@{operator+}!Vector2@{Vector2}}
+\subsubsection{\texorpdfstring{operator+()}{operator+()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{struct_vector2}{Vector2}} Vector2\+::operator+ (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_vector2}{Vector2}}}]{x }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Adds one vector2 to another 
+\begin{DoxyParams}{Parameters}
+{\em x} & New \mbox{\hyperlink{struct_vector2}{Vector2}} \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Returns the new \mbox{\hyperlink{struct_vector2}{Vector2}} as \mbox{\hyperlink{struct_vector2}{Vector2}} 
+\end{DoxyReturn}
+\mbox{\Hypertarget{struct_vector2_a7ed76b87b79c2a20b08788328dcf592e}\label{struct_vector2_a7ed76b87b79c2a20b08788328dcf592e}} 
+\index{Vector2@{Vector2}!operator+=@{operator+=}}
+\index{operator+=@{operator+=}!Vector2@{Vector2}}
+\subsubsection{\texorpdfstring{operator+=()}{operator+=()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{struct_vector2}{Vector2}} Vector2\+::operator+= (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_vector2}{Vector2}}}]{x }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Adds one vector2 to another 
+\begin{DoxyParams}{Parameters}
+{\em x} & New \mbox{\hyperlink{struct_vector2}{Vector2}} \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Returns the new \mbox{\hyperlink{struct_vector2}{Vector2}} as \mbox{\hyperlink{struct_vector2}{Vector2}} 
+\end{DoxyReturn}
+\mbox{\Hypertarget{struct_vector2_a7e9bf2ca75c051fe51cbc8a484923d6d}\label{struct_vector2_a7e9bf2ca75c051fe51cbc8a484923d6d}} 
+\index{Vector2@{Vector2}!operator=@{operator=}}
+\index{operator=@{operator=}!Vector2@{Vector2}}
+\subsubsection{\texorpdfstring{operator=()}{operator=()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \mbox{\hyperlink{struct_vector2}{Vector2}} Vector2\+::operator= (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_vector2}{Vector2}}}]{x }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Set the vector2 to another vector2 
+\begin{DoxyParams}{Parameters}
+{\em x} & New \mbox{\hyperlink{struct_vector2}{Vector2}} \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Returns the new \mbox{\hyperlink{struct_vector2}{Vector2}} as \mbox{\hyperlink{struct_vector2}{Vector2}} 
+\end{DoxyReturn}
+\mbox{\Hypertarget{struct_vector2_a6baf5cab131f85f846b784ad31c506ec}\label{struct_vector2_a6baf5cab131f85f846b784ad31c506ec}} 
+\index{Vector2@{Vector2}!operator=@{operator=}}
+\index{operator=@{operator=}!Vector2@{Vector2}}
+\subsubsection{\texorpdfstring{operator=()}{operator=()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \mbox{\hyperlink{struct_vector2}{Vector2}} Vector2\+::operator= (\begin{DoxyParamCaption}\item[{glm\+::vec3}]{v }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Set the vector3 to another vector2 
+\begin{DoxyParams}{Parameters}
+{\em x} & New \mbox{\hyperlink{struct_vector2}{Vector2}} \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Returns the new \mbox{\hyperlink{struct_vector2}{Vector2}} as \mbox{\hyperlink{struct_vector2}{Vector2}} 
+\end{DoxyReturn}
+\mbox{\Hypertarget{struct_vector2_a0c002bc16739ff7533526a38e18226a0}\label{struct_vector2_a0c002bc16739ff7533526a38e18226a0}} 
+\index{Vector2@{Vector2}!SetVector3@{SetVector3}}
+\index{SetVector3@{SetVector3}!Vector2@{Vector2}}
+\subsubsection{\texorpdfstring{SetVector3()}{SetVector3()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily void Vector2\+::\+Set\+Vector3 (\begin{DoxyParamCaption}\item[{float}]{x,  }\item[{float}]{y }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Set a vector to two specific variables 
+\begin{DoxyParams}{Parameters}
+{\em x} & Set the x value of the vector \\
+\hline
+{\em y} & Set the y value of the vector \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{struct_vector2_af2880756375df5f0f70aec09efbbc77e}\label{struct_vector2_af2880756375df5f0f70aec09efbbc77e}} 
+\index{Vector2@{Vector2}!SetVector3@{SetVector3}}
+\index{SetVector3@{SetVector3}!Vector2@{Vector2}}
+\subsubsection{\texorpdfstring{SetVector3()}{SetVector3()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily void Vector2\+::\+Set\+Vector3 (\begin{DoxyParamCaption}\item[{float}]{xy }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Set a vector to one specific variables 
+\begin{DoxyParams}{Parameters}
+{\em xy} & Set all variables to value \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{struct_vector2_adc634be04f1bf7f1a91811216ea6ac50}\label{struct_vector2_adc634be04f1bf7f1a91811216ea6ac50}} 
+\index{Vector2@{Vector2}!ToGlm@{ToGlm}}
+\index{ToGlm@{ToGlm}!Vector2@{Vector2}}
+\subsubsection{\texorpdfstring{ToGlm()}{ToGlm()}}
+{\footnotesize\ttfamily glm\+::vec2 Vector2\+::\+To\+Glm (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Converts vector2 to glm\+::vec2 \begin{DoxyReturn}{Returns}
+Returns a glm\+::vec2 
+\end{DoxyReturn}
+\mbox{\Hypertarget{struct_vector2_a5954390e62401baa0d28d5b2128845fa}\label{struct_vector2_a5954390e62401baa0d28d5b2128845fa}} 
+\index{Vector2@{Vector2}!ToString@{ToString}}
+\index{ToString@{ToString}!Vector2@{Vector2}}
+\subsubsection{\texorpdfstring{ToString()}{ToString()}}
+{\footnotesize\ttfamily std\+::string Vector2\+::\+To\+String (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Returns a \mbox{\hyperlink{struct_vector3}{Vector3}} as std\+::string \begin{DoxyReturn}{Returns}
+Returns the \mbox{\hyperlink{struct_vector2}{Vector2}} as std\+::string 
+\end{DoxyReturn}
+
+
+The documentation for this struct was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+Git\+Hub/\+Nebula\+\_\+\+Engine/\+Nebula\+\_\+\+Engine/Vector2.\+h\end{DoxyCompactItemize}

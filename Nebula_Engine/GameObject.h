@@ -57,12 +57,21 @@ public:
 	//! Get the current Position
 	//! @return Returns the position of the object as glm::vec3
 	glm::vec3 GetPosition();
+	//! Get the current Position
+	//! @return Returns the position of the object as Vector3
+	Vector3 GetPositionVector3();
 	//! Get the current Rotation
 	//! @return Returns the rotation of the object as glm::vec3
 	glm::vec3 GetRotation();
+	//! Get the current Rotation
+	//! @return Returns the rotation of the object as Vector3
+	Vector3 GetRotationVector3();
 	//! Get the current Scale
 	//! @return Returns the scale of the object as glm::vec3
 	glm::vec3 GetScale();
+	//! Get the current Scale
+	//! @return Returns the scale of the object as Vector3
+	Vector3 GetScaleVector3();
 
 	//! Get vertice count of each object
 	//! @return Returns the vertices count as int
@@ -82,6 +91,10 @@ public:
 	//! Position is automatically applied every frame
 	//! @param position Insert the position as glm::vec3
 	void SetPosition(glm::vec3 position);
+	//! Set the position of the object
+	//! Position is automatically applied every frame
+	//! @param position Insert the position as Vector3
+	void SetPosition(Vector3 position);
 
 	//! Set the rotation of the object
 	//! Rotation is automatically applied every frame
@@ -94,6 +107,10 @@ public:
 	//! Rotation is automatically applied every frame
 	//! @param rotation Insert the rotation as glm::vec3
 	void SetRotation(glm::vec3 rotation);
+	//! Set the rotation of the object
+	//! Rotation is automatically applied every frame
+	//! @param rotation Insert the rotation as Vector3
+	void SetRotation(Vector3 rotation);
 
 	//! Set the degree of an object based on the rotation vector
 	//! Rotation is automatically applied every frame
@@ -111,6 +128,10 @@ public:
 	//! Scale is automatically applied every frame
 	//! @param scale Insert the scale as glm::vec3
 	void SetScale(glm::vec3 scale);
+	//! Set the scale of the object
+	//! Scale is automatically applied every frame
+	//! @param scale Insert the scale as Vector3
+	void SetScale(Vector3 scale);
 
 	//! Used by the renderer
 	//! Returns true if the model has bitangents and tangents
@@ -130,6 +151,10 @@ public:
 	//! White = Textures only
 	//! @param color Set the color as glm::vec3
 	void ChangeMainColor(glm::vec3 color);
+	//! Set the main color of the object
+	//! White = Textures only
+	//! @param color Set the color as Vector3
+	void ChangeMainColor(Vector3 color);
 	
 	//! Set the main color of the object
 	//! White = Textures only
@@ -140,14 +165,23 @@ public:
 	//! Returns the main color of the object
 	//! @return Main Color of the object as glm::vec3
 	glm::vec3 GetMainColor();
+	//! Returns the main color of the object
+	//! @return Main Color of the object as Vector3
+	Vector3 GetMainColorVector3();
 
 	//! Set rotation relative to an object
 	//! @param pos Insert the position as glm::vec3
 	void LookAt(glm::vec3 pos);
+	//! Set rotation relative to an object
+	//! @param pos Insert the position as Vector3
+	void LookAt(Vector3 pos);
 
 	//! Set rotation relative to an object
 	//! @param pos Insert the position as glm::vec2
 	void LookAt(glm::vec2 pos);
+	//! Set rotation relative to an object
+	//! @param pos Insert the position as Vector2
+	void LookAt(Vector2 pos);
 
 	//! Set rotation relative to an object
 	//! @param x Insert x value
@@ -166,6 +200,9 @@ public:
 	//! Rotate object round value
 	//! @param rotation Insert rotation as glm::vec3
 	void Rotate(glm::vec3 rotation);
+	//! Rotate object round value
+	//! @param rotation Insert rotation as Vector3
+	void Rotate(Vector3 rotation);
 
 	//! Load default texture again and delete the old one in ram
 	//! Need to be called by the gameplay programmer!
@@ -221,12 +258,14 @@ public:
 	//! Load model
 	//! Model is automatically loaded
 	//! @return Returns NE_ERROR
+	//! @see NE_ERROR_CHECK
 	NE_ERROR LoadModel();
 
 	//! Load model from string
 	//! Model is NOT automatically loaded
 	//! @param fileName Insert file location as const std::string&
 	//! @return Returns NE_ERROR
+	//! @see NE_ERROR_CHECK
 	NE_ERROR LoadModel(const std::string& fileName);
 
 	//! Use Primitive as Object
