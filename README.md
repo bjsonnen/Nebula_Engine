@@ -1,8 +1,8 @@
 # Nebula_Engine
-SAE Diploma Project written in C++ with OpenGL
+3. Semester SAE Diploma Project written in C++ with OpenGL. The main goal was to create an easy-to-use framework for game developers. Got inpired by panda3D. 
 
-## Getting Started
-Learn to code with the Nebula Engine -> [Github Wiki](https://github.com/Chalkece/Nebula_Engine/wiki)
+![Screenshot 1](https://github.com/bjsonnen/Nebula_Engine/tree/master/images/ne_s1.png)
+![Screenshot 2](https://github.com/bjsonnen/Nebula_Engine/tree/master/images/ne_s2.png)
 
 ## Documentation
 Download nebula and navigate to Documentation -> html -> and open index.html in your webbrowser
@@ -18,3 +18,10 @@ Download nebula and navigate to Documentation -> html -> and open index.html in 
 ## Documentation tool
 
 * [Doxygen](http://www.doxygen.nl/) - Documentation tool for HTML files
+
+## ToDo List
+
+* HDR implementation
+* Entity-Component System
+* Correct linkings for the imgui system
+* Soft Shadows, fixing some issues with the shadow system
