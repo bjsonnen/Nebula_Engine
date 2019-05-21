@@ -84,7 +84,7 @@ struct Vector3
 		this->z = xyz;
 	}
 
-	//! Set all vector variables to zero (0)
+	//! Set all vector variables to zero (0.0)
 	void Zero()
 	{
 		this->x = 0.0f;

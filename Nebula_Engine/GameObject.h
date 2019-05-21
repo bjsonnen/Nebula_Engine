@@ -216,6 +216,10 @@ public:
 	//! @param value Set value as bool
 	void UseBlending(bool value);
 
+	//! Set if the object should render with a parallax map
+	//! @param value Set value as bool
+	void UseParallaxMapping(bool value);
+
 	//! Get if the object renders transparent/semi-transparent objects
 	//! @return Returns if object uses blending as bool
 	bool GetUseBlending();
@@ -242,6 +246,9 @@ public:
 	//! Bool for rendering normal maps
 	//! @return Returns if the object uses normal maps
 	bool GetUseNormalMaps();
+	//! Bool for rendering parallax maps
+	//! @return Returns if the object should render with parallax
+	bool GetParallaxMap();
 	
 	//! Get file location 
 	//! @return Returns the file location as char*
@@ -317,6 +324,7 @@ private:
 	bool activeModel = true;
 	bool usePrimitive = false;
 	bool drawWireframe = false;
+	bool useParallaxMap = false;
 	bool useBitangent = true;
 	bool useNormalMap = true;
 	bool useBlending = false;

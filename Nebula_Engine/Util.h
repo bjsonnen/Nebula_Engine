@@ -28,8 +28,10 @@ enum NE_ERROR
 
 #ifndef _DEBUG 
 #define NE_ASSERT static_assert
+#define NE_BREAK(val) if(val) __debugbreak();
 #else
 #define NE_ASSERT assert
+#define NE_BREAK(val)
 #endif
 
 //! Check for errors, simple debug error message
@@ -83,7 +85,7 @@ public:
 	template<typename T>
 	static void DeletePointer(T* t) { if(t) delete t; }
 
-	//! Debug log, use NE_ERROR_CHECK(_result)
+	//! Debug log, use NE_DEBUG_LOG(__variable)
 	//! @param t Insert output variable as type TEMPLATE
 	template<typename T>
 	static void DebugLog(T t)

@@ -251,6 +251,11 @@ void GameObject::UseBlending(bool value)
 	useBlending = value;
 }
 
+void GameObject::UseParallaxMapping(bool value)
+{
+	useParallaxMap = value;
+}
+
 float * GameObject::GetVertices()
 {
 	return nullptr;
@@ -279,6 +284,11 @@ void GameObject::UseNormalMaps(bool value)
 bool GameObject::GetUseNormalMaps()
 {
 	return useNormalMap;
+}
+
+bool GameObject::GetParallaxMap()
+{
+	return useParallaxMap;
 }
 
 void GameObject::RenderModel()

@@ -84,6 +84,7 @@ Material defaultMaterial;
 Material dullMaterial;
 
 GameObject go;
+GameObject omgagoontest;
 GameObject* test;
 
 Mesh NebulaEngineLogo;
@@ -91,6 +92,8 @@ Mesh NebulaEngineLogo;
 DirectionalLight mainLight;
 PointLight pointLights[MAX_POINT_LIGHTS];
 SpotLight spotLights[MAX_SPOT_LIGHTS];
+
+PointLight testPL;
 
 Skybox skybox;
 

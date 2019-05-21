@@ -66,6 +66,9 @@ uniform int spotLightCount;
 uniform bool renderNormalMaps;
 uniform bool useNormalMap;
 
+// Correct usage for jpg and png for example
+uniform bool isNot4Channel;
+
 uniform DirectionalLight directionalLight;
 uniform PointLight pointLights[10];
 uniform SpotLight spotLights[10];
@@ -245,14 +248,8 @@ vec4 CalculateSpotLights()
 
 void main()
 {
-	//normal = normalize(Normal);
-	//normal = texture(nTexture, TexCoord).rgb;
-	//normal = normalize(normal * 2.0 - 1.0);
-	// TBN -> Wrong calculation
-	//normal = normalize(TBN * normal);
-	//normal = TBN * normal;
-	
-	if(NormalBitangent == vec3(0.0, 0.0, 0.0) || !useNormalMap)
+	// use normals or normal texture
+	if(textureSize(nTexture, 0).x < 1 || textureSize(nTexture, 0).y < 1 || !useNormalMap)
 		normal = normalize(Normal);
 	else
 	{
@@ -268,8 +265,12 @@ void main()
 	vec4 texColor = texture(dTexture, TexCoord);
 	
 	color = vec4(texColor.xyz * finalColor.xyz, 0.0);
-	color = vec4(color.rgb * primaryColor, 1.0);
+	color = vec4(color.rgb * primaryColor, texColor.w);
 	
-	float gamma = 2.2;
-	color.rgb = pow(color.rgb, vec3(1.0/gamma));
+	// if there is no texture
+	if(textureSize(dTexture, 0).x < 1 || textureSize(dTexture, 0).y < 1)
+		color.rgb = vec3(1.0, 0.412, 0.705);
+	
+	// gamme correction
+	color.rgb = pow(color.rgb, vec3(1.0/2.2));
 }

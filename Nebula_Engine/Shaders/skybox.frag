@@ -2,11 +2,11 @@
 
 in vec3 TexCoords;
 
-out vec4 colour;
+out vec4 color;
 
 uniform samplerCube skybox;
 
 void main()
 {
-	colour = texture(skybox, TexCoords);
+	color = texture(skybox, TexCoords);
 }

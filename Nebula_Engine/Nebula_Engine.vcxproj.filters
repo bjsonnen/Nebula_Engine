@@ -85,9 +85,6 @@
     <ClCompile Include="Object.cpp">
       <Filter>Headerfiles\Components</Filter>
     </ClCompile>
-    <ClCompile Include="ECManager.cpp">
-      <Filter>Headerfiles\Components</Filter>
-    </ClCompile>
     <ClCompile Include="RootManager.cpp">
       <Filter>Sourcefiles</Filter>
     </ClCompile>
@@ -171,9 +168,6 @@
     <ClInclude Include="Ui.h">
       <Filter>Headerfiles</Filter>
     </ClInclude>
-    <ClInclude Include="ECManager.h">
-      <Filter>Headerfiles\Components</Filter>
-    </ClInclude>
     <ClInclude Include="Transform.h">
       <Filter>Headerfiles\Components</Filter>
     </ClInclude>
@@ -191,6 +185,9 @@
     </ClInclude>
     <ClInclude Include="RootManager.h">
       <Filter>Headerfiles</Filter>
+    </ClInclude>
+    <ClInclude Include="ECManager.h">
+      <Filter>Headerfiles\Components</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

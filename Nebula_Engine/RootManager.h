@@ -11,10 +11,12 @@
 #include "Window.h"
 #include "Shader.h"
 #include "PointLight.h"
+//#include "CommonValues.h"
 
 #include "Util.h"
 
 #include <vector>
+#include <map>
 
 #include <imgui.h>
 #include <imgui_impl_glfw.h>
@@ -30,7 +32,7 @@ class RootManager
 {
 public:
 	//! Create rootmanager object with standard parameters
-	RootManager() {}
+	RootManager() {};
 
 	//! Camera, materials, lights, skybox creation; Shader compiling
 	//! Should be called after the window initialization and before the main loop
@@ -51,10 +53,6 @@ public:
 
 	//! Load all objects
 	//! Should be called before the first frame
-	////! @param textureList Insert main textureList as std::vector<Texture*>*
-	////! @param objectList Insert main objectList as std::vector<GameObject*>* 
-	////! &param loading Insert loading parameter as bool
-	//void EngineLoading(std::vector<Texture*>* textureList, std::vector<GameObject*>* objectList, bool& loading);
 	void EngineLoading();
 
 	//! Update all vector arrays with gameplay content
@@ -89,7 +87,8 @@ public:
 
 	//! Returns the current window
 	//! @return Returns the window as object
-	Window GetWindow() { return renderWindow; }
+	Window GetWindow() { return *renderWindow; }
+	bool GetWindowActive() { return glfwWindowShouldClose(renderWindow->GetWindow()); }
 	//! Returns the current camera
 	//! @return Returns the camera object
 	Camera GetCamera() { return camera; }
@@ -121,30 +120,37 @@ private:
 	void RenderPass(glm::mat4 viewMatrix, glm::mat4 projectionMatrix, PointLight* pointLights,
 		SpotLight* spotLights, int pointlightCount, int spotlightCount);
 
+	//! Search for blending objects in main object list
+	void CheckForBlendedObjects();
+
 	//! Compile predefined shaders
 	void CompileShaders();
 	//! Render all objects
 	void RenderScene();
 
-	//! Creats the nebula logo used in the loading screen
-	void CreateNebulaLogo();
+	//! Render a quad, used for HDR
+	void RenderQuad();
 
 private:
 	std::vector<Shader> shaderList;
 	std::vector<GameObject*>* objectList;
+	std::vector<GameObject> transparentObjectList;
 	std::vector<Texture*>* textureList;
+	std::map<float, GameObject*> test;
+
+	Texture texTest;
 
 	glm::mat4 projection;
 
 	Shader directionalShadowShader;
 	Shader omniShadowShader;
-	Shader nebulaLogoShader;
+	Shader hdrRendering;
 
 	Material defaultMaterial;
 
 	DirectionalLight mainLight;
 
-	Window renderWindow;
+	Window *renderWindow;
 	Camera camera;
 	Skybox skybox;
 
@@ -156,6 +162,13 @@ private:
 
 	unsigned int pointCount;
 	unsigned int spotsCount;
+
+	unsigned int quadVAO = 0;
+	unsigned int quadVBO = 0;
+
+	unsigned int hdrFBO = 0;
+	unsigned int colorBuffer = 0;
+	unsigned int rboDepth = 0;
 
 	// Entity-Component-System Manager
 	Manager* manager;

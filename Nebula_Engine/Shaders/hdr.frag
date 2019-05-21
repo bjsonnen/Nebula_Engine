@@ -26,4 +26,17 @@ void main()
         vec3 result = pow(hdrColor, vec3(1.0 / gamma));
         FragColor = vec4(result, 1.0);
     }
+	
+	if(textureSize(hdrBuffer, 0).x > 0)
+		FragColor = vec4(1.0, 0.0, 0.0, 1.0);
+	//if(textureSize(hdrBuffer, 0).x > 0)
+		//FragColor = vec4(texture(hdrBuffer, TexCoords).rgb, 1.0);
+	//else
+		//FragColor = vec4(1.0, 0.0, 0.0, 1.0);
+	
+	vec3 texColor = texture(hdrBuffer, TexCoords).rgb;
+	if(texColor.r == 0.0 && texColor.g == 0.0 && texColor.b == 0.0)
+		FragColor = vec4(1.0, 0.0, 0.0, 1.0);
+	//FragColor = vec4(texture(hdrBuffer, TexCoords).rgb * 2.0, 1.0);
+	
 }

@@ -23,13 +23,11 @@ public:
 	NE_ERROR LoadTexture();
 
 	//! Use Texture for next object
-	//!
 	void UseTexture();
 	//! Use Texture for next object with index
 	//! @param index Insert texture id as unsigned int
 	void UseTexture(unsigned int index);
 	//! Delete all data on ram
-	//!
 	void ClearTexture();
 
 	//! Set linear or nearest filter
@@ -52,22 +50,15 @@ public:
 	//! @param i Insert texture wrapping as int
 	void SetTextureRepeat(int i);
 	//! Get texture warpping
-	//!
 	int GetTextureRepeat();
 
-	//! Get internal texture id
-	/*unsigned int GetTextureID();*/
-
 	//! Returns the texture position on the gpu
-	//!
 	unsigned int GetTexturePosition();
 
 	//! Returns the file location
-	//!
 	std::string GetFileLocation();
 
 	//! Create Depth Buffer
-	//!
 	void CreateDepthBuffer();
 
 	// Delete texture on memory

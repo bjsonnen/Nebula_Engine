@@ -34,13 +34,13 @@ public:
 
 	//! Use Light
 	//! @param ambientIntensityLocation Insert ambientIntensity location in shader
-	//! @param ambientColourLocation Insert ambientColor location in shader
+	//! @param ambientColorLocation Insert ambientColor location in shader
 	//! @param diffuseIntensityLocation Insert diffuseIntensity location in shader
 	//! @param positionLocation Insert position location in shader
 	//! @param constantLocation Insert constant location in shader
 	//! @param linearLocation Insert linear location in shader
 	//! @param exponentLocation Insert exponent location in shader
-	void UseLight(unsigned int ambientIntensityLocation, unsigned int ambientColourLocation,
+	void UseLight(unsigned int ambientIntensityLocation, unsigned int ambientColorLocation,
 		unsigned int diffuseIntensityLocation, unsigned int positionLocation,
 		unsigned int constantLocation, unsigned int linearLocation, unsigned int exponentLocation);
 

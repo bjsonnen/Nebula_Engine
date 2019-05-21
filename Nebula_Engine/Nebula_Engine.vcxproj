@@ -108,13 +108,16 @@
       <WarningLevel>Level3</WarningLevel>
       <Optimization>Disabled</Optimization>
       <PreprocessorDefinitions>_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>C:\Users\Björn Sonnen\Desktop\Nebula_Engine\External Libraries\GLEW\include;C:\Users\Björn Sonnen\Desktop\Nebula_Engine\External Libraries\GLFW\include;C:\Users\Björn Sonnen\Desktop\Nebula_Engine\External Libraries\GLM;C:\Users\Björn Sonnen\Desktop\Nebula_Engine\External Libraries\assimp-4.1.0\include;C:\Users\Björn Sonnen\Desktop\Nebula_Engine\External Libraries\FMOD\api\lowlevel\inc;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>
+      </AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalLibraryDirectories>C:\Users\Björn Sonnen\Desktop\Nebula_Engine\External Libraries\FMOD\api\lowlevel\lib;C:\Users\Björn Sonnen\Desktop\Nebula_Engine\External Libraries\assimp-4.1.0\lib\Release;C:\Users\Björn Sonnen\Desktop\Nebula_Engine\External Libraries\GLFW\lib-vc2015;C:\Users\Björn Sonnen\Desktop\Nebula_Engine\External Libraries\GLEW\lib\Release\x64;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
-      <AdditionalDependencies>opengl32.lib;glew32.lib;glfw3.lib;assimp-vc140-mt.lib;fmodL_vc.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>
+      </AdditionalLibraryDirectories>
+      <AdditionalDependencies>
+      </AdditionalDependencies>
       <EntryPointSymbol>mainCRTStartup</EntryPointSymbol>
     </Link>
   </ItemDefinitionGroup>
@@ -157,7 +160,8 @@
       <OptimizeReferences>true</OptimizeReferences>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <AdditionalLibraryDirectories>%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
-      <AdditionalDependencies>opengl32.lib;glew32.lib;glfw3.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>
+      </AdditionalDependencies>
       <EntryPointSymbol>mainCRTStartup</EntryPointSymbol>
     </Link>
   </ItemDefinitionGroup>
@@ -171,7 +175,6 @@
     <ClCompile Include="Audio.cpp" />
     <ClCompile Include="Camera.cpp" />
     <ClCompile Include="DirectionalLight.cpp" />
-    <ClCompile Include="ECManager.cpp" />
     <ClCompile Include="Light.cpp" />
     <ClCompile Include="LOD.cpp" />
     <ClCompile Include="main.cpp" />

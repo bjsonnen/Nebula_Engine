@@ -62,7 +62,7 @@ struct Vector2
 	{
 		std::sqrt(this->x * this->x) + std::sqrt(this->y);
 	}
-	//! Set the vector2 to zero
+	//! Set the vector2 to zero (0.0)
 	void Zero()
 	{
 		x = 0;
@@ -72,7 +72,7 @@ struct Vector2
 	//! Set the vector2 to another vector2
 	//! @param x New Vector2
 	//! @return Returns the new Vector2 as Vector2
-	Vector2 operator =(Vector2 x)
+	void operator =(Vector2 x)
 	{
 		this->x = x.x;
 		this->y = x.y;
@@ -80,7 +80,7 @@ struct Vector2
 	//! Adds one vector2 to another
 	//! @param x New Vector2
 	//! @return Returns the new Vector2 as Vector2
-	Vector2 operator +(Vector2 x)
+	void operator +(Vector2 x)
 	{
 		this->x += x.x;
 		this->y += x.y;
@@ -88,7 +88,7 @@ struct Vector2
 	//! Subtracts one vector2 from another
 	//! @param x New Vector2
 	//! @return Returns the new Vector2 as Vector2
-	Vector2 operator -(Vector2 x)
+	void operator -(Vector2 x)
 	{
 		this->x -= x.x;
 		this->y -= x.y;
@@ -96,7 +96,7 @@ struct Vector2
 	//! Subtracts one vector2 from another
 	//! @param x New Vector2
 	//! @return Returns the new Vector2 as Vector2
-	Vector2 operator -=(Vector2 x)
+	void operator -=(Vector2 x)
 	{
 		this->x -= x.y;
 		this->y -= x.y;
@@ -104,7 +104,7 @@ struct Vector2
 	//! Adds one vector2 to another
 	//! @param x New Vector2
 	//! @return Returns the new Vector2 as Vector2
-	Vector2 operator +=(Vector2 x)
+	void operator +=(Vector2 x)
 	{
 		this->x += x.y;
 		this->y += x.y;
@@ -112,7 +112,7 @@ struct Vector2
 	//! Set the vector3 to another vector2
 	//! @param x New Vector2
 	//! @return Returns the new Vector2 as Vector2
-	Vector2 operator =(glm::vec3 v)
+	void operator =(glm::vec3 v)
 	{
 		this->x = v.x;
 		this->y = v.y;

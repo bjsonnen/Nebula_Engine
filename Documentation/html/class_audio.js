@@ -13,6 +13,7 @@ var class_audio =
     [ "Restart", "class_audio.html#ae2bcb6b054a71006cc8ac03ff62d5d96", null ],
     [ "Set3DPosition", "class_audio.html#a141af36f2bb5f0d6e655efc81bf3d365", null ],
     [ "Set3DPosition", "class_audio.html#a49f139c550d5b317d9aa8f9b0342ac0d", null ],
+    [ "Set3DPosition", "class_audio.html#ae7d4d77c6f481e4d4a261d89bf24809a", null ],
     [ "SetLooped", "class_audio.html#a62ef89ef3f72dda0a2aece1784c26859", null ],
     [ "SetSpeed", "class_audio.html#acf14619b8950e8c77494a8b19a9b2a89", null ],
     [ "SwitchPause", "class_audio.html#adf1cb46f65decf2c8101dd0461040953", null ],

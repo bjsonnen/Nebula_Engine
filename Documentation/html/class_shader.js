@@ -36,6 +36,7 @@ var class_shader =
     [ "SetTexture", "class_shader.html#a4cb2a0a8f3d9f201c0c21e4933368f59", null ],
     [ "SetVector2", "class_shader.html#a0d918646fca62689f9b26061c94c22e5", null ],
     [ "SetVector3", "class_shader.html#aa9d9c1159e1ebaf60d09d4763523efd3", null ],
+    [ "SetVector4", "class_shader.html#a43443ff13fc01862d40930b6a6d312b3", null ],
     [ "UseShader", "class_shader.html#a08706ac2b4375d3bb7a6b38db0369f44", null ],
     [ "Validate", "class_shader.html#a7cee617233ae421013677cf8a73474fd", null ],
     [ "farPlane", "class_shader.html#aa7095cc1cbeab9b636e4583ed4ff4fa7", null ],

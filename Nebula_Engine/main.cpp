@@ -15,8 +15,6 @@ glm::mat4 projection;
 float deltaTime = 0.0f;
 float lastTime = 0.0f;
 
-float blackhawkAngle = 0.0f;
-
 int vert = 0;
 float tmpRotation = 0;
 int multi = 10;
@@ -26,17 +24,10 @@ GameObject go2;
 GameObject go3;
 Audio mainAudio = Audio("Audio/ps2.ogg");
 
-//Entity& firstPlayer(manager.AddEntity());
-//Entity& secondPlayer(manager.AddEntity());
-
 float tmpColor;
 
 void Start()
 {
-	go = GameObject("Models/ALucy.fbx");
-	go.SetScale(glm::vec3(0.00006f, 0.00006f, 0.00006f));
-	modelList.push_back(&go);
-
 	go1 = GameObject("Models/cube.obj");
 	go1.SetPosition(0.0f, -5.35f, 0.0f);
 	go1.SetScale(10.0f, 1.0f, 10.0f);
@@ -45,14 +36,43 @@ void Start()
 	go2 = GameObject("Models/cube.obj");
 	go2.SetPosition(0.0f, -15.0f, 0.0f);
 	go2.SetScale(40.0f, 1.0f, 40.0f);
-	go2.UseNormalMaps(false);
+	//go2.UseNormalMaps(true);
 	modelList.push_back(&go2);
 
 	go3 = GameObject("Models/cube.obj");
 	go3.SetPosition(15.0f, 0.0f, 0.0f);
-	go3.SetDefaultTexture("Textures/Unbenannt-1.png");
+	go3.SetDefaultTexture("Textures/blending.png");
 	go3.UseNormalMaps(false);
+	go3.UseBlending(true);
 	modelList.push_back(&go3);
+
+	//GameObject go4 = GameObject("Models/cube.obj");
+	//go4.SetPosition(16.0f, 3.0f, 0.0f);
+	//go4.SetDefaultTexture("Textures/blending.png");
+	//go4.UseNormalMaps(false);
+	//go4.UseBlending(true);
+	//modelList.push_back(&go4);
+
+	//go3 = GameObject("Models/cube.obj");
+	//go3.SetPosition(0.0f, 3.0f, 0.0f);
+	//go3.SetDefaultTexture("Textures/blending.png");
+	//go3.UseNormalMaps(false);
+	//go3.UseBlending(true);
+	//modelList.push_back(&go3);
+
+	omgagoontest = GameObject("Models/cube.obj");
+	omgagoontest.SetPosition(0.0f, 3.0f, 0.0f);
+	omgagoontest.SetDefaultTexture("Textures/blending.png");
+	omgagoontest.UseNormalMaps(false);
+	omgagoontest.UseBlending(true);
+	modelList.push_back(&omgagoontest);
+
+	/*go3 = GameObject("Models/cube.obj");
+	go3.SetPosition(17.0f, 3.0f, 0.0f);
+	go3.SetDefaultTexture("Textures/blending.png");
+	go3.UseNormalMaps(false);
+	go3.UseBlending(true);*/
+	//modelList.push_back(&go3);
 
 	Vector3 testvector;
 	Vector2 testvector2;
@@ -62,6 +82,10 @@ void Start()
 
 	testvector2.x = 30.0f;
 	testvector2.y = 15.0f;
+
+	//testPL = PointLight(1280, 720, 0.1f, 100.0f, 1.0f, 0.0f, 0.0f, 1.0f, 1.0f, 0.0f, 1.0f, 0.0f, 1.0f, 1.0f, 1.0f);
+	//pointLights[0] = testPL;
+	//pointLightCount++;
 
 	PointLight test;
 	test.SetPosition(glm::vec3(-2.0f, 2.0f, -2.0f));
@@ -85,22 +109,17 @@ void Update()
 		}
 	}
 
-	if (renderWindow.Key(Window::KeyCode::R))
-		multi *= 10;
+	if (renderWindow.Key(Window::KeyCode::R)) multi *= 10;
 
 	tmpRotation += renderWindow.GetDeltaTime() * multi;
-	if (tmpRotation >= 360.0f)
-		tmpRotation = 0.0f;
-	modelList[0]->SetDegrees(tmpRotation);
-	modelList[0]->SetRotation(0.0f, -1.0f, 0.0f);
+	if (tmpRotation >= 360.0f) tmpRotation = 0.0f;
+	//modelList[0]->SetDegrees(tmpRotation);
+	//modelList[0]->SetRotation(0.0f, -1.0f, 0.0f);
 
-	tmpcolor.x += 0.001f;
-	tmpcolor.y += 0.002f;
-	tmpcolor.z += 0.003f;
-	if (tmpcolor.x > 1.0f) tmpcolor.x = 0.0f;
-	if (tmpcolor.y > 1.0f) tmpcolor.y = 0.0f;
-	if (tmpcolor.z > 1.0f) tmpcolor.z = 0.0f;
-	modelList[1]->ChangeMainColor(tmpcolor);
+	if (tmpcolor.x > 1.0f) tmpcolor.x = 0.0f; else tmpcolor.x += 0.001f;
+	if (tmpcolor.y > 1.0f) tmpcolor.y = 0.0f; else tmpcolor.y += 0.002f;
+	if (tmpcolor.z > 1.0f) tmpcolor.z = 0.0f; else tmpcolor.z += 0.003f;
+	//modelList[1]->ChangeMainColor(tmpcolor);
 
 	if (renderWindow.Key(Window::KeyCode::B))
 		mainAudio.Play();

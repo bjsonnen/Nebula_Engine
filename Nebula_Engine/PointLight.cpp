@@ -28,14 +28,15 @@ PointLight::PointLight(unsigned int shadowWidth, unsigned int shadowHeight,
 	lightProj = glm::perspective(glm::radians(90.0f), aspect, near, far);
 
 	shadowMap = new OmniShadowMap();
+	// -> Cant access something
 	shadowMap->Init(shadowWidth, shadowHeight);
 }
 
-void PointLight::UseLight(unsigned int ambientIntensityLocation, unsigned int ambientColourLocation,
+void PointLight::UseLight(unsigned int ambientIntensityLocation, unsigned int ambientColorLocation,
 	unsigned int diffuseIntensityLocation, unsigned int positionLocation,
 	unsigned int constantLocation, unsigned int linearLocation, unsigned int exponentLocation)
 {
-	glUniform3f(ambientColourLocation, color.x, color.y, color.z);
+	glUniform3f(ambientColorLocation, color.x, color.y, color.z);
 	glUniform1f(ambientIntensityLocation, ambientIntensity);
 	glUniform1f(diffuseIntensityLocation, diffuseIntensity);
 
