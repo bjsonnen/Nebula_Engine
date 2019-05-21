@@ -71,7 +71,7 @@ public:
 	unsigned int GetAmbientIntensityLocation();
 	//! Get Location in shader on the gpu
 	//! @return Returns an unsigned int to the shader location
-	unsigned int GetAmbientColourLocation();
+	unsigned int GetAmbientColorLocation();
 	//! Get Location in shader on the gpu
 	//! @return Returns an unsigned int to the shader location
 	unsigned int GetDiffuseIntensityLocation();

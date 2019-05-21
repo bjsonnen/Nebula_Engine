@@ -27,10 +27,8 @@ enum NE_ERROR
 };
 
 #ifndef _DEBUG 
-#define NE_ASSERT static_assert
 #define NE_BREAK(val) if(val) __debugbreak();
 #else
-#define NE_ASSERT assert
 #define NE_BREAK(val)
 #endif
 
@@ -42,10 +40,6 @@ enum NE_ERROR
 #define NE_DEBUG_LOG(__variable) Util::DebugLog(__variable);
 //! Swap vector 
 #define NE_SWAP_VECTOR_ARRAY(_vector_array) Util::SwapVectorArray(_vector_array);
-//! Nebula engine force inline
-#define NE_FORCE_INLINE __forceinline
-//! Nebula engine inline
-#define NE_INLINE inline
 
 //! Utilities. Use predefinied methods
 class Util
@@ -60,15 +54,7 @@ public:
 	//! @param normalOffset Insert normal count offset from start
 	static void CalculateNormals(unsigned int * indices, unsigned int indiceCount, float * vertices, unsigned int verticeCount,
 		unsigned int vLength, unsigned int normalOffset);
-
-	//! Calculate bitangents and return a pointer to the array
-	//! @param vertices Insert vertices as unsigned int array
-	//! @param UVoffset Insert offset from start to uv coordinates
-	//! @param verticesOffset Insert offset to new vertices 
-	//! @param verticeCount Insert vertices array count
-	//! @param tangentCount Insert offset to tangent and bitangent coordinates
-	static void CalculateBitAngents(unsigned int * vertices, const unsigned int UVoffset, const unsigned int verticeOffset, const unsigned int verticeCount, const unsigned int tangentOffset);
-
+	
 	//! Swap vector, use NE_SWAP_VECTOR_ARRAY(_vector_array)
 	//! @param vertor Insert std::vector of type TEMPLATE as std::vector<T*>*
 	template<typename T>

@@ -15,10 +15,10 @@ DirectionalLight::DirectionalLight(unsigned int shadowWidth, unsigned int shadow
 	lightProj = glm::ortho(-20.0f, 20.0f, -20.0f, 20.0f, 0.1f, 100.0f);
 }
 
-void DirectionalLight::UseLight(float ambientIntensityLocation, float ambientColourLocation,
+void DirectionalLight::UseLight(float ambientIntensityLocation, float ambientColorLocation,
 	float diffuseIntensityLocation, float directionLocation)
 {
-	glUniform3f(ambientColourLocation, color.x, color.y, color.z);
+	glUniform3f(ambientColorLocation, color.x, color.y, color.z);
 	glUniform1f(ambientIntensityLocation, ambientIntensity);
 
 	glUniform3f(directionLocation, direction.x, direction.y, direction.z);

@@ -28,11 +28,11 @@ NE_ERROR OmniShadowMap::Init(unsigned int width, unsigned int height)
 	glDrawBuffer(GL_NONE);
 	glReadBuffer(GL_NONE);
 
-	GLenum Status = glCheckFramebufferStatus(GL_FRAMEBUFFER);
+	unsigned int Status = glCheckFramebufferStatus(GL_FRAMEBUFFER);
 
 	if (Status != GL_FRAMEBUFFER_COMPLETE)
 	{
-		printf("Framebuffer error: %s\n", Status);
+		std::cout << Status << std::endl;
 		return NE_RENDERER;
 	}
 

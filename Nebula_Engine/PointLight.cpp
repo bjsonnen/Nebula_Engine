@@ -8,6 +8,9 @@ PointLight::PointLight() : Light()
 	constant = 1.0f;
 	linear = 0.0f;
 	exponent = 0.0f;
+	shadowMap = new OmniShadowMap();
+	// -> Cant access something
+	//shadowMap->Init(1920, 1080);
 }
 
 PointLight::PointLight(unsigned int shadowWidth, unsigned int shadowHeight,

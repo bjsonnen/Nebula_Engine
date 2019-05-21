@@ -55,9 +55,6 @@
     <ClCompile Include="ParticleEffect.cpp">
       <Filter>Sourcefiles</Filter>
     </ClCompile>
-    <ClCompile Include="LOD.cpp">
-      <Filter>Sourcefiles</Filter>
-    </ClCompile>
     <ClCompile Include="..\External Libraries\imgui-1.65\imgui.cpp">
       <Filter>ImgUi</Filter>
     </ClCompile>
@@ -142,9 +139,6 @@
       <Filter>Start</Filter>
     </ClInclude>
     <ClInclude Include="GameObject.h">
-      <Filter>Headerfiles</Filter>
-    </ClInclude>
-    <ClInclude Include="LOD.h">
       <Filter>Headerfiles</Filter>
     </ClInclude>
     <ClInclude Include="ParticleEffect.h">

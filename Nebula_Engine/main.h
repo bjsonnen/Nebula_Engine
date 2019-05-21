@@ -71,7 +71,6 @@ Shader omniShadowShader;
 RootManager rm;
 
 Camera camera;
-//Manager manager;
 
 Shader* shader2;
 Shader* screen;
@@ -84,7 +83,8 @@ Material defaultMaterial;
 Material dullMaterial;
 
 GameObject go;
-GameObject omgagoontest;
+GameObject blending1;
+GameObject blending2;
 GameObject* test;
 
 Mesh NebulaEngineLogo;
@@ -94,6 +94,7 @@ PointLight pointLights[MAX_POINT_LIGHTS];
 SpotLight spotLights[MAX_SPOT_LIGHTS];
 
 PointLight testPL;
+SpotLight testSL;
 
 Skybox skybox;
 
@@ -109,7 +110,3 @@ unsigned int spotLightCount = 0;
 
 void Start();
 void Update();
-
-void LinesTest();
-
-void EngineInitialization();

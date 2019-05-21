@@ -5,6 +5,8 @@ Light::Light()
 	color = glm::vec3(1.0f, 1.0f, 1.0f);
 	ambientIntensity = 1.0f;
 	diffuseIntensity = 0.0f;
+	// You have to create a shadow map, but do not init it!
+	shadowMap = new ShadowMap();
 }
 
 Light::Light(unsigned int shadowWidth, unsigned int shadowHeight, float red, float green, float blue, float aIntensity, float dIntensity)

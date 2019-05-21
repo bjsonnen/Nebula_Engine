@@ -92,28 +92,6 @@ struct Vector3
 		this->z = 0.0f;
 	}
 
-	//! Returns the magnitude of the vector
-	//! @return Returns the magnitude of the vector as float
-	float Magnitude()
-	{
-		return std::sqrt((this->x * this->x) + (this->y * this->y) + (this->z * this->z));
-	}
-	//! Returns the length of the vector
-	//! @return Returns the length as float
-	float Length()
-	{
-		std::sqrt(this->x + this->y + this->z);
-	}
-
-	//! Normalizes a vector, so that x, y, z together are 1
-	//! 
-	void Normalize()
-	{
-		this->x = std::sqrt(this->x * this->x);
-		this->y = std::sqrt(this->y * this->y);
-		this->z = std::sqrt(this->z * this->z);
-	}
-
 	//! Set the vector3 to another vector3
 	//! @param x New Vector3
 	//! @return Returns the new Vector3 as Vector3
@@ -167,15 +145,5 @@ struct Vector3
 		std::stringstream tmp;
 		tmp << "(" << this->x << " / " << this->y << " / " << this->z << ")";
 		return tmp.str();
-	}
-
-public:
-	//! Calculates the dot product between two vectors
-	//! @param a First Vector3
-	//! @param b Second Vector3
-	//! @return Returns the dot product as float
-	static float Dot(Vector3 a, Vector3 b)
-	{
-		return (a.x * b.x) + (a.y * b.y) + (a.z * b.z);
 	}
 };

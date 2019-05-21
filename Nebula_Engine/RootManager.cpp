@@ -159,6 +159,7 @@ void RootManager::ShutDown()
 	ImGui_ImplOpenGL3_Shutdown();
 	ImGui_ImplGlfw_Shutdown();
 	ImGui::DestroyContext();
+	glfwTerminate();
 }
 
 void RootManager::RenderScene()
@@ -218,8 +219,6 @@ void RootManager::CompileShaders()
 	NE_ERROR_CHECK(directionalShadowShader.CreateFromFiles("Shaders/directional_shadow_map.vert", "Shaders/directional_shadow_map.frag"));
 
 	NE_ERROR_CHECK(omniShadowShader.CreateFromFiles("Shaders/omni_shadow_map.vert", "Shaders/omni_shadow_map.geom", "Shaders/omni_shadow_map.frag"));
-
-	NE_ERROR_CHECK(hdrRendering.CreateFromFiles("Shaders/hdr.vert", "Shaders/hdr.frag"));
 }
 
 void RootManager::OmniShadowMapPass(PointLight * light)
@@ -242,8 +241,7 @@ void RootManager::OmniShadowMapPass(PointLight * light)
 
 	RenderScene();
 
-	//glBindFramebuffer(GL_FRAMEBUFFER, 0);
-	glBindFramebuffer(GL_FRAMEBUFFER, hdrFBO);
+	glBindFramebuffer(GL_FRAMEBUFFER, 0);
 }
 
 void RootManager::DirectionalShadowMapPass(DirectionalLight * light)
@@ -264,7 +262,6 @@ void RootManager::DirectionalShadowMapPass(DirectionalLight * light)
 	RenderScene();
 
 	glBindFramebuffer(GL_FRAMEBUFFER, 0);
-	//glBindFramebuffer(GL_FRAMEBUFFER, hdrFBO);
 }
 
 void RootManager::RenderPass(glm::mat4 viewMatrix, glm::mat4 projectionMatrix, PointLight* pointLights, 

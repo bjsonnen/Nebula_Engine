@@ -41,21 +41,6 @@ public:
 	//! @param text Insert text as std::string
 	//! @param output Insert reference to bool as output
 	void Checkbox(std::string text, bool& output);
-	//! Create a single slider
-	//! @param text Insert text as std::string
-	//! @param value Insert reference to value as output
-	//! @param min Insert min slider value
-	//! @param max Insert max slider value
-	void Slider(std::string text, float& value, float min, float max);
-	//! Create a color change box
-	//! @param text Insert text as std::string
-	//! @param x Insert float as output for red value of RGB
-	//! @param y Insert float as output for green value of RGB
-	//! @param z Insert float as output for blue value of RGB
-	void ColorEdit3(std::string text, float& x, float& y, float& z);
-	//! Create a single button
-	//!
-	void Button();
 
 	//! Returns true if mouse is over any ui element
 	//! @return Returns bool 
@@ -73,21 +58,6 @@ public:
 	void DebugWindow(bool active, int fps, float deltaTime);
 
 	~Ui();
-
-private:
-	void DebugFile();
-	void DebugEdit();
-	void DebugGameObject();
-	void DebugWindow();
-	void DebugHelp();
-
-	void PerformanceInformations();
-	void GeneralSettings();
-
-	void OpenScene();
-
-	void CreateGameObject();
-	void CreateLightObject();
 
 private:
 	//! Used for PerformanceInformations();

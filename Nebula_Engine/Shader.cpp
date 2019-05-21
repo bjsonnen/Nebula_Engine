@@ -260,7 +260,7 @@ unsigned int Shader::GetViewLocation()
 {
 	return uniformView;
 }
-unsigned int Shader::GetAmbientColourLocation()
+unsigned int Shader::GetAmbientColorLocation()
 {
 	return uniformDirectionalLight.uniformColor;
 }

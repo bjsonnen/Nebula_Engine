@@ -28,9 +28,11 @@ public:
 
 	//! Retruns the shadow map width
 	//! @return Returns the shaodw map width as unsigned int
+	//unsigned int GetShadowWidth() { return shadowWidth; }
 	unsigned int GetShadowWidth() { return shadowWidth; }
 	//! Retruns the shadow map height
 	//! @return Returns the shaodw map height as unsigned int
+	//unsigned int GetShadowHeight() { return shadowHeight; }
 	unsigned int GetShadowHeight() { return shadowHeight; }
 
 	~ShadowMap();

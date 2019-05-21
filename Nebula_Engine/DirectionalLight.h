@@ -26,10 +26,10 @@ public:
 
 	//! Use the current light
 	//! @param ambientIntensityLocation Insert the ambientIntensity location in the shader
-	//! @param ambientColourLocation Insert the ambientColor location in the shader
+	//! @param ambientColorLocation Insert the ambientColor location in the shader
 	//! @param diffuseIntensityLocation Insert the diffuseIntensity location in the shader
 	//! @param directionLocation Insert the direction location in the shader
-	void UseLight(float ambientIntensityLocation, float ambientColourLocation,
+	void UseLight(float ambientIntensityLocation, float ambientColorLocation,
 		float diffuseIntensityLocation, float directionLocation);
 
 	//! Change the direction of the light

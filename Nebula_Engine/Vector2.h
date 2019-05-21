@@ -45,23 +45,7 @@ struct Vector2
 		this->x = v.x;
 		this->y = v.y;
 	}
-	//! Returns the magnitude of the vector
-	//! @return Returns the magnitude of the vector as float
-	float Magnitude()
-	{
-		return std::sqrt((this->x * this->x) + (this->y * this->y));
-	}
-	//! Returns the length of the vector
-	//! @return Returns the length as float
-	float Length()
-	{
-		std::sqrt(this->x + this->y);
-	}
-	//! Normalizes a vector, so that x, y together are 1
-	void Normalize()
-	{
-		std::sqrt(this->x * this->x) + std::sqrt(this->y);
-	}
+	
 	//! Set the vector2 to zero (0.0)
 	void Zero()
 	{
@@ -71,7 +55,6 @@ struct Vector2
 
 	//! Set the vector2 to another vector2
 	//! @param x New Vector2
-	//! @return Returns the new Vector2 as Vector2
 	void operator =(Vector2 x)
 	{
 		this->x = x.x;
@@ -79,7 +62,6 @@ struct Vector2
 	}
 	//! Adds one vector2 to another
 	//! @param x New Vector2
-	//! @return Returns the new Vector2 as Vector2
 	void operator +(Vector2 x)
 	{
 		this->x += x.x;
@@ -87,7 +69,6 @@ struct Vector2
 	}
 	//! Subtracts one vector2 from another
 	//! @param x New Vector2
-	//! @return Returns the new Vector2 as Vector2
 	void operator -(Vector2 x)
 	{
 		this->x -= x.x;
@@ -95,7 +76,6 @@ struct Vector2
 	}
 	//! Subtracts one vector2 from another
 	//! @param x New Vector2
-	//! @return Returns the new Vector2 as Vector2
 	void operator -=(Vector2 x)
 	{
 		this->x -= x.y;
@@ -103,7 +83,6 @@ struct Vector2
 	}
 	//! Adds one vector2 to another
 	//! @param x New Vector2
-	//! @return Returns the new Vector2 as Vector2
 	void operator +=(Vector2 x)
 	{
 		this->x += x.y;
@@ -111,17 +90,24 @@ struct Vector2
 	}
 	//! Set the vector3 to another vector2
 	//! @param x New Vector2
-	//! @return Returns the new Vector2 as Vector2
 	void operator =(glm::vec3 v)
 	{
 		this->x = v.x;
 		this->y = v.y;
 	}
 
+	//! Divide the vector2 through a number
+	void operator /(float s)
+	{
+		s = 1.0f / s;
+		x *= s;
+		y *= s;
+	}
+
 	//! Set a vector to two specific variables
 	//! @param x Set the x value of the vector
 	//! @param y Set the y value of the vector
-	void SetVector3(float x, float y)
+	void SetVector2(float x, float y)
 	{
 		this->x = x;
 		this->y = y;
@@ -129,7 +115,7 @@ struct Vector2
 
 	//! Set a vector to one specific variables
 	//! @param xy Set all variables to value
-	void SetVector3(float xy)
+	void SetVector2(float xy)
 	{
 		this->x = xy;
 		this->y = xy;

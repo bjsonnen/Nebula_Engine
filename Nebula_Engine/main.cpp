@@ -1,8 +1,5 @@
 #include "main.h"
 
-// math
-const float toRadians = 3.14159265f / 180.0f;
-
 // settings
 bool loading = true;
 float tmp = 0.0f;
@@ -31,67 +28,41 @@ void Start()
 	go1 = GameObject("Models/cube.obj");
 	go1.SetPosition(0.0f, -5.35f, 0.0f);
 	go1.SetScale(10.0f, 1.0f, 10.0f);
+	go1.UseBlending(false);
 	modelList.push_back(&go1);
 
 	go2 = GameObject("Models/cube.obj");
 	go2.SetPosition(0.0f, -15.0f, 0.0f);
 	go2.SetScale(40.0f, 1.0f, 40.0f);
-	//go2.UseNormalMaps(true);
+	go2.UseNormalMaps(false);
 	modelList.push_back(&go2);
 
-	go3 = GameObject("Models/cube.obj");
-	go3.SetPosition(15.0f, 0.0f, 0.0f);
-	go3.SetDefaultTexture("Textures/blending.png");
-	go3.UseNormalMaps(false);
-	go3.UseBlending(true);
+	go = GameObject("Models/penguin.obj");
+	go.SetPosition(0.0f, 4.0f, 0.0f);
+	go.SetRotation(1.0f, 0.0f, 0.0f);
+	go.SetScale(0.05f, 0.05f, 0.05f);
+	go.SetDegrees(-90.0f);
+	go.UseNormalMaps(false);
+	modelList.push_back(&go);
+
+	go3 = GameObject("Models/spider.obj");
+	go3.SetPosition(0.0f, -5.0f, 0.0f);
+	go3.SetScale(0.09f, 0.09f, 0.09f);
 	modelList.push_back(&go3);
 
-	//GameObject go4 = GameObject("Models/cube.obj");
-	//go4.SetPosition(16.0f, 3.0f, 0.0f);
-	//go4.SetDefaultTexture("Textures/blending.png");
-	//go4.UseNormalMaps(false);
-	//go4.UseBlending(true);
-	//modelList.push_back(&go4);
+	blending1 = GameObject("Models/cube.obj");
+	blending1.SetPosition(15.0f, 0.0f, 0.0f);
+	blending1.SetDefaultTexture("Textures/blending.png");
+	blending1.UseNormalMaps(false);
+	blending1.UseBlending(true);
+	modelList.push_back(&blending1);
 
-	//go3 = GameObject("Models/cube.obj");
-	//go3.SetPosition(0.0f, 3.0f, 0.0f);
-	//go3.SetDefaultTexture("Textures/blending.png");
-	//go3.UseNormalMaps(false);
-	//go3.UseBlending(true);
-	//modelList.push_back(&go3);
-
-	omgagoontest = GameObject("Models/cube.obj");
-	omgagoontest.SetPosition(0.0f, 3.0f, 0.0f);
-	omgagoontest.SetDefaultTexture("Textures/blending.png");
-	omgagoontest.UseNormalMaps(false);
-	omgagoontest.UseBlending(true);
-	modelList.push_back(&omgagoontest);
-
-	/*go3 = GameObject("Models/cube.obj");
-	go3.SetPosition(17.0f, 3.0f, 0.0f);
-	go3.SetDefaultTexture("Textures/blending.png");
-	go3.UseNormalMaps(false);
-	go3.UseBlending(true);*/
-	//modelList.push_back(&go3);
-
-	Vector3 testvector;
-	Vector2 testvector2;
-	testvector.x = 12.0f;
-	testvector.y = 7.0f;
-	testvector.z = 3.0f;
-
-	testvector2.x = 30.0f;
-	testvector2.y = 15.0f;
-
-	//testPL = PointLight(1280, 720, 0.1f, 100.0f, 1.0f, 0.0f, 0.0f, 1.0f, 1.0f, 0.0f, 1.0f, 0.0f, 1.0f, 1.0f, 1.0f);
-	//pointLights[0] = testPL;
-	//pointLightCount++;
-
-	PointLight test;
-	test.SetPosition(glm::vec3(-2.0f, 2.0f, -2.0f));
-
-	NE_DEBUG_LOG(testvector);
-	NE_DEBUG_LOG(testvector2);
+	blending2 = GameObject("Models/cube.obj");
+	blending2.SetPosition(0.0f, 3.0f, 0.0f);
+	blending2.SetDefaultTexture("Textures/blending.png");
+	blending2.UseNormalMaps(false);
+	blending2.UseBlending(true);
+	modelList.push_back(&blending2);
 
 	modelList[1]->ChangeMainColor(ObjectColor::Orange);
 }
@@ -101,25 +72,20 @@ glm::vec3 tmpcolor = glm::vec3();
 void Update()
 {
 	multi = 10;
-	if (vert == 0)
-	{
-		for (int i = 0; i < modelList.size(); i++)
-		{
-			vert += modelList[i]->GetVerticesCount();
-		}
-	}
-
 	if (renderWindow.Key(Window::KeyCode::R)) multi *= 10;
 
 	tmpRotation += renderWindow.GetDeltaTime() * multi;
 	if (tmpRotation >= 360.0f) tmpRotation = 0.0f;
-	//modelList[0]->SetDegrees(tmpRotation);
-	//modelList[0]->SetRotation(0.0f, -1.0f, 0.0f);
+	modelList[0]->SetDegrees(tmpRotation);
+	modelList[0]->SetRotation(0.0f, -1.0f, 0.0f);
+
+	if (renderWindow.Key(Window::KeyCode::G))
+		mainAudio.Play();
 
 	if (tmpcolor.x > 1.0f) tmpcolor.x = 0.0f; else tmpcolor.x += 0.001f;
 	if (tmpcolor.y > 1.0f) tmpcolor.y = 0.0f; else tmpcolor.y += 0.002f;
 	if (tmpcolor.z > 1.0f) tmpcolor.z = 0.0f; else tmpcolor.z += 0.003f;
-	//modelList[1]->ChangeMainColor(tmpcolor);
+	modelList[1]->ChangeMainColor(tmpcolor);
 
 	if (renderWindow.Key(Window::KeyCode::B))
 		mainAudio.Play();
@@ -128,9 +94,6 @@ void Update()
 // Compile own Shaders 
 void CompileShaders()
 {
-	// HDR shader
-	screen = new Shader();
-	NE_ERROR_CHECK(screen->CreateFromFiles("Shaders/screen.vert", "Shaders/screen.frag"));
 }
 
 int main() 
@@ -151,12 +114,7 @@ int main()
 
 	float cooldown = 0.0f;
 
-	devTexture = Texture("Textures/dev.jpg");
-	textureList.push_back(&devTexture);
-
 	float tmp = 0.0f;
-
-	//NE_ERROR_CHECK(nebulaLogo.LoadTexture());
 
 	while (!renderWindow.GetShouldClose())
 	{
