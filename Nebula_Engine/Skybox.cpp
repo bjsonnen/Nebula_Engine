@@ -2,14 +2,14 @@
 
 
 
-Skybox::Skybox()
+NE::Skybox::Skybox()
 {
 }
 
-Skybox::Skybox(std::vector<std::string> faceLocations)
+NE::Skybox::Skybox(std::vector<std::string> faceLocations)
 {
 	// Shader Setup
-	skyShader = new Shader();
+	skyShader = new NE::Shader();
 	skyShader->CreateFromFiles("Shaders/skybox.vert", "Shaders/skybox.frag");
 
 	// Texture Setup
@@ -72,11 +72,11 @@ Skybox::Skybox(std::vector<std::string> faceLocations)
 		1.0f, -1.0f, 1.0f,		0.0f, 0.0f,		0.0f, 0.0f, 0.0f,		0.0f, 0.0f, 0.0f,	0.0f, 0.0f, 0.0f,
 	};
 
-	skyMesh = new Mesh();
+	skyMesh = new NE::Mesh();
 	skyMesh->CreateMesh(skyboxVertices, skyboxIndices, 112, 36);
 }
 
-void Skybox::DrawSkybox(glm::mat4 viewMatrix, glm::mat4 projectionMatrix)
+void NE::Skybox::DrawSkybox(glm::mat4 viewMatrix, glm::mat4 projectionMatrix)
 {
 	viewMatrix = glm::mat4(glm::mat3(viewMatrix));
 
@@ -97,6 +97,6 @@ void Skybox::DrawSkybox(glm::mat4 viewMatrix, glm::mat4 projectionMatrix)
 	glDepthMask(GL_TRUE);
 }
 
-Skybox::~Skybox()
+NE::Skybox::~Skybox()
 {
 }

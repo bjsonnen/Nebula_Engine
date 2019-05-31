@@ -1,6 +1,6 @@
 #include "Mesh.h"
 
-Mesh::Mesh()
+NE::Mesh::Mesh()
 {
 	VAO = 0;
 	VBO = 0;
@@ -10,7 +10,7 @@ Mesh::Mesh()
 
 #include <array>
 
-void Mesh::CreateMesh(float *vertices, unsigned int *indices, unsigned int numOfVertices, unsigned int numOfIndices)
+void NE::Mesh::CreateMesh(float *vertices, unsigned int *indices, unsigned int numOfVertices, unsigned int numOfIndices)
 {
 	indexCount = numOfIndices;
 	unsigned int offset = 14;
@@ -49,7 +49,7 @@ void Mesh::CreateMesh(float *vertices, unsigned int *indices, unsigned int numOf
 	glBindVertexArray(0);
 }
 
-void Mesh::RenderMesh()
+void NE::Mesh::RenderMesh()
 {
 	glBindVertexArray(VAO);
 	glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, IBO);
@@ -58,7 +58,7 @@ void Mesh::RenderMesh()
 	glBindVertexArray(0);
 }
 
-void Mesh::ClearMesh()
+void NE::Mesh::ClearMesh()
 {
 	if (IBO != 0)
 	{
@@ -81,28 +81,28 @@ void Mesh::ClearMesh()
 	indexCount = 0;
 }
 
-unsigned int Mesh::GetVBO()
+unsigned int NE::Mesh::GetVBO()
 {
 	return VBO;
 }
 
-unsigned int Mesh::GetIBO()
+unsigned int NE::Mesh::GetIBO()
 {
 	return IBO;
 }
 
-unsigned int Mesh::GetVAO()
+unsigned int NE::Mesh::GetVAO()
 {
 	return VAO;
 }
 
-int Mesh::GetIndices()
+int NE::Mesh::GetIndices()
 {
 	return indexCount;
 }
 
 
-Mesh::~Mesh()
+NE::Mesh::~Mesh()
 {
 	ClearMesh();
 }

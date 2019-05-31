@@ -121,7 +121,7 @@ NE_ERROR Object::LoadModel()
 		return NE_FALSE;
 	}
 
-	normal = Texture("Textures/normal.jpg");
+	normal = NE::Texture("Textures/normal.jpg");
 
 	LoadNode(scene->mRootNode, scene);
 
@@ -217,7 +217,7 @@ void Object::LoadMesh(aiMesh * mesh, const aiScene * scene)
 	verticesCount += vertices.size();
 	indicesCount += indices.size();
 
-	Mesh* newMesh = new Mesh();
+	NE::Mesh* newMesh = new NE::Mesh();
 	newMesh->CreateMesh(&vertices[0], &indices[0], vertices.size(), indices.size());
 	meshList.push_back(newMesh);
 	meshToTex.push_back(mesh->mMaterialIndex);
@@ -243,7 +243,7 @@ void Object::LoadMaterials(const aiScene * scene)
 
 				std::string texPath = std::string("Textures/") + filename;
 
-				textureList[i] = new Texture(texPath.c_str());
+				textureList[i] = new NE::Texture(texPath.c_str());
 
 				if (!textureList[i]->LoadTexture())
 				{
@@ -258,7 +258,7 @@ void Object::LoadMaterials(const aiScene * scene)
 		// if texture is not available, use default
 		if (!textureList[i])
 		{
-			textureList[i] = new Texture(defaultPath.c_str());
+			textureList[i] = new NE::Texture(defaultPath.c_str());
 			textureList[i]->LoadTexture();
 			normal.LoadTexture();
 		}
@@ -275,7 +275,7 @@ void Object::PrimitiveSphere()
 
 void Object::PrimitivePlane()
 {
-	Util util;
+	NE::Util util;
 
 	float vertices[] =
 	{
@@ -293,7 +293,7 @@ void Object::PrimitivePlane()
 
 	util.CalculateNormals(indices, 6, vertices, 32, 8, 5);
 
-	Mesh* mesh = new Mesh();
+	NE::Mesh* mesh = new NE::Mesh();
 	mesh->CreateMesh(vertices, indices, 32, 6);
 	meshList.push_back(mesh);
 	delete mesh;

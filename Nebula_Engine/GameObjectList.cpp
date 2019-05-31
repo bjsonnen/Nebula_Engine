@@ -2,44 +2,50 @@
 
 
 
-GameObjectList::GameObjectList()
+NE::GameObjectList::GameObjectList()
 {
 }
 
-void GameObjectList::Add(GameObject& object)
+void NE::GameObjectList::Add(NE::GameObject& object)
 {
-	objectList[objectList.size()] = &object;
-	object.SetObjectName("GameObject " + std::to_string(objectList.size()));
+	//objectList[objectList.size()] = &object;
+	//object.SetObjectName("GameObject " + std::to_string(objectList.size()));
+	objectList[internalSize] = &object;
+	internalSize++;
+	object.SetObjectName("GameObject " + std::to_string(internalSize));
 }
 
-void GameObjectList::Remove(GameObject& object)
+void NE::GameObjectList::Remove(NE::GameObject& object)
 {
 	int i = ParseInt(object.GetObjectName());
+	objectList[i - 1] = nullptr;
 	objectList.erase(i - 1);
 }
 
-int GameObjectList::GetSize()
+int NE::GameObjectList::GetSize()
 {
 	return objectList.size();
 }
 
-GameObject * GameObjectList::Find(GameObject& object)
+NE::GameObject * NE::GameObjectList::Find(NE::GameObject& object)
 {
 	int i = ParseInt(object.GetObjectName());
 	return objectList.at(i - 1);
 }
 
-GameObject * GameObjectList::FindAtIndex(int i)
+NE::GameObject * NE::GameObjectList::FindAtIndex(int i)
 {
-	return objectList.at(i);
+	if(objectList[i] != nullptr)
+		return objectList.at(i);
+	return nullptr;
 }
 
 
-GameObjectList::~GameObjectList()
+NE::GameObjectList::~GameObjectList()
 {
 }
 
-int GameObjectList::ParseInt(std::string s)
+int NE::GameObjectList::ParseInt(std::string s)
 {
 	std::stringstream ss;
 

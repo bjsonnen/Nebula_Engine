@@ -1,35 +1,35 @@
 #include "Ui.h"
 
-Ui::Ui()
+NE::Ui::Ui()
 {
 }
 
-Ui::Ui(Window* window)
+NE::Ui::Ui(NE::Window* window)
 {
 	mainWindow = window;
 }
 
-void Ui::CreateWindow(std::string text)
+void NE::Ui::CreateWindow(std::string text)
 {
 	ImGui::Begin(text.c_str());
 }
 
-void Ui::EndWindow()
+void NE::Ui::EndWindow()
 {
 	ImGui::End();
 }
 
-bool Ui::MouseOverUi()
+bool NE::Ui::MouseOverUi()
 {
 	return ImGui::IsMouseHoveringAnyWindow();
 }
 
-void Ui::SameLine()
+void NE::Ui::SameLine()
 {
 	ImGui::SameLine();
 }
 
-void Ui::DebugWindow(bool active, int fps, float deltaTime)
+void NE::Ui::DebugWindow(bool active, int fps, float deltaTime)
 {
 	// Lock debug window
 	if (!firstChange)
@@ -54,12 +54,12 @@ void Ui::DebugWindow(bool active, int fps, float deltaTime)
 	}
 }
 
-void Ui::Text(std::string text)
+void NE::Ui::Text(std::string text)
 {
 	ImGui::Text(text.c_str());
 }
 
-void Ui::TextBox(std::string text, std::string& output)
+void NE::Ui::TextBox(std::string text, std::string& output)
 {
 	char* test = "";
 	ImGui::InputText(text.c_str(), test, sizeof(test));
@@ -67,11 +67,11 @@ void Ui::TextBox(std::string text, std::string& output)
 
 }
 
-void Ui::Checkbox(std::string text, bool& output)
+void NE::Ui::Checkbox(std::string text, bool& output)
 {
 	ImGui::Checkbox(text.c_str(), &output);
 }
 
-Ui::~Ui()
+NE::Ui::~Ui()
 {
 }

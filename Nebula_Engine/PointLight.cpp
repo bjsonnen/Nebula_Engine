@@ -2,18 +2,18 @@
 
 
 
-PointLight::PointLight() : Light()
+NE::PointLight::PointLight() : Light()
 {
 	position = glm::vec3(0.0f, 0.0f, 0.0f);
 	constant = 1.0f;
 	linear = 0.0f;
 	exponent = 0.0f;
-	shadowMap = new OmniShadowMap();
+	shadowMap = new NE::OmniShadowMap();
 	// -> Cant access something
 	//shadowMap->Init(1920, 1080);
 }
 
-PointLight::PointLight(unsigned int shadowWidth, unsigned int shadowHeight,
+NE::PointLight::PointLight(unsigned int shadowWidth, unsigned int shadowHeight,
 						float near, float far, 
 						float red, float green, float blue,
 						float aIntensity, float dIntensity, 
@@ -30,12 +30,12 @@ PointLight::PointLight(unsigned int shadowWidth, unsigned int shadowHeight,
 	float aspect = (float)shadowWidth / (float)shadowHeight;
 	lightProj = glm::perspective(glm::radians(90.0f), aspect, near, far);
 
-	shadowMap = new OmniShadowMap();
+	shadowMap = new NE::OmniShadowMap();
 	// -> Cant access something
 	shadowMap->Init(shadowWidth, shadowHeight);
 }
 
-void PointLight::UseLight(unsigned int ambientIntensityLocation, unsigned int ambientColorLocation,
+void NE::PointLight::UseLight(unsigned int ambientIntensityLocation, unsigned int ambientColorLocation,
 	unsigned int diffuseIntensityLocation, unsigned int positionLocation,
 	unsigned int constantLocation, unsigned int linearLocation, unsigned int exponentLocation)
 {
@@ -49,7 +49,7 @@ void PointLight::UseLight(unsigned int ambientIntensityLocation, unsigned int am
 	glUniform1f(exponentLocation, exponent);
 }
 
-std::vector<glm::mat4> PointLight::CalculateLightTransform()
+std::vector<glm::mat4> NE::PointLight::CalculateLightTransform()
 {
 	std::vector<glm::mat4> lightMatrices;
 
@@ -65,36 +65,36 @@ std::vector<glm::mat4> PointLight::CalculateLightTransform()
 	return lightMatrices;
 }
 
-float PointLight::GetFarPlane()
+float NE::PointLight::GetFarPlane()
 {
 	return farPlane;
 }
-void PointLight::SetColor(glm::vec3 color)
+void NE::PointLight::SetColor(glm::vec3 color)
 {
 	Light::SetColor(color);
 }
-void PointLight::SetColor(Vector3 color)
+void NE::PointLight::SetColor(Vector3 color)
 {
 	Light::SetColor(color.ToGlm());
 }
-void PointLight::SetPosition(glm::vec3 pos)
+void NE::PointLight::SetPosition(glm::vec3 pos)
 {
 	position = pos;
 }
-void PointLight::SetPosition(Vector3 pos)
+void NE::PointLight::SetPosition(Vector3 pos)
 {
 	position = pos.ToGlm();
 }
-glm::vec3 PointLight::GetPosition()
+glm::vec3 NE::PointLight::GetPosition()
 {
 	return position;
 }
 
-Vector3 PointLight::GetPositionVector3()
+Vector3 NE::PointLight::GetPositionVector3()
 {
 	return Vector3(position.x, position.y, position.z);
 }
 
-PointLight::~PointLight()
+NE::PointLight::~PointLight()
 {
 }

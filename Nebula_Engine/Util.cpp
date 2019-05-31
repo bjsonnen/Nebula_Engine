@@ -3,7 +3,7 @@
 const int MAX_POINT_LIGHTS = 3;
 const int MAX_SPOT_LIGHTS = 3;
 
-void Util::CalculateNormals(unsigned int * indices, unsigned int indiceCount, float * vertices, unsigned int verticeCount, unsigned int vLength, unsigned int normalOffset)
+void NE::Util::CalculateNormals(unsigned int * indices, unsigned int indiceCount, float * vertices, unsigned int verticeCount, unsigned int vLength, unsigned int normalOffset)
 {
 	for (size_t i = 0; i < indiceCount; i += 3)
 	{
@@ -30,7 +30,7 @@ void Util::CalculateNormals(unsigned int * indices, unsigned int indiceCount, fl
 	}
 }
 
-void Util::CheckForErrors(NE_ERROR error, char * file, int line)
+void NE::Util::CheckForErrors(NE_ERROR error, char * file, int line)
 {
 	if (!(error == NE_OK))
 	{
@@ -38,7 +38,7 @@ void Util::CheckForErrors(NE_ERROR error, char * file, int line)
 	}
 }
 
-const char * Util::NE_ErrorString(NE_ERROR error)
+const char * NE::Util::NE_ErrorString(NE_ERROR error)
 {
 	switch (error)
 	{
@@ -57,12 +57,12 @@ const char * Util::NE_ErrorString(NE_ERROR error)
 	}
 }
 
-float Math::ToRadians(float degrees)
+float NE::Math::ToRadians(float degrees)
 {
 	return (degrees * (3.14159265f / 180.0f));
 }
 
-float Math::ToDegrees(float radians)
+float NE::Math::ToDegrees(float radians)
 {
 	return (radians / (3.14159265f / 180.0f));
 }

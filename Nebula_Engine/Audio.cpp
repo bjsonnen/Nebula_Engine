@@ -5,7 +5,7 @@
 #define _CRT_SECURE_NO_WARNINGS
 #endif
 
-Audio::Audio()
+NE::Audio::Audio()
 {
 	result = FMOD::System_Create(&system);
 	FMOD_ERROR_CHECK(result);
@@ -15,7 +15,7 @@ Audio::Audio()
 	FMOD_ERROR_CHECK(result);
 }
 
-Audio::Audio(std::string path)
+NE::Audio::Audio(std::string path)
 {
 	result = FMOD::System_Create(&system);
 	FMOD_ERROR_CHECK(result);
@@ -35,7 +35,7 @@ Audio::Audio(std::string path)
 	free(buff);
 }
 
-void Audio::Init()
+void NE::Audio::Init()
 {
 	result = FMOD::System_Create(&system);
 	FMOD_ERROR_CHECK(result);
@@ -45,11 +45,11 @@ void Audio::Init()
 	FMOD_ERROR_CHECK(result);
 }
 
-void Audio::Update()
+void NE::Audio::Update()
 {
 }
 
-NE_ERROR Audio::Init(char* file)
+NE_ERROR NE::Audio::Init(char* file)
 {
 	LoadFileMemory(file, &buff, &length);
 	memset(&exinfo, 0, sizeof(FMOD_CREATESOUNDEXINFO));
@@ -62,7 +62,7 @@ NE_ERROR Audio::Init(char* file)
 	return NE_OK;
 }
 
-NE_ERROR Audio::Play()
+NE_ERROR NE::Audio::Play()
 {
 	if (!alreadyStarted)
 	{
@@ -76,7 +76,7 @@ NE_ERROR Audio::Play()
 		return NE_FALSE;
 }
 
-NE_ERROR Audio::Play3D(float min, float max)
+NE_ERROR NE::Audio::Play3D(float min, float max)
 {
 	if (!alreadyStarted)
 	{
@@ -95,7 +95,7 @@ NE_ERROR Audio::Play3D(float min, float max)
 	return NE_OK;
 }
 
-NE_ERROR Audio::UserCreateSound()
+NE_ERROR NE::Audio::UserCreateSound()
 {
 	memset(&exinfo, 0, sizeof(FMOD_CREATESOUNDEXINFO));
 	exinfo.cbsize = sizeof(FMOD_CREATESOUNDEXINFO);
@@ -115,7 +115,7 @@ NE_ERROR Audio::UserCreateSound()
 	return NE_OK;
 }
 
-void Audio::Set3DPosition(float x, float y, float z)
+void NE::Audio::Set3DPosition(float x, float y, float z)
 {
 	FMOD_VECTOR pos = {x, y, z};
 	FMOD_VECTOR vel = {0.0f, 0.0f, 0.0f};
@@ -126,7 +126,7 @@ void Audio::Set3DPosition(float x, float y, float z)
 	FMOD_ERROR_CHECK(result);
 }
 
-void Audio::Set3DPosition(glm::vec3 pos)
+void NE::Audio::Set3DPosition(glm::vec3 pos)
 {
 	FMOD_VECTOR fmod_pos = { pos.x, pos.y, pos.z };
 	FMOD_VECTOR vel = { 0.0f, 0.0f, 0.0f };
@@ -137,7 +137,7 @@ void Audio::Set3DPosition(glm::vec3 pos)
 	FMOD_ERROR_CHECK(result);
 }
 
-void Audio::Set3DPosition(Vector3 pos)
+void NE::Audio::Set3DPosition(Vector3 pos)
 {
 	FMOD_VECTOR fmod_pos = { pos.x, pos.y, pos.z };
 	FMOD_VECTOR vel = { 0.0f, 0.0f, 0.0f };
@@ -148,21 +148,21 @@ void Audio::Set3DPosition(Vector3 pos)
 	FMOD_ERROR_CHECK(result);
 }
 
-NE_ERROR Audio::Pause()
+NE_ERROR NE::Audio::Pause()
 {
 	result = channel->setPaused(true);
 	FMOD_ERROR_CHECK(result);
 	return NE_OK;
 }
 
-NE_ERROR Audio::Restart()
+NE_ERROR NE::Audio::Restart()
 {
 	result = channel->setPaused(false);
 	FMOD_ERROR_CHECK(result);
 	return NE_OK;
 }
 
-NE_ERROR Audio::SwitchPause()
+NE_ERROR NE::Audio::SwitchPause()
 {
 	bool tmp;
 	result = channel->getPaused(&tmp);
@@ -172,13 +172,13 @@ NE_ERROR Audio::SwitchPause()
 	return NE_OK;
 }
 
-void Audio::UpdateAudio()
+void NE::Audio::UpdateAudio()
 {
 	result = system->update();
 	FMOD_ERROR_CHECK(result);
 }
 
-NE_ERROR Audio::Release()
+NE_ERROR NE::Audio::Release()
 {
 	if (!sound || !system)
 		return NE_FALSE;
@@ -194,7 +194,7 @@ NE_ERROR Audio::Release()
 	return NE_OK;
 }
 
-NE_ERROR Audio::SetSpeed(float speed)
+NE_ERROR NE::Audio::SetSpeed(float speed)
 {
 	float tmp;
 	result = sound->setMusicSpeed(speed);
@@ -206,7 +206,7 @@ NE_ERROR Audio::SetSpeed(float speed)
 		return NE_OK;
 }
 
-NE_ERROR Audio::SetLooped(bool value)
+NE_ERROR NE::Audio::SetLooped(bool value)
 {
 	int i = value ? 1 : 0;
 	result = sound->setLoopCount(i);
@@ -214,7 +214,7 @@ NE_ERROR Audio::SetLooped(bool value)
 	return NE_OK;
 }
 
-float Audio::GetSpeed()
+float NE::Audio::GetSpeed()
 {
 	float tmp;
 	result = sound->getMusicSpeed(&tmp);
@@ -222,7 +222,7 @@ float Audio::GetSpeed()
 	return tmp;
 }
 
-Audio::~Audio()
+NE::Audio::~Audio()
 {
 	if(sound)
 		result = sound->release();
@@ -234,7 +234,7 @@ Audio::~Audio()
 	FMOD_ERROR_CHECK(result);
 }
 
-void Audio::LoadFileMemory(const char * name, void ** buff, int * length)
+void NE::Audio::LoadFileMemory(const char * name, void ** buff, int * length)
 {
 	FILE *file = NULL;
 	file = fopen(name, "rb");
@@ -252,7 +252,7 @@ void Audio::LoadFileMemory(const char * name, void ** buff, int * length)
 	*length = len;
 }
 
-void Audio::CheckForErrors(FMOD_RESULT result, const char * file, int line)
+void NE::Audio::CheckForErrors(FMOD_RESULT result, const char * file, int line)
 {
 	if (result != FMOD_OK)
 	{
@@ -260,7 +260,7 @@ void Audio::CheckForErrors(FMOD_RESULT result, const char * file, int line)
 	}
 }
 
-FMOD_RESULT F_CALLBACK Audio::pcmreadcallback(FMOD_SOUND * sound, void * data, unsigned int datalen)
+FMOD_RESULT F_CALLBACK NE::Audio::pcmreadcallback(FMOD_SOUND * sound, void * data, unsigned int datalen)
 {
 	static float  t1 = 0, t2 = 0;        // time
 	static float  v1 = 0, v2 = 0;        // velocity
@@ -280,7 +280,7 @@ FMOD_RESULT F_CALLBACK Audio::pcmreadcallback(FMOD_SOUND * sound, void * data, u
 	return FMOD_OK;
 }
 
-FMOD_RESULT F_CALLBACK Audio::pcmsetposcallback(FMOD_SOUND * sound, int subsound, unsigned int position)
+FMOD_RESULT F_CALLBACK NE::Audio::pcmsetposcallback(FMOD_SOUND * sound, int subsound, unsigned int position)
 {
 	return FMOD_OK;
 }

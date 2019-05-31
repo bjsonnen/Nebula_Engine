@@ -52,9 +52,6 @@
     <ClCompile Include="GameObject.cpp">
       <Filter>Sourcefiles</Filter>
     </ClCompile>
-    <ClCompile Include="ParticleEffect.cpp">
-      <Filter>Sourcefiles</Filter>
-    </ClCompile>
     <ClCompile Include="..\External Libraries\imgui-1.65\imgui.cpp">
       <Filter>ImgUi</Filter>
     </ClCompile>
@@ -85,7 +82,9 @@
     <ClCompile Include="RootManager.cpp">
       <Filter>Sourcefiles</Filter>
     </ClCompile>
-    <ClCompile Include="GameObjectList.cpp" />
+    <ClCompile Include="GameObjectList.cpp">
+      <Filter>Sourcefiles</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Audio.h">
@@ -142,9 +141,6 @@
     <ClInclude Include="GameObject.h">
       <Filter>Headerfiles</Filter>
     </ClInclude>
-    <ClInclude Include="ParticleEffect.h">
-      <Filter>Headerfiles</Filter>
-    </ClInclude>
     <ClInclude Include="..\External Libraries\imgui-1.65\imconfig.h">
       <Filter>ImgUi</Filter>
     </ClInclude>
@@ -184,7 +180,9 @@
     <ClInclude Include="ECManager.h">
       <Filter>Headerfiles\Components</Filter>
     </ClInclude>
-    <ClInclude Include="GameObjectList.h" />
+    <ClInclude Include="GameObjectList.h">
+      <Filter>Headerfiles</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Headerfiles">

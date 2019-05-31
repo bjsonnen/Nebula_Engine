@@ -1,7 +1,7 @@
 #include "RootManager.h"
 
-void RootManager::EngineInitialization(Window& window, Camera& cam, Material& mat1, Material& mat2, DirectionalLight& light,
-	Skybox& skybox, std::vector<Shader>& shaderList, GameObjectList* queue)
+void NE::RootManager::EngineInitialization(NE::Window& window, NE::Camera& cam, NE::Material& mat1, NE::Material& mat2, NE::DirectionalLight& light,
+	NE::Skybox& skybox, std::vector<NE::Shader>& shaderList, NE::GameObjectList* queue)
 {
 	CompileShaders();
 
@@ -9,13 +9,13 @@ void RootManager::EngineInitialization(Window& window, Camera& cam, Material& ma
 
 	renderWindow = &window;
 
-	camera = Camera(glm::vec3(0.0f, 0.0f, 0.0f), glm::vec3(0.0f, 1.0f, 0.0f), -60.0f, 0.0f, 5.0f, 0.5f);
+	camera = NE::Camera(glm::vec3(0.0f, 0.0f, 0.0f), glm::vec3(0.0f, 1.0f, 0.0f), -60.0f, 0.0f, 5.0f, 0.5f);
 
-	mat1 = Material(1.0f, 4);
+	mat1 = NE::Material(1.0f, 4);
 	defaultMaterial = mat1;
-	mat2 = Material(0.3f, 4);
+	mat2 = NE::Material(0.3f, 4);
 
-	light = DirectionalLight(2048, 2048,
+	light = NE::DirectionalLight(2048, 2048,
 		1.0f, 0.9568627f, 0.8392157f,
 		0.026f, 0.9f,
 		-10.0f, -12.0f, 18.5f);
@@ -29,11 +29,11 @@ void RootManager::EngineInitialization(Window& window, Camera& cam, Material& ma
 	skyboxFaces.push_back("Textures/Skybox/lagoon_dn.tga");
 	skyboxFaces.push_back("Textures/Skybox/lagoon_bk.tga");
 	skyboxFaces.push_back("Textures/Skybox/lagoon_ft.tga");
-	skybox = Skybox(skyboxFaces);
+	skybox = NE::Skybox(skyboxFaces);
 	this->skybox = skybox;
 }
 
-void RootManager::EngineUpdate(Camera& cam, DirectionalLight* mainLight)
+void NE::RootManager::EngineUpdate(NE::Camera& cam, NE::DirectionalLight* mainLight)
 {
 	DirectionalShadowMapPass(mainLight);
 	
@@ -51,7 +51,7 @@ void RootManager::EngineUpdate(Camera& cam, DirectionalLight* mainLight)
 	RenderScene();
 }
 
-void RootManager::EngineLoading()
+void NE::RootManager::EngineLoading()
 {
 	for (int i = 0; i < this->textureList->size(); i++)
 	{
@@ -60,14 +60,15 @@ void RootManager::EngineLoading()
 
 	for (int i = 0; i < queue->GetSize(); i++)
 	{
-		NE_ERROR_CHECK(queue->FindAtIndex(i)->LoadModel());
+		if (queue->FindAtIndex(i) != nullptr);
+			NE_ERROR_CHECK(queue->FindAtIndex(i)->LoadModel());
 	}
 
 	this->loading = false;
 }
 
-void RootManager::EngineVariablesUpdate(std::vector<Texture*>* textureList,
-	glm::mat4 projection, PointLight* points, SpotLight* spots, unsigned int pointsCount,
+void NE::RootManager::EngineVariablesUpdate(std::vector<NE::Texture*>* textureList,
+	glm::mat4 projection, NE::PointLight* points, NE::SpotLight* spots, unsigned int pointsCount,
 	unsigned int spotsCount)
 {
 	this->textureList = textureList;
@@ -78,11 +79,11 @@ void RootManager::EngineVariablesUpdate(std::vector<Texture*>* textureList,
 	this->spots = spots;
 }
 
-bool RootManager::MainLoop(bool windowShouldClose, Window& window, void* Start, void* Update)
+bool NE::RootManager::MainLoop(bool windowShouldClose, NE::Window& window, void* Start, void* Update)
 {
 	if (firstStart)
 	{
-		debugWindow = Ui(renderWindow);
+		debugWindow = NE::Ui(renderWindow);
 		// Manager for the entity-component-system
 		manager = new Manager();
 
@@ -148,12 +149,12 @@ bool RootManager::MainLoop(bool windowShouldClose, Window& window, void* Start, 
 	return false;
 }
 
-void RootManager::CompileCustomShaders(void * custom)
+void NE::RootManager::CompileCustomShaders(void * custom)
 {
 	((void(*)(void))custom)();
 }
 
-void RootManager::ShutDown()
+void NE::RootManager::ShutDown()
 {
 	ImGui_ImplOpenGL3_Shutdown();
 	ImGui_ImplGlfw_Shutdown();
@@ -161,7 +162,7 @@ void RootManager::ShutDown()
 	glfwTerminate();
 }
 
-void RootManager::RenderScene()
+void NE::RootManager::RenderScene()
 {
 	glm::mat4 model;
 	glDisable(GL_BLEND);
@@ -174,7 +175,7 @@ void RootManager::RenderScene()
 			continue;
 		}
 		model = glm::translate(model, queue->FindAtIndex(i)->GetPosition());
-		model = glm::rotate(model, Math::ToRadians(queue->FindAtIndex(i)->GetDegrees()), queue->FindAtIndex(i)->GetRotation());
+		model = glm::rotate(model, NE::Math::ToRadians(queue->FindAtIndex(i)->GetDegrees()), queue->FindAtIndex(i)->GetRotation());
 		model = glm::scale(model, queue->FindAtIndex(i)->GetScale());
 		shaderList[0].SetBool("renderNormalMaps", queue->FindAtIndex(i)->GetRenderNormalMaps());
 		shaderList[0].SetMatrix("model", model);
@@ -189,11 +190,11 @@ void RootManager::RenderScene()
 	glEnable(GL_BLEND);
 	glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
 
-	for (std::map<float, GameObject*>::reverse_iterator i = blendedObjects.rbegin(); i != blendedObjects.rend(); ++i)
+	for (std::map<float, NE::GameObject*>::reverse_iterator i = blendedObjects.rbegin(); i != blendedObjects.rend(); ++i)
 	{
 		model = glm::mat4();
 		model = glm::translate(model, i->second->GetPosition());
-		model = glm::rotate(model, Math::ToRadians(i->second->GetDegrees()), i->second->GetRotation());
+		model = glm::rotate(model, NE::Math::ToRadians(i->second->GetDegrees()), i->second->GetRotation());
 		model = glm::scale(model, i->second->GetScale());
 		shaderList[0].SetBool("renderNormalMaps", i->second->GetRenderNormalMaps());
 		shaderList[0].SetMatrix("model", model);
@@ -210,9 +211,9 @@ void RootManager::RenderScene()
 	uniformModel = 0;
 }
 
-void RootManager::CompileShaders()
+void NE::RootManager::CompileShaders()
 {
-	Shader* shader1 = new Shader();
+	NE::Shader* shader1 = new NE::Shader();
 	NE_ERROR_CHECK(shader1->CreateFromFiles("Shaders/shader.vert", "Shaders/shader.frag"));
 	shaderList.push_back(*shader1);
 	
@@ -221,7 +222,7 @@ void RootManager::CompileShaders()
 	NE_ERROR_CHECK(omniShadowShader.CreateFromFiles("Shaders/omni_shadow_map.vert", "Shaders/omni_shadow_map.geom", "Shaders/omni_shadow_map.frag"));
 }
 
-void RootManager::OmniShadowMapPass(PointLight * light)
+void NE::RootManager::OmniShadowMapPass(NE::PointLight * light)
 {
 	omniShadowShader.UseShader();
 
@@ -244,7 +245,7 @@ void RootManager::OmniShadowMapPass(PointLight * light)
 	glBindFramebuffer(GL_FRAMEBUFFER, 0);
 }
 
-void RootManager::DirectionalShadowMapPass(DirectionalLight * light)
+void NE::RootManager::DirectionalShadowMapPass(NE::DirectionalLight * light)
 {
 	directionalShadowShader.UseShader();
 
@@ -264,8 +265,8 @@ void RootManager::DirectionalShadowMapPass(DirectionalLight * light)
 	glBindFramebuffer(GL_FRAMEBUFFER, 0);
 }
 
-void RootManager::RenderPass(glm::mat4 viewMatrix, glm::mat4 projectionMatrix, PointLight* pointLights, 
-	SpotLight* spotLights, int pointlightCount, int spotlightCount)
+void NE::RootManager::RenderPass(glm::mat4 viewMatrix, glm::mat4 projectionMatrix, NE::PointLight* pointLights,
+	NE::SpotLight* spotLights, int pointlightCount, int spotlightCount)
 {
 	glViewport(0, 0, renderWindow->GetWindowWidth(), renderWindow->GetWindowHeight());
 
@@ -296,7 +297,7 @@ void RootManager::RenderPass(glm::mat4 viewMatrix, glm::mat4 projectionMatrix, P
 	NE_ERROR_CHECK(shaderList[0].Validate());
 }
 
-void RootManager::CheckForBlendedObjects()
+void NE::RootManager::CheckForBlendedObjects()
 {
 	glm::vec3 camPos = camera.GetCameraPosition();
 

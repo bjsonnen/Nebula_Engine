@@ -1,8 +1,8 @@
 #include "OmniShadowMap.h"
 
-OmniShadowMap::OmniShadowMap() : ShadowMap() {}
+NE::OmniShadowMap::OmniShadowMap() : ShadowMap() {}
 
-NE_ERROR OmniShadowMap::Init(unsigned int width, unsigned int height)
+NE_ERROR NE::OmniShadowMap::Init(unsigned int width, unsigned int height)
 {
 	shadowWidth = width; shadowHeight = height;
 
@@ -39,17 +39,17 @@ NE_ERROR OmniShadowMap::Init(unsigned int width, unsigned int height)
 	return NE_OK;
 }
 
-void OmniShadowMap::Write()
+void NE::OmniShadowMap::Write()
 {
 	glBindFramebuffer(GL_DRAW_FRAMEBUFFER, FBO);
 }
 
-void OmniShadowMap::Read(unsigned int texUnit)
+void NE::OmniShadowMap::Read(unsigned int texUnit)
 {
 	glActiveTexture(texUnit);
 	glBindTexture(GL_TEXTURE_CUBE_MAP, shadowMap);
 }
 
-OmniShadowMap::~OmniShadowMap()
+NE::OmniShadowMap::~OmniShadowMap()
 {
 }

@@ -2,134 +2,134 @@
 
 #include "Util.h"
 
-GameObject::GameObject()
+NE::GameObject::GameObject()
 {
 	location = "";
 	objectName = "GameObject";
 }
 
-GameObject::GameObject(char* filelocation)
+NE::GameObject::GameObject(char* filelocation)
 {
 	location = filelocation;
 	objectName = "GameObject";
 }
 
-glm::vec3 GameObject::GetPosition()
+glm::vec3 NE::GameObject::GetPosition()
 {
 	return pos;
 }
 
-Vector3 GameObject::GetPositionVector3()
+Vector3 NE::GameObject::GetPositionVector3()
 {
 	return Vector3(pos.x, pos.y, pos.z);
 }
 
-glm::vec3 GameObject::GetRotation()
+glm::vec3 NE::GameObject::GetRotation()
 {
 	return rota;
 }
 
-Vector3 GameObject::GetRotationVector3()
+Vector3 NE::GameObject::GetRotationVector3()
 {
 	return glm::vec3(rota.x, rota.y, rota.y);
 }
 
-glm::vec3 GameObject::GetScale()
+glm::vec3 NE::GameObject::GetScale()
 {
 	return scale;
 }
 
-Vector3 GameObject::GetScaleVector3()
+Vector3 NE::GameObject::GetScaleVector3()
 {
 	return glm::vec3(scale.x, scale.y, scale.z);
 }
 
-int GameObject::GetVerticesCount()
+int NE::GameObject::GetVerticesCount()
 {
 	return verticesCount;
 }
 
-int GameObject::GetIndicesCount()
+int NE::GameObject::GetIndicesCount()
 {
 	return indicesCount;
 }
 
-void GameObject::SetPosition(float x, float y, float z)
+void NE::GameObject::SetPosition(float x, float y, float z)
 {
 	pos = glm::vec3(x, y, z);
 }
 
-void GameObject::SetPosition(glm::vec3 position)
+void NE::GameObject::SetPosition(glm::vec3 position)
 {
 	pos = position;
 }
 
-void GameObject::SetPosition(Vector3 position)
+void NE::GameObject::SetPosition(Vector3 position)
 {
 	pos = position.ToGlm();
 }
 
-void GameObject::SetRotation(float x, float y, float z)
+void NE::GameObject::SetRotation(float x, float y, float z)
 {
 	rota = glm::vec3(x, y, z);
 }
 
-void GameObject::SetRotation(glm::vec3 rotation)
+void NE::GameObject::SetRotation(glm::vec3 rotation)
 {
 	rota = rotation;
 }
 
-void GameObject::SetRotation(Vector3 rotation)
+void NE::GameObject::SetRotation(Vector3 rotation)
 {
 	rota = rotation.ToGlm();
 }
 
-void GameObject::SetDegrees(float value)
+void NE::GameObject::SetDegrees(float value)
 {
 	rotaDegrees = value;
 }
 
-void GameObject::SetScale(float x, float y, float z)
+void NE::GameObject::SetScale(float x, float y, float z)
 {
 	scale = glm::vec3(x, y, z);
 }
 
-void GameObject::SetScale(glm::vec3 scale)
+void NE::GameObject::SetScale(glm::vec3 scale)
 {
 	this->scale = scale;
 }
 
-void GameObject::SetScale(Vector3 scale)
+void NE::GameObject::SetScale(Vector3 scale)
 {
 	this->scale = scale.ToGlm();
 }
 
-bool GameObject::GetRenderNormalMaps()
+bool NE::GameObject::GetRenderNormalMaps()
 {
 	return useBitangent;
 }
 
-void GameObject::SetNormalMap(char * location)
+void NE::GameObject::SetNormalMap(char * location)
 {
 	normal.SetFileLocation(location);
 }
 
-float GameObject::GetDegrees()
+float NE::GameObject::GetDegrees()
 {
 	return rotaDegrees;
 }
 
-void GameObject::ChangeMainColor(glm::vec3 color)
+void NE::GameObject::ChangeMainColor(glm::vec3 color)
 {
 	mainColor = color;
 }
 
-void GameObject::ChangeMainColor(Vector3 color)
+void NE::GameObject::ChangeMainColor(Vector3 color)
 {
 	mainColor = color.ToGlm();
 }
 
-void GameObject::ChangeMainColor(ObjectColor color)
+void NE::GameObject::ChangeMainColor(ObjectColor color)
 {
 	switch (color)
 	{
@@ -163,67 +163,67 @@ void GameObject::ChangeMainColor(ObjectColor color)
 	}
 }
 
-glm::vec3 GameObject::GetMainColor()
+glm::vec3 NE::GameObject::GetMainColor()
 {
 	return mainColor;
 }
 
-Vector3 GameObject::GetMainColorVector3()
+Vector3 NE::GameObject::GetMainColorVector3()
 {
 	return Vector3(mainColor.x, mainColor.y, mainColor.z);
 }
 
-void GameObject::LookAt(glm::vec3 pos)
+void NE::GameObject::LookAt(glm::vec3 pos)
 {
 	glm::vec3 dir = this->pos - pos;
 	rota = dir;
 }
 
-void GameObject::LookAt(Vector3 pos)
+void NE::GameObject::LookAt(Vector3 pos)
 {
 	glm::vec3 dir = this->pos - pos.ToGlm();
 	rota = dir;
 }
 
-void GameObject::LookAt(glm::vec2 pos)
+void NE::GameObject::LookAt(glm::vec2 pos)
 {
 	glm::vec3 dir = this->pos - glm::vec3(pos.x, pos.y, 0.0f);
 	rota = dir;
 }
 
-void GameObject::LookAt(Vector2 pos)
+void NE::GameObject::LookAt(Vector2 pos)
 {
 	glm::vec3 dir = this->pos - glm::vec3(pos.x, pos.y, 0.0f);
 	rota = dir;
 }
 
-void GameObject::LookAt(float x, float y, float z)
+void NE::GameObject::LookAt(float x, float y, float z)
 {
 	glm::vec3 dir = this->pos - glm::vec3(x, y, z);
 	rota = dir;
 }
 
-void GameObject::SetActive(bool value)
+void NE::GameObject::SetActive(bool value)
 {
 	activeModel = value;
 }
 
-bool GameObject::IsActive()
+bool NE::GameObject::IsActive()
 {
 	return activeModel;
 }
 
-void GameObject::Rotate(glm::vec3 rotation)
+void NE::GameObject::Rotate(glm::vec3 rotation)
 {
 	rota += rotation;
 }
 
-void GameObject::Rotate(Vector3 rotation)
+void NE::GameObject::Rotate(Vector3 rotation)
 {
 	rota += rotation.ToGlm();
 }
 
-void GameObject::ReloadDefaultTexture()
+void NE::GameObject::ReloadDefaultTexture()
 {
 	for (int i = 0; i < textureList.size(); i++)
 	{
@@ -233,7 +233,7 @@ void GameObject::ReloadDefaultTexture()
 	normal.LoadTexture();
 }
 
-void GameObject::SetNormalMap(std::string normal)
+void NE::GameObject::SetNormalMap(std::string normal)
 {
 	//Texture test = Texture(normal.c_str());
 	//if (meshToTex.size() == 0)
@@ -243,57 +243,57 @@ void GameObject::SetNormalMap(std::string normal)
 	//textureList.push_back(&test);
 }
 
-bool GameObject::GetUseBlending()
+bool NE::GameObject::GetUseBlending()
 {
 	return useBlending;
 }
 
-void GameObject::UseBlending(bool value)
+void NE::GameObject::UseBlending(bool value)
 {
 	useBlending = value;
 }
 
-void GameObject::UseParallaxMapping(bool value)
+void NE::GameObject::UseParallaxMapping(bool value)
 {
 	useParallaxMap = value;
 }
 
-float * GameObject::GetVertices()
+float * NE::GameObject::GetVertices()
 {
 	return nullptr;
 }
 
-unsigned int * GameObject::GetIndices()
+unsigned int * NE::GameObject::GetIndices()
 {
 	return nullptr;
 }
 
-void GameObject::SetDefaultTexture(std::string path)
+void NE::GameObject::SetDefaultTexture(std::string path)
 {
 	defaultPath = path;
 }
 
-std::string GameObject::GetDefaultTexture()
+std::string NE::GameObject::GetDefaultTexture()
 {
 	return defaultPath;
 }
 
-void GameObject::UseNormalMaps(bool value)
+void NE::GameObject::UseNormalMaps(bool value)
 {
 	useNormalMap = value;
 }
 
-bool GameObject::GetUseNormalMaps()
+bool NE::GameObject::GetUseNormalMaps()
 {
 	return useNormalMap;
 }
 
-bool GameObject::GetParallaxMap()
+bool NE::GameObject::GetParallaxMap()
 {
 	return useParallaxMap;
 }
 
-void GameObject::RenderModel()
+void NE::GameObject::RenderModel()
 {
 	if (activeModel)
 	{
@@ -311,32 +311,32 @@ void GameObject::RenderModel()
 	}
 }
 
-char* GameObject::GetFileName()
+char* NE::GameObject::GetFileName()
 {
 	return location;
 }
 
-void GameObject::SetFileLocation(char* fileLocation)
+void NE::GameObject::SetFileLocation(char* fileLocation)
 {
 	location = fileLocation;
 }
 
-void GameObject::SetFileLocation(std::string fileLocation)
+void NE::GameObject::SetFileLocation(std::string fileLocation)
 {
 	location = (char*)fileLocation.c_str();
 }
 
-std::string GameObject::GetObjectName()
+std::string NE::GameObject::GetObjectName()
 {
 	return objectName;
 }
 
-void GameObject::SetObjectName(std::string name)
+void NE::GameObject::SetObjectName(std::string name)
 {
 	objectName = name;
 }
 
-NE_ERROR GameObject::LoadModel()
+NE_ERROR NE::GameObject::LoadModel()
 {
 	Assimp::Importer importer;
 	const aiScene *scene = importer.ReadFile(location, aiProcess_Triangulate | aiProcess_FlipUVs | aiProcess_GenSmoothNormals | aiProcess_JoinIdenticalVertices | aiProcess_CalcTangentSpace);
@@ -347,7 +347,7 @@ NE_ERROR GameObject::LoadModel()
 		return NE_FALSE;
 	}
 
-	normal = Texture("Textures/normal.jpg");
+	normal = NE::Texture("Textures/normal.jpg");
 
 	LoadNode(scene->mRootNode, scene);
 
@@ -356,7 +356,7 @@ NE_ERROR GameObject::LoadModel()
 	return NE_OK;
 }
 
-NE_ERROR GameObject::LoadModel(const std::string & fileName)
+NE_ERROR NE::GameObject::LoadModel(const std::string & fileName)
 {
 	Assimp::Importer importer;
 	const aiScene *scene = importer.ReadFile(fileName, aiProcess_Triangulate | aiProcess_FlipUVs | aiProcess_GenSmoothNormals | aiProcess_JoinIdenticalVertices | aiProcess_CalcTangentSpace);
@@ -374,7 +374,7 @@ NE_ERROR GameObject::LoadModel(const std::string & fileName)
 	return NE_OK;
 }
 
-void GameObject::UsePrimitive(ObjectPrimitive primitive)
+void NE::GameObject::UsePrimitive(ObjectPrimitive primitive)
 {
 	switch (primitive)
 	{
@@ -393,7 +393,7 @@ void GameObject::UsePrimitive(ObjectPrimitive primitive)
 	}
 }
 
-void GameObject::LoadNode(aiNode * node, const aiScene * scene)
+void NE::GameObject::LoadNode(aiNode * node, const aiScene * scene)
 {
 	for (size_t i = 0; i < node->mNumMeshes; i++)
 	{
@@ -406,7 +406,7 @@ void GameObject::LoadNode(aiNode * node, const aiScene * scene)
 	}
 }
 
-void GameObject::LoadMesh(aiMesh * mesh, const aiScene * scene)
+void NE::GameObject::LoadMesh(aiMesh * mesh, const aiScene * scene)
 {
 	// Primitive
 	if (strlen(location) == 0)
@@ -458,13 +458,13 @@ void GameObject::LoadMesh(aiMesh * mesh, const aiScene * scene)
 	verticesCount += vertices.size();
 	indicesCount += indices.size();
 
-	Mesh* newMesh = new Mesh();
+	NE::Mesh* newMesh = new NE::Mesh();
 	newMesh->CreateMesh(&vertices[0], &indices[0], vertices.size(), indices.size());
 	meshList.push_back(newMesh);
 	meshToTex.push_back(mesh->mMaterialIndex);
 }
 
-void GameObject::LoadMaterials(const aiScene * scene)
+void NE::GameObject::LoadMaterials(const aiScene * scene)
 {
 	textureList.resize(scene->mNumMaterials);
 	
@@ -484,7 +484,7 @@ void GameObject::LoadMaterials(const aiScene * scene)
 
 				std::string texPath = std::string("Textures/") + filename;
 
-				textureList[i] = new Texture(texPath.c_str());
+				textureList[i] = new NE::Texture(texPath.c_str());
 
 				if (!textureList[i]->LoadTexture())
 				{
@@ -523,24 +523,24 @@ void GameObject::LoadMaterials(const aiScene * scene)
 		// if texture is not available, use default
 		if (!textureList[i])
 		{
-			textureList[i] = new Texture(defaultPath.c_str());
+			textureList[i] = new NE::Texture(defaultPath.c_str());
 			textureList[i]->LoadTexture();
 			normal.LoadTexture();
 		}
 	}
 }
 
-void GameObject::PrimitiveCube()
+void NE::GameObject::PrimitiveCube()
 {
 }
 
-void GameObject::PrimitiveSphere()
+void NE::GameObject::PrimitiveSphere()
 {
 }
 
-void GameObject::PrimitivePlane()
+void NE::GameObject::PrimitivePlane()
 {
-	Util util;
+	NE::Util util;
 
 	float vertices[] =
 	{
@@ -558,13 +558,13 @@ void GameObject::PrimitivePlane()
 
 	util.CalculateNormals(indices, 6, vertices, 32, 8, 5);
 
-	Mesh* mesh = new Mesh();
+	NE::Mesh* mesh = new NE::Mesh();
 	mesh->CreateMesh(vertices, indices, 32, 6);
 	meshList.push_back(mesh);
 	delete mesh;
 }
 
-void GameObject::ClearModel()
+void NE::GameObject::ClearModel()
 {
 	for (size_t i = 0; i < meshList.size(); i++)
 	{
@@ -585,6 +585,6 @@ void GameObject::ClearModel()
 	}
 }
 
-GameObject::~GameObject()
+NE::GameObject::~GameObject()
 {
 }

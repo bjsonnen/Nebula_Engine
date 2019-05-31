@@ -1,6 +1,6 @@
 #include "Light.h"
 
-Light::Light()
+NE::Light::Light()
 {
 	color = glm::vec3(1.0f, 1.0f, 1.0f);
 	ambientIntensity = 1.0f;
@@ -9,7 +9,7 @@ Light::Light()
 	shadowMap = new ShadowMap();
 }
 
-Light::Light(unsigned int shadowWidth, unsigned int shadowHeight, float red, float green, float blue, float aIntensity, float dIntensity)
+NE::Light::Light(unsigned int shadowWidth, unsigned int shadowHeight, float red, float green, float blue, float aIntensity, float dIntensity)
 {
 	color = glm::vec3(red, green, blue);
 	ambientIntensity = aIntensity;
@@ -19,16 +19,16 @@ Light::Light(unsigned int shadowWidth, unsigned int shadowHeight, float red, flo
 	shadowMap->Init(shadowWidth, shadowHeight);
 }
 
-void Light::SetColor(glm::vec3 color)
+void NE::Light::SetColor(glm::vec3 color)
 {
 	this->color = color;
 }
 
-void Light::SetColor(Vector3 color)
+void NE::Light::SetColor(Vector3 color)
 {
 	this->color = color.ToGlm();
 }
 
-Light::~Light()
+NE::Light::~Light()
 {
 }

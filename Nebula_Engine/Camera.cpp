@@ -1,11 +1,11 @@
 #include "Camera.h"
 
-Camera::Camera() 
+NE::Camera::Camera()
 {
 
 }
 
-Camera::Camera(glm::vec3 startPosition, glm::vec3 startUp, float startYaw, float startPitch, float startMoveSpeed, float startRotationSpeed)
+NE::Camera::Camera(glm::vec3 startPosition, glm::vec3 startUp, float startYaw, float startPitch, float startMoveSpeed, float startRotationSpeed)
 {
 	position = startPosition;
 	worldUp = startUp;
@@ -22,7 +22,7 @@ Camera::Camera(glm::vec3 startPosition, glm::vec3 startUp, float startYaw, float
 	Update();
 }
 
-Camera::Camera(Vector3 startPosition, Vector3 startUp, float startYaw, float startPitch, float startMoveSpeed, float startTurnSpeed)
+NE::Camera::Camera(Vector3 startPosition, Vector3 startUp, float startYaw, float startPitch, float startMoveSpeed, float startTurnSpeed)
 {
 	position = glm::vec3(startPosition.x, startPosition.y, startPosition.z);
 	worldUp = glm::vec3(startUp.x, startUp.y, startUp.z);
@@ -39,7 +39,7 @@ Camera::Camera(Vector3 startPosition, Vector3 startUp, float startYaw, float sta
 	Update();
 }
 
-void Camera::KeyControl(GLFWwindow * window, float deltaTime)
+void NE::Camera::KeyControl(GLFWwindow * window, float deltaTime)
 {
 	if (!(standardCamera) || disableKeyMovement)
 		return;
@@ -70,7 +70,7 @@ void Camera::KeyControl(GLFWwindow * window, float deltaTime)
 		position += right * velocity;
 }
 
-void Camera::MouseControl(float xChange, float yChange)
+void NE::Camera::MouseControl(float xChange, float yChange)
 {
 	if (!(standardCamera) || disabledMouseMovement)
 		return;
@@ -94,110 +94,110 @@ void Camera::MouseControl(float xChange, float yChange)
 	Update();
 }
 
-void Camera::SetVelocity(float value)
+void NE::Camera::SetVelocity(float value)
 {
 	moveSpeed = value;
 }
 
-void Camera::SetTurnSpeed(float value)
+void NE::Camera::SetTurnSpeed(float value)
 {
 	turnSpeed = value;
 }
 
-void Camera::SetPosition(glm::vec3 pos)
+void NE::Camera::SetPosition(glm::vec3 pos)
 {
 	position = pos;
 }
 
-void Camera::SetPosition(Vector3 pos)
+void NE::Camera::SetPosition(Vector3 pos)
 {
 	position = glm::vec3(pos.x, pos.y, pos.z);
 }
 
-void Camera::SetTarget(glm::vec3 object)
+void NE::Camera::SetTarget(glm::vec3 object)
 {
 	dir = object;
 }
 
-void Camera::SetTarget(Vector3 pos)
+void NE::Camera::SetTarget(Vector3 pos)
 {
 	dir = glm::vec3(pos.x, pos.y, pos.z);
 }
 
-void Camera::SetStandardCamera(bool value)
+void NE::Camera::SetStandardCamera(bool value)
 {
 	standardCamera = value;
 }
 
-void Camera::SetNear(float value)
+void NE::Camera::SetNear(float value)
 {
 	near = value;
 }
 
-void Camera::SetFar(float value)
+void NE::Camera::SetFar(float value)
 {
 	far = value;
 }
 
-float Camera::GetNear()
+float NE::Camera::GetNear()
 {
 	return near;
 }
 
-float Camera::GetFar()
+float NE::Camera::GetFar()
 {
 	return far;
 }
 
-void Camera::DisableMouseMovement(bool value)
+void NE::Camera::DisableMouseMovement(bool value)
 {
 	disabledMouseMovement = value;
 }
 
-bool Camera::GetDisableMouseMovement()
+bool NE::Camera::GetDisableMouseMovement()
 {
 	return disabledMouseMovement;
 }
 
-void Camera::DisableKeyMovement(bool value)
+void NE::Camera::DisableKeyMovement(bool value)
 {
 	disableKeyMovement = value;
 }
 
-bool Camera::GetDisableKeyMovement()
+bool NE::Camera::GetDisableKeyMovement()
 {
 	return disableKeyMovement;
 }
 
-float Camera::GetVelocity()
+float NE::Camera::GetVelocity()
 {
 	return moveSpeed;
 }
 
-float Camera::GetTurnSpeed()
+float NE::Camera::GetTurnSpeed()
 {
 	return turnSpeed;
 }
 
-glm::mat4 Camera::CalculateViewMatrix()
+glm::mat4 NE::Camera::CalculateViewMatrix()
 {
 	return glm::lookAt(position, position + front, up);
 }
 
-glm::vec3 Camera::GetCameraPosition()
+glm::vec3 NE::Camera::GetCameraPosition()
 {
 	return position;
 }
-Vector3 Camera::GetCameraPositionVector3()
+Vector3 NE::Camera::GetCameraPositionVector3()
 {
 	return position;
 }
-glm::vec3 Camera::GetCameraDirection()
+glm::vec3 NE::Camera::GetCameraDirection()
 {
 	return glm::normalize(front);
 }
 
-void Camera::Update()
+void NE::Camera::Update()
 {
 	front.x = cos(glm::radians(yaw)) * cos(glm::radians(pitch));
 	front.y = sin(glm::radians(pitch));
@@ -217,6 +217,6 @@ void Camera::Update()
 }
 
 
-Camera::~Camera()
+NE::Camera::~Camera()
 {
 }

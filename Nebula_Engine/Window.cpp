@@ -2,24 +2,24 @@
 
 #include <stdexcept>
 
-Window::Window()
+NE::Window::Window()
 {
 	width = 800;
 	height = 600;
 }
 
-Window::Window(int windowWidth, int windowHeight)
+NE::Window::Window(int windowWidth, int windowHeight)
 {
 	width = windowWidth;
 	height = windowHeight;
 }
 
-void Window::framebuffer_size_callback(GLFWwindow * window, int width, int height)
+void NE::Window::framebuffer_size_callback(GLFWwindow * window, int width, int height)
 {
 	glViewport(0, 0, width, height);
 }
 
-NE_ERROR Window::Initialise()
+NE_ERROR NE::Window::Initialise()
 {
 	if (!glfwInit())
 	{
@@ -88,22 +88,22 @@ NE_ERROR Window::Initialise()
 	return NE_OK;
 }
 
-int Window::GetWindowWidth()
+int NE::Window::GetWindowWidth()
 {
 	return width;
 }
 
-int Window::GetWindowHeight()
+int NE::Window::GetWindowHeight()
 {
 	return height;
 }
 
-int Window::GetFPS()
+int NE::Window::GetFPS()
 {
 	return fps;
 }
 
-float Window::GetDeltaTime()
+float NE::Window::GetDeltaTime()
 {
 	if (deltaTime < 0.0f)
 		return deltaTime * -1.0f;
@@ -111,12 +111,12 @@ float Window::GetDeltaTime()
 		return deltaTime;
 }
 
-bool Window::GetShouldClose()
+bool NE::Window::GetShouldClose()
 {
 	return glfwWindowShouldClose(mainWindow);
 }
 
-void Window::SetWireframe(bool value)
+void NE::Window::SetWireframe(bool value)
 {
 	if(value)
 		glPolygonMode(GL_FRONT_AND_BACK, GL_LINE);
@@ -126,22 +126,22 @@ void Window::SetWireframe(bool value)
 	wireframe = value;
 }
 
-bool Window::GetWireframe()
+bool NE::Window::GetWireframe()
 {
 	return wireframe;
 }
 
-float Window::GetTime()
+float NE::Window::GetTime()
 {
 	return glfwGetTime();
 }
 
-void Window::createCallbacks()
+void NE::Window::createCallbacks()
 {
 	glfwSetCursorPosCallback(mainWindow, HandleMouse);
 }
 
-void Window::ShowMouse(bool value)
+void NE::Window::ShowMouse(bool value)
 {
 	if(value)
 		glfwSetInputMode(mainWindow, GLFW_CURSOR, GLFW_CURSOR_NORMAL);
@@ -149,7 +149,7 @@ void Window::ShowMouse(bool value)
 		glfwSetInputMode(mainWindow, GLFW_CURSOR, GLFW_CURSOR_HIDDEN);
 }
 
-void Window::SwitchMouse()
+void NE::Window::SwitchMouse()
 {
 	if (showMouse)
 		showMouse = false;
@@ -157,33 +157,33 @@ void Window::SwitchMouse()
 		showMouse = true;
 }
 
-void Window::SetRefreshRate(int value)
+void NE::Window::SetRefreshRate(int value)
 {
 	glfwWindowHint(GLFW_REFRESH_RATE, value);
 }
 
-int Window::GetRefreshRate()
+int NE::Window::GetRefreshRate()
 {
 	return refreshRate;
 }
 
-bool Window::GetShowMouse()
+bool NE::Window::GetShowMouse()
 {
 	return showMouse;
 }
 
-void Window::SetPerspectiveMode(int x)
+void NE::Window::SetPerspectiveMode(int x)
 {
 	if (x == 0 || x == 1)
 		perspectiveMode = x;
 }
 
-int Window::GetPerspectiveMode()
+int NE::Window::GetPerspectiveMode()
 {
 	return perspectiveMode;
 }
 
-glm::mat4 Window::CalculateProjectionMatrix(float fovy, float aspect, float zNear, float zFar)
+glm::mat4 NE::Window::CalculateProjectionMatrix(float fovy, float aspect, float zNear, float zFar)
 {
 	if (perspectiveMode == 0)
 	{
@@ -199,12 +199,12 @@ glm::mat4 Window::CalculateProjectionMatrix(float fovy, float aspect, float zNea
 		return glm::perspective(fovy, aspect, zNear, zFar);
 }
 
-void Window::CloseWindow()
+void NE::Window::CloseWindow()
 {
 	glfwSetWindowShouldClose(mainWindow, 1);
 }
 
-void Window::SetIcon(std::string file)
+void NE::Window::SetIcon(std::string file)
 {
 	int iconHeight, iconWidth;
 	unsigned char *texData = stbi_load(file.c_str(), &iconWidth, &iconHeight, NULL, 0);
@@ -221,28 +221,28 @@ void Window::SetIcon(std::string file)
 	delete texData;
 }
 
-void Window::SetMsaa(bool value, int filters)
+void NE::Window::SetMsaa(bool value, int filters)
 {
 	msaa = value;
 	msaaFilters = filters;
 }
 
-bool Window::GetMsaa()
+bool NE::Window::GetMsaa()
 {
 	return msaa;
 }
 
-void Window::SetTitle(std::string title)
+void NE::Window::SetTitle(std::string title)
 {
 	glfwSetWindowTitle(mainWindow, title.c_str());
 }
 
-void Window::SetVSync(bool value)
+void NE::Window::SetVSync(bool value)
 {
 	vsync = value;
 }
 
-void Window::SwitchVSync()
+void NE::Window::SwitchVSync()
 {
 	if (vsync)
 		vsync = false;
@@ -250,26 +250,26 @@ void Window::SwitchVSync()
 		vsync = true;
 }
 
-bool Window::GetVSync()
+bool NE::Window::GetVSync()
 {
 	return vsync;
 }
 
-float Window::GetXChange()
+float NE::Window::GetXChange()
 {
 	float theChange = xChange;
 	xChange = 0.0f;
 	return theChange;
 }
 
-float Window::GetYChange()
+float NE::Window::GetYChange()
 {
 	float theChange = yChange;
 	yChange = 0.0f;
 	return theChange;
 }
 
-bool Window::Key(KeyCode key)
+bool NE::Window::Key(KeyCode key)
 {
 	if (glfwGetKey(mainWindow, key) == GLFW_PRESS)
 		return true;
@@ -277,7 +277,7 @@ bool Window::Key(KeyCode key)
 		return false;
 }
 
-bool Window::Key(KeyCode key, KeyAction action)
+bool NE::Window::Key(KeyCode key, KeyAction action)
 {
 	if (glfwGetKey(mainWindow, key) == action)
 		return true;
@@ -285,7 +285,7 @@ bool Window::Key(KeyCode key, KeyAction action)
 		return false;
 }
 
-void Window::WindowUpdate()
+void NE::Window::WindowUpdate()
 {
 	glfwPollEvents();
 
@@ -316,7 +316,7 @@ void Window::WindowUpdate()
 		glfwSetWindowShouldClose(mainWindow, GL_TRUE);
 }
 
-void Window::HandleMouse(GLFWwindow* window, double xPos, double yPos)
+void NE::Window::HandleMouse(GLFWwindow* window, double xPos, double yPos)
 {
 	Window* glfwwindow = static_cast<Window*>(glfwGetWindowUserPointer(window));
 
@@ -334,12 +334,12 @@ void Window::HandleMouse(GLFWwindow* window, double xPos, double yPos)
 	glfwwindow->lastY = yPos;
 }
 
-void Window::SwapBuffers()
+void NE::Window::SwapBuffers()
 {
 	glfwSwapBuffers(mainWindow);
 }
 
-Window::~Window()
+NE::Window::~Window()
 {
 	glfwDestroyWindow(mainWindow);
 	glfwTerminate();

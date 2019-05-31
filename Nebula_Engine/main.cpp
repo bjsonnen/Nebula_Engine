@@ -1,44 +1,39 @@
 #include "main.h"
 
-// settings
-bool loading = true;
-float tmp = 0.0f;
-bool hdr = true;
-bool hdrKeyPressed = false;
-float exposure = 1.0f;
-
 glm::mat4 projection;
 
-float deltaTime = 0.0f;
-float lastTime = 0.0f;
+NE::GameObject go;
+NE::GameObject go1;
+NE::GameObject go2;
+NE::GameObject go3;
+NE::GameObject blending1;
+NE::GameObject blending2;
+NE::Audio mainAudio = NE::Audio("Audio/ps2.ogg");
 
-int vert = 0;
+float tmp = 0.0f;
+float tmpColor;
 float tmpRotation = 0;
+int vert = 0;
 int multi = 10;
 
-GameObject go1;
-GameObject go2;
-GameObject go3;
-Audio mainAudio = Audio("Audio/ps2.ogg");
-
-float tmpColor;
+bool loading = true;
 
 void Start()
 {
-	go1 = GameObject("Models/cube.obj");
+	go1 = NE::GameObject("Models/cube.obj");
 	go1.SetPosition(0.0f, -5.35f, 0.0f);
 	go1.SetScale(10.0f, 1.0f, 10.0f);
 	go1.UseBlending(false);
 	modelList.push_back(&go1);
 	queue.Add(go1);
 
-	go2 = GameObject("Models/cube.obj");
+	go2 = NE::GameObject("Models/cube.obj");
 	go2.SetPosition(0.0f, -15.0f, 0.0f);
 	go2.SetScale(40.0f, 1.0f, 40.0f);
 	go2.UseNormalMaps(false);
 	queue.Add(go2);
 
-	go = GameObject("Models/penguin.obj");
+	go = NE::GameObject("Models/penguin.obj");
 	go.SetPosition(0.0f, 4.0f, 0.0f);
 	go.SetRotation(1.0f, 0.0f, 0.0f);
 	go.SetScale(0.05f, 0.05f, 0.05f);
@@ -46,27 +41,27 @@ void Start()
 	go.UseNormalMaps(false);
 	queue.Add(go);
 
-	go3 = GameObject("Models/spider.obj");
+	go3 = NE::GameObject("Models/spider.obj");
 	go3.SetPosition(0.0f, -5.0f, 0.0f);
 	go3.SetScale(0.09f, 0.09f, 0.09f);
 	go3.UseBlending(true);
 	queue.Add(go3);
 
-	blending1 = GameObject("Models/cube.obj");
+	blending1 = NE::GameObject("Models/cube.obj");
 	blending1.SetPosition(15.0f, 0.0f, 0.0f);
 	blending1.SetDefaultTexture("Textures/blending.png");
 	blending1.UseNormalMaps(false);
 	blending1.UseBlending(true);
 	queue.Add(blending1);
 
-	blending2 = GameObject("Models/cube.obj");
+	blending2 = NE::GameObject("Models/cube.obj");
 	blending2.SetPosition(0.0f, 3.0f, 0.0f);
 	blending2.SetDefaultTexture("Textures/blending.png");
 	blending2.UseNormalMaps(false);
 	blending2.UseBlending(true);
 	queue.Add(blending2);
 
-	go2.ChangeMainColor(ObjectColor::Orange);
+	go2.ChangeMainColor(NE::ObjectColor::Orange);
 }
 
 glm::vec3 tmpcolor = glm::vec3();
@@ -74,14 +69,14 @@ glm::vec3 tmpcolor = glm::vec3();
 void Update()
 {
 	multi = 10;
-	if (renderWindow.Key(Window::KeyCode::R)) multi *= 10;
-
+	if (renderWindow.Key(NE::Window::KeyCode::R)) multi *= 10;
 	tmpRotation += renderWindow.GetDeltaTime() * multi;
 	if (tmpRotation >= 360.0f) tmpRotation = 0.0f;
+
 	go1.SetDegrees(tmpRotation);
 	go1.SetRotation(0.0f, -1.0f, 0.0f);
 
-	if (renderWindow.Key(Window::KeyCode::G))
+	if (renderWindow.Key(NE::Window::KeyCode::G))
 		mainAudio.Play();
 
 	if (tmpcolor.x > 1.0f) tmpcolor.x = 0.0f; else tmpcolor.x += 0.001f;
@@ -89,7 +84,10 @@ void Update()
 	if (tmpcolor.z > 1.0f) tmpcolor.z = 0.0f; else tmpcolor.z += 0.003f;
 	//go2.ChangeMainColor(tmpcolor);
 
-	if (renderWindow.Key(Window::KeyCode::B))
+	if (renderWindow.Key(NE::Window::KeyCode::B))
+		queue.Remove(blending2);
+
+	if(renderWindow.Key(NE::Window::KeyCode::N))
 		mainAudio.Play();
 }
 
@@ -101,7 +99,7 @@ void CompileShaders()
 int main() 
 {
 	// Window init
-	renderWindow = Window(1280, 720);
+	renderWindow = NE::Window(1280, 720);
 	NE_ERROR_CHECK(renderWindow.Initialise());
 
 	// Engine Setup

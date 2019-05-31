@@ -117,9 +117,9 @@ private:
 	void PrimitivePlane();
 
 	//! Mesh list
-	std::vector<Mesh*> meshList;
+	std::vector<NE::Mesh*> meshList;
 	//! Texture list
-	std::vector<Texture*> textureList;
+	std::vector<NE::Texture*> textureList;
 	//! Material index
 	std::vector<unsigned int> meshToTex;
 
@@ -145,6 +145,6 @@ private:
 
 	std::string defaultPath = "Textures/dev.jpg";
 
-	Texture normal;
+	NE::Texture normal;
 };
 

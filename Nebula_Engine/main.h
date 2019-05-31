@@ -54,58 +54,53 @@ uniformSpecularIntensity = 0, uniformShininess = 0,
 uniformDirectionalLightTransform = 0, uniformOmniLightPos = 0, uniformFarPlane = 0;
 
 // lists
-std::vector<Mesh*> meshList;
-std::vector<GameObject*> modelList;
+std::vector<NE::Mesh*> meshList;
+std::vector<NE::GameObject*> modelList;
 std::vector<Object*> testList;
-std::vector<Texture*> textureList;
-std::vector<Shader> shaderList;
+std::vector<NE::Texture*> textureList;
+std::vector<NE::Shader> shaderList;
 std::vector<Entity*> entityList;
 
-std::vector<GameObject> objectList;
+std::vector<NE::GameObject> objectList;
 
 // objects
-Window renderWindow;
+NE::Window renderWindow;
 
-Shader directionalShadowShader;
-Shader omniShadowShader;
+NE::Shader directionalShadowShader;
+NE::Shader omniShadowShader;
 
-GameObjectList queue;
+NE::GameObjectList queue;
 
-RootManager rm;
+NE::RootManager rm;
 
-Camera camera;
+NE::Camera camera;
 
-Shader* shader2;
-Shader* screen;
+NE::Shader* shader2;
+NE::Shader* screen;
 
-Texture devTexture;
-Texture nebulaLogo;
-Texture normal;
+NE::Texture devTexture;
+NE::Texture nebulaLogo;
+NE::Texture normal;
 
-Material defaultMaterial;
-Material dullMaterial;
+NE::Material defaultMaterial;
+NE::Material dullMaterial;
 
-GameObject go;
-GameObject blending1;
-GameObject blending2;
-GameObject* test;
+NE::Mesh NebulaEngineLogo;
 
-Mesh NebulaEngineLogo;
+NE::DirectionalLight mainLight;
+NE::PointLight pointLights[MAX_POINT_LIGHTS];
+NE::SpotLight spotLights[MAX_SPOT_LIGHTS];
 
-DirectionalLight mainLight;
-PointLight pointLights[MAX_POINT_LIGHTS];
-SpotLight spotLights[MAX_SPOT_LIGHTS];
+NE::PointLight testPL;
+NE::SpotLight testSL;
 
-PointLight testPL;
-SpotLight testSL;
+NE::Skybox skybox;
 
-Skybox skybox;
+NE::Audio secondAudio = NE::Audio("trump.mp3");
 
-Audio secondAudio = Audio("trump.mp3");
+NE::Util util;
 
-Util util;
-
-Ui testUi;
+NE::Ui testUi;
 
 // variables
 unsigned int pointLightCount = 0;

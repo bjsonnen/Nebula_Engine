@@ -11,92 +11,96 @@
 #include <stdio.h>
 #include <string>
 
-//! Main class for the imgui ui system
-class Ui
+namespace NE
 {
-public:
-	//! Create ui object with standard parameters
-	//!
-	Ui();
-	//! Create ui object with specific parameters
-	//! @param window Insert main Window object as Window pointer
-	Ui(Window* window);
 
-	//! Create a new Window
-	//! Ui::EndWindow() need to be called
-	//! @param text Insert title window as std::string
-	void CreateWindow(std::string text);
-	//! Close the window
-	//! Need to be called
-	void EndWindow();
+	//! Main class for the imgui ui system
+	class Ui
+	{
+	public:
+		//! Create ui object with standard parameters
+		//!
+		Ui();
+		//! Create ui object with specific parameters
+		//! @param window Insert main Window object as Window pointer
+		Ui(NE::Window* window);
 
-	//! Create a single text line
-	//! @param text Insert text as std::string
-	void Text(std::string text);
-	//! Create a textbox
-	//! @param text Insert text as std::string
-	//! @param output Insert reference to std::string as output
-	void TextBox(std::string text, std::string& output);
-	//! Create a checkbox
-	//! @param text Insert text as std::string
-	//! @param output Insert reference to bool as output
-	void Checkbox(std::string text, bool& output);
+		//! Create a new Window
+		//! Ui::EndWindow() need to be called
+		//! @param text Insert title window as std::string
+		void CreateWindow(std::string text);
+		//! Close the window
+		//! Need to be called
+		void EndWindow();
 
-	//! Returns true if mouse is over any ui element
-	//! @return Returns bool 
-	bool MouseOverUi();
+		//! Create a single text line
+		//! @param text Insert text as std::string
+		void Text(std::string text);
+		//! Create a textbox
+		//! @param text Insert text as std::string
+		//! @param output Insert reference to std::string as output
+		void TextBox(std::string text, std::string& output);
+		//! Create a checkbox
+		//! @param text Insert text as std::string
+		//! @param output Insert reference to bool as output
+		void Checkbox(std::string text, bool& output);
 
-	//! Specify if the next method should be in the same line
-	void SameLine();
+		//! Returns true if mouse is over any ui element
+		//! @return Returns bool 
+		bool MouseOverUi();
 
-	//! Create the debug window
-	//! @param active Insert enabled as bool
-	//! @param fps Insert fps as int
-	//! @param deltaTime Insert deltaTime as float
-	//! @see Window::GetDeltaTime()
-	//! @see Window::GetFPS()
-	void DebugWindow(bool active, int fps, float deltaTime);
+		//! Specify if the next method should be in the same line
+		void SameLine();
 
-	~Ui();
+		//! Create the debug window
+		//! @param active Insert enabled as bool
+		//! @param fps Insert fps as int
+		//! @param deltaTime Insert deltaTime as float
+		//! @see Window::GetDeltaTime()
+		//! @see Window::GetFPS()
+		void DebugWindow(bool active, int fps, float deltaTime);
 
-private:
-	//! Used for PerformanceInformations();
-	float fpsCount[20];
-	int fpsCountIndex = 0;
+		~Ui();
 
-	//! Used for PerformanceInformations();
-	float deltaCount[20];
-	int deltaCountIndex = 0;
+	private:
+		//! Used for PerformanceInformations();
+		float fpsCount[20];
+		int fpsCountIndex = 0;
 
-	float cTime = 0.0f;
-	float time = 0.0f;
+		//! Used for PerformanceInformations();
+		float deltaCount[20];
+		int deltaCountIndex = 0;
 
-	bool showPerformanceWindow = false;
-	bool showGeneralSettings = false;
-	bool showOpenScene = false;
-	bool showCreateGameObject = false;
-	bool showCreateLightObject = false;
+		float cTime = 0.0f;
+		float time = 0.0f;
 
-	bool showDebugWindow = false;
-	bool firstChange = false;
+		bool showPerformanceWindow = false;
+		bool showGeneralSettings = false;
+		bool showOpenScene = false;
+		bool showCreateGameObject = false;
+		bool showCreateLightObject = false;
 
-	//! GameObject informations
-	float position[3] = { 0.0f, 0.0f, 0.0f };
-	float rotation[3] = { 0.0f, 0.0f, 0.0f };
-	float scale[3] = { 1.0f, 1.0f, 1.0f };
-	char dTexture[100] = {"C:/"};
-	char nTexture[100] = {"C:/"};
-	char* name = "Object 1";
-	char oneByte[100] = {};
+		bool showDebugWindow = false;
+		bool firstChange = false;
 
-	//! Light informations
-	float lightPosition[3] = { 0.0f };
-	float lightRotation[3] = { 0.0f };
-	float lightColor[3] = { 1.0f };
-	float lightIntensity = 1.0f;
+		//! GameObject informations
+		float position[3] = { 0.0f, 0.0f, 0.0f };
+		float rotation[3] = { 0.0f, 0.0f, 0.0f };
+		float scale[3] = { 1.0f, 1.0f, 1.0f };
+		char dTexture[100] = { "C:/" };
+		char nTexture[100] = { "C:/" };
+		char* name = "Object 1";
+		char oneByte[100] = {};
 
-	GameObject go = GameObject();
+		//! Light informations
+		float lightPosition[3] = { 0.0f };
+		float lightRotation[3] = { 0.0f };
+		float lightColor[3] = { 1.0f };
+		float lightIntensity = 1.0f;
 
-	ImVec4 mainLightColor = ImVec4(0.0f, 0.0f, 0.0f, 1.0f);
-	Window* mainWindow = nullptr;
-};
+		NE::GameObject go = NE::GameObject();
+
+		ImVec4 mainLightColor = ImVec4(0.0f, 0.0f, 0.0f, 1.0f);
+		NE::Window* mainWindow = nullptr;
+	};
+}

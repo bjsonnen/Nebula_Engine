@@ -1,6 +1,6 @@
 #include "Shader.h"
 
-Shader::Shader()
+NE::Shader::Shader()
 {
 	shaderID = 0;
 	uniformModel = 0;
@@ -10,7 +10,7 @@ Shader::Shader()
 	spotLightCount = 0;
 }
 
-Shader::Shader(std::string vertex, std::string geometry, std::string fragment)
+NE::Shader::Shader(std::string vertex, std::string geometry, std::string fragment)
 {
 	shaderID = 0;
 	uniformModel = 0;
@@ -23,7 +23,7 @@ Shader::Shader(std::string vertex, std::string geometry, std::string fragment)
 	fragmentShader = fragment;
 }
 
-NE_ERROR Shader::CreateFromString(const char* vertexCode, const char* fragmentCode)
+NE_ERROR NE::Shader::CreateFromString(const char* vertexCode, const char* fragmentCode)
 {
 	if (CompileShader(vertexCode, fragmentCode) == NE_OK)
 		return NE_OK;
@@ -31,7 +31,7 @@ NE_ERROR Shader::CreateFromString(const char* vertexCode, const char* fragmentCo
 		return NE_RENDERER;
 }
 
-NE_ERROR Shader::CreateFromFiles(const char* vertexLocation, const char* fragmentLocation)
+NE_ERROR NE::Shader::CreateFromFiles(const char* vertexLocation, const char* fragmentLocation)
 {
 	std::string vertexString = ReadFile(vertexLocation);
 	std::string fragmentString = ReadFile(fragmentLocation);
@@ -44,7 +44,7 @@ NE_ERROR Shader::CreateFromFiles(const char* vertexLocation, const char* fragmen
 		return NE_RENDERER;
 }
 
-NE_ERROR Shader::CreateFromFiles(const char* vertexLocation, const char* geometryLocation, const char* fragmentLocation)
+NE_ERROR NE::Shader::CreateFromFiles(const char* vertexLocation, const char* geometryLocation, const char* fragmentLocation)
 {
 	std::string vertexString = ReadFile(vertexLocation);
 	std::string geometryString = ReadFile(geometryLocation);
@@ -59,7 +59,7 @@ NE_ERROR Shader::CreateFromFiles(const char* vertexLocation, const char* geometr
 		return NE_RENDERER;
 }
 
-std::string Shader::ReadFile(const char* fileLocation)
+std::string NE::Shader::ReadFile(const char* fileLocation)
 {
 	std::string content;
 	std::ifstream fileStream(fileLocation, std::ios::in);
@@ -80,7 +80,7 @@ std::string Shader::ReadFile(const char* fileLocation)
 	return content;
 }
 
-NE_ERROR Shader::CompileShader(const char* vertexCode, const char* fragmentCode)
+NE_ERROR NE::Shader::CompileShader(const char* vertexCode, const char* fragmentCode)
 {
 	shaderID = glCreateProgram();
 
@@ -98,7 +98,7 @@ NE_ERROR Shader::CompileShader(const char* vertexCode, const char* fragmentCode)
 	return NE_OK;
 }
 
-NE_ERROR Shader::CompileShader(const char* vertexCode, const char* geometryCode, const char* fragmentCode)
+NE_ERROR NE::Shader::CompileShader(const char* vertexCode, const char* geometryCode, const char* fragmentCode)
 {
 	shaderID = glCreateProgram();
 
@@ -117,7 +117,7 @@ NE_ERROR Shader::CompileShader(const char* vertexCode, const char* geometryCode,
 	return NE_OK;
 }
 
-NE_ERROR Shader::Validate()
+NE_ERROR NE::Shader::Validate()
 {
 	GLint result = 0;
 	GLchar eLog[1024] = { 0 };
@@ -133,7 +133,7 @@ NE_ERROR Shader::Validate()
 	return NE_OK;
 }
 
-void Shader::CompileProgram() {
+void NE::Shader::CompileProgram() {
 
 	GLint result = 0;
 	GLchar eLog[1024] = { 0 };
@@ -248,62 +248,62 @@ void Shader::CompileProgram() {
 	}
 }
 
-unsigned int Shader::GetProjectionLocation()
+unsigned int NE::Shader::GetProjectionLocation()
 {
 	return uniformProjection;
 }
-unsigned int Shader::GetModelLocation()
+unsigned int NE::Shader::GetModelLocation()
 {
 	return uniformModel;
 }
-unsigned int Shader::GetViewLocation()
+unsigned int NE::Shader::GetViewLocation()
 {
 	return uniformView;
 }
-unsigned int Shader::GetAmbientColorLocation()
+unsigned int NE::Shader::GetAmbientColorLocation()
 {
 	return uniformDirectionalLight.uniformColor;
 }
-unsigned int Shader::GetAmbientIntensityLocation()
+unsigned int NE::Shader::GetAmbientIntensityLocation()
 {
 	return uniformDirectionalLight.uniformAmbientIntensity;
 }
-unsigned int Shader::GetDiffuseIntensityLocation()
+unsigned int NE::Shader::GetDiffuseIntensityLocation()
 {
 	return uniformDirectionalLight.uniformDiffuseIntensity;
 }
-unsigned int Shader::GetDirectionLocation()
+unsigned int NE::Shader::GetDirectionLocation()
 {
 	return uniformDirectionalLight.uniformDirection;
 }
-unsigned int Shader::GetSpecularIntensityLocation()
+unsigned int NE::Shader::GetSpecularIntensityLocation()
 {
 	return uniformSpecularIntensity;
 }
-unsigned int Shader::GetShininessLocation()
+unsigned int NE::Shader::GetShininessLocation()
 {
 	return uniformShininess;
 }
-unsigned int Shader::GetEyePositionLocation()
+unsigned int NE::Shader::GetEyePositionLocation()
 {
 	return uniformEyePosition;
 }
-unsigned int Shader::GetOmniLightPosLocation()
+unsigned int NE::Shader::GetOmniLightPosLocation()
 {
 	return uniformOmniLightPos;
 }
-unsigned int Shader::GetFarPlaneLocation()
+unsigned int NE::Shader::GetFarPlaneLocation()
 {
 	return uniformFarPlane;
 }
 
-void Shader::SetDirectionalLight(DirectionalLight * dLight)
+void NE::Shader::SetDirectionalLight(DirectionalLight * dLight)
 {
 	dLight->UseLight(uniformDirectionalLight.uniformAmbientIntensity, uniformDirectionalLight.uniformColor,
 		uniformDirectionalLight.uniformDiffuseIntensity, uniformDirectionalLight.uniformDirection);
 }
 
-void Shader::SetPointLights(PointLight * pLight, unsigned int lightCount, unsigned int textureUnit, unsigned int offset)
+void NE::Shader::SetPointLights(PointLight * pLight, unsigned int lightCount, unsigned int textureUnit, unsigned int offset)
 {
 	if (lightCount > MAX_POINT_LIGHTS) lightCount = MAX_POINT_LIGHTS;
 
@@ -321,7 +321,7 @@ void Shader::SetPointLights(PointLight * pLight, unsigned int lightCount, unsign
 	}
 }
 
-void Shader::SetSpotLights(SpotLight * sLight, unsigned int lightCount, unsigned int textureUnit, unsigned int offset)
+void NE::Shader::SetSpotLights(SpotLight * sLight, unsigned int lightCount, unsigned int textureUnit, unsigned int offset)
 {
 	if (lightCount > MAX_SPOT_LIGHTS) lightCount = MAX_SPOT_LIGHTS;
 
@@ -340,27 +340,27 @@ void Shader::SetSpotLights(SpotLight * sLight, unsigned int lightCount, unsigned
 	}
 }
 
-void Shader::SetNormal(unsigned int normalUnit)
+void NE::Shader::SetNormal(unsigned int normalUnit)
 {
 	glUniform1i(uniformNormalTexture, normalUnit);
 }
 
-void Shader::SetTexture(unsigned int textureUnit)
+void NE::Shader::SetTexture(unsigned int textureUnit)
 {
 	glUniform1i(uniformTexture, textureUnit);
 }
 
-void Shader::SetDirectionalShadowMap(unsigned int textureUnit)
+void NE::Shader::SetDirectionalShadowMap(unsigned int textureUnit)
 {
 	glUniform1i(uniformDirectionalShadowMap, textureUnit);
 }
 
-void Shader::SetDirectionalLightTransform(glm::mat4* lTransform)
+void NE::Shader::SetDirectionalLightTransform(glm::mat4* lTransform)
 {
 	glUniformMatrix4fv(uniformDirectionalLightTransform, 1, GL_FALSE, glm::value_ptr(*lTransform));
 }
 
-void Shader::SetLightMatrices(std::vector<glm::mat4> lightMatrices)
+void NE::Shader::SetLightMatrices(std::vector<glm::mat4> lightMatrices)
 {
 	for (size_t i = 0; i < 6; i++)
 	{
@@ -368,66 +368,66 @@ void Shader::SetLightMatrices(std::vector<glm::mat4> lightMatrices)
 	}
 }
 
-void Shader::SetFloat(std::string name, float value)
+void NE::Shader::SetFloat(std::string name, float value)
 {
 	int loc = glGetUniformLocation(shaderID, name.c_str());
 	glUniform1f(loc, value);
 }
 
-void Shader::SetInt(std::string name, int value)
+void NE::Shader::SetInt(std::string name, int value)
 {
 	int loc = glGetUniformLocation(shaderID, name.c_str());
 	glUniform1f(loc, value);
 }
 
-void Shader::SetDouble(std::string name, double value)
+void NE::Shader::SetDouble(std::string name, double value)
 {
 	int loc = glGetUniformLocation(shaderID, name.c_str());
 	glUniform1f(loc, value);
 }
 
-void Shader::SetBool(std::string name, bool value)
+void NE::Shader::SetBool(std::string name, bool value)
 {
 	int loc = glGetUniformLocation(shaderID, name.c_str());
 	glUniform1f(loc, value);
 }
 
-void Shader::SetTexture(std::string name, unsigned int unit)
+void NE::Shader::SetTexture(std::string name, unsigned int unit)
 {
 	int loc = glGetUniformLocation(shaderID, name.c_str());
 	glUniform1i(loc, unit);
 }
 
-void Shader::SetVector4(std::string name, glm::vec4 value)
+void NE::Shader::SetVector4(std::string name, glm::vec4 value)
 {
 	int loc = glGetUniformLocation(shaderID, name.c_str());
 	glUniform4f(loc, value.x, value.y, value.z, value.w);
 }
 
-void Shader::SetVector3(std::string name, glm::vec3 value)
+void NE::Shader::SetVector3(std::string name, glm::vec3 value)
 {
 	int loc = glGetUniformLocation(shaderID, name.c_str());
 	glUniform3f(loc, value.x, value.y, value.z);
 }
 
-void Shader::SetVector2(std::string name, glm::vec2 value)
+void NE::Shader::SetVector2(std::string name, glm::vec2 value)
 {
 	int loc = glGetUniformLocation(shaderID, name.c_str());
 	glUniform2f(loc, value.x, value.y);
 }
 
-void Shader::SetMatrix(std::string name, glm::mat4 value)
+void NE::Shader::SetMatrix(std::string name, glm::mat4 value)
 {
 	int loc = glGetUniformLocation(shaderID, name.c_str());
 	glUniformMatrix4fv(loc, 1, false, glm::value_ptr(value));
 }
 
-void Shader::UseShader()
+void NE::Shader::UseShader()
 {
 	glUseProgram(shaderID);
 }
 
-void Shader::ClearShader()
+void NE::Shader::ClearShader()
 {
 	if (shaderID != 0)
 	{
@@ -440,7 +440,7 @@ void Shader::ClearShader()
 }
 
 
-NE_ERROR Shader::AddShader(unsigned int theProgram, const char* shaderCode, GLenum shaderType)
+NE_ERROR NE::Shader::AddShader(unsigned int theProgram, const char* shaderCode, GLenum shaderType)
 {
 	unsigned int theShader = glCreateShader(shaderType);
 
@@ -469,7 +469,7 @@ NE_ERROR Shader::AddShader(unsigned int theProgram, const char* shaderCode, GLen
 	return NE_OK;
 }
 
-Shader::~Shader()
+NE::Shader::~Shader()
 {
 	ClearShader();
 }

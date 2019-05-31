@@ -2,13 +2,13 @@
 
 
 
-ShadowMap::ShadowMap()
+NE::ShadowMap::ShadowMap()
 {
 	FBO = 0;
 	shadowMap = 0;
 }
 
-NE_ERROR ShadowMap::Init(unsigned int width, unsigned int height)
+NE_ERROR NE::ShadowMap::Init(unsigned int width, unsigned int height)
 {
 	shadowWidth = width; shadowHeight = height;
 
@@ -41,18 +41,18 @@ NE_ERROR ShadowMap::Init(unsigned int width, unsigned int height)
 	return NE_OK;
 }
 
-void ShadowMap::Write()
+void NE::ShadowMap::Write()
 {
 	glBindFramebuffer(GL_DRAW_FRAMEBUFFER, FBO);
 }
 
-void ShadowMap::Read(unsigned int texUnit)
+void NE::ShadowMap::Read(unsigned int texUnit)
 {
 	glActiveTexture(texUnit);
 	glBindTexture(GL_TEXTURE_2D, shadowMap);
 }
 
-ShadowMap::~ShadowMap()
+NE::ShadowMap::~ShadowMap()
 {
 	if (FBO)
 	{

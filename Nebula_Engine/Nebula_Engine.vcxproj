@@ -183,7 +183,6 @@
     <ClCompile Include="GameObject.cpp" />
     <ClCompile Include="Object.cpp" />
     <ClCompile Include="OmniShadowMap.cpp" />
-    <ClCompile Include="ParticleEffect.cpp" />
     <ClCompile Include="PointLight.cpp" />
     <ClCompile Include="RootManager.cpp" />
     <ClCompile Include="Shader.cpp" />
@@ -216,7 +215,6 @@
     <ClInclude Include="GameObject.h" />
     <ClInclude Include="Object.h" />
     <ClInclude Include="OmniShadowMap.h" />
-    <ClInclude Include="ParticleEffect.h" />
     <ClInclude Include="PointLight.h" />
     <ClInclude Include="RootManager.h" />
     <ClInclude Include="Shader.h" />

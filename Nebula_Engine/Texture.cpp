@@ -2,7 +2,7 @@
 
 #include <iostream>
 
-Texture::Texture()
+NE::Texture::Texture()
 {
 	textureID = 0;
 	width = 0;
@@ -11,7 +11,7 @@ Texture::Texture()
 	fileLocation = "";
 }
 
-Texture::Texture(const char* fileLoc)
+NE::Texture::Texture(const char* fileLoc)
 {
 	textureID = 0;
 	width = 0;
@@ -20,7 +20,7 @@ Texture::Texture(const char* fileLoc)
 	fileLocation = fileLoc;
 }
 
-NE_ERROR Texture::LoadTexture()
+NE_ERROR NE::Texture::LoadTexture()
 {
 	int nrComponent;
 	unsigned char *texData = stbi_load(fileLocation, &width, &height, &bitDepth, 0);
@@ -110,19 +110,19 @@ NE_ERROR Texture::LoadTexture()
 	return NE_OK;
 }
 
-void Texture::UseTexture()
+void NE::Texture::UseTexture()
 {
 	glActiveTexture(GL_TEXTURE1);
 	glBindTexture(GL_TEXTURE_2D, textureID);
 }
 
-void Texture::UseTexture(unsigned int index)
+void NE::Texture::UseTexture(unsigned int index)
 {
 	glActiveTexture(index);
 	glBindTexture(GL_TEXTURE_2D, textureID);
 }
 
-void Texture::ClearTexture()
+void NE::Texture::ClearTexture()
 {
 	glDeleteTextures(1, &textureID);
 	textureID = 0;
@@ -132,42 +132,42 @@ void Texture::ClearTexture()
 	fileLocation = "";
 }
 
-void Texture::SetLinearFilter(bool value)
+void NE::Texture::SetLinearFilter(bool value)
 {
 	linearFilter = value;
 }
 
-bool Texture::GetLinearFilter()
+bool NE::Texture::GetLinearFilter()
 {
 	return linearFilter;
 }
 
-void Texture::SetFileLocation(std::string file)
+void NE::Texture::SetFileLocation(std::string file)
 {
 	fileLocation = file.c_str();
 }
 
-void Texture::SetTextureRepeat(int i)
+void NE::Texture::SetTextureRepeat(int i)
 {
 	repeat = i;
 }
 
-int Texture::GetTextureRepeat()
+int NE::Texture::GetTextureRepeat()
 {
 	return repeat;
 }
 
-unsigned int Texture::GetTexturePosition()
+unsigned int NE::Texture::GetTexturePosition()
 {
 	return textureID;
 }
 
-std::string Texture::GetFileLocation()
+std::string NE::Texture::GetFileLocation()
 {
 	return fileLocation;
 }
 
-void Texture::CreateDepthBuffer()
+void NE::Texture::CreateDepthBuffer()
 {
 
 	unsigned char *texturData = stbi_load(fileLocation, &width, &height, &bitDepth, 0);
@@ -187,7 +187,7 @@ void Texture::CreateDepthBuffer()
 }
 
 
-Texture::~Texture()
+NE::Texture::~Texture()
 {
 	ClearTexture();
 }

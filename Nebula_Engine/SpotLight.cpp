@@ -2,7 +2,7 @@
 
 
 
-SpotLight::SpotLight() : PointLight()
+NE::SpotLight::SpotLight() : PointLight()
 {
 	direction = glm::vec3(0.0f, -1.0f, 0.0f);
 	edge = 0.0f;
@@ -10,7 +10,7 @@ SpotLight::SpotLight() : PointLight()
 	isOn = true;
 }
 
-SpotLight::SpotLight(unsigned int shadowWidth, unsigned int shadowHeight,
+NE::SpotLight::SpotLight(unsigned int shadowWidth, unsigned int shadowHeight,
 	float near, float far, 
 	float red, float green, float blue,
 	float aIntensity, float dIntensity, 
@@ -25,7 +25,7 @@ SpotLight::SpotLight(unsigned int shadowWidth, unsigned int shadowHeight,
 	procEdge = cosf(glm::radians(edge));
 }
 
-void SpotLight::UseLight(unsigned int ambientIntensityLocation, unsigned int ambientColourLocation, 
+void NE::SpotLight::UseLight(unsigned int ambientIntensityLocation, unsigned int ambientColourLocation,
 	unsigned int diffuseIntensityLocation, unsigned int positionLocation, unsigned int directionLocation, 
 	unsigned int constantLocation, unsigned int linearLocation, unsigned int exponentLocation, 
 	unsigned int edgeLocation)
@@ -51,53 +51,53 @@ void SpotLight::UseLight(unsigned int ambientIntensityLocation, unsigned int amb
 	glUniform1f(edgeLocation, procEdge);
 }
 
-void SpotLight::SetFlash(glm::vec3 pos, glm::vec3 dir)
+void NE::SpotLight::SetFlash(glm::vec3 pos, glm::vec3 dir)
 {
 	position = pos;
 	direction = dir;
 }
 
-void SpotLight::SetFlash(Vector3 pos, Vector3 dir)
+void NE::SpotLight::SetFlash(Vector3 pos, Vector3 dir)
 {
 	position = pos.ToGlm();
 	direction = dir.ToGlm();
 }
 
-void SpotLight::SetPosition(glm::vec3 pos)
+void NE::SpotLight::SetPosition(glm::vec3 pos)
 {
 	position = pos;
 }
 
-void SpotLight::SetPosition(Vector3 pos)
+void NE::SpotLight::SetPosition(Vector3 pos)
 {
 	position = pos.ToGlm();
 }
 
-void SpotLight::SetDirection(glm::vec3 dir)
+void NE::SpotLight::SetDirection(glm::vec3 dir)
 {
 	direction = dir;
 }
 
-void SpotLight::SetDirection(Vector3 dir)
+void NE::SpotLight::SetDirection(Vector3 dir)
 {
 	direction = dir.ToGlm();
 }
 
-void SpotLight::SetColor(glm::vec3 color)
+void NE::SpotLight::SetColor(glm::vec3 color)
 {
 	this->color = color;
 }
 
-void SpotLight::SetColor(Vector3 color)
+void NE::SpotLight::SetColor(Vector3 color)
 {
 	this->color = color.ToGlm();
 }
 
-void SpotLight::Toggle()
+void NE::SpotLight::Toggle()
 {
 	isOn = !isOn;
 }
 
-SpotLight::~SpotLight()
+NE::SpotLight::~SpotLight()
 {
 }
