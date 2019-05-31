@@ -11,7 +11,7 @@
 #include "Window.h"
 #include "Shader.h"
 #include "PointLight.h"
-//#include "CommonValues.h"
+#include "GameObjectList.h"
 
 #include "Util.h"
 
@@ -43,7 +43,7 @@ public:
 	//! &param skybox Insert skybox as Skybox&
 	//! &param shaderList Insert shaderList as std::vector<Shader>&
 	void EngineInitialization(Window& window, Camera& cam, Material& mat1, Material& mat2, DirectionalLight& light,
-		Skybox& skybox, std::vector<Shader>& shaderList);
+		Skybox& skybox, std::vector<Shader>& shaderList, GameObjectList* queue);
 
 	//! Game rendering loop
 	//! Should be called once per frame
@@ -63,7 +63,7 @@ public:
 	//! @param spots Insert array pointer to you spotlight array
 	//! @param pointsCount Insert array size of pointlight array
 	//! @param spotsCount Insert array size of spotLights array
-	void EngineVariablesUpdate(std::vector<Texture*>* textureList, std::vector<GameObject*>* objectList, 
+	void EngineVariablesUpdate(std::vector<Texture*>* textureList, 
 		glm::mat4 projection, PointLight* points, SpotLight* spots, unsigned int pointsCount, 
 		unsigned int spotsCount);
 
@@ -133,10 +133,11 @@ private:
 
 private:
 	std::vector<Shader> shaderList;
-	std::vector<GameObject*>* objectList;
 	std::vector<GameObject> transparentObjectList;
 	std::vector<Texture*>* textureList;
-	std::map<float, GameObject*> test;
+	std::map<float, GameObject*> blendedObjects;
+
+	GameObjectList* queue;
 
 	Texture texTest;
 

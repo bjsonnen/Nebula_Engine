@@ -1,13 +1,10 @@
 var searchData=
 [
-  ['read',['Read',['../class_omni_shadow_map.html#ae2c39deb32f33b8c6f461f4525a1d552',1,'OmniShadowMap::Read()'],['../class_shadow_map.html#a6b48e98aeab56d0c9bf4c2ac4beeb3db',1,'ShadowMap::Read()']]],
-  ['readfile',['ReadFile',['../class_shader.html#acca9db816d6d9587bef5689317aea69e',1,'Shader']]],
-  ['release',['Release',['../class_audio.html#a0adb187aa96b0c2115d69c70c83b2277',1,'Audio']]],
-  ['reloaddefaulttexture',['ReloadDefaultTexture',['../class_game_object.html#a007ca9940b38a71eae51efefda676e4f',1,'GameObject::ReloadDefaultTexture()'],['../class_object.html#a1704530eba80bb3693f68356f3e0462b',1,'Object::ReloadDefaultTexture()']]],
-  ['rendermesh',['RenderMesh',['../class_mesh.html#a75ccdfd3c16df862abb90d6046abcdb4',1,'Mesh']]],
-  ['rendermodel',['RenderModel',['../class_game_object.html#ab4c2468f179f258168c6af5369172f81',1,'GameObject::RenderModel()'],['../class_object.html#a357d3469a47d0272bb03b84ff0b27255',1,'Object::RenderModel()']]],
-  ['restart',['Restart',['../class_audio.html#ae2bcb6b054a71006cc8ac03ff62d5d96',1,'Audio']]],
-  ['rootmanager',['RootManager',['../class_root_manager.html',1,'RootManager'],['../class_root_manager.html#a53b21e9c4e78c18d24fd7cdac901a633',1,'RootManager::RootManager()']]],
-  ['rotate',['Rotate',['../class_game_object.html#ac1f6c8881fe4185a1a2bca08ad252660',1,'GameObject::Rotate(glm::vec3 rotation)'],['../class_game_object.html#a93d2bb0c555fe8bb6323f9a4827f7a46',1,'GameObject::Rotate(Vector3 rotation)']]],
-  ['rotation',['Rotation',['../struct_particle.html#a8656807befba981c720bff0b9cba6b54',1,'Particle']]]
+  ['text',['Text',['../class_ui.html#a26dbd672340f84bd246c5c3a609f2402',1,'Ui']]],
+  ['textbox',['TextBox',['../class_ui.html#a6ddbf246b6af53e4de87b93a449ff7fd',1,'Ui']]],
+  ['texture',['Texture',['../class_texture.html',1,'Texture'],['../class_texture.html#a6c275e3f186675ff6ed73ccf970e552f',1,'Texture::Texture()'],['../class_texture.html#a8c924539fdb5f0813de81ce1c68df578',1,'Texture::Texture(const char *fileLoc)']]],
+  ['toggle',['Toggle',['../class_spot_light.html#ab0262f44ab1cd6547ca4dce1ca7cffb2',1,'SpotLight']]],
+  ['toglm',['ToGlm',['../struct_vector2.html#adc634be04f1bf7f1a91811216ea6ac50',1,'Vector2::ToGlm()'],['../struct_vector3.html#a6ab2d064413018bcdfbd9d56e69d10a2',1,'Vector3::ToGlm()']]],
+  ['tostring',['ToString',['../struct_vector2.html#a5954390e62401baa0d28d5b2128845fa',1,'Vector2::ToString()'],['../struct_vector3.html#a331c8e16800919307bc3e8507f9459df',1,'Vector3::ToString()']]],
+  ['transform',['Transform',['../class_transform.html',1,'']]]
 ];

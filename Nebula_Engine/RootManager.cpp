@@ -1,9 +1,11 @@
 #include "RootManager.h"
 
 void RootManager::EngineInitialization(Window& window, Camera& cam, Material& mat1, Material& mat2, DirectionalLight& light,
-	Skybox& skybox, std::vector<Shader>& shaderList)
+	Skybox& skybox, std::vector<Shader>& shaderList, GameObjectList* queue)
 {
 	CompileShaders();
+
+	this->queue = queue;
 
 	renderWindow = &window;
 
@@ -56,21 +58,20 @@ void RootManager::EngineLoading()
 		NE_ERROR_CHECK(this->textureList->at(i)->LoadTexture());
 	}
 
-	for (int i = 0; i < this->objectList->size(); i++)
+	for (int i = 0; i < queue->GetSize(); i++)
 	{
-		NE_ERROR_CHECK(this->objectList->at(i)->LoadModel());
+		NE_ERROR_CHECK(queue->FindAtIndex(i)->LoadModel());
 	}
 
 	this->loading = false;
 }
 
-void RootManager::EngineVariablesUpdate(std::vector<Texture*>* textureList, std::vector<GameObject*>* objectList,
+void RootManager::EngineVariablesUpdate(std::vector<Texture*>* textureList,
 	glm::mat4 projection, PointLight* points, SpotLight* spots, unsigned int pointsCount,
 	unsigned int spotsCount)
 {
 	this->textureList = textureList;
 	this->pointCount = pointsCount;
-	this->objectList = objectList;
 	this->projection = projection;
 	this->spotsCount = spotsCount;
 	this->points = points;
@@ -88,16 +89,13 @@ bool RootManager::MainLoop(bool windowShouldClose, Window& window, void* Start, 
 		{
 			IMGUI_CHECKVERSION();
 			ImGui::CreateContext();
-			ImGuiIO& io = ImGui::GetIO(); (void)io;
+			ImGuiIO& io = ImGui::GetIO(); 
+			(void)io;
 
 			ImGui_ImplGlfw_InitForOpenGL(renderWindow->GetWindow(), true);
-			ImGui_ImplOpenGL3_Init("#version 130");
+			ImGui_ImplOpenGL3_Init("#version 330");
 
 			ImGui::StyleColorsDark();
-
-			bool show_demo_window = true;
-			bool show_another_window = true;
-			ImVec4 clear_color = ImVec4(0.45f, 0.55f, 0.60f, 1.00f);
 		}
 
 		((void(*)(void))Start)();
@@ -106,9 +104,11 @@ bool RootManager::MainLoop(bool windowShouldClose, Window& window, void* Start, 
 	}
 	else
 	{
-		ImGui_ImplOpenGL3_NewFrame();
-		ImGui_ImplGlfw_NewFrame();
-		ImGui::NewFrame();
+		{
+			ImGui_ImplOpenGL3_NewFrame();
+			ImGui_ImplGlfw_NewFrame();
+			ImGui::NewFrame();
+		}
 
 		// Loading
 		if (loading)
@@ -121,11 +121,10 @@ bool RootManager::MainLoop(bool windowShouldClose, Window& window, void* Start, 
 			EngineLoading();
 		}
 
-		window.WindowUpdate();
-		window.SetVSync(false);
-
-		if (!loading)
 		{
+			window.WindowUpdate();
+			window.SetVSync(false);
+
 			camera.KeyControl(window.GetWindow(), window.GetDeltaTime());
 			camera.MouseControl(window.GetXChange(), window.GetYChange());
 
@@ -134,16 +133,16 @@ bool RootManager::MainLoop(bool windowShouldClose, Window& window, void* Start, 
 			// Update
 			manager->Update();
 			((void(*)(void))Update)();
+
+			CheckForBlendedObjects();
+
+			EngineUpdate(camera, &mainLight);
+
+			ImGui::Render();
+			ImGui_ImplOpenGL3_RenderDrawData(ImGui::GetDrawData());
+
+			window.SwapBuffers();
 		}
-
-		CheckForBlendedObjects();
-
-		EngineUpdate(camera, &mainLight);
-
-		ImGui::Render();
-		ImGui_ImplOpenGL3_RenderDrawData(ImGui::GetDrawData());
-
-		window.SwapBuffers();
 	}
 
 	return false;
@@ -167,31 +166,32 @@ void RootManager::RenderScene()
 	glm::mat4 model;
 	glDisable(GL_BLEND);
 
-	for (int i = 0; i < objectList->size(); i++)
+	for (int i = 0; i < queue->GetSize(); i++)
 	{
 		model = glm::mat4();
-		if (objectList->at(i)->GetUseBlending()) // Dont render object with blending
+		if (queue->FindAtIndex(i)->GetUseBlending()) // Dont render object with blending
 		{
 			continue;
 		}
-		model = glm::translate(model, objectList->at(i)->GetPosition());
-		model = glm::rotate(model, Math::ToRadians(objectList->at(i)->GetDegrees()), objectList->at(i)->GetRotation());
-		model = glm::scale(model, objectList->at(i)->GetScale());
-		shaderList[0].SetBool("renderNormalMaps", objectList->at(i)->GetRenderNormalMaps());
+		model = glm::translate(model, queue->FindAtIndex(i)->GetPosition());
+		model = glm::rotate(model, Math::ToRadians(queue->FindAtIndex(i)->GetDegrees()), queue->FindAtIndex(i)->GetRotation());
+		model = glm::scale(model, queue->FindAtIndex(i)->GetScale());
+		shaderList[0].SetBool("renderNormalMaps", queue->FindAtIndex(i)->GetRenderNormalMaps());
 		shaderList[0].SetMatrix("model", model);
-		shaderList[0].SetVector3("primaryColor", objectList->at(i)->GetMainColor());
-		shaderList[0].SetBool("useNormalMap", objectList->at(i)->GetUseNormalMaps());
+		shaderList[0].SetVector3("primaryColor", queue->FindAtIndex(i)->GetMainColor());
+		shaderList[0].SetBool("useNormalMap", queue->FindAtIndex(i)->GetUseNormalMaps());
 		if (uniformModel != 0)
 			glUniformMatrix4fv(uniformModel, 1, false, glm::value_ptr(model));
 		defaultMaterial.UseMaterial(&shaderList[0]);
-		objectList->at(i)->RenderModel();
+		queue->FindAtIndex(i)->RenderModel();
 	}
 
 	glEnable(GL_BLEND);
 	glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
 
-	for (std::map<float, GameObject*>::reverse_iterator i = test.rbegin(); i != test.rend(); ++i)
+	for (std::map<float, GameObject*>::reverse_iterator i = blendedObjects.rbegin(); i != blendedObjects.rend(); ++i)
 	{
+		model = glm::mat4();
 		model = glm::translate(model, i->second->GetPosition());
 		model = glm::rotate(model, Math::ToRadians(i->second->GetDegrees()), i->second->GetRotation());
 		model = glm::scale(model, i->second->GetScale());
@@ -298,21 +298,16 @@ void RootManager::RenderPass(glm::mat4 viewMatrix, glm::mat4 projectionMatrix, P
 
 void RootManager::CheckForBlendedObjects()
 {
-	// Map is not sorting the key values
-	// => ToDo: Do it manually
-
 	glm::vec3 camPos = camera.GetCameraPosition();
 
-	test.clear();
+	blendedObjects.clear();
 
-	for (int i = 0; i < objectList->size(); i++)
+	for (int i = 0; i < queue->GetSize(); i++)
 	{
-		if (objectList->at(i)->GetUseBlending())
+		if (queue->FindAtIndex(i)->GetUseBlending())
 		{
-			float distance = glm::length(camPos - objectList->at(i)->GetPosition());
-			//std::cout << camPos.x << " " << camPos.y << " " << camPos.z << std::endl;
-			//std::cout << distance << std::endl;
-			test[i] = objectList->at(i);
+			float distance = glm::length(camPos - queue->FindAtIndex(i)->GetPosition());
+			blendedObjects[distance] = queue->FindAtIndex(i);
 		}
 	}
 }

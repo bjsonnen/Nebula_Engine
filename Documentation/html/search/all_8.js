@@ -1,7 +1,7 @@
 var searchData=
 [
-  ['key',['Key',['../class_window.html#a204179a76d0a02a336fde32a1da32186',1,'Window::Key(KeyCode key)'],['../class_window.html#a22723619109b05b9a6955359a4ab7267',1,'Window::Key(KeyCode key, KeyAction action)']]],
-  ['keyaction',['KeyAction',['../class_window.html#ab44a7b55f0ce55c37d361fc51b302bdb',1,'Window']]],
-  ['keycode',['KeyCode',['../class_window.html#a4915898e3e02586ae359c8cfb9114717',1,'Window']]],
-  ['keycontrol',['KeyControl',['../class_camera.html#a68dfb40f9e073eafb27c40549c3501a6',1,'Camera']]]
+  ['light',['Light',['../class_light.html',1,'Light'],['../class_light.html#aeb5df09a25a32f19fdffa761268ba24f',1,'Light::Light()'],['../class_light.html#a93768f02e5a374864a6ac7db1dc0d852',1,'Light::Light(unsigned int shadowWidth, unsigned int shadowHeight, float red, float green, float blue, float aIntensity, float dIntensity)']]],
+  ['loadmodel',['LoadModel',['../class_game_object.html#acfd40d131da4847e23f2e01fb6751399',1,'GameObject::LoadModel()'],['../class_game_object.html#a14f2f975d6c5005ee5fb9c4665cbfc4b',1,'GameObject::LoadModel(const std::string &amp;fileName)'],['../class_object.html#aebbb9ab99f56ecb88e7a84b4e24e81b9',1,'Object::LoadModel()'],['../class_object.html#a149a42acd59c004806d15e5dd334473f',1,'Object::LoadModel(const std::string &amp;fileName)']]],
+  ['loadtexture',['LoadTexture',['../class_texture.html#a9c888d7e8a19dc132fee9bd6eafd57cd',1,'Texture']]],
+  ['lookat',['LookAt',['../class_game_object.html#a1ba510555d772c1bd90c367af5170527',1,'GameObject::LookAt(glm::vec3 pos)'],['../class_game_object.html#a0f791ccc7199b037943e3df61e54388f',1,'GameObject::LookAt(Vector3 pos)'],['../class_game_object.html#ab6fc8c1ac5466de9b4daba280409cb16',1,'GameObject::LookAt(glm::vec2 pos)'],['../class_game_object.html#a806d41ea17cfb5cd02def9b6d3942249',1,'GameObject::LookAt(Vector2 pos)'],['../class_game_object.html#a54974c5e887f6a8873c8ee861a0c9e5f',1,'GameObject::LookAt(float x, float y, float z)']]]
 ];

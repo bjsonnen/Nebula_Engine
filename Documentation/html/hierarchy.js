@@ -15,13 +15,10 @@ var hierarchy =
         [ "SpotLight", "class_spot_light.html", null ]
       ] ]
     ] ],
-    [ "LOD", "class_l_o_d.html", null ],
     [ "Manager", "class_manager.html", null ],
     [ "Material", "class_material.html", null ],
     [ "Math", "class_math.html", null ],
     [ "Mesh", "class_mesh.html", null ],
-    [ "Particle", "struct_particle.html", null ],
-    [ "ParticleEffect", "class_particle_effect.html", null ],
     [ "RootManager", "class_root_manager.html", null ],
     [ "Shader", "class_shader.html", null ],
     [ "ShadowMap", "class_shadow_map.html", [

@@ -30,9 +30,9 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">Nebula Engine
-   &#160;<span id="projectnumber">Beta 0.1</span>
+   &#160;<span id="projectnumber">1.0</span>
    </div>
-   <div id="projectbrief">C++ OpenGL Framework</div>
+   <div id="projectbrief">OpenGL C++ Project</div>
   </td>
  </tr>
  </tbody>
@@ -182,6 +182,8 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:a96b709620f150364772eeba91870f34f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ab9c811db96001705309dcb7951ca5252"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_game_object.html#ab9c811db96001705309dcb7951ca5252">UseBlending</a> (bool value)</td></tr>
 <tr class="separator:ab9c811db96001705309dcb7951ca5252"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9860477980ec136c9e89b08fc420f760"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_game_object.html#a9860477980ec136c9e89b08fc420f760">UseParallaxMapping</a> (bool value)</td></tr>
+<tr class="separator:a9860477980ec136c9e89b08fc420f760"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a2397a73d6940e1e4c78bccccc5531788"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_game_object.html#a2397a73d6940e1e4c78bccccc5531788">GetUseBlending</a> ()</td></tr>
 <tr class="separator:a2397a73d6940e1e4c78bccccc5531788"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:acd61e0ec39b7130ce29f8b4d89983f26"><td class="memItemLeft" align="right" valign="top">float *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_game_object.html#acd61e0ec39b7130ce29f8b4d89983f26">GetVertices</a> ()</td></tr>
@@ -196,6 +198,8 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:ab59900eba23ba9d4d07ce727332d3c0b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af6f452c0d3f1d97f5573d6dc1f428424"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_game_object.html#af6f452c0d3f1d97f5573d6dc1f428424">GetUseNormalMaps</a> ()</td></tr>
 <tr class="separator:af6f452c0d3f1d97f5573d6dc1f428424"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6c67c0fedd2cfa3758e86cc75f40f191"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_game_object.html#a6c67c0fedd2cfa3758e86cc75f40f191">GetParallaxMap</a> ()</td></tr>
+<tr class="separator:a6c67c0fedd2cfa3758e86cc75f40f191"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a5e449ed9a13ab543b02aca997ba475d9"><td class="memItemLeft" align="right" valign="top">char *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_game_object.html#a5e449ed9a13ab543b02aca997ba475d9">GetFileName</a> ()</td></tr>
 <tr class="separator:a5e449ed9a13ab543b02aca997ba475d9"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a5c7584253378347ac1a0da0909073e07"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_game_object.html#a5c7584253378347ac1a0da0909073e07">SetFileLocation</a> (char *fileLocation)</td></tr>
@@ -458,6 +462,24 @@ void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="clas
       </table>
 </div><div class="memdoc">
 <p>Returns the main color of the object </p><dl class="section return"><dt>Returns</dt><dd>Main Color of the object as <a class="el" href="struct_vector3.html">Vector3</a> </dd></dl>
+
+</div>
+</div>
+<a id="a6c67c0fedd2cfa3758e86cc75f40f191"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6c67c0fedd2cfa3758e86cc75f40f191">&#9670;&nbsp;</a></span>GetParallaxMap()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool GameObject::GetParallaxMap </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Bool for rendering parallax maps </p><dl class="section return"><dt>Returns</dt><dd>Returns if the object should render with parallax </dd></dl>
 
 </div>
 </div>
@@ -1430,6 +1452,30 @@ void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="clas
 
 </div>
 </div>
+<a id="a9860477980ec136c9e89b08fc420f760"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9860477980ec136c9e89b08fc420f760">&#9670;&nbsp;</a></span>UseParallaxMapping()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void GameObject::UseParallaxMapping </td>
+          <td>(</td>
+          <td class="paramtype">bool&#160;</td>
+          <td class="paramname"><em>value</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Set if the object should render with a parallax map </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">value</td><td>Set value as bool </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
 <a id="a530897ca5fe14017bae2790f49b46e95"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a530897ca5fe14017bae2790f49b46e95">&#9670;&nbsp;</a></span>UsePrimitive()</h2>
 
@@ -1456,8 +1502,8 @@ void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="clas
 </div>
 </div>
 <hr/>The documentation for this class was generated from the following files:<ul>
-<li>GitHub/Nebula_Engine/Nebula_Engine/<a class="el" href="_game_object_8h_source.html">GameObject.h</a></li>
-<li>GitHub/Nebula_Engine/Nebula_Engine/GameObject.cpp</li>
+<li>Nebula_Engine/<a class="el" href="_game_object_8h_source.html">GameObject.h</a></li>
+<li>Nebula_Engine/GameObject.cpp</li>
 </ul>
 </div><!-- contents -->
 </div><!-- doc-content -->

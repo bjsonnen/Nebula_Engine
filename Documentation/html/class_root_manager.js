@@ -13,6 +13,7 @@ var class_root_manager =
     [ "GetOmniShadowShader", "class_root_manager.html#a19c55ac08aba56e6d7c2d44d33b61e75", null ],
     [ "GetShaderList", "class_root_manager.html#ab51dc622d82953446e44ae4212e5220b", null ],
     [ "GetWindow", "class_root_manager.html#af5ee9d29d02ca9a8ca26bf0649862140", null ],
+    [ "GetWindowActive", "class_root_manager.html#a62d2a17f72bf81641abed0c64b64a654", null ],
     [ "MainLoop", "class_root_manager.html#a2360a1eb38057900909fa7dcac3e9a28", null ],
     [ "ShutDown", "class_root_manager.html#aad25cd66fd1aa628a1ff265964d6ceec", null ]
 ];

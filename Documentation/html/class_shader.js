@@ -7,7 +7,7 @@ var class_shader =
     [ "CreateFromFiles", "class_shader.html#aeca0f4f24d2d7e2ac5fda22bca6e21c5", null ],
     [ "CreateFromFiles", "class_shader.html#a8acc385e9b2afc97833343472d237d10", null ],
     [ "CreateFromString", "class_shader.html#a099eeffb7a893ab69cc34b70faed9d3b", null ],
-    [ "GetAmbientColourLocation", "class_shader.html#aa5cbc6c601afb278fe112ae2c46384b0", null ],
+    [ "GetAmbientColorLocation", "class_shader.html#aaa4b615e3fb195311633c72ebc011c56", null ],
     [ "GetAmbientIntensityLocation", "class_shader.html#a1a45ad641d9850ad398ae3ec905ffc8d", null ],
     [ "GetDiffuseIntensityLocation", "class_shader.html#a7edd89ea4e53cae7314bf7b7efe6beee", null ],
     [ "GetDirectionLocation", "class_shader.html#a908960431732c32040f627776e93d780", null ],

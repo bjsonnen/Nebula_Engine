@@ -5,11 +5,13 @@
 GameObject::GameObject()
 {
 	location = "";
+	objectName = "GameObject";
 }
 
 GameObject::GameObject(char* filelocation)
 {
 	location = filelocation;
+	objectName = "GameObject";
 }
 
 glm::vec3 GameObject::GetPosition()
@@ -322,6 +324,16 @@ void GameObject::SetFileLocation(char* fileLocation)
 void GameObject::SetFileLocation(std::string fileLocation)
 {
 	location = (char*)fileLocation.c_str();
+}
+
+std::string GameObject::GetObjectName()
+{
+	return objectName;
+}
+
+void GameObject::SetObjectName(std::string name)
+{
+	objectName = name;
 }
 
 NE_ERROR GameObject::LoadModel()

@@ -11,7 +11,7 @@ var class_point_light =
     [ "SetColor", "class_point_light.html#ae4d7fa67626719729b4ff66a265f0b0c", null ],
     [ "SetPosition", "class_point_light.html#a707125b77b9ae421f43760540496c5d0", null ],
     [ "SetPosition", "class_point_light.html#a49025fcac39e59e0ac0ed6c46ac290bb", null ],
-    [ "UseLight", "class_point_light.html#a1cc5f1e9a33b13cef881e4ef555ff074", null ],
+    [ "UseLight", "class_point_light.html#a65e1a41e904d0bae15f7eeb1f6db1d7c", null ],
     [ "constant", "class_point_light.html#a965104c9c660615ba35721c7aac7c262", null ],
     [ "exponent", "class_point_light.html#a0d722c2916cbfca9bdec0816a646efb9", null ],
     [ "farPlane", "class_point_light.html#a0344e29b1bf922ff9b4a35788c0a4283", null ],

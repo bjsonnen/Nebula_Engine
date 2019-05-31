@@ -1,9 +1,11 @@
 var searchData=
 [
-  ['magnitude',['Magnitude',['../struct_vector2.html#afd0eb6f05e1a15b3d8656d5e0e12798a',1,'Vector2::Magnitude()'],['../struct_vector3.html#a5721d97b9640951b58c40de1a893f966',1,'Vector3::Magnitude()']]],
-  ['mainloop',['MainLoop',['../class_root_manager.html#a2360a1eb38057900909fa7dcac3e9a28',1,'RootManager']]],
-  ['material',['Material',['../class_material.html#a137e987401b63eb7c6c27c3e38bc74b5',1,'Material::Material()'],['../class_material.html#a6e4e2f31f8f1a193607e467e9986672d',1,'Material::Material(float sIntensity, float shine)']]],
-  ['mesh',['Mesh',['../class_mesh.html#a2af137f1571af89172b9c102302c416b',1,'Mesh']]],
-  ['mousecontrol',['MouseControl',['../class_camera.html#a3d5110ad37f5d75dd278ece789841d38',1,'Camera']]],
-  ['mouseoverui',['MouseOverUi',['../class_ui.html#a6c16c0e0266018102c3196fb0800647b',1,'Ui']]]
+  ['object',['Object',['../class_object.html#a40860402e64d8008fb42329df7097cdb',1,'Object::Object()'],['../class_object.html#ab2f2852d5c4d9bf362e8bc41971a0f89',1,'Object::Object(char *filelocation)']]],
+  ['omnishadowmap',['OmniShadowMap',['../class_omni_shadow_map.html#a546a081c019229fec62b38f165b2f995',1,'OmniShadowMap']]],
+  ['operator_20_2d',['operator -',['../struct_vector2.html#a2fd18aa4b3371d94eeb423f534806bab',1,'Vector2::operator -()'],['../struct_vector3.html#aa3d4507c8c4a280d49919f1944999406',1,'Vector3::operator -()']]],
+  ['operator_20_2d_3d',['operator -=',['../struct_vector2.html#a91f10cc7e4a1f718215651cd487cb62f',1,'Vector2']]],
+  ['operator_2b',['operator+',['../struct_vector2.html#ad34c945f0161a39f32c8146f4422104a',1,'Vector2::operator+()'],['../struct_vector3.html#a52897becbe532cb731a0117affac5ebe',1,'Vector3::operator+()']]],
+  ['operator_2b_3d',['operator+=',['../struct_vector2.html#a65f68ae51aca90d42cbdb3a42c307da1',1,'Vector2']]],
+  ['operator_2f',['operator/',['../struct_vector2.html#a1cdab71cb86f1d5521f63d1829491b97',1,'Vector2']]],
+  ['operator_3d',['operator=',['../struct_vector2.html#abbe1652c23039a5b1038c1a9ff3ed27a',1,'Vector2::operator=(Vector2 x)'],['../struct_vector2.html#a4677ee60af03e777afe9ef8c7bdf1154',1,'Vector2::operator=(glm::vec3 v)'],['../struct_vector3.html#a922a02c393dbe36e6299cb5a1fe458ac',1,'Vector3::operator=(Vector3 x)'],['../struct_vector3.html#a11cb73f45e746e16397d4a0496d107a5',1,'Vector3::operator=(glm::vec3 v)']]]
 ];

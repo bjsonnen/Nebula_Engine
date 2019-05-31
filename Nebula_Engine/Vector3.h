@@ -131,6 +131,31 @@ struct Vector3
 		this->z = v.z;
 	}
 
+	//! Divides the vector through a scalar
+	//! @param x The scalar for the division
+	void operator /(float x)
+	{
+		this->x /= x;
+		this->y /= x;
+		this->z /= x;
+	}
+
+	//! Returns the magnitude of the vector
+	//! @return Returns the magnitude as float
+	float Magnitude()
+	{
+		return sqrt(this->x * this->x + this->y * this->y + this->z * this->z);
+	}
+
+	//! Normalizes the vector
+	void Normalize()
+	{
+		float mag = Magnitude();
+		this->x /= mag;
+		this->y /= mag;
+		this->z /= mag;
+	}
+
 	//! Converts vector3 to glm::vec3
 	//! @return Returns a glm::vec3
 	glm::vec3 ToGlm()

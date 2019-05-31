@@ -39,6 +39,7 @@
 #include "Skybox.h"
 #include "Ui.h"
 #include "RootManager.h"
+#include "GameObjectList.h"
 
 #include "ECManager.h"
 #include "Components.h"
@@ -67,6 +68,8 @@ Window renderWindow;
 
 Shader directionalShadowShader;
 Shader omniShadowShader;
+
+GameObjectList queue;
 
 RootManager rm;
 

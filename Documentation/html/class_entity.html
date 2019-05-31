@@ -30,9 +30,9 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">Nebula Engine
-   &#160;<span id="projectnumber">Beta 0.1</span>
+   &#160;<span id="projectnumber">1.0</span>
    </div>
-   <div id="projectbrief">C++ OpenGL Framework</div>
+   <div id="projectbrief">OpenGL C++ Project</div>
   </td>
  </tr>
  </tbody>
@@ -88,7 +88,6 @@ $(document).ready(function(){initNavTree('class_entity.html','');});
 
 <div class="header">
   <div class="summary">
-<a href="#pub-types">Public Types</a> &#124;
 <a href="#pub-methods">Public Member Functions</a> &#124;
 <a href="class_entity-members.html">List of all members</a>  </div>
   <div class="headertitle">
@@ -96,14 +95,6 @@ $(document).ready(function(){initNavTree('class_entity.html','');});
 </div><!--header-->
 <div class="contents">
 <table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-types"></a>
-Public Types</h2></td></tr>
-<tr class="memitem:aa8b6fb0a3b0ff1d9191282c998918027"><td class="memItemLeft" align="right" valign="top"><a id="aa8b6fb0a3b0ff1d9191282c998918027"></a>enum &#160;</td><td class="memItemRight" valign="bottom"><b>ObjectPrimitive</b> { <b>Cube</b>, 
-<b>Sphere</b>, 
-<b>Plane</b>
- }</td></tr>
-<tr class="separator:aa8b6fb0a3b0ff1d9191282c998918027"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
 <tr class="memitem:a7e2a7c5df3bceaf41deea192eeba4d8f"><td class="memItemLeft" align="right" valign="top"><a id="a7e2a7c5df3bceaf41deea192eeba4d8f"></a>
@@ -130,55 +121,9 @@ template&lt;typename T , typename... TArgs&gt; </td></tr>
 template&lt;typename T &gt; </td></tr>
 <tr class="memitem:a770c7781e25b2f15dcab9dd75c821198"><td class="memTemplItemLeft" align="right" valign="top">T &amp;&#160;</td><td class="memTemplItemRight" valign="bottom"><b>GetComponent</b> () const</td></tr>
 <tr class="separator:a770c7781e25b2f15dcab9dd75c821198"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a432d34bb389776d33c8c58e0a01f0959"><td class="memItemLeft" align="right" valign="top"><a id="a432d34bb389776d33c8c58e0a01f0959"></a>
-int&#160;</td><td class="memItemRight" valign="bottom"><b>GetVerticesCount</b> ()</td></tr>
-<tr class="separator:a432d34bb389776d33c8c58e0a01f0959"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a7498a81508ea3a5ca327ed9d86cc4860"><td class="memItemLeft" align="right" valign="top"><a id="a7498a81508ea3a5ca327ed9d86cc4860"></a>
-int&#160;</td><td class="memItemRight" valign="bottom"><b>GetIndeciesCount</b> ()</td></tr>
-<tr class="separator:a7498a81508ea3a5ca327ed9d86cc4860"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a71051d8255fdd7609819243781240c4b"><td class="memItemLeft" align="right" valign="top"><a id="a71051d8255fdd7609819243781240c4b"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>ReloadDefaultTexture</b> ()</td></tr>
-<tr class="separator:a71051d8255fdd7609819243781240c4b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad23962b7715827102869205b336059c4"><td class="memItemLeft" align="right" valign="top"><a id="ad23962b7715827102869205b336059c4"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>SetNormalMap</b> (char *path)</td></tr>
-<tr class="separator:ad23962b7715827102869205b336059c4"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a5f00ee65265cc9a742ff737e10c91c70"><td class="memItemLeft" align="right" valign="top"><a id="a5f00ee65265cc9a742ff737e10c91c70"></a>
-float *&#160;</td><td class="memItemRight" valign="bottom"><b>GetVertices</b> ()</td></tr>
-<tr class="separator:a5f00ee65265cc9a742ff737e10c91c70"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a586c6307c593df98dc8554800d49b14d"><td class="memItemLeft" align="right" valign="top"><a id="a586c6307c593df98dc8554800d49b14d"></a>
-unsigned int *&#160;</td><td class="memItemRight" valign="bottom"><b>GetIndices</b> ()</td></tr>
-<tr class="separator:a586c6307c593df98dc8554800d49b14d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a2b750e35d5dc0425888c305486688bd7"><td class="memItemLeft" align="right" valign="top"><a id="a2b750e35d5dc0425888c305486688bd7"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>SetDefaultTexture</b> (char *path)</td></tr>
-<tr class="separator:a2b750e35d5dc0425888c305486688bd7"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a57ed6fada3d0d1ba287ac640f80c10ca"><td class="memItemLeft" align="right" valign="top"><a id="a57ed6fada3d0d1ba287ac640f80c10ca"></a>
-char *&#160;</td><td class="memItemRight" valign="bottom"><b>GetDefaultTexture</b> ()</td></tr>
-<tr class="separator:a57ed6fada3d0d1ba287ac640f80c10ca"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa787bc763776d93032677209f50d3d95"><td class="memItemLeft" align="right" valign="top"><a id="aa787bc763776d93032677209f50d3d95"></a>
-char *&#160;</td><td class="memItemRight" valign="bottom"><b>GetFileName</b> ()</td></tr>
-<tr class="separator:aa787bc763776d93032677209f50d3d95"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a9f97e6cde86f53eebbb80b987d431456"><td class="memItemLeft" align="right" valign="top"><a id="a9f97e6cde86f53eebbb80b987d431456"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>SetFileLocation</b> (char *fileLocation)</td></tr>
-<tr class="separator:a9f97e6cde86f53eebbb80b987d431456"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a12224b8ddc23735430a780fd9577dbb5"><td class="memItemLeft" align="right" valign="top"><a id="a12224b8ddc23735430a780fd9577dbb5"></a>
-NE_ERROR&#160;</td><td class="memItemRight" valign="bottom"><b>LoadModel</b> ()</td></tr>
-<tr class="separator:a12224b8ddc23735430a780fd9577dbb5"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:afb1b16e06c2340e8d36e68053218ea17"><td class="memItemLeft" align="right" valign="top"><a id="afb1b16e06c2340e8d36e68053218ea17"></a>
-NE_ERROR&#160;</td><td class="memItemRight" valign="bottom"><b>LoadModel</b> (const char *fileName)</td></tr>
-<tr class="separator:afb1b16e06c2340e8d36e68053218ea17"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a51be2d420b148e45225c25c82e044023"><td class="memItemLeft" align="right" valign="top"><a id="a51be2d420b148e45225c25c82e044023"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>UsePrimitibe</b> (ObjectPrimitive primitive)</td></tr>
-<tr class="separator:a51be2d420b148e45225c25c82e044023"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a2958626e851c545c8d976c84f18dd157"><td class="memItemLeft" align="right" valign="top"><a id="a2958626e851c545c8d976c84f18dd157"></a>
-NE_ERROR&#160;</td><td class="memItemRight" valign="bottom"><b>RenderModel</b> ()</td></tr>
-<tr class="separator:a2958626e851c545c8d976c84f18dd157"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a2e58d45a3d40dc5fd5c1f08708928387"><td class="memItemLeft" align="right" valign="top"><a id="a2e58d45a3d40dc5fd5c1f08708928387"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>ClearModel</b> ()</td></tr>
-<tr class="separator:a2e58d45a3d40dc5fd5c1f08708928387"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<hr/>The documentation for this class was generated from the following files:<ul>
-<li>GitHub/Nebula_Engine/Nebula_Engine/<a class="el" href="_e_c_manager_8h_source.html">ECManager.h</a></li>
-<li>GitHub/Nebula_Engine/Nebula_Engine/ECManager.cpp</li>
+<hr/>The documentation for this class was generated from the following file:<ul>
+<li>Nebula_Engine/<a class="el" href="_e_c_manager_8h_source.html">ECManager.h</a></li>
 </ul>
 </div><!-- contents -->
 </div><!-- doc-content -->

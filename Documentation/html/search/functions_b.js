@@ -1,4 +1,7 @@
 var searchData=
 [
-  ['normalize',['Normalize',['../struct_vector2.html#a3b597b3bfeb114dd9e157b86330e087d',1,'Vector2::Normalize()'],['../struct_vector3.html#a9c94cc16049543fc8edaba52c2b266b7',1,'Vector3::Normalize()']]]
+  ['pause',['Pause',['../class_audio.html#a2f173c788f4c72def6cd0d5d52cb83a4',1,'Audio']]],
+  ['play',['Play',['../class_audio.html#a2528c364d97e19cd005b0461ec8cbfb1',1,'Audio']]],
+  ['play3d',['Play3D',['../class_audio.html#a8ce5260db0daaef85f4509fdad58cbab',1,'Audio']]],
+  ['pointlight',['PointLight',['../class_point_light.html#abbfdf5f05b559c49016f8bb97b0ca414',1,'PointLight::PointLight()'],['../class_point_light.html#aeb669be7e03cd019c39adcdccbf78025',1,'PointLight::PointLight(unsigned int shadowWidth, unsigned int shadowHeight, float near, float far, float red, float green, float blue, float aIntensity, float dIntensity, float xPos, float yPos, float zPos, float con, float lin, float exp)']]]
 ];

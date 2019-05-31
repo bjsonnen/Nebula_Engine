@@ -14,6 +14,7 @@ var class_game_object =
     [ "GetIndicesCount", "class_game_object.html#a5f11058ab58b1e3fd0bba65eca1dad4a", null ],
     [ "GetMainColor", "class_game_object.html#a9f320ff03b3cbf254511952dc2f3951a", null ],
     [ "GetMainColorVector3", "class_game_object.html#af68f8296127c57c48ae14e52186a4549", null ],
+    [ "GetParallaxMap", "class_game_object.html#a6c67c0fedd2cfa3758e86cc75f40f191", null ],
     [ "GetPosition", "class_game_object.html#a345efa82c1b4d5f41100f267ee859dae", null ],
     [ "GetPositionVector3", "class_game_object.html#a4541e1e1f7461f91878e7ddc1a145d89", null ],
     [ "GetRenderNormalMaps", "class_game_object.html#a1da6cee9bfe225ab39e58b2227faba6a", null ],
@@ -55,5 +56,6 @@ var class_game_object =
     [ "SetScale", "class_game_object.html#ace1f06c6e0e9c8b1f0d3846f12461cc1", null ],
     [ "UseBlending", "class_game_object.html#ab9c811db96001705309dcb7951ca5252", null ],
     [ "UseNormalMaps", "class_game_object.html#ab59900eba23ba9d4d07ce727332d3c0b", null ],
+    [ "UseParallaxMapping", "class_game_object.html#a9860477980ec136c9e89b08fc420f760", null ],
     [ "UsePrimitive", "class_game_object.html#a530897ca5fe14017bae2790f49b46e95", null ]
 ];

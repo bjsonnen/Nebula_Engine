@@ -85,6 +85,7 @@
     <ClCompile Include="RootManager.cpp">
       <Filter>Sourcefiles</Filter>
     </ClCompile>
+    <ClCompile Include="GameObjectList.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Audio.h">
@@ -183,6 +184,7 @@
     <ClInclude Include="ECManager.h">
       <Filter>Headerfiles\Components</Filter>
     </ClInclude>
+    <ClInclude Include="GameObjectList.h" />
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Headerfiles">

@@ -30,12 +30,13 @@ void Start()
 	go1.SetScale(10.0f, 1.0f, 10.0f);
 	go1.UseBlending(false);
 	modelList.push_back(&go1);
+	queue.Add(go1);
 
 	go2 = GameObject("Models/cube.obj");
 	go2.SetPosition(0.0f, -15.0f, 0.0f);
 	go2.SetScale(40.0f, 1.0f, 40.0f);
 	go2.UseNormalMaps(false);
-	modelList.push_back(&go2);
+	queue.Add(go2);
 
 	go = GameObject("Models/penguin.obj");
 	go.SetPosition(0.0f, 4.0f, 0.0f);
@@ -43,28 +44,29 @@ void Start()
 	go.SetScale(0.05f, 0.05f, 0.05f);
 	go.SetDegrees(-90.0f);
 	go.UseNormalMaps(false);
-	modelList.push_back(&go);
+	queue.Add(go);
 
 	go3 = GameObject("Models/spider.obj");
 	go3.SetPosition(0.0f, -5.0f, 0.0f);
 	go3.SetScale(0.09f, 0.09f, 0.09f);
-	modelList.push_back(&go3);
+	go3.UseBlending(true);
+	queue.Add(go3);
 
 	blending1 = GameObject("Models/cube.obj");
 	blending1.SetPosition(15.0f, 0.0f, 0.0f);
 	blending1.SetDefaultTexture("Textures/blending.png");
 	blending1.UseNormalMaps(false);
 	blending1.UseBlending(true);
-	modelList.push_back(&blending1);
+	queue.Add(blending1);
 
 	blending2 = GameObject("Models/cube.obj");
 	blending2.SetPosition(0.0f, 3.0f, 0.0f);
 	blending2.SetDefaultTexture("Textures/blending.png");
 	blending2.UseNormalMaps(false);
 	blending2.UseBlending(true);
-	modelList.push_back(&blending2);
+	queue.Add(blending2);
 
-	modelList[1]->ChangeMainColor(ObjectColor::Orange);
+	go2.ChangeMainColor(ObjectColor::Orange);
 }
 
 glm::vec3 tmpcolor = glm::vec3();
@@ -76,8 +78,8 @@ void Update()
 
 	tmpRotation += renderWindow.GetDeltaTime() * multi;
 	if (tmpRotation >= 360.0f) tmpRotation = 0.0f;
-	modelList[0]->SetDegrees(tmpRotation);
-	modelList[0]->SetRotation(0.0f, -1.0f, 0.0f);
+	go1.SetDegrees(tmpRotation);
+	go1.SetRotation(0.0f, -1.0f, 0.0f);
 
 	if (renderWindow.Key(Window::KeyCode::G))
 		mainAudio.Play();
@@ -85,7 +87,7 @@ void Update()
 	if (tmpcolor.x > 1.0f) tmpcolor.x = 0.0f; else tmpcolor.x += 0.001f;
 	if (tmpcolor.y > 1.0f) tmpcolor.y = 0.0f; else tmpcolor.y += 0.002f;
 	if (tmpcolor.z > 1.0f) tmpcolor.z = 0.0f; else tmpcolor.z += 0.003f;
-	modelList[1]->ChangeMainColor(tmpcolor);
+	//go2.ChangeMainColor(tmpcolor);
 
 	if (renderWindow.Key(Window::KeyCode::B))
 		mainAudio.Play();
@@ -104,7 +106,7 @@ int main()
 
 	// Engine Setup
 	rm.EngineInitialization(renderWindow, camera, defaultMaterial, dullMaterial, mainLight, 
-		skybox, shaderList);
+		skybox, shaderList, &queue);
 	rm.CompileCustomShaders(CompileShaders);
 	shaderList = rm.GetShaderList();
 	camera = rm.GetCamera();
@@ -118,7 +120,7 @@ int main()
 
 	while (!renderWindow.GetShouldClose())
 	{
-		rm.EngineVariablesUpdate(&textureList, &modelList, projection, pointLights, spotLights, pointLightCount, spotLightCount);
+		rm.EngineVariablesUpdate(&textureList, projection, pointLights, spotLights, pointLightCount, spotLightCount);
 		rm.MainLoop(renderWindow.GetShouldClose(), renderWindow, Start, Update);
 	}
 

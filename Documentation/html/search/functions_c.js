@@ -1,10 +1,12 @@
 var searchData=
 [
-  ['object',['Object',['../class_object.html#a40860402e64d8008fb42329df7097cdb',1,'Object::Object()'],['../class_object.html#ab2f2852d5c4d9bf362e8bc41971a0f89',1,'Object::Object(char *filelocation)']]],
-  ['omnishadowmap',['OmniShadowMap',['../class_omni_shadow_map.html#a546a081c019229fec62b38f165b2f995',1,'OmniShadowMap']]],
-  ['operator_20_2d',['operator -',['../struct_vector2.html#accce68ad818627dbe189c9e946aa1c80',1,'Vector2::operator -()'],['../struct_vector3.html#aa3d4507c8c4a280d49919f1944999406',1,'Vector3::operator -()']]],
-  ['operator_20_2d_3d',['operator -=',['../struct_vector2.html#affe953e6b1098456324e4fdea72ec8e4',1,'Vector2']]],
-  ['operator_2b',['operator+',['../struct_vector2.html#a2a517dda544bc45e6e06dd4ea983c5d7',1,'Vector2::operator+()'],['../struct_vector3.html#a52897becbe532cb731a0117affac5ebe',1,'Vector3::operator+()']]],
-  ['operator_2b_3d',['operator+=',['../struct_vector2.html#a7ed76b87b79c2a20b08788328dcf592e',1,'Vector2']]],
-  ['operator_3d',['operator=',['../struct_vector2.html#a7e9bf2ca75c051fe51cbc8a484923d6d',1,'Vector2::operator=(Vector2 x)'],['../struct_vector2.html#a6baf5cab131f85f846b784ad31c506ec',1,'Vector2::operator=(glm::vec3 v)'],['../struct_vector3.html#a922a02c393dbe36e6299cb5a1fe458ac',1,'Vector3::operator=(Vector3 x)'],['../struct_vector3.html#a11cb73f45e746e16397d4a0496d107a5',1,'Vector3::operator=(glm::vec3 v)']]]
+  ['read',['Read',['../class_omni_shadow_map.html#ae2c39deb32f33b8c6f461f4525a1d552',1,'OmniShadowMap::Read()'],['../class_shadow_map.html#a6b48e98aeab56d0c9bf4c2ac4beeb3db',1,'ShadowMap::Read()']]],
+  ['readfile',['ReadFile',['../class_shader.html#acca9db816d6d9587bef5689317aea69e',1,'Shader']]],
+  ['release',['Release',['../class_audio.html#a0adb187aa96b0c2115d69c70c83b2277',1,'Audio']]],
+  ['reloaddefaulttexture',['ReloadDefaultTexture',['../class_game_object.html#a007ca9940b38a71eae51efefda676e4f',1,'GameObject::ReloadDefaultTexture()'],['../class_object.html#a1704530eba80bb3693f68356f3e0462b',1,'Object::ReloadDefaultTexture()']]],
+  ['rendermesh',['RenderMesh',['../class_mesh.html#a75ccdfd3c16df862abb90d6046abcdb4',1,'Mesh']]],
+  ['rendermodel',['RenderModel',['../class_game_object.html#ab4c2468f179f258168c6af5369172f81',1,'GameObject::RenderModel()'],['../class_object.html#a357d3469a47d0272bb03b84ff0b27255',1,'Object::RenderModel()']]],
+  ['restart',['Restart',['../class_audio.html#ae2bcb6b054a71006cc8ac03ff62d5d96',1,'Audio']]],
+  ['rootmanager',['RootManager',['../class_root_manager.html#a53b21e9c4e78c18d24fd7cdac901a633',1,'RootManager']]],
+  ['rotate',['Rotate',['../class_game_object.html#ac1f6c8881fe4185a1a2bca08ad252660',1,'GameObject::Rotate(glm::vec3 rotation)'],['../class_game_object.html#a93d2bb0c555fe8bb6323f9a4827f7a46',1,'GameObject::Rotate(Vector3 rotation)']]]
 ];

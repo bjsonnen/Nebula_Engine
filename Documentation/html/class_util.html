@@ -30,9 +30,9 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">Nebula Engine
-   &#160;<span id="projectnumber">Beta 0.1</span>
+   &#160;<span id="projectnumber">1.0</span>
    </div>
-   <div id="projectbrief">C++ OpenGL Framework</div>
+   <div id="projectbrief">OpenGL C++ Project</div>
   </td>
  </tr>
  </tbody>
@@ -104,8 +104,6 @@ $(document).ready(function(){initNavTree('class_util.html','');});
 Static Public Member Functions</h2></td></tr>
 <tr class="memitem:ad2e7395962790b29850386ec1b67b0b4"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_util.html#ad2e7395962790b29850386ec1b67b0b4">CalculateNormals</a> (unsigned int *indices, unsigned int indiceCount, float *vertices, unsigned int verticeCount, unsigned int vLength, unsigned int normalOffset)</td></tr>
 <tr class="separator:ad2e7395962790b29850386ec1b67b0b4"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae720e205587c192a38b9f304cdbde242"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_util.html#ae720e205587c192a38b9f304cdbde242">CalculateBitAngents</a> (unsigned int *vertices, const unsigned int UVoffset, const unsigned int verticeOffset, const unsigned int verticeCount, const unsigned int tangentOffset)</td></tr>
-<tr class="separator:ae720e205587c192a38b9f304cdbde242"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:affee8f024e5e4bd88fb0bd79e37c2186"><td class="memTemplParams" colspan="2">template&lt;typename T &gt; </td></tr>
 <tr class="memitem:affee8f024e5e4bd88fb0bd79e37c2186"><td class="memTemplItemLeft" align="right" valign="top">static void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="class_util.html#affee8f024e5e4bd88fb0bd79e37c2186">SwapVectorArray</a> (std::vector&lt; T * &gt; *vector)</td></tr>
 <tr class="separator:affee8f024e5e4bd88fb0bd79e37c2186"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -121,70 +119,6 @@ Static Public Member Functions</h2></td></tr>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Utilities. Use predefinied methods. </p>
 </div><h2 class="groupheader">Member Function Documentation</h2>
-<a id="ae720e205587c192a38b9f304cdbde242"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ae720e205587c192a38b9f304cdbde242">&#9670;&nbsp;</a></span>CalculateBitAngents()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">void Util::CalculateBitAngents </td>
-          <td>(</td>
-          <td class="paramtype">unsigned int *&#160;</td>
-          <td class="paramname"><em>vertices</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const unsigned int&#160;</td>
-          <td class="paramname"><em>UVoffset</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const unsigned int&#160;</td>
-          <td class="paramname"><em>verticeOffset</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const unsigned int&#160;</td>
-          <td class="paramname"><em>verticeCount</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const unsigned int&#160;</td>
-          <td class="paramname"><em>tangentOffset</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">static</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-<p>Calculate bitangents and return a pointer to the array </p><dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">vertices</td><td>Insert vertices as unsigned int array </td></tr>
-    <tr><td class="paramname">UVoffset</td><td>Insert offset from start to uv coordinates </td></tr>
-    <tr><td class="paramname">verticesOffset</td><td>Insert offset to new vertices </td></tr>
-    <tr><td class="paramname">verticeCount</td><td>Insert vertices array count </td></tr>
-    <tr><td class="paramname">tangentCount</td><td>Insert offset to tangent and bitangent coordinates </td></tr>
-  </table>
-  </dd>
-</dl>
-
-</div>
-</div>
 <a id="ad2e7395962790b29850386ec1b67b0b4"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#ad2e7395962790b29850386ec1b67b0b4">&#9670;&nbsp;</a></span>CalculateNormals()</h2>
 
@@ -331,7 +265,7 @@ template&lt;typename T &gt; </div>
   </tr>
 </table>
 </div><div class="memdoc">
-<p>Debug log, use NE_ERROR_CHECK(_result) </p><dl class="params"><dt>Parameters</dt><dd>
+<p>Debug log, use NE_DEBUG_LOG(__variable) </p><dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">t</td><td>Insert output variable as type TEMPLATE </td></tr>
   </table>
@@ -409,8 +343,8 @@ template&lt;typename T &gt; </div>
 </div>
 </div>
 <hr/>The documentation for this class was generated from the following files:<ul>
-<li>GitHub/Nebula_Engine/Nebula_Engine/<a class="el" href="_util_8h_source.html">Util.h</a></li>
-<li>GitHub/Nebula_Engine/Nebula_Engine/Util.cpp</li>
+<li>Nebula_Engine/<a class="el" href="_util_8h_source.html">Util.h</a></li>
+<li>Nebula_Engine/Util.cpp</li>
 </ul>
 </div><!-- contents -->
 </div><!-- doc-content -->

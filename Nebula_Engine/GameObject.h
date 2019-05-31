@@ -262,6 +262,14 @@ public:
 	//! @param fileLocation Insert the file location as std::string
 	void SetFileLocation(std::string fileLocation);
 
+	//! Get the name of the object
+	//! @return Returns the current object name as std::string
+	std::string GetObjectName();
+
+	//! Set the name of the object
+	//! @param name Insert new name for the object as std::string
+	void SetObjectName(std::string name);
+
 	//! Load model
 	//! Model is automatically loaded
 	//! @return Returns NE_ERROR
@@ -339,6 +347,8 @@ private:
 
 	std::string defaultPath = "Textures/dev.jpg";
 	std::string defaultNormalPath = "Textures/normal.jpg";
+
+	std::string objectName = "";
 
 	Texture normal;
 };
