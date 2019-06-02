@@ -19,7 +19,7 @@ glm::vec3 NE::GameObject::GetPosition()
 	return pos;
 }
 
-Vector3 NE::GameObject::GetPositionVector3()
+NE::Vector3 NE::GameObject::GetPositionVector3()
 {
 	return Vector3(pos.x, pos.y, pos.z);
 }
@@ -29,7 +29,7 @@ glm::vec3 NE::GameObject::GetRotation()
 	return rota;
 }
 
-Vector3 NE::GameObject::GetRotationVector3()
+NE::Vector3 NE::GameObject::GetRotationVector3()
 {
 	return glm::vec3(rota.x, rota.y, rota.y);
 }
@@ -39,7 +39,7 @@ glm::vec3 NE::GameObject::GetScale()
 	return scale;
 }
 
-Vector3 NE::GameObject::GetScaleVector3()
+NE::Vector3 NE::GameObject::GetScaleVector3()
 {
 	return glm::vec3(scale.x, scale.y, scale.z);
 }
@@ -168,7 +168,7 @@ glm::vec3 NE::GameObject::GetMainColor()
 	return mainColor;
 }
 
-Vector3 NE::GameObject::GetMainColorVector3()
+NE::Vector3 NE::GameObject::GetMainColorVector3()
 {
 	return Vector3(mainColor.x, mainColor.y, mainColor.z);
 }

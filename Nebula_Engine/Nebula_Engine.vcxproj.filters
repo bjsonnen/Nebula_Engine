@@ -183,6 +183,21 @@
     <ClInclude Include="GameObjectList.h">
       <Filter>Headerfiles</Filter>
     </ClInclude>
+    <ClInclude Include="Matrix3x3.h">
+      <Filter>Headerfiles\Math</Filter>
+    </ClInclude>
+    <ClInclude Include="Math.h">
+      <Filter>Headerfiles\Math</Filter>
+    </ClInclude>
+    <ClInclude Include="Matrix4x4.h">
+      <Filter>Headerfiles\Math</Filter>
+    </ClInclude>
+    <ClInclude Include="Vector4.h">
+      <Filter>Headerfiles\Math</Filter>
+    </ClInclude>
+    <ClInclude Include="Matrix2x2.h">
+      <Filter>Headerfiles\Math</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Headerfiles">

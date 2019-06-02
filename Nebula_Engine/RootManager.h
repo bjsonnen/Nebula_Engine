@@ -3,6 +3,13 @@
 #include <glm/glm.hpp>
 #include <glm/mat4x4.hpp>
 
+#include <vector>
+#include <map>
+
+#include <imgui.h>
+#include <imgui_impl_glfw.h>
+#include <imgui_impl_opengl3.h>
+
 #include "GameObject.h"
 #include "Camera.h"
 #include "Material.h"
@@ -12,18 +19,10 @@
 #include "Shader.h"
 #include "PointLight.h"
 #include "GameObjectList.h"
-
 #include "Util.h"
-
-#include <vector>
-#include <map>
-
-#include <imgui.h>
-#include <imgui_impl_glfw.h>
-#include <imgui_impl_opengl3.h>
 #include "Ui.h"
-
 #include "ECManager.h"
+#include "Math.h"
 
 #include <GLFW/glfw3.h>
 

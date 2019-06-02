@@ -188,7 +188,7 @@ glm::vec3 NE::Camera::GetCameraPosition()
 {
 	return position;
 }
-Vector3 NE::Camera::GetCameraPositionVector3()
+NE::Vector3 NE::Camera::GetCameraPositionVector3()
 {
 	return position;
 }

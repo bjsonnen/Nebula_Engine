@@ -25,12 +25,12 @@ NE::SpotLight::SpotLight(unsigned int shadowWidth, unsigned int shadowHeight,
 	procEdge = cosf(glm::radians(edge));
 }
 
-void NE::SpotLight::UseLight(unsigned int ambientIntensityLocation, unsigned int ambientColourLocation,
+void NE::SpotLight::UseLight(unsigned int ambientIntensityLocation, unsigned int ambientColorLocation,
 	unsigned int diffuseIntensityLocation, unsigned int positionLocation, unsigned int directionLocation, 
 	unsigned int constantLocation, unsigned int linearLocation, unsigned int exponentLocation, 
 	unsigned int edgeLocation)
 {
-	glUniform3f(ambientColourLocation, color.x, color.y, color.z);
+	glUniform3f(ambientColorLocation, color.x, color.y, color.z);
 
 	if (isOn)
 	{

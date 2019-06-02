@@ -15,6 +15,8 @@
 #include "SpotLight.h"
 #include "Util.h"
 
+#include "Math.h"
+
 namespace NE
 {
 	//! Main shader class, create new shaders via Shader.CreateFromFiles() / CreateFromString()
@@ -179,7 +181,7 @@ namespace NE
 		NE_ERROR CompileShader(const char* vertexCode, const char* fragmentCode);
 		//! Compile vertex, geometry & fragment(pixel) shader
 		NE_ERROR CompileShader(const char* vertexCode, const char* geometryCode, const char* fragmentCode);
-		NE_ERROR AddShader(unsigned int theProgram, const char* shaderCode, GLenum shaderType);
+		NE_ERROR AddShader(unsigned int theProgram, const char* shaderCode, unsigned int shaderType);
 
 		void CompileProgram();
 

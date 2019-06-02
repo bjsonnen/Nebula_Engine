@@ -90,7 +90,7 @@ glm::vec3 NE::PointLight::GetPosition()
 	return position;
 }
 
-Vector3 NE::PointLight::GetPositionVector3()
+NE::Vector3 NE::PointLight::GetPositionVector3()
 {
 	return Vector3(position.x, position.y, position.z);
 }

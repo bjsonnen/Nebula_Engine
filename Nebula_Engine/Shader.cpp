@@ -164,7 +164,7 @@ void NE::Shader::CompileProgram() {
 	{
 		char locBuff[100] = { '\0' };
 
-		snprintf(locBuff, sizeof(locBuff), "pointLights[%d].base.colour", i);
+		snprintf(locBuff, sizeof(locBuff), "pointLights[%d].base.color", i);
 		uniformPointLight[i].uniformColor = glGetUniformLocation(shaderID, locBuff);
 
 		snprintf(locBuff, sizeof(locBuff), "pointLights[%d].base.ambientIntensity", i);
@@ -192,7 +192,7 @@ void NE::Shader::CompileProgram() {
 	{
 		char locBuff[100] = { '\0' };
 
-		snprintf(locBuff, sizeof(locBuff), "spotLights[%d].base.base.colour", i);
+		snprintf(locBuff, sizeof(locBuff), "spotLights[%d].base.base.color", i);
 		uniformSpotLight[i].uniformColor = glGetUniformLocation(shaderID, locBuff);
 
 		snprintf(locBuff, sizeof(locBuff), "spotLights[%d].base.base.ambientIntensity", i);
@@ -440,7 +440,7 @@ void NE::Shader::ClearShader()
 }
 
 
-NE_ERROR NE::Shader::AddShader(unsigned int theProgram, const char* shaderCode, GLenum shaderType)
+NE_ERROR NE::Shader::AddShader(unsigned int theProgram, const char* shaderCode, unsigned int shaderType)
 {
 	unsigned int theShader = glCreateShader(shaderType);
 

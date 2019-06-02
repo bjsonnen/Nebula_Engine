@@ -1,5 +1,7 @@
 #include "main.h"
 
+#include "Math.h"
+
 glm::mat4 projection;
 
 NE::GameObject go;
@@ -9,6 +11,8 @@ NE::GameObject go3;
 NE::GameObject blending1;
 NE::GameObject blending2;
 NE::Audio mainAudio = NE::Audio("Audio/ps2.ogg");
+
+NE::Matrix3x3 hallo;
 
 float tmp = 0.0f;
 float tmpColor;
@@ -60,6 +64,16 @@ void Start()
 	blending2.UseNormalMaps(false);
 	blending2.UseBlending(true);
 	queue.Add(blending2);
+
+	// Wrong color multiplication! 
+	// Light upload works
+	//testPL = NE::PointLight(2048, 2048,
+	//	0.1f, 1000.0f, 0.0f, 0.0f, 1.0f,
+	//	0.0f, 0.1f,
+	//	-4.0f, 2.0f, 0.0f,
+	//	0.3f, 0.1f, 0.1f);
+	//pointLightCount++;
+	//pointLights[0] = testPL;
 
 	go2.ChangeMainColor(NE::ObjectColor::Orange);
 }

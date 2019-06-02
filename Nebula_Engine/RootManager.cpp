@@ -175,7 +175,7 @@ void NE::RootManager::RenderScene()
 			continue;
 		}
 		model = glm::translate(model, queue->FindAtIndex(i)->GetPosition());
-		model = glm::rotate(model, NE::Math::ToRadians(queue->FindAtIndex(i)->GetDegrees()), queue->FindAtIndex(i)->GetRotation());
+		model = glm::rotate(model, NE::Mathf::ToRadians(queue->FindAtIndex(i)->GetDegrees()), queue->FindAtIndex(i)->GetRotation());
 		model = glm::scale(model, queue->FindAtIndex(i)->GetScale());
 		shaderList[0].SetBool("renderNormalMaps", queue->FindAtIndex(i)->GetRenderNormalMaps());
 		shaderList[0].SetMatrix("model", model);
@@ -194,7 +194,7 @@ void NE::RootManager::RenderScene()
 	{
 		model = glm::mat4();
 		model = glm::translate(model, i->second->GetPosition());
-		model = glm::rotate(model, NE::Math::ToRadians(i->second->GetDegrees()), i->second->GetRotation());
+		model = glm::rotate(model, NE::Mathf::ToRadians(i->second->GetDegrees()), i->second->GetRotation());
 		model = glm::scale(model, i->second->GetScale());
 		shaderList[0].SetBool("renderNormalMaps", i->second->GetRenderNormalMaps());
 		shaderList[0].SetMatrix("model", model);

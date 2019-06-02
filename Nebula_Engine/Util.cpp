@@ -56,13 +56,3 @@ const char * NE::Util::NE_ErrorString(NE_ERROR error)
 	default:						return "Unknown error";
 	}
 }
-
-float NE::Math::ToRadians(float degrees)
-{
-	return (degrees * (3.14159265f / 180.0f));
-}
-
-float NE::Math::ToDegrees(float radians)
-{
-	return (radians / (3.14159265f / 180.0f));
-}
