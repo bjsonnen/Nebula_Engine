@@ -61,7 +61,7 @@ namespace NE
 		//! Set the 3D Position of the player
 		//! @param pos Set current position as Vector3
 		//! @see Vector3
-		void Set3DPosition(Vector3 pos);
+		void Set3DPosition(NE::Vector3 pos);
 		//! Pause the audio source
 		//! @return Returns an NE_ERROR
 		//! @see NE_ERROR_CHECK

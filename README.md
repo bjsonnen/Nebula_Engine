@@ -11,6 +11,13 @@ Contributions and general support are welcome.
 # Documentation
 Download nebula and navigate to Documentation -> html -> and open index.html in your webbrowser
 
+# How to compile
+1. Open the Nebula_Engine.sln
+2. Choose Debug mode and x86
+3. Press "Local Windows Debugger"
+4. Look around with the mouse, move around with WASD
+5. Press 'Left-SHIFT' for faster movement
+
 # SDKs
 * [GLM](https://glm.g-truc.net/0.9.9/index.html) - Math Library
 * [GLFW](https://www.glfw.org/) - Window creation and handling

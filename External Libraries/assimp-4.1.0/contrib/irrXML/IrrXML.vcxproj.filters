@@ -1,0 +1,39 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <ClCompile Include="C:\Users\Björn Sonnen\Desktop\OpenGL\External Libs\assimp-4.1.0\contrib\irrXML\irrXML.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="C:\Users\Björn Sonnen\Desktop\OpenGL\External Libs\assimp-4.1.0\contrib\irrXML\CXMLReaderImpl.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\Björn Sonnen\Desktop\OpenGL\External Libs\assimp-4.1.0\contrib\irrXML\heapsort.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\Björn Sonnen\Desktop\OpenGL\External Libs\assimp-4.1.0\contrib\irrXML\irrArray.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\Björn Sonnen\Desktop\OpenGL\External Libs\assimp-4.1.0\contrib\irrXML\irrString.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\Björn Sonnen\Desktop\OpenGL\External Libs\assimp-4.1.0\contrib\irrXML\irrTypes.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\Björn Sonnen\Desktop\OpenGL\External Libs\assimp-4.1.0\contrib\irrXML\irrXML.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <CustomBuild Include="C:\Users\Björn Sonnen\Desktop\OpenGL\External Libs\assimp-4.1.0\contrib\irrXML\CMakeLists.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="Header Files">
+      <UniqueIdentifier>{5D5167A3-3AB1-3CD1-A60D-BFD08C0C2B72}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{DFA76256-AB56-3D2F-80A0-F9BC59529CF5}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+</Project>

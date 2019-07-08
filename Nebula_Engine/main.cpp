@@ -28,7 +28,6 @@ void Start()
 	go1.SetPosition(0.0f, -5.35f, 0.0f);
 	go1.SetScale(10.0f, 1.0f, 10.0f);
 	go1.UseBlending(false);
-	modelList.push_back(&go1);
 	queue.Add(go1);
 
 	go2 = NE::GameObject("Models/cube.obj");
@@ -67,9 +66,11 @@ void Start()
 
 	// Wrong color multiplication! 
 	// Light upload works
+	// Not uploading values to shader
 	//testPL = NE::PointLight(2048, 2048,
-	//	0.1f, 1000.0f, 0.0f, 0.0f, 1.0f,
-	//	0.0f, 0.1f,
+	//	0.1f, 1000.0f, 
+	//	0.0f, 0.0f, 1.0f,
+	//	0.002f, 0.001f,
 	//	-4.0f, 2.0f, 0.0f,
 	//	0.3f, 0.1f, 0.1f);
 	//pointLightCount++;

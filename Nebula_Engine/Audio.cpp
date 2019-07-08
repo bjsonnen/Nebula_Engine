@@ -137,7 +137,7 @@ void NE::Audio::Set3DPosition(glm::vec3 pos)
 	FMOD_ERROR_CHECK(result);
 }
 
-void NE::Audio::Set3DPosition(Vector3 pos)
+void NE::Audio::Set3DPosition(NE::Vector3 pos)
 {
 	FMOD_VECTOR fmod_pos = { pos.x, pos.y, pos.z };
 	FMOD_VECTOR vel = { 0.0f, 0.0f, 0.0f };

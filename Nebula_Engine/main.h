@@ -55,13 +55,8 @@ uniformDirectionalLightTransform = 0, uniformOmniLightPos = 0, uniformFarPlane =
 
 // lists
 std::vector<NE::Mesh*> meshList;
-std::vector<NE::GameObject*> modelList;
-std::vector<Object*> testList;
 std::vector<NE::Texture*> textureList;
 std::vector<NE::Shader> shaderList;
-std::vector<Entity*> entityList;
-
-std::vector<NE::GameObject> objectList;
 
 // objects
 NE::Window renderWindow;

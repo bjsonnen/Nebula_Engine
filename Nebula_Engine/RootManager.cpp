@@ -154,6 +154,16 @@ void NE::RootManager::CompileCustomShaders(void * custom)
 	((void(*)(void))custom)();
 }
 
+NE_ERROR NE::RootManager::SelectDifferentShader(int i)
+{
+	if (i >= 0 && i < shaderList.size())
+	{
+		selectedShader = i;
+		return NE_OK;
+	}
+	return NE_SHADER;
+}
+
 void NE::RootManager::ShutDown()
 {
 	ImGui_ImplOpenGL3_Shutdown();
@@ -177,10 +187,10 @@ void NE::RootManager::RenderScene()
 		model = glm::translate(model, queue->FindAtIndex(i)->GetPosition());
 		model = glm::rotate(model, NE::Mathf::ToRadians(queue->FindAtIndex(i)->GetDegrees()), queue->FindAtIndex(i)->GetRotation());
 		model = glm::scale(model, queue->FindAtIndex(i)->GetScale());
-		shaderList[0].SetBool("renderNormalMaps", queue->FindAtIndex(i)->GetRenderNormalMaps());
-		shaderList[0].SetMatrix("model", model);
-		shaderList[0].SetVector3("primaryColor", queue->FindAtIndex(i)->GetMainColor());
-		shaderList[0].SetBool("useNormalMap", queue->FindAtIndex(i)->GetUseNormalMaps());
+		shaderList[selectedShader].SetBool("renderNormalMaps", queue->FindAtIndex(i)->GetRenderNormalMaps());
+		shaderList[selectedShader].SetMatrix("model", model);
+		shaderList[selectedShader].SetVector3("primaryColor", queue->FindAtIndex(i)->GetMainColor());
+		shaderList[selectedShader].SetBool("useNormalMap", queue->FindAtIndex(i)->GetUseNormalMaps());
 		if (uniformModel != 0)
 			glUniformMatrix4fv(uniformModel, 1, false, glm::value_ptr(model));
 		defaultMaterial.UseMaterial(&shaderList[0]);
@@ -196,10 +206,10 @@ void NE::RootManager::RenderScene()
 		model = glm::translate(model, i->second->GetPosition());
 		model = glm::rotate(model, NE::Mathf::ToRadians(i->second->GetDegrees()), i->second->GetRotation());
 		model = glm::scale(model, i->second->GetScale());
-		shaderList[0].SetBool("renderNormalMaps", i->second->GetRenderNormalMaps());
-		shaderList[0].SetMatrix("model", model);
-		shaderList[0].SetVector3("primaryColor", i->second->GetMainColor());
-		shaderList[0].SetBool("useNormalMap", i->second->GetUseNormalMaps());
+		shaderList[selectedShader].SetBool("renderNormalMaps", i->second->GetRenderNormalMaps());
+		shaderList[selectedShader].SetMatrix("model", model);
+		shaderList[selectedShader].SetVector3("primaryColor", i->second->GetMainColor());
+		shaderList[selectedShader].SetBool("useNormalMap", i->second->GetUseNormalMaps());
 		if (uniformModel != 0)
 			glUniformMatrix4fv(uniformModel, 1, false, glm::value_ptr(model));
 		defaultMaterial.UseMaterial(&shaderList[0]);
@@ -275,26 +285,26 @@ void NE::RootManager::RenderPass(glm::mat4 viewMatrix, glm::mat4 projectionMatri
 
 	skybox.DrawSkybox(viewMatrix, projectionMatrix);
 
-	shaderList[0].UseShader();
+	shaderList[selectedShader].UseShader();
 
 	// Upload matrices
-	shaderList[0].SetMatrix("projection", projectionMatrix);
-	shaderList[0].SetMatrix("view", viewMatrix);
-	shaderList[0].SetVector3("eyePosition", camera.GetCameraPosition());
+	shaderList[selectedShader].SetMatrix("projection", projectionMatrix);
+	shaderList[selectedShader].SetMatrix("view", viewMatrix);
+	shaderList[selectedShader].SetVector3("eyePosition", camera.GetCameraPosition());
 
-	shaderList[0].SetDirectionalLight(&mainLight);
-	shaderList[0].SetPointLights(pointLights, pointlightCount, 4, 0);
-	shaderList[0].SetSpotLights(spotLights, spotlightCount, 4 + pointlightCount, pointlightCount);
-	shaderList[0].SetDirectionalLightTransform(&mainLight.CalculateLightTransform());
+	shaderList[selectedShader].SetDirectionalLight(&mainLight);
+	shaderList[selectedShader].SetPointLights(pointLights, pointlightCount, 4, 0);
+	shaderList[selectedShader].SetSpotLights(spotLights, spotlightCount, 4 + pointlightCount, pointlightCount);
+	shaderList[selectedShader].SetDirectionalLightTransform(&mainLight.CalculateLightTransform());
 
 	mainLight.GetShadowMap()->Read(GL_TEXTURE3);
 	// Diffuse Texture
-	shaderList[0].SetTexture("dTexture", 1);
+	shaderList[selectedShader].SetTexture("dTexture", 1);
 	// Normal Texture
-	shaderList[0].SetTexture("nTexture", 2);
-	shaderList[0].SetDirectionalShadowMap(3);
+	shaderList[selectedShader].SetTexture("nTexture", 2);
+	shaderList[selectedShader].SetDirectionalShadowMap(3);
 
-	NE_ERROR_CHECK(shaderList[0].Validate());
+	NE_ERROR_CHECK(shaderList[selectedShader].Validate());
 }
 
 void NE::RootManager::CheckForBlendedObjects()

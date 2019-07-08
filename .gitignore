@@ -214,7 +214,6 @@ UpgradeLog*.htm
 *.mdf
 *.ldf
 
-External Libraries/
 Debug/
 Release/
 

@@ -32,7 +32,7 @@ NE::PointLight::PointLight(unsigned int shadowWidth, unsigned int shadowHeight,
 
 	shadowMap = new NE::OmniShadowMap();
 	// -> Cant access something
-	shadowMap->Init(shadowWidth, shadowHeight);
+	NE_DEBUG_LOG(shadowMap->Init(shadowWidth, shadowHeight));
 }
 
 void NE::PointLight::UseLight(unsigned int ambientIntensityLocation, unsigned int ambientColorLocation,

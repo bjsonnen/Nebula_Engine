@@ -81,6 +81,11 @@ namespace NE
 		//! @param blubb Pointer to the methode where to create the shaders
 		void CompileCustomShaders(void* blubb);
 
+		//! Change to a different, already compiled shader
+		//! @param i Insert index of the new shader
+		//! @return Return a NE_ERROR
+		NE_ERROR SelectDifferentShader(int i);
+
 		//! Call this when the game has ended
 		void ShutDown();
 
@@ -90,6 +95,9 @@ namespace NE
 		//! @return Returns the window as object
 		NE::Window GetWindow() { return *renderWindow; }
 		bool GetWindowActive() { return glfwWindowShouldClose(renderWindow->GetWindow()); }
+		//! Get the index of the current select shader
+		//! @return Returns the index of the shader as int
+		int GetSelectedShader() { return selectedShader; }
 		//! Returns the current camera
 		//! @return Returns the camera object
 		NE::Camera GetCamera() { return camera; }
@@ -170,6 +178,8 @@ namespace NE
 		unsigned int hdrFBO = 0;
 		unsigned int colorBuffer = 0;
 		unsigned int rboDepth = 0;
+
+		int selectedShader = 0;
 
 		// Entity-Component-System Manager
 		Manager* manager;

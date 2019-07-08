@@ -32,7 +32,12 @@ NE_ERROR NE::OmniShadowMap::Init(unsigned int width, unsigned int height)
 
 	if (Status != GL_FRAMEBUFFER_COMPLETE)
 	{
-		std::cout << "OmniShadowMap: " << Status << std::endl;
+		if (Status == 36054)
+		{
+			std::cout << "Omni Shaodw Map width/height is not the same as all others!" << std::endl;
+		}
+		else
+			std::cout << "OmniShadowMap: " << Status << std::endl;
 		return NE_RENDERER;
 	}
 

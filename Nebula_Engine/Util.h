@@ -77,14 +77,6 @@ namespace NE
 		template<typename T>
 		static void DebugLog(T t)
 		{
-			if (std::is_same<T, Vector2>::value)
-			{
-				std::cout << t.ToString() << std::endl;
-			}
-			if (std::is_same<T, Vector3>::value)
-			{
-				std::cout << t.ToString() << std::endl;
-			}
 		}
 
 	private:

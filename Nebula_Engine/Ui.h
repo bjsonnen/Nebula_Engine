@@ -7,6 +7,7 @@
 #include "Window.h"
 #include "Texture.h"
 #include "GameObject.h"
+#include "GameObjectList.h"
 
 #include <stdio.h>
 #include <string>
@@ -82,6 +83,8 @@ namespace NE
 
 		bool showDebugWindow = false;
 		bool firstChange = false;
+
+		bool tmp;
 
 		//! GameObject informations
 		float position[3] = { 0.0f, 0.0f, 0.0f };

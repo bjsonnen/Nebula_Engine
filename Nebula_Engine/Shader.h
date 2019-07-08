@@ -198,7 +198,8 @@ namespace NE
 
 		unsigned int uniformLightMatrices[6];
 
-		struct {
+		struct 
+		{
 			unsigned int uniformColor;
 			unsigned int uniformAmbientIntensity;
 			unsigned int uniformDiffuseIntensity;
@@ -208,7 +209,8 @@ namespace NE
 
 		unsigned int uniformPointLightCount;
 
-		struct {
+		struct 
+		{
 			unsigned int uniformColor;
 			unsigned int uniformAmbientIntensity;
 			unsigned int uniformDiffuseIntensity;
@@ -236,7 +238,8 @@ namespace NE
 			unsigned int uniformEdge;
 		} uniformSpotLight[MAX_SPOT_LIGHTS];
 
-		struct {
+		struct 
+		{
 			unsigned int shadowMap;
 			unsigned int farPlane;
 		} uniformOmniShadowMap[MAX_POINT_LIGHTS + MAX_SPOT_LIGHTS];

@@ -57,6 +57,7 @@ namespace NE
 		{
 			return n[i][j];
 		}
+
 		//! Get the value at index i and j
 		//! @param i Insert the i'th number for the coord as int
 		//! @param j Insert the j'th number for the coord as int
@@ -65,6 +66,7 @@ namespace NE
 		{
 			return n[i][j];
 		}
+
 		//! Get the vector3 in the j'th column
 		//! @param j Insert column number as int
 		//! @return Returns vector of the column as NE::Vector3
@@ -74,10 +76,15 @@ namespace NE
 			return NE::Vector3(n[j][0], n[j][1], n[j][2]);
 		}
 
+		//! Get the vector4 in the j'th column
+		//! @param j Insert column number as int
+		//! @return Returns vector of the column as NE::Vector4
+		//! @see NE::Vector4
 		const NE::Vector4& operator()(int j) const
 		{
 			return (*reinterpret_cast<const NE::Vector4*>(n[j]));
 		}
+
 		//! Multiply the matrix with another 4x4 matrix
 		//! @param B Insert the other 4x4 matrix as const NE::Matrix4x4&
 		//! @return Returns the new 4x4 Matrix as NE::Matrix4x4
@@ -103,6 +110,7 @@ namespace NE
 				(3, 2) * B(0, 2) + (3, 2) * B(1, 2) + (3, 2) * B(2, 2) + (3, 2) * B(3, 2),
 				(3, 3) * B(0, 3) + (3, 3) * B(1, 3) + (3, 3) * B(2, 3) + (3, 3) * B(3, 3));
 		}
+
 		//! Adds the matrix to another 4x4 matrix
 		//! @param B Insert the other 4x4 matrix as const NE::Matrix3x3&
 		//! @return Returns the new 4x4 Matrix as NE::Matrix4x4&
@@ -128,6 +136,7 @@ namespace NE
 				(3, 2) + B(3, 2),
 				(3, 3) + B(3, 3));
 		}
+
 		//! Subtracts the matrix to another 4x4 matrix
 		//! @param B Insert the other 4x4 matrix as const NE::Matrix4x4&
 		//! @return Returns the new 4x4 Matrix as NE::Matrix4x4&
@@ -153,6 +162,7 @@ namespace NE
 				(3, 2) - B(3, 2),
 				(3, 3) - B(3, 3));
 		}
+
 		//! Multiplies the matrix with a 4D Vector
 		//! @param v Insert the other vector as const NE::Vector4&
 		//! @return Returns the new vector as NE::Vector4&
@@ -163,6 +173,7 @@ namespace NE
 				(2, 0) * v.z + (2, 1) * v.z + (2, 2) * v.z + (2, 3) * v.x,
 				(3, 0) * v.w + (3, 1) * v.w + (3, 2) * v.w + (3, 3) * v.w));
 		}
+
 		//! Set the current Matrix to an identity matrix
 		void Identity()
 		{

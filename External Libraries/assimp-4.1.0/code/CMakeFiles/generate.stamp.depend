@@ -1,0 +1,5 @@
+# CMake generation dependency list for this directory.
+C:/Users/Björn Sonnen/Desktop/OpenGL/External Libs/CMake/share/cmake-3.12/Modules/FindPackageHandleStandardArgs.cmake
+C:/Users/Björn Sonnen/Desktop/OpenGL/External Libs/CMake/share/cmake-3.12/Modules/FindPackageMessage.cmake
+C:/Users/Björn Sonnen/Desktop/OpenGL/External Libs/assimp-4.1.0/cmake-modules/FindRT.cmake
+C:/Users/Björn Sonnen/Desktop/OpenGL/External Libs/assimp-4.1.0/code/CMakeLists.txt

@@ -222,14 +222,14 @@ namespace NE
 	private:
 		GLFWwindow* mainWindow;
 
-		GLint width, height;
-		GLint bufferWidth, bufferHeight;
+		int width, height;
+		int bufferWidth, bufferHeight;
 
 		//! Camera informations
-		GLfloat lastX;
-		GLfloat lastY;
-		GLfloat xChange;
-		GLfloat yChange;
+		float lastX;
+		float lastY;
+		float xChange;
+		float yChange;
 		bool mouseFirstMoved;
 
 		float lastTime = 0.0f;

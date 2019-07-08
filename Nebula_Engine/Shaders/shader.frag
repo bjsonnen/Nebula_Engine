@@ -171,12 +171,6 @@ vec4 CalculateLightByDirection(Light light, vec3 direction, float shadowFactor)
 		
 	float specularFactor = dot(fragToEye, reflectedVertex);
 		
-	//test = sin(specularFactor);
-	//test = step(0.0, specularFactor);
-		
-	//specularFactor = pow(specularFactor, material.shininess);
-	//specularColor = vec4(light.color * material.specularIntensity * specularFactor, 1.0f);
-		
 	if(specularFactor > 0.0)
 	{
 		specularFactor = pow(specularFactor, material.shininess);
@@ -204,7 +198,6 @@ vec4 CalculatePointLight(PointLight pLight, int shadowIndex)
 	float attenuation = pLight.exponent * distance * distance +
 						pLight.linear * distance +
 						pLight.constant;
-	
 	return (color / attenuation);
 }
 
@@ -271,6 +264,6 @@ void main()
 	if(textureSize(dTexture, 0).x < 1 || textureSize(dTexture, 0).y < 1)
 		color.rgb = vec3(1.0, 0.412, 0.705);
 	
-	// gamme correction
+	// gamma correction
 	color.rgb = pow(color.rgb, vec3(1.0/2.2));
 }
